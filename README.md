@@ -1,11 +1,13 @@
-# electionjs-app-videoground
+# Videoground
 
-This is an idea for an electron.js application that I am calling videoground, which is a play on the words 'video', and 'playground'. In other words the main goal with this project is to just simply have fun with electronjs, threejs, vuejs, my own vanilla javaScript code to make a cool project that can be used to make videos. The core idea of what I think this project should do is to just simply create a collection of png files for each frame in the video as a means of exporting, from there I can use a tool like ffmpeg to create a video file. After that when it comes to making a final product there is using additional software tools outside of this such as audacity, MuseScore, and OpenShot to add audio and preform any additional final processing type tasks.
+This is an idea for an electron.js application that I am calling videoground, which is a play on the words 'video', and 'playground'. In other words the main goal with this project is to just simply have fun with electronjs, threejs, vuejs, my own vanilla javaScript code to make a cool project that can be used to make videos. 
+
+The core idea of what I think this project should do is to just simply create a collection of png files for each frame as a means of exporting. Once I have a collection of images from there I can use a tool like ffmpeg to create a video file. Once I have a video file making a final product will then involve using additional software tools such as audacity, MuseScore, and OpenShot to add audio and preform any additional final processing type tasks.
 
 
 ## What the goals are with this project
 
-When it comes to what the goals are in terms of adding features there is only so much that I might want to add. If I do keep working on this I am going to end up completaing the core set of features that I want. Once that is done I am going to want to be a little more reserved about adding features, choosing to move forward with features that I only really truly want and need.
+When it comes to what the goals are in terms of adding features there is only so much that I might want to add. If I do keep working on this I am going to end up completing the core set of features that I want. Once that is done I am going to want to be a little more reserved about adding features, choosing to move forward with features that I only really truly want and need. In fact as of r3 I would say I am all ready at a point where the goal is to just refine the features that I all ready have in place.
 
 * ( done in r0 ) export as images so that ffmpeg can be used to create a video that way
 * ( done in r1 ) I will want to be able to load dae files, and any supporting assets in terms of textures used
@@ -20,15 +22,11 @@ On top of the core of what videoground is I should also have a number of officia
 * ( done in r3 ) guy.js - My old guy model that I made a while back
 * ( done in r3 ) guy-canvas.js - canvas draw methods to use with guy.js
 * ( done in r3 ) helper-vertex-normals.js - the threejs file for this to help show what is going on with the normal attribute of geometry
-
-* () I will want a module that can be used to define 'sequences' like that in my test vjs system that I was using to make videos
-* () world-posiiton.js file from beta-world
-* () add tree.js
-* () add biplane.js
+* ( done in r3 ) I will want a module that can be used to define 'sequences' like that in my test vjs system that I was using to make videos
 
 ## Official start-videos
 
-In the start-videos folder I have a number of video files that are intended to be starting points for projects, but are also used to just demenstrate features of videoground itself, as well as official addtional features such as the canvas.js file to create canvas textures.
+In the start-videos folder I have a number of video files that are intended to be starting points for projects, but are also used to just demonstrate features of videoground itself, as well as official additional features such as the canvas.js file to create canvas textures.
 
 ## Creating a video from frame images with ffmpeg
 
