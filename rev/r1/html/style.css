@@ -1,0 +1,25 @@
+body{
+  background: #ffffff;
+  color: black;
+  margin: 0px;
+  padding: 0px;
+  font-family: arial;
+}
+canvas{
+  margin-left: auto;
+  margin-right: auto;
+}
+#wrap_main{
+  background: #8f8f8f;
+  padding:10px;
+}
+#wrap_canvas{
+  background: #afafaf;
+  height: 240px;
+  width: 100%;
+}
+
+.wrap_ui{
+  padding: 10px;
+  line-height: 25px;
+}
