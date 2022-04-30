@@ -25,12 +25,20 @@ https://johnvansickle.com/ffmpeg/
 * the 'to video' export will still use 'to images' but will also call ffmpeg to create a video, and delete frames when done
 * have an 'options' menu item that can be used to set a location for an ffmpeg bin to use
 
+### () - rx - 
+<!-- ./html/js-ui-video-code.js -->
+* I will want vm.$data.filePath, vm.$data.fileDir, and vm.$data.fileName to help address some confusion
+* make it so that the the state is not updated with each key press, have a 'run' button
+* start another text area that will be used as a means to display what is wrong, rtaher than using the javaScript console
+<!-- world-position.js -->
+* finish the world-position.js file in videoground-betaworld and make that part of the js folder hear also
 
 <!-- CORE IDEA  -->
 
-## () - r4 - Sequences
-<!-- sequences -->
-* Start a system that involves updating the state of a scene with sequences
+## () - r4 - custom scene object, and camera object
+* add a system in which I can create and return a custom scene object in the video file
+* add a system in which I can create and return a new camera object in the video file
+* see about making it so that a new scene object is created on each load file event
 
 ## () - r3 - Resolution modes, video7-13 world-positon.js
 * (done) start a new canvas.js file that will contain the createCanvasObject method from guy-canvas.js
@@ -74,15 +82,6 @@ https://johnvansickle.com/ffmpeg/
 * (done) this will be the same thing as video 11, but now I am loking into creating uvs for the geometry
 * (done) Use canvas textures for the materials
 * (done) fixed bug #3
-<!-- ./html/js-ui-video-code.js -->
-* I will want vm.$data.filePath, vm.$data.fileDir, and vm.$data.fileName to help address some confusion
-* make it so that the the state is not updated with each key press, have a 'run' button
-* start another text area that will be used as a means to display what is wrong, rtaher than using the javaScript console
-<!-- world-position.js -->
-* finish the world-position.js file in videoground-betaworld and make that part of the js folder hear also
-
-
-
 
 ## ( done 03/03/2022 ) - r2 - Scripts
 * (done) set 0.2.0 for package.json
