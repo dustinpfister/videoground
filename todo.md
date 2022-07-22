@@ -82,6 +82,8 @@ https://johnvansickle.com/ffmpeg/
 * (done) this will be the same thing as video 11, but now I am loking into creating uvs for the geometry
 * (done) Use canvas textures for the materials
 * (done) fixed bug #3
+* (done) window-main-r135.html
+* (done) window-main-r140.html
 
 ## ( done 03/03/2022 ) - r2 - Scripts
 * (done) set 0.2.0 for package.json
