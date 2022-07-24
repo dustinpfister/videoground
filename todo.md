@@ -7,6 +7,7 @@
 * ( fixed in r1 ) - #3 - textures for dea files do not show up until frame+ or frame- is clicked
 * ( fixed in r3 ) - #4 - WINDOWS: texture files will not load correctly in windows
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
+* () - #6 - it looks like scripts are not run in order of the index value, this should be the case
 
 <!-- possible features  -->
 
