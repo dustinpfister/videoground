@@ -36,8 +36,13 @@ https://johnvansickle.com/ffmpeg/
 
 <!-- CORE IDEA  -->
 
-## () - r4 - new scene object on each run
-* see about making it so that a new scene object is created on each load file event
+## () - r4 - new scene object on each run of sm.setup
+* (done) passing sm.scene rather than scene var local to client.js in client.js
+* (done) creating new Scene object on each call of sm.setup in client.js 
+* (done) no longer setting background to black in sm.setup in client.js
+
+
+
 
 ## ( done 07/26/2022 ) - r3 - Resolution modes, video7-13 world-positon.js
 * (done) start a new canvas.js file that will contain the createCanvasObject method from guy-canvas.js

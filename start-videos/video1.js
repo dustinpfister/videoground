@@ -9,6 +9,9 @@ VIDEO.init = function(sm, scene, camera){
     camera.lookAt(0, 0, 0);
     // GRID HELPER
     scene.add(new THREE.GridHelper(8, 8));
+
+    scene.background = new THREE.Color(0, 1, 1);
+
     // MESH
     let mesh = scene.userData.mesh = new THREE.Mesh(
         new THREE.BoxGeometry(1, 1, 1),

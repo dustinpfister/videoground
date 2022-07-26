@@ -79,7 +79,8 @@
     let update = function(){
         sm.per = Math.round(sm.frame) / sm.frameMax;
         sm.bias = getBias(sm.per);
-        VIDEO.update(sm, scene, camera, sm.per, sm.bias);
+        // !!! r4 change - passing sm.scene rather than scene global in client.js
+        VIDEO.update(sm, sm.scene, camera, sm.per, sm.bias);
     };
     // app loop
     let loop = function () {
@@ -103,8 +104,13 @@
         sm.frame = 0;
         sm.frameFrac = 0;
         sm.loopActive = false;
+
+        //!!! r4 change - create new scene object on setup
+        scene = sm.scene = new THREE.Scene();
+
         scene.children = [];
-        scene.background = new THREE.Color('black');
+        //!!! r4 change - no longer setting background to black in sm.setup
+        //scene.background = new THREE.Color('black');
         VIDEO.init(sm, scene, camera);
         sm.setFrame();
     };
