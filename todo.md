@@ -42,9 +42,8 @@ https://johnvansickle.com/ffmpeg/
 * (done) no longer setting background to black in sm.setup in client.js
 * (done) passing sm.camera rather tha camera when calling VIDEO.update in client.js
 * (done) using sm.camera, and sm.scene when calling renderer in sm.setFrame method in client.js
-
-* () videoAPI.uri_startvideo value in preload.js
-* () making use of videoAPI.uri_startvideo in ui-video-code.js
+* (done) videoAPI.uri_startvideo value in preload.js
+* (done) making use of videoAPI.uri_startvideo in ui-video-code.js
 
 * () start video #13 in which I switch between a perspective and orthographic Camera
 * () make video #13 the new start video
