@@ -24,6 +24,7 @@
 * (done) calling sm.renderer in update method of client.js
 * (done) start video #14 in which I create a new renderer in an init method
 * (done) sm.replaceRenderer method added as a way to update sm.renderer as well as sm.canvas
+* (done) sm.camera created on each call of sm.setup
 
 * () see about fixing #6 and make video #15 about that
 

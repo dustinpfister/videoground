@@ -41,9 +41,9 @@
     let res = RESOLUTIONS[DEFAULT_RESOLUTION];
     let scene = new THREE.Scene();
 
-    let camera = new THREE.PerspectiveCamera(40, res.w / res.h, 0.1, 1000);
-    camera.position.set(10, 10, 10);
-    camera.lookAt(0, 0, 0);
+    //!!! r4 change - camera created on each call of sm.setup
+    let camera;
+
     //!!! r4 change -  using sm.replaceRender to setup renderer
     let renderer, canvas;
 
@@ -59,7 +59,8 @@
         per: 0,
         bias: 0,
         scene: scene,
-        camera: camera,
+        //camera: camera,
+        camera: null,
         loopActive: false
     };
     let secs = 0,
@@ -102,6 +103,11 @@
 
         //!!! r4 change - create new scene object on setup
         scene = sm.scene = new THREE.Scene();
+
+        //!!! r4 change - sm.camera created on each call of sm.setup
+        camera = sm.camera = new THREE.PerspectiveCamera(40, res.w / res.h, 0.1, 1000);
+        camera.position.set(10, 10, 10);
+        camera.lookAt(0, 0, 0);
 
         scene.children = [];
         //!!! r4 change - no longer setting background to black in sm.setup
