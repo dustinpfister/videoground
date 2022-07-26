@@ -41,7 +41,7 @@ https://johnvansickle.com/ffmpeg/
 * add a system in which I can create and return a new camera object in the video file
 * see about making it so that a new scene object is created on each load file event
 
-## () - r3 - Resolution modes, video7-13 world-positon.js
+## ( done 07/26/2022 ) - r3 - Resolution modes, video7-13 world-positon.js
 * (done) start a new canvas.js file that will contain the createCanvasObject method from guy-canvas.js
 * (done) def draw method class built into the module
 * (done) a def.stripes method
