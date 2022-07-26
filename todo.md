@@ -20,7 +20,6 @@
 * (done) making use of videoAPI.uri_startvideo in ui-video-code.js
 * (done) start video #13 in which I switch between a perspective and orthographic Camera
 * (done) make video #13 the new start video
-
 * (done) sm.renderer prop added to sm object in client.js
 * (done) calling sm.renderer in update method of client.js
 * (done) start video #14 in which I create a new renderer in an init method
