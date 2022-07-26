@@ -91,8 +91,10 @@
     // ********** **********
     // LOAD STARTING VIDEO FILE
     // ********** **********
-    var startFilePath = videoAPI.pathJoin( videoAPI.dir_root, 'start-videos/video9.js' );
-    videoAPI.loadFile(startFilePath, (text, e, filePath) => {
+
+    //!!! - r4 change - making use of videoAPI.uri_startvideo defined in preload.js
+    videoAPI.loadFile(videoAPI.uri_startvideo, (text, e, filePath) => {
+
         setFilePath(filePath);
         if(e){
             console.warn(e.message);
