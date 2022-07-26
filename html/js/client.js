@@ -40,9 +40,11 @@
     // ********** **********
     let res = RESOLUTIONS[DEFAULT_RESOLUTION];
     let scene = new THREE.Scene();
+
     let camera = new THREE.PerspectiveCamera(40, res.w / res.h, 0.1, 1000);
     camera.position.set(10, 10, 10);
     camera.lookAt(0, 0, 0);
+
     let renderer = new THREE.WebGLRenderer(),
     canvas = renderer.domElement;
     // append to wrap canvas
@@ -120,7 +122,7 @@
         // call update method
         update();
         // render
-        renderer.render(scene, camera);
+        renderer.render(sm.scene, sm.camera);
     };
     // start loop
     sm.play = function(){

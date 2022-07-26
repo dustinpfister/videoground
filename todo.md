@@ -36,11 +36,18 @@ https://johnvansickle.com/ffmpeg/
 
 <!-- CORE IDEA  -->
 
-## () - r4 - new scene object on each run of sm.setup
+## () - r4 - new scene object on each run of sm.setup, sm.renderer, video #13
 * (done) passing sm.scene rather than scene var local to client.js in client.js
 * (done) creating new Scene object on each call of sm.setup in client.js 
 * (done) no longer setting background to black in sm.setup in client.js
+* (done) passing sm.camera rather tha camera when calling VIDEO.update in client.js
+* (done) using sm.camera, and sm.scene when calling renderer in sm.setFrame method in client.js
 
+
+
+* () start video #13 in which I switch between a perspective and orthographic Camera
+* () sm.renderer
+* () start video #14 in which I create a new renderer in an init method
 
 
 
