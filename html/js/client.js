@@ -45,8 +45,13 @@
     camera.position.set(10, 10, 10);
     camera.lookAt(0, 0, 0);
 
+    let renderer, canvas;
+
+
+/*
     let renderer = new THREE.WebGLRenderer(),
     canvas = renderer.domElement;
+
     // append to wrap canvas
     WRAP_CANVAS.appendChild(canvas);
     renderer.setSize(res.w, res.h);
@@ -55,12 +60,16 @@
     let ratio = getRatio(res);
     canvas.style.width = Math.floor(ratio.w * 420) + 'px';
     canvas.style.height = Math.floor(ratio.h * 420) + 'px';
+*/
 
     // ********** **********
     // THE STATE MACHINE (sm) object
     // ********** **********
     let sm = window.sm = {
-        canvas: canvas,
+        //renderer: renderer, //!!! r4 change - added sm.renderer
+        //canvas: canvas,
+        renderer: null,
+        canvas: null,
         frame: 0,
         frameFrac: 0,
         frameMax: 600,
@@ -122,7 +131,7 @@
         // call update method
         update();
         // render
-        renderer.render(sm.scene, sm.camera);
+        sm.renderer.render(sm.scene, sm.camera);
     };
     // start loop
     sm.play = function(){
@@ -132,6 +141,36 @@
             loop();
         }
     };
+
+    //!!! r4 change - added replace renderer method
+    sm.replaceRenderer = function(newRenderer){
+
+
+    // remove old canvas element if not null
+    if(sm.canvas){
+        sm.canvas.remove();
+    }
+
+// update renderer
+renderer = sm.renderer = newRenderer;
+
+    canvas = sm.canvas = renderer.domElement;
+
+    // append to wrap canvas
+    WRAP_CANVAS.appendChild(canvas);
+    renderer.setSize(res.w, res.h);
+
+    // set scaled size of canvas
+    let ratio = getRatio(res);
+    canvas.style.width = Math.floor(ratio.w * 420) + 'px';
+    canvas.style.height = Math.floor(ratio.h * 420) + 'px';
+
+
+console.log(WRAP_CANVAS.children)
+
+    };
+
+sm.replaceRenderer( new THREE.WebGLRenderer() )
 
     sm.setup();
 

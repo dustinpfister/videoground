@@ -1,4 +1,4 @@
-# electionjs-app-video-ground todo list
+# videoground todo list
 
 ## Known problems
 * () - #0 - I have to disable CSP to get vuejs to work in the html files that I use in the html folder
@@ -21,8 +21,10 @@
 * (done) start video #13 in which I switch between a perspective and orthographic Camera
 * (done) make video #13 the new start video
 
-* () sm.renderer
-* () start video #14 in which I create a new renderer in an init method
+* (done) sm.renderer prop added to sm object in client.js
+* (done) calling sm.renderer in update method of client.js
+* (done) start video #14 in which I create a new renderer in an init method
+* (done) sm.replaceRenderer method added as a way to update sm.renderer as well as sm.canvas
 
 * () see about fixing #6 and make video #15 about that
 
