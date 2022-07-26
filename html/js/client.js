@@ -79,8 +79,9 @@
     let update = function(){
         sm.per = Math.round(sm.frame) / sm.frameMax;
         sm.bias = getBias(sm.per);
-        // !!! r4 change - passing sm.scene rather than scene global in client.js
-        VIDEO.update(sm, sm.scene, camera, sm.per, sm.bias);
+        // !!! r4 change - passing sm.scene, and sm.camera rather than scene, and camera
+        // global in client.js
+        VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias);
     };
     // app loop
     let loop = function () {
