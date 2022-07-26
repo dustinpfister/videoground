@@ -36,9 +36,7 @@ https://johnvansickle.com/ffmpeg/
 
 <!-- CORE IDEA  -->
 
-## () - r4 - custom scene object, and camera object
-* add a system in which I can create and return a custom scene object in the video file
-* add a system in which I can create and return a new camera object in the video file
+## () - r4 - new scene object on each run
 * see about making it so that a new scene object is created on each load file event
 
 ## ( done 07/26/2022 ) - r3 - Resolution modes, video7-13 world-positon.js
