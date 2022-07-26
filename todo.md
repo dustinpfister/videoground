@@ -26,6 +26,9 @@
 * (done) sm.replaceRenderer method added as a way to update sm.renderer as well as sm.canvas
 * (done) sm.camera created on each call of sm.setup
 
+* () use shadows and other custom render features in video14
+* () see about using WebGL1Renderer
+
 * () see about fixing #6 and make video #15 about that
 
 
