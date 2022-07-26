@@ -117,7 +117,7 @@
     // set frame
     sm.setFrame = function(){
         // call update method
-        update(secs);
+        update();
         // render
         renderer.render(scene, camera);
     };
