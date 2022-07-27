@@ -7,12 +7,10 @@ VIDEO.init = function(sm, scene, camera){
     scene.add( new THREE.GridHelper(8, 8) );
 
     // CUSTOM RENDERER
-    var renderer = new THREE.WebGLRenderer();
+    var renderer = new THREE.WebGL1Renderer();
+    renderer.shadowMap.enabled = true; // shadow map enabled
+    sm.replaceRenderer(renderer);      // replace
 
-    // shadowMap
-    renderer.shadowMap.enabled = true;
-
-    sm.replaceRenderer(renderer);
 
 };
 VIDEO.update = function(sm, scene, camera, per, bias){
