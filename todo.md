@@ -9,6 +9,9 @@
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
 * () - #6 - it looks like scripts are not run in order of the index value, this should be the case
 
+## () - r5 - 
+* () see about fixing #6 and make video #15 about that
+
 
 ## () - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14, #15
 * (done) passing sm.scene rather than scene var local to client.js in client.js
@@ -28,9 +31,6 @@
 
 * () use shadows and other custom render features in video14
 * () see about using WebGL1Renderer
-
-* () see about fixing #6 and make video #15 about that
-
 
 ## ( done 07/26/2022 ) - r3 - Resolution modes, video7-13 world-positon.js
 * (done) start a new canvas.js file that will contain the createCanvasObject method from guy-canvas.js
