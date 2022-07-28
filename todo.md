@@ -9,6 +9,12 @@
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
 * () - #6 - it looks like scripts are not run in order of the index value, this should be the case
 
+## () - r7 - clean sm object on each call of setup method
+* () I will need to turn client.js into a module that returns a public API like clientMod
+* () have a clientMod.createSM method
+* () have a clientMod.setup method
+* () have a createSM method in client.js
+* () have a clean sm object on each call of 
 
 ## () - r6 - Video.init promise feature, video #15, #16
 * () add a feature where a promise can be returned by the VIDEO.init method of a video

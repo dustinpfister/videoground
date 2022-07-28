@@ -59,7 +59,6 @@
         per: 0,
         bias: 0,
         scene: scene,
-        //camera: camera,
         camera: null,
         loopActive: false
     };
