@@ -24,6 +24,7 @@ VIDEO.init = function(sm, scene, camera){
     var renderer = new THREE.WebGL1Renderer();
     renderer.shadowMap.enabled = true; // shadow map enabled
     sm.replaceRenderer(renderer);      // replace
+console.log(renderer)
 
     // PLANE MESH
     var plane = new THREE.Mesh(

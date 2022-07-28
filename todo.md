@@ -27,7 +27,7 @@
 * () see about fixing #6 and make video #15 about that
 
 
-## () - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14
+## ( done 07/28/2022 ) - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14
 * (done) passing sm.scene rather than scene var local to client.js in client.js
 * (done) creating new Scene object on each call of sm.setup in client.js 
 * (done) no longer setting background to black in sm.setup in client.js
@@ -42,9 +42,8 @@
 * (done) start video #14 in which I create a new renderer in an init method
 * (done) sm.replaceRenderer method added as a way to update sm.renderer as well as sm.canvas
 * (done) sm.camera created on each call of sm.setup
-
-* () use shadows and other custom render features in video14
-* () see about using WebGL1Renderer
+* (done) use shadows and other custom render features in video14
+* (done) see about using WebGL1Renderer
 
 ## ( done 07/26/2022 ) - r3 - Resolution modes, video7-13 world-positon.js
 * (done) start a new canvas.js file that will contain the createCanvasObject method from guy-canvas.js
