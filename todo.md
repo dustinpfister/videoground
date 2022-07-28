@@ -9,11 +9,19 @@
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
 * () - #6 - it looks like scripts are not run in order of the index value, this should be the case
 
-## () - r5 - 
+
+## () - r6 - Video.init promise feature, video #15, #16
+* () add a feature where a promise can be returned by the VIDEO.init method of a video
+* () make changes needed to client.js
+* () make changes needed to ui-video-code.js
+* () start a video 15 in which I am testing this out with the Buffer Geometry loader
+* () start a video 16 with the Texture Loader anbd cube texture constructor
+
+## () - r5 - Better running of scripts, video #15
 * () see about fixing #6 and make video #15 about that
 
 
-## () - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14, #15
+## () - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14
 * (done) passing sm.scene rather than scene var local to client.js in client.js
 * (done) creating new Scene object on each call of sm.setup in client.js 
 * (done) no longer setting background to black in sm.setup in client.js
