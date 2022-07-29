@@ -61,14 +61,64 @@
                 // load scripts
                 if(VIDEO.scripts){
                     var loaded = 0,
+                    loadingFile = false,
                     total = VIDEO.scripts.length,
                     scriptDiv = document.getElementById('wrap_video_scripts');
                     // remove all child nodes of scriptDiv
                     utils.removeAllChildNodes(scriptDiv);
                     // for each relative URL
+
+
+var loadLoop = function(){
+    if(loaded != total){
+        setTimeout(loadLoop, 30);
+        // not loading a file? then start loading the next one
+        if(!loadingFile){
+            var scriptRelURL = VIDEO.scripts[loaded];
+            var url = videoAPI.pathJoin(vm.$data.filePath, scriptRelURL);
+            var script = document.createElement('script');
+            loadingFile = true;
+            script.addEventListener('load', (e) => {
+                loaded += 1;
+                loadingFile = false;
+            });
+            scriptDiv.appendChild(script);
+            script.src = url;
+        }
+    }else{
+        // loading done
+        console.log('loading done!');
+        sm.setup();
+    }
+};
+loadLoop();
+
+
+/*
+var scriptObjects = VIDEO.scripts.map(function(scriptRelURL, i){
+    //var url = videoAPI.pathJoin(vm.$data.filePath, scriptRelURL);
+    var script = document.createElement('script');
+    script.addEventListener('load', (e) => {
+        loaded += 1;
+        // run setip when all scripts are loaded
+        if(loaded === total){
+            sm.setup();
+        }
+    });
+    scriptDiv.appendChild(script);
+    return {
+        scriptDiv: scriptDiv,
+        url: url
+    };
+});
+*/
+
+
+/*
                     VIDEO.scripts.forEach( (scriptRelURL, i) => {
                         var url = videoAPI.pathJoin(vm.$data.filePath, scriptRelURL);
                         var script = document.createElement('script');
+
                         script.addEventListener('load', (e) => {
                             loaded += 1;
                             // run setip when all scripts are loaded
@@ -79,6 +129,8 @@
                         script.src = url;
                         scriptDiv.appendChild(script);
                     });
+*/
+
                 }else{
                     // no scripts? then just run setup
                     sm.setup();
