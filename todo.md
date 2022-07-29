@@ -7,24 +7,22 @@
 * ( fixed in r1 ) - #3 - textures for dea files do not show up until frame+ or frame- is clicked
 * ( fixed in r3 ) - #4 - WINDOWS: texture files will not load correctly in windows
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
-* () - #6 - it looks like scripts are not run in order of the index value, this should be the case
+* ( fixed in r5 ) - #6 - it looks like scripts are not run in order of the index value, this should be the case
 
-## () - r7 - clean sm object on each call of setup method
+## () - r6 - clean sm object on each call of setup method
 * () I will need to turn client.js into a module that returns a public API like clientMod
 * () have a clientMod.createSM method
 * () have a clientMod.setup method
 * () have a createSM method in client.js
 * () have a clean sm object on each call of 
 
-## () - r6 - Video.init promise feature, video #15, #16
+## () - r5 - Better running of scripts, promise feature, video #15 #16 #17
+* (done) see about fixing #6 and make video #15 about that
 * () add a feature where a promise can be returned by the VIDEO.init method of a video
 * () make changes needed to client.js
 * () make changes needed to ui-video-code.js
-* () start a video 15 in which I am testing this out with the Buffer Geometry loader
-* () start a video 16 with the Texture Loader anbd cube texture constructor
-
-## () - r5 - Better running of scripts, video #15
-* () see about fixing #6 and make video #15 about that
+* () start a video 16 in which I am testing this out with the Buffer Geometry loader
+* () start a video 17 with the Texture Loader anbd cube texture constructor
 
 
 ## ( done 07/28/2022 ) - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14
