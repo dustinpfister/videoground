@@ -31,7 +31,12 @@ VIDEO.init = function(sm, scene, camera){
         );
     }).catch(function(err){
         console.log(err.message); // failed to fetch message
-console.log(videoAPI)
+        console.log(videoAPI)
+    }).then(function(geometry){
+        console.log('we should have geo');
+        console.log(geometry)
+        var mesh = new THREE.Mesh(geometry);
+        scene.add(mesh)
     });
 };
 
