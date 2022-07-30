@@ -29,7 +29,8 @@ app.whenReady().then(() => {
     var mainWindow = createMainWindow();
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0){
-            createMainWindow()
+            createMainWindow();
+            //createMainWindow();
         }
     })
 });

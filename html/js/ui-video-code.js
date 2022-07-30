@@ -129,29 +129,17 @@
     // ********** **********
 
     //!!! - r4 change - making use of videoAPI.uri_startvideo defined in preload.js
-	/*
-    videoAPI.loadFile(videoAPI.uri_startvideo, (text, e, filePath) => {
-        setFilePath(filePath);
-        if(e){
-            console.warn(e.message);
-        }else{
-            loadText(text);
-        }
+    //!!! - r5 change - using promise returned by videoAPI.loadFile
+    console.log('calling videoAPI.loadFile for first time for: ' + videoAPI.uri_startvideo);
+    videoAPI.loadFile(videoAPI.uri_startvideo)
+    .then((result)=>{
+        console.log('videoAPI.loadFile: The then function called');
+        setFilePath(result.filePath);
+        loadText(result.text);
+    })
+    .catch((e)=>{
+        console.log(' catch')
+        console.warn(e.message);
     });
-	*/
-	
-    console.log('yes this is always running of course.');
-	videoAPI.loadFile(videoAPI.uri_startvideo)
-	.then((result)=>{
-		console.log('the then function called');
-		setFilePath(result.filePath);
-		loadText(result.text);
-	})
-	.catch((e)=>{
-		console.log('yes we have a catch')
-		console.warn(e.message);
-		
-	});
-	
 }
     ());
