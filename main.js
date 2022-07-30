@@ -1,6 +1,7 @@
 // load app and BrowserWindow
 const { app, Menu, BrowserWindow, dialog, globalShortcut } = require('electron');
 const path = require('path');
+const os = require('os');
 
 // Create the Main browser window.
 function createMainWindow() {
@@ -23,8 +24,11 @@ function createMainWindow() {
     mainWindow.setMenu(menu);
     // reload
     globalShortcut.register('f5', ()=>{
-        console.log('f5 - might use for reload if I get it to work in windows');
-        //mainWindow.reload();
+        console.log('f5 - reload feature for Linux only becuase of bug #2');
+        if(os.platform() === 'linux'){
+            console.log('system is linux, calling mainWindow.reload');
+            mainWindow.reload();
+        }
     });
     return mainWindow;
 };
@@ -35,7 +39,6 @@ app.whenReady().then(() => {
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0){
             createMainWindow();
-            //createMainWindow();
         }
     })
 });
