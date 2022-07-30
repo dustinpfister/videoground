@@ -1,5 +1,5 @@
 // load app and BrowserWindow
-const { app, Menu, BrowserWindow, dialog } = require('electron');
+const { app, Menu, BrowserWindow, dialog, globalShortcut } = require('electron');
 const path = require('path');
 
 // Create the Main browser window.
@@ -21,6 +21,11 @@ function createMainWindow() {
     mainWindow.webContents.openDevTools();
     const menu = Menu.buildFromTemplate( require( path.join(__dirname, 'menu.js') ) );
     mainWindow.setMenu(menu);
+    // reload
+    globalShortcut.register('f5', ()=>{
+        console.log('f5 - might use for reload if I get it to work in windows');
+        //mainWindow.reload();
+    });
     return mainWindow;
 };
 
@@ -39,3 +44,4 @@ app.on('window-all-closed', function () {
     if (process.platform !== 'darwin')
         app.quit()
 });
+
