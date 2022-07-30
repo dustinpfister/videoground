@@ -18,9 +18,17 @@
 
 ## () - r5 - Better running of scripts, promise feature, video #15 #16 #17
 * (done) see about fixing #6 and make video #15 about that
+* (done) videoAPI.loadFile returns a promise in preload.js
+
+
+
+
 * () add a feature where a promise can be returned by the VIDEO.init method of a video
-* () make changes needed to client.js
-* () make changes needed to ui-video-code.js
+* () make changes needed to client.js for new VIDEO.init feature
+* () make changes needed to ui-video-code.js for new VIDEO.init feature
+* () videoAPI.writeJSFile returns a promise
+* () videoAPI.writeFrame returns a promise
+* () update rest of ui-video-code to use promises in place of callbacks
 * () start a video 16 in which I am testing this out with the Buffer Geometry loader
 * () start a video 17 with the Texture Loader anbd cube texture constructor
 
