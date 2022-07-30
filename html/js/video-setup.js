@@ -4,6 +4,7 @@ let VIDEO = {};
 
 // init method for the video
 VIDEO.init = function(scene, camera){
+    //return Promise.resolve();
 };
 
 // update method for the video

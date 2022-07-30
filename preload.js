@@ -14,7 +14,7 @@ videoAPI.pathBasename = path.basename;
 videoAPI.pathDirname = path.dirname;
 
 //!!! r4 change - videoAPI.uri_startvideo value
-videoAPI.uri_startvideo = videoAPI.pathJoin( videoAPI.dir_root, 'start-videos/video15.js' );
+videoAPI.uri_startvideo = videoAPI.pathJoin( videoAPI.dir_root, 'start-videos/video16.js' );
 
 // the events object
 const EVENT = {};

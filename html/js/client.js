@@ -111,8 +111,17 @@
         scene.children = [];
         //!!! r4 change - no longer setting background to black in sm.setup
         //scene.background = new THREE.Color('black');
-        VIDEO.init(sm, scene, camera);
-        sm.setFrame();
+        //!!! r5 change - added code to check if VIDEO.init returns a promise or not
+        let hard = {data: 'default promise object'};
+        (VIDEO.init(sm, scene, camera) || Promise.resolve(hard) ).then((obj) => {
+            if(obj === hard){
+                console.log('sm.setup: no promise used');
+            }else{
+                console.log('sm.setup: looks like VIDEO.init returned a promsie:');
+                console.log(obj);
+            }
+            sm.setFrame();
+        });
     };
     // set frame
     sm.setFrame = function(){
