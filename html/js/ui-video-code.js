@@ -100,21 +100,7 @@
         }
     };
     // ********** **********
-    // LOAD STARTING VIDEO FILE
-    // ********** **********
-
-    //!!! - r4 change - making use of videoAPI.uri_startvideo defined in preload.js
-    videoAPI.loadFile(videoAPI.uri_startvideo, (text, e, filePath) => {
-
-        setFilePath(filePath);
-        if(e){
-            console.warn(e.message);
-        }else{
-            loadText(text);
-        }
-    });
-    // ********** **********
-    // LOAD VIDEO FILE FROM MENU
+    // MENU EVENTS
     // ********** **********
     videoAPI.on('menuOpenFile', function(text, e, filePath){
         console.log('Menu open event handler in ui-video-code.js');
@@ -137,5 +123,35 @@
     videoAPI.on('menuError', function(evnt, err){
         console.log(err);
     });
+
+    // ********** **********
+    // LOAD STARTING VIDEO FILE
+    // ********** **********
+
+    //!!! - r4 change - making use of videoAPI.uri_startvideo defined in preload.js
+	/*
+    videoAPI.loadFile(videoAPI.uri_startvideo, (text, e, filePath) => {
+        setFilePath(filePath);
+        if(e){
+            console.warn(e.message);
+        }else{
+            loadText(text);
+        }
+    });
+	*/
+	
+    console.log('yes this is always running of course.');
+	videoAPI.loadFile(videoAPI.uri_startvideo)
+	.then((result)=>{
+		console.log('the then function called');
+		setFilePath(result.filePath);
+		loadText(result.text);
+	})
+	.catch((e)=>{
+		console.log('yes we have a catch')
+		console.warn(e.message);
+		
+	});
+	
 }
     ());

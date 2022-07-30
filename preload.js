@@ -1,7 +1,9 @@
 // preload with contextIsolation enabled
 const { contextBridge, ipcRenderer} = require('electron');
 const path = require('path');
-const fs = require('fs')
+const fs = require('fs');
+const promisify = require('util').promisify;
+const readFile = promisify(fs.readFile);
 
 // the api that will be window.videoAPI in the client side code
 let videoAPI = {};
@@ -67,23 +69,48 @@ videoAPI.writeJSFile = (filePath, text, callback) => {
     });
 };
 
+//!!! BUG #6 has to do with this, and as of r5 I can not seem to find out what is wrong thus far
 videoAPI.loadFile = (filePath, callback) => {
+	console.log('load file method called');
+    callback = callback || function(){};
     if(filePath){
         // if path is not absolute
         if(!path.isAbsolute(filePath)){
             filePath = path.join(__dirname, filePath);
         }
-
         // read the file and set it to the client
+		/*
         fs.readFile(filePath, 'utf8', (e, text) => {
+            // 
+            console.log('why is this callback not firing all the time?')
             if(e){
                 ipcRenderer.send('menuError', e);
             }else{
                 callback(text, e, filePath);
             }
         });
+		*/
+		
+		return readFile(filePath, 'utf8')
+		.then((text)=>{
+			
+			callback(text, null, filePath);
+			return Promise.resolve({
+				text: text,
+				e: null,
+				filePath: filePath
+			})
+		})
+		.catch((e)=>{
+			
+			callback(null, e, filePath);
+			return Promise.reject(e);
+		})
+		
     }else{
-        ipcRenderer.send('menuError', new Error('no file path in the result object.') );
+		let e = new Error('no file path in the result object.');
+        ipcRenderer.send('menuError', e );
+		return Promise.reject(e);
     }
 };
 
