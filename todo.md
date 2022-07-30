@@ -21,12 +21,12 @@
 * (done) videoAPI.loadFile returns a promise in preload.js
 * (done) f5 for reload in linux only for now becuase of #2 that is still a problem
 * (done) add a feature where a promise can be returned by the VIDEO.init method of a video
+* (done) make changes needed to client.js for new VIDEO.init feature
 
 * () start a video 16 in which I am testing this out with the Buffer Geometry loader
 * () start a video 17 with the Texture Loader anbd cube texture constructor
 
-* () make changes needed to client.js for new VIDEO.init feature
-* () make changes needed to ui-video-code.js for new VIDEO.init feature
+
 * () videoAPI.writeJSFile returns a promise
 * () videoAPI.writeFrame returns a promise
 * () update rest of ui-video-code to use promises in place of callbacks

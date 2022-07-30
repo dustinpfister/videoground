@@ -42,7 +42,8 @@
     };
     // set filePath helper
     var setFilePath = (filePath) => {
-        vm.$data.filePath = videoAPI.pathDirname(filePath);
+        //!!! r5 change - added a sm.filePath
+        sm.filePath = vm.$data.filePath = videoAPI.pathDirname(filePath);
         vm.$data.fileName = videoAPI.pathBasename(filePath);
         document.title = 'VideoGround - ' + vm.$data.fileName;    
     };

@@ -51,6 +51,7 @@
     // THE STATE MACHINE (sm) object
     // ********** **********
     let sm = window.sm = {
+        filePath: null,
         renderer: null, //!!! r4 change - added sm.renderer, using new sm.replaceRender to setup renderer
         canvas: null,
         frame: 0,
