@@ -16,16 +16,13 @@
 * () have a createSM method in client.js
 * () have a clean sm object on each call of 
 
-## () - r5 - Better running of scripts, promise feature, video #15 #16 #17
+## () - r5 - Better running of scripts, promise feature, video #15 #16
 * (done) see about fixing #6 and make video #15 about that
 * (done) videoAPI.loadFile returns a promise in preload.js
 * (done) f5 for reload in linux only for now becuase of #2 that is still a problem
 * (done) add a feature where a promise can be returned by the VIDEO.init method of a video
 * (done) make changes needed to client.js for new VIDEO.init feature
-
-* () start a video 16 in which I am testing this out with the Buffer Geometry loader
-* () start a video 17 with the Texture Loader anbd cube texture constructor
-
+* (done) start a video 16 in which I am testing this out with the Buffer Geometry loader
 
 * () videoAPI.writeJSFile returns a promise
 * () videoAPI.writeFrame returns a promise
