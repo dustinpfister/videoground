@@ -7,6 +7,7 @@
 VIDEO.init = function(sm, scene, camera){
     // GRID HELPER
     scene.add( new THREE.GridHelper(8, 8) );
+
     return new Promise(function(resolve, reject){
         const loader = new THREE.BufferGeometryLoader();
 
@@ -29,14 +30,19 @@ VIDEO.init = function(sm, scene, camera){
                  reject(err)
              }
         );
+
     }).catch(function(err){
+
         console.log(err.message); // failed to fetch message
-        console.log(videoAPI)
+        console.log(videoAPI);
+
     }).then(function(geometry){
+
         console.log('we should have geo');
-        console.log(geometry)
+        console.log(geometry);
         var mesh = new THREE.Mesh(geometry);
-        scene.add(mesh)
+        scene.add(mesh);
+
     });
 };
 
