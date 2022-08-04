@@ -1,5 +1,7 @@
 # videoground - todo list - possible features
 
+## () - rx - run button
+* () make it so that the the state is not updated with each key press, have a 'run' button
 
 ## () - rx - ffmpeg bin as part of package
 * I can add ffmpeg binaries as part of the over all end product and then write scripts to automate work
@@ -19,7 +21,6 @@ https://johnvansickle.com/ffmpeg/
 ### () - rx - 
 <!-- ./html/js-ui-video-code.js -->
 * I will want vm.$data.filePath, vm.$data.fileDir, and vm.$data.fileName to help address some confusion
-* make it so that the the state is not updated with each key press, have a 'run' button
 * start another text area that will be used as a means to display what is wrong, rtaher than using the javaScript console
 <!-- world-position.js -->
 * finish the world-position.js file in videoground-betaworld and make that part of the js folder hear also

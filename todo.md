@@ -9,7 +9,7 @@
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
 * ( fixed in r5 ) - #6 - it looks like scripts are not run in order of the index value, this should be the case
 
-## () - r6 - clean sm object on each call of setup method
+## () - r6 - Clean sm object on each call of setup method
 * () I will need to turn client.js into a module that returns a public API like clientMod
 * () have a clientMod.createSM method
 * () have a clientMod.setup method
@@ -19,7 +19,7 @@
 ## () - r5 - Better running of scripts, promise feature, video #15 #16
 * (done) see about fixing #6 and make video #15 about that
 * (done) videoAPI.loadFile returns a promise in preload.js
-* (done) f5 for reload in linux only for now becuase of #2 that is still a problem
+* (done) f5 for reload in Linux only for now because of #2 that is still a problem
 * (done) add a feature where a promise can be returned by the VIDEO.init method of a video
 * (done) make changes needed to client.js for new VIDEO.init feature
 * (done) start a video 16 in which I am testing this out with the Buffer Geometry loader
@@ -46,12 +46,12 @@
 * (done) use shadows and other custom render features in video14
 * (done) see about using WebGL1Renderer
 
-## ( done 07/26/2022 ) - r3 - Resolution modes, video7-13 world-positon.js
+## ( done 07/26/2022 ) - r3 - Resolution modes, video7-13 world-position.js
 * (done) start a new canvas.js file that will contain the createCanvasObject method from guy-canvas.js
 * (done) def draw method class built into the module
 * (done) a def.stripes method
-* (done) start a def.randomGrid methiod
-* (done) color chanel range options for def.randomGrid
+* (done) start a def.randomGrid method
+* (done) color channel range options for def.randomGrid
 * (done) remove createCanvasObject method and make this file about the custom canvas textures to use with guys.js
 * (done) update video6 as needed, fixing any code breaking changes
 * (done) reduce spacing between arms and body
@@ -61,31 +61,31 @@
 * (done) use guy.js script
 * (done) use guy-canvas.js
 * (done) use canvas.js
-* (done) tweek color range for grass
+* (done) tweak color range for grass
 * (done) set default scene background color to black
 * (done) have more than one resolution or stick to one of the youtube friendly options with this such as 640x360
 * (done) have a getRatio helper in client.js and use that to set the scaled size of the canvas
 * (done) start video8.js in which I am making use of raycaster to get the position on the surface of a geometry of a mesh
 * (done) For this video the mesh I will have a mesh with a sphere geometry and a mesh with the box geometry
 * (done) I should be able to find a way to use raycaster as a way to set the position of the box mesh to the surface of the sphere
-* (done) start a world.dae file that will be a sphere like object but with mountains and vallies
+* (done) start a world.dae file that will be a sphere like object but with mountains and valleys
 * (done) start a video9 file that will be just like video8 only I will be using world.dae, and world-position.js
 * (done) display current file name in title
 * (done) do way with file path display in ui
 <!-- video 10 -->
 * (done) start video10.js start video that will be on custom geometry
-* (done) start with a geometry of just 6 Vertices in terms of position values, that will be two trianges then
+* (done) start with a geometry of just 6 Vertices in terms of position values, that will be two triangles then
 * (done) change the position values over time
-* (done) see about adding normals, and uing the normal/depth materials
+* (done) see about adding normals, and using the normal/depth materials
 * (done) see about adding one more face
 * (done) move more that one point
 <!-- video 11 -->
 * (done) start a new video 11 based off of video 10
 * (done) this will be the same thing only now I will want to see about setting up groups for each face
-* (done) use an array of materials and set a unigue material index for each face
+* (done) use an array of materials and set a unique material index for each face
 <!-- video 12 -->
 * (done) start yet another video this one based off of video 11
-* (done) this will be the same thing as video 11, but now I am loking into creating uvs for the geometry
+* (done) this will be the same thing as video 11, but now I am looking into creating uvs for the geometry
 * (done) Use canvas textures for the materials
 * (done) fixed bug #3
 * (done) window-main-r135.html
@@ -95,14 +95,14 @@
 * (done) set 0.2.0 for package.json
 <!-- scripts -->
 * (done) start a video6 start video that will be the first to use scripts
-* (done) Have a VIDEO.scripts prop in video6 that is a collection of relative paths to addtional javaScript files
+* (done) Have a VIDEO.scripts prop in video6 that is a collection of relative paths to additional javaScript files
 * (done) I will want to have a loadDAE helper function in ui-video-code that will be called first
 * (done) I will then want a load scripts helper also that will be called after loadDAE
 * (done) see about using this new system to load my old guy.js module
 * (done) use guy model in video6.js
 * (done) start a guy-canvas.js javascript file that will be used to skin a mesh with canvas elements
 * (done) make changes to client so that I can load more than one script
-* (done) fixed #5 by removeing all child nodes from a container div
+* (done) fixed #5 by removing all child nodes from a container div
 <!-- guy-canvas.js -->
 * (done) guy-canvas should create a canvas that is a sprite sheet of faces
 * (done) use guy.js and guy-canvas.js in video6.js
@@ -151,5 +151,5 @@
 * (done) use an input event for the textarea element to update the scene 
 * (done) start a save as option
 * (done) I will want to be able to save the video file code as a js file
-* (done) see about reading package.json and using the minor patch number of verion for the r number in about menu
+* (done) see about reading package.json and using the minor patch number of version for the r number in about menu
 
