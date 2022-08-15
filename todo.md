@@ -35,8 +35,7 @@
 * (done) add a feature where a promise can be returned by the VIDEO.init method of a video
 * (done) make changes needed to client.js for new VIDEO.init feature
 * (done) start a video 16 in which I am testing this out with the Buffer Geometry loader
-
-* () videoAPI.writeJSFile returns a promise
+* (done) videoAPI.writeJSFile returns a promise
 * () videoAPI.writeFrame returns a promise
 * () update rest of ui-video-code to use promises in place of callbacks
 

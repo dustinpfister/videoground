@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const promisify = require('util').promisify;
 const readFile = promisify(fs.readFile);
+const writeFile = promisify(fs.writeFile);
 
 // the api that will be window.videoAPI in the client side code
 let videoAPI = {};
@@ -64,9 +65,17 @@ videoAPI.writeFrame = (imageFolder, frameIndex, dataURL, callback) => {
 
 // write js file text
 videoAPI.writeJSFile = (filePath, text, callback) => {
-    fs.writeFile(filePath, text, 'utf8', (e) => {
-        callback(e);
-    });
+    //!!! r5 change videoAPI.writeJSFile returns a promise
+    return writeFile(filePath, text, 'utf8')
+    .then(()=>{
+         callback(null);
+         return Promise.resolve();
+     })
+     .catch((e)=>{
+         callback(e);
+         return Promise.reject(e);
+     })
+
 };
 
 //!!! BUG #2 has to do with this, and as of r5 I can not seem to find out what is wrong thus far
