@@ -36,12 +36,10 @@
 * (done) make changes needed to client.js for new VIDEO.init feature
 * (done) start a video 16 in which I am testing this out with the Buffer Geometry loader
 * (done) videoAPI.writeJSFile returns a promise
-* () videoAPI.writeFrame returns a promise
-* () update rest of ui-video-code to use promises in place of callbacks
-
+* (done) videoAPI.writeFrame returns a promise
 * (done) see if just adding --no-sandbox flag when calling electron binary will fix #7
 * (done) update about dialog to display version of electronjs, and thus also nodejs and cromeium versions
-
+* () update rest of ui-video-code to use promises in place of callbacks
 
 ## ( done 07/28/2022 ) - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14
 * (done) passing sm.scene rather than scene var local to client.js in client.js

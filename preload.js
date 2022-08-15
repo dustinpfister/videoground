@@ -58,9 +58,16 @@ videoAPI.writeFrame = (imageFolder, frameIndex, dataURL, callback) => {
     let buf = Buffer.from(data, 'base64');
     //let filePath = path.join(imageFolder, 'frame-' + frameIndex + '.png'); 
     let filePath = path.join(imageFolder, 'frame-' + String(frameIndex).padStart(4, 0) + '.png'); 
-    fs.writeFile(filePath, buf, (e) => {
-        callback(e);
-    });
+    //!!! r5 change videoAPI.writeFrame retruns a promise
+    return writeFile(filePath, buf, 'binary')
+    .then(()=>{
+         callback(null);
+         return Promise.resolve();
+     })
+     .catch((e)=>{
+         callback(e);
+         return Promise.reject(e);
+     });
 };
 
 // write js file text
@@ -74,8 +81,7 @@ videoAPI.writeJSFile = (filePath, text, callback) => {
      .catch((e)=>{
          callback(e);
          return Promise.reject(e);
-     })
-
+     });
 };
 
 //!!! BUG #2 has to do with this, and as of r5 I can not seem to find out what is wrong thus far
