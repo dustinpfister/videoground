@@ -8,7 +8,7 @@
 * ( fixed in r3 ) - #4 - WINDOWS: texture files will not load correctly in windows
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
 * ( fixed in r5 ) - #6 - it looks like scripts are not run in order of the index value, this should be the case
-* () #7 - syscall 0403 error running on rpi os bullseye
+* () #7 - syscall 0403 error running on rpi os bullseye see: ttps://github.com/electron/fiddle/issues/900
 
 ## () - r7 - Clean sm object on each call of setup method
 * () I will need to turn client.js into a module that returns a public API like clientMod
@@ -20,7 +20,7 @@
 ## () - r6 - Webgl test, help menu
 * I will want to have a webgl2 test that involves using the isWebgl2 boolen of a webgl renderer
 * Display the result of this webgl test in the help about menu 
-* add a view readmean file feature in help menu
+* add a view readme file feature in help menu
 
 
 ## () - r5 - Better running of scripts, promise feature, video #15 #16
@@ -37,6 +37,7 @@
 
 * () see if just adding --no-sandbox flag when calling electron binary will fix #7
 * () update about dialog to display version of electronjs, and thus also nodejs and cromeium versions
+
 
 ## ( done 07/28/2022 ) - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14
 * (done) passing sm.scene rather than scene var local to client.js in client.js
