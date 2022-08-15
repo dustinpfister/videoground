@@ -10,6 +10,17 @@ I wanted to make a real electronjs powered project that is a simple tool for mak
 
 The core idea of what I think this project should do is to just simply create a collection of png files for each frame as a means of exporting. Once I have a collection of images from there I can use a tool like ffmpeg to create a video file. Once I have a video file making a final product will then involve using additional software tools such as audacity, MuseScore, and OpenShot to add audio and preform any additional final processing type tasks.
 
+## Getting this working
+
+if the latest revision will work okay just clone down a shallow copy with git. Once the folder is downloaded cd into the root of the folder and just do an npm install to get the version of electronjs that is set in the package.json file. Once evenything is set up I can then just do an npm start to run videoground. If all works well the current state video should be displaed along with the source code for that video in the textarea element.
+
+```
+$ git clone --depth 1 https://github.com/dustinpfister/videoground
+$ cd videoground
+$ npm install
+$ npm start
+```
+
 ## Getting this to work well on raspberry pi os
 
 I like using raspberry pi computers and with that the raspberry pi os Linux based operating system. With that I have run into a lot of problems getting various things to work that have to do with 3d. For one thing I like to use blender to make DAE Files, but late versions of blender will not work on raspberry pi OS because the openGl requirements are to high. Still as far as getting video ground itself to work on rpi I have had success by making use of some fixes with flags when calling the electronjs binary, and also using older versions of the electronjs binary and thus also nodejs and chrome.
@@ -59,12 +70,4 @@ If I have a folder of png files in the range of 'frame-0000.png' to 'frame-9999.
 $ ffmpeg -framerate 30 -i frame-%04d.png -pix_fmt yuv420p output.mp4
 ```
 
-## Getting this working
-
-with the root of this folder as the current working folder just do an npm install, and then an npm start.
-
-```
-$ npm install
-$ npm start
-```
 
