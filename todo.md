@@ -35,8 +35,8 @@
 * () videoAPI.writeFrame returns a promise
 * () update rest of ui-video-code to use promises in place of callbacks
 
-* () see if just adding --no-sandbox flag when calling electron binary will fix #7
-* () update about dialog to display version of electronjs, and thus also nodejs and cromeium versions
+* (done) see if just adding --no-sandbox flag when calling electron binary will fix #7
+* (done) update about dialog to display version of electronjs, and thus also nodejs and cromeium versions
 
 
 ## ( done 07/28/2022 ) - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14
