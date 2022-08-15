@@ -8,7 +8,7 @@
 * ( fixed in r3 ) - #4 - WINDOWS: texture files will not load correctly in windows
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
 * ( fixed in r5 ) - #6 - it looks like scripts are not run in order of the index value, this should be the case
-* () #7 - syscall 0403 error running on rpi os bullseye see: ttps://github.com/electron/fiddle/issues/900
+* () #7 - syscall 0403 error running on rpi os bullseye see: https://github.com/electron/fiddle/issues/900
 
 ## () - r7 - Clean sm object on each call of setup method
 * () I will need to turn client.js into a module that returns a public API like clientMod
