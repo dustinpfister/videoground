@@ -41,6 +41,11 @@
 * (done) update about dialog to display version of electronjs, and thus also nodejs and cromeium versions
 * (done) update ui-video-code to use writeJSFile promise style
 * (done) update ui-playback to use writeFrame promise style
+* (done) remove old rev and bash folders 
+
+* () update readme file with install section
+* () update readme file with legal section
+* () add LICENSE
 
 ## ( done 07/28/2022 ) - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14
 * (done) passing sm.scene rather than scene var local to client.js in client.js

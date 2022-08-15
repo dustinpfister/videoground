@@ -1,5 +1,0 @@
-# git script aliases
-alias pullall='~/bash/git/git-all-pull.sh'
-alias pushall='~/bash/git/git-all-push.sh'
-alias statall='~/bash/git/git-all-status.sh'
-alias gitall='~/bash/git/git-all-base.sh'
