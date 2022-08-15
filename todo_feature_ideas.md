@@ -1,5 +1,8 @@
 # videoground - todo list - possible features
 
+## () - rx - newer version of electronjs
+* () see about updating from 10.4.7
+
 ## () - rx - run button
 * () make it so that the the state is not updated with each key press, have a 'run' button
 
