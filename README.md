@@ -1,6 +1,12 @@
 ﻿# Videoground
 
-This is an idea for an electron.js application that I am calling videoground, which is a play on the words 'video', and 'playground'. In other words the main goal with this project is to just simply have fun with electronjs, threejs, vuejs, my own vanilla javaScript code to make a cool project that can be used to make 3d animation videos. 
+I wanted to make a real electronjs powered project that is a simple tool for making videos using threejs, vuejs, and a whole lot of vanilla javaScript code of my own. VideoGround is then the project that I came up with that I use to make videos that I post to [youtube at my javaweaver channel](https://www.youtube.com/user/javaweaver). So be sure to check out the channel if you would like to see what some content looks like using this tool.
+
+<div align="center">
+      <a href="https://www.youtube.com/watch?v=Mq37hBHx-Qc">
+         <img src="https://img.youtube.com/vi/Mq37hBHx-Qc/0.jpg" style="width:50%;">
+      </a>
+</div>
 
 The core idea of what I think this project should do is to just simply create a collection of png files for each frame as a means of exporting. Once I have a collection of images from there I can use a tool like ffmpeg to create a video file. Once I have a video file making a final product will then involve using additional software tools such as audacity, MuseScore, and OpenShot to add audio and preform any additional final processing type tasks.
 
