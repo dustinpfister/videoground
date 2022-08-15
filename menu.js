@@ -83,9 +83,13 @@ const MainMenuTemplate = [
                 label: 'About',
                 click: function(){
                     const mainWindow = BrowserWindow.fromId(1);
+                    // electron revision number
                     const r = pkg.version.split('.')[1];
                     dialog.showMessageBox(mainWindow, {
-                        message: 'Video Ground version: r' + r
+                        message: 'VideoGround: r' + r + '\n' +
+                        'electron: ' + process.versions['electron'] + '\n' +
+                        'node: ' + process.versions['node'] + '\n' +
+                        'chrome: ' + process.versions['chrome']
                     });
                 }
             }
