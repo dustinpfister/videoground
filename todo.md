@@ -8,7 +8,7 @@
 * ( fixed in r3 ) - #4 - WINDOWS: texture files will not load correctly in windows
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
 * ( fixed in r5 ) - #6 - it looks like scripts are not run in order of the index value, this should be the case
-* () #7 - syscall 0403 error running on rpi os bullseye see: https://github.com/electron/fiddle/issues/900
+* ( fixed in r5 ) - #7 - syscall 0403 error running on rpi os bullseye see: https://github.com/electron/fiddle/issues/900
 
 ## () - r8 -
 * bump electronjs up to 15.5.7
@@ -28,7 +28,7 @@
 * bump electronjs up to 13.6.9
 
 
-## () - r5 - Better running of scripts, promise feature, video #15 #16
+## () - r5 - Better running of scripts, VIDEO.init promise feature, video #15 #16
 * (done) see about fixing #6 and make video #15 about that
 * (done) videoAPI.loadFile returns a promise in preload.js
 * (done) f5 for reload in Linux only for now because of #2 that is still a problem
@@ -40,7 +40,7 @@
 * (done) see if just adding --no-sandbox flag when calling electron binary will fix #7
 * (done) update about dialog to display version of electronjs, and thus also nodejs and cromeium versions
 * (done) update ui-video-code to use writeJSFile promise style
-* () update ui-playback to use writeFrame promise style
+* (done) update ui-playback to use writeFrame promise style
 
 ## ( done 07/28/2022 ) - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14
 * (done) passing sm.scene rather than scene var local to client.js in client.js

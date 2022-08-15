@@ -47,12 +47,17 @@
         data.targetFrame = frameIndex;
         vm.setFrame();
         // write the current frame
-        videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL(), (e) => {
+        //!!! r5 change - calling writeFrame promise style
+        videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL())
+        .then(() => {
             console.log('wrote frame: ' + frameIndex);
             var nextFrameIndex = frameIndex + 1;
             if(nextFrameIndex < sm.frameMax){
                 writeFrame(imageFolder, nextFrameIndex);
             }
+        })
+        .catch((e)=>{
+            console.warn(e);
         });
     };
 
