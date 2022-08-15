@@ -10,17 +10,22 @@
 * ( fixed in r5 ) - #6 - it looks like scripts are not run in order of the index value, this should be the case
 * () #7 - syscall 0403 error running on rpi os bullseye see: https://github.com/electron/fiddle/issues/900
 
+## () - r8 -
+* bump electronjs up to 15.5.7
+
 ## () - r7 - Clean sm object on each call of setup method
 * () I will need to turn client.js into a module that returns a public API like clientMod
 * () have a clientMod.createSM method
 * () have a clientMod.setup method
 * () have a createSM method in client.js
 * () have a clean sm object on each call of 
+* bump electronjs up to 14.2.9
 
 ## () - r6 - Webgl test, help menu
 * I will want to have a webgl2 test that involves using the isWebgl2 boolen of a webgl renderer
 * Display the result of this webgl test in the help about menu 
 * add a view readme file feature in help menu
+* bump electronjs up to 13.6.9
 
 
 ## () - r5 - Better running of scripts, promise feature, video #15 #16
