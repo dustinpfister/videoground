@@ -54,6 +54,7 @@ videoAPI.on = function(eventType, callback){
 
 // write a frame file to the given image folder, and frame index
 videoAPI.writeFrame = (imageFolder, frameIndex, dataURL, callback) => {
+    callback = callback || function(){};
     let data = dataURL.split(',')[1];
     let buf = Buffer.from(data, 'base64');
     //let filePath = path.join(imageFolder, 'frame-' + frameIndex + '.png'); 
@@ -72,6 +73,7 @@ videoAPI.writeFrame = (imageFolder, frameIndex, dataURL, callback) => {
 
 // write js file text
 videoAPI.writeJSFile = (filePath, text, callback) => {
+    callback = callback || function(){};
     //!!! r5 change videoAPI.writeJSFile returns a promise
     return writeFile(filePath, text, 'utf8')
     .then(()=>{

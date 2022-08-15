@@ -111,13 +111,14 @@
     // on save file
     videoAPI.on('menuSaveFile', function(evnt, result){
         if(!result.canceled){
-            videoAPI.writeJSFile(result.filePath, vm.$data.videoJS, (e) => {
-                if(e){
-                    console.warn(e.message);
-                }else{
-                    console.log('wrote file: ' + result.filePath);
-                }
-            });
+        //!!! r5 change using a promise here
+        videoAPI.writeJSFile(result.filePath, vm.$data.videoJS)
+        .then(()=>{
+            console.log('wrote file: ' + result.filePath);
+        })
+        .catch((e)=>{
+            console.warn(e.message);
+        });
         }
     });
     // on menu error

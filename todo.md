@@ -39,7 +39,8 @@
 * (done) videoAPI.writeFrame returns a promise
 * (done) see if just adding --no-sandbox flag when calling electron binary will fix #7
 * (done) update about dialog to display version of electronjs, and thus also nodejs and cromeium versions
-* () update rest of ui-video-code to use promises in place of callbacks
+* (done) update ui-video-code to use writeJSFile promise style
+* () update ui-playback to use writeFrame promise style
 
 ## ( done 07/28/2022 ) - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14
 * (done) passing sm.scene rather than scene var local to client.js in client.js
