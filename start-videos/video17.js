@@ -12,14 +12,19 @@ VIDEO.init = function(sm, scene, camera){
     grid.material.linewidth = 3;
     scene.add(grid);
 
-    scene.background = new THREE.Color(0, 0.2, 0.2);
+    scene.background = new THREE.Color(0.2, 0, 0);
 
     // MESH
     let mesh = scene.userData.mesh = new THREE.Mesh(
         new THREE.BoxGeometry(1, 1, 1),
         new THREE.MeshNormalMaterial());
-    mesh.position.set(0, 0, 0);
+    mesh.position.set(0, 0, -5);
     scene.add(mesh);
+
+    if(sm.renderer.capabilities.isWebGL2){
+        scene.background = new THREE.Color(0, 0.2, 0);
+    }
+
 };
 
 // update method for the video

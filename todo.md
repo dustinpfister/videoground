@@ -24,8 +24,7 @@
 ## () - r6 - Webgl test, help menu, VIDEO #17
 * (done) start VIDEO 17 that will be about a simple webgl2 test
 * (done) make VIDEO 17 the start video
-
-* () bump electronjs up to 13.6.9
+* (done) bump electronjs up to 13.6.9
 
 * () I will want to have a webgl2 test that involves using the isWebgl2 boolen of a webgl renderer
 * () Display the result of this webgl test in the help about menu 
