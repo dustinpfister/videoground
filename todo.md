@@ -26,9 +26,11 @@
 * Display the result of this webgl test in the help about menu 
 * add a view readme file feature in help menu
 * bump electronjs up to 13.6.9
+* () add LICENSE
+* () update readme file with legal section
+* () update readme one last time before 0.6.0 tag
 
-
-## () - r5 - Better running of scripts, VIDEO.init promise feature, video #15 #16
+## ( done 08/16/2022 ) - r5 - Better running of scripts, VIDEO.init promise feature, video #15 #16
 * (done) see about fixing #6 and make video #15 about that
 * (done) videoAPI.loadFile returns a promise in preload.js
 * (done) f5 for reload in Linux only for now because of #2 that is still a problem
@@ -42,10 +44,8 @@
 * (done) update ui-video-code to use writeJSFile promise style
 * (done) update ui-playback to use writeFrame promise style
 * (done) remove old rev and bash folders 
-
-* () update readme file with install section
-* () update readme file with legal section
-* () add LICENSE
+* (done) update readme file with install section
+* (done) update readme one last time before 0.5.0 tag
 
 ## ( done 07/28/2022 ) - r4 - new scene object on each run of sm.setup, sm.renderer, video #13, #14
 * (done) passing sm.scene rather than scene var local to client.js in client.js
