@@ -22,7 +22,7 @@
 * () have a clean sm object on each call of 
 * () bump electronjs up to 14.2.9
 
-## () - r6 - Webgl test, help menu, VIDEO #17
+## () - r6 - conf.json, Webgl test, help menu, VIDEO #17
 * (done) start VIDEO 17 that will be about a simple webgl2 test
 * (done) make VIDEO 17 the start video
 * (done) bump electronjs up to 13.6.9
@@ -30,7 +30,7 @@
 * (done) Display the result of this webgl test in the help about menu 
 * (done) I will want to have a webgl2 test that involves using the isWebgl2 boolean of a webgl renderer
 
-* () see about fixing #8 by starting a new conf json file
+* () see about fixing #8, and much more by starting a new conf json file
 
 * () add a view readme file feature in help menu
 * () add LICENSE
