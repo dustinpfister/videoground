@@ -1,5 +1,6 @@
 // load app and BrowserWindow
-const { app, Menu, BrowserWindow, dialog, globalShortcut } = require('electron');
+//!!! r6 change - using ipcMain here
+const { app, Menu, BrowserWindow, dialog, globalShortcut, ipcMain } = require('electron');
 const path = require('path');
 const os = require('os');
 
@@ -48,3 +49,24 @@ app.on('window-all-closed', function () {
         app.quit()
 });
 
+//******** **********
+// EVENTS
+//******** **********
+
+//!!! r6 change - menu about message ready event
+ipcMain.on('menuAboutMessageReady', function(evnt, webGL2_test_pass){
+	
+	                    const mainWindow = BrowserWindow.fromId(1);
+	const pkg = require( path.join(__dirname, 'package.json') );
+	                    const r = pkg.version.split('.')[1];
+	console.log('Menu About Message Ready: ');
+	console.log('webGL2_test_pass: ' + webGL2_test_pass);
+	
+	                    dialog.showMessageBox(mainWindow, {
+                        message: 'VideoGround: r' + r + '\n' +
+                        'electron: ' + process.versions['electron'] + '\n' +
+                        'node: ' + process.versions['node'] + '\n' +
+                        'chrome: ' + process.versions['chrome'] + '\n' +
+						'webGL2 support: ' + webGL2_test_pass
+                    });
+});

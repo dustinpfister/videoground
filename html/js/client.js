@@ -20,7 +20,12 @@
     // ********** **********
     // webGL2 test
     // ********** **********
-    videoAPI.webGL2_test_pass = true;
+    //!!! r6 change - setting webgl test value
+    console.log(videoAPI.webGL2_test_pass);
+    videoAPI.setWebGLTest(true).then(() => {
+         console.log(videoAPI.webGL2_test_pass);
+	})
+    console.log(videoAPI.webGL2_test_pass);
 
     // ********** **********
     // HELPER FUNCTIONS
@@ -161,6 +166,7 @@
    //!!! r6 change - menuAbout event
     videoAPI.on('menuAbout', function(evnt){
         console.log('menu about');
+		console.log(videoAPI.webGL2_test_pass);
     });
 }
     ());

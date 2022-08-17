@@ -9,6 +9,7 @@
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
 * ( fixed in r5 ) - #6 - it looks like scripts are not run in order of the index value, this should be the case
 * ( fixed in r5 ) - #7 - syscall 0403 error running on rpi os bullseye see: https://github.com/electron/fiddle/issues/900
+* () #8 - videoAPI.webGL2_test_pass remains false client side
 
 ## () - r8 -
 * bump electronjs up to 15.5.7

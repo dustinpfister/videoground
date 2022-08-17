@@ -20,13 +20,23 @@ videoAPI.uri_startvideo = videoAPI.pathJoin( videoAPI.dir_root, 'start-videos/vi
 // webgl2 test
 videoAPI.webGL2_test_pass = false;
 
+videoAPI.setWebGLTest = function(testResult){
+    videoAPI.webGL2_test_pass = testResult;
+    return Promise.resolve();
+};
+
 // the events object
 const EVENT = {};
 
 
 //!!! r6 change added menu about event
 EVENT.menuAbout = function(callback){
-    ipcRenderer.on('menuAbout', callback);
+    ipcRenderer.on('menuAbout', function(evnt){
+		
+		callback(evnt);
+		ipcRenderer.send('menuAboutMessageReady', videoAPI.webGL2_test_pass)
+		
+	});
 };
 //!!! r6 change added menu canceled
 // menu canceled event
