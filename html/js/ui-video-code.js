@@ -1,5 +1,5 @@
 (function () {
-    // template and vm instance for video code ui
+    // vm instance for video code input text area
     var vm = new Vue({
         el: '#wrap_video_code',
         template: '<div class="wrap_ui">' +
@@ -42,7 +42,6 @@
     };
     // set filePath helper
     var setFilePath = (filePath) => {
-        //!!! r5 change - added a sm.filePath
         sm.filePath = vm.$data.filePath = videoAPI.pathDirname(filePath);
         vm.$data.fileName = videoAPI.pathBasename(filePath);
         document.title = 'VideoGround - ' + vm.$data.fileName;    
@@ -67,7 +66,7 @@
                     scriptDiv = document.getElementById('wrap_video_scripts');
                     // remove all child nodes of scriptDiv
                     utils.removeAllChildNodes(scriptDiv);
-                    //!!! - r5 changed - loading scripts in order in which they are given
+                    // loading scripts in order in which they are given
                     var loadLoop = function(){
                         if(loaded != total){
                             setTimeout(loadLoop, 30);
@@ -111,7 +110,6 @@
     // on save file
     videoAPI.on('menuSaveFile', function(evnt, result){
         if(!result.canceled){
-        //!!! r5 change using a promise here
         videoAPI.writeJSFile(result.filePath, vm.$data.videoJS)
         .then(()=>{
             console.log('wrote file: ' + result.filePath);
@@ -129,10 +127,7 @@
     // ********** **********
     // LOAD STARTING VIDEO FILE
     // ********** **********
-
-    //!!! - r4 change - making use of videoAPI.uri_startvideo defined in preload.js
-    //!!! - r5 change - using promise returned by videoAPI.loadFile
-    console.log('calling videoAPI.loadFile for first time for: ' + videoAPI.uri_startvideo);
+    console.log('Calling videoAPI.loadFile for first time for: ' + videoAPI.uri_startvideo);
     videoAPI.loadFile(videoAPI.uri_startvideo)
     .then((result)=>{
         console.log('videoAPI.loadFile: The then function called');

@@ -1,16 +1,13 @@
 (function () {
-
+    // vm for playback controls
     var vm = new Vue({
         el: '#wrap_playpack',
         template: '<div class="wrap_ui">' +
             '<input type="button" value="play/pause" v-on:click="play"><br>' +
-
             '<input type="button" value="frame+" v-on:click="stepFrame(1)">  ' +
             '<input type="button" value="frame-" v-on:click="stepFrame(-1)"><br>' +
-
             '<input type="text" size="5" v-model="targetFrame"><input type="button" value="set frame" v-on:click="setFrame"><br>' +
             '<input type="text" size="5" v-model="sm.frameMax"><input type="button" value="set max frame" v-on:click="setFrame"><br>' +
-
              '<span> {{ sm.frame }} / {{ sm.frameMax}} </span>' + 
         '</div>',
         data: {
@@ -47,7 +44,7 @@
         data.targetFrame = frameIndex;
         vm.setFrame();
         // write the current frame
-        //!!! r5 change - calling writeFrame promise style
+        // calling writeFrame promise style
         videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL())
         .then(() => {
             console.log('wrote frame: ' + frameIndex);

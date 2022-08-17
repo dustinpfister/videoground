@@ -13,8 +13,7 @@ videoAPI.dir_root = __dirname;
 videoAPI.pathJoin = path.join;
 videoAPI.pathBasename = path.basename;
 videoAPI.pathDirname = path.dirname;
-
-//!!! r4 change - videoAPI.uri_startvideo value
+// start video URI value
 videoAPI.uri_startvideo = videoAPI.pathJoin( videoAPI.dir_root, 'start-videos/video17.js' );
 
 // the events object
@@ -59,7 +58,6 @@ videoAPI.writeFrame = (imageFolder, frameIndex, dataURL, callback) => {
     let buf = Buffer.from(data, 'base64');
     //let filePath = path.join(imageFolder, 'frame-' + frameIndex + '.png'); 
     let filePath = path.join(imageFolder, 'frame-' + String(frameIndex).padStart(4, 0) + '.png'); 
-    //!!! r5 change videoAPI.writeFrame retruns a promise
     return writeFile(filePath, buf, 'binary')
     .then(()=>{
          callback(null);
@@ -74,7 +72,6 @@ videoAPI.writeFrame = (imageFolder, frameIndex, dataURL, callback) => {
 // write js file text
 videoAPI.writeJSFile = (filePath, text, callback) => {
     callback = callback || function(){};
-    //!!! r5 change videoAPI.writeJSFile returns a promise
     return writeFile(filePath, text, 'utf8')
     .then(()=>{
          callback(null);
@@ -86,8 +83,8 @@ videoAPI.writeJSFile = (filePath, text, callback) => {
      });
 };
 
+// load a javascript video file
 //!!! BUG #2 has to do with this, and as of r5 I can not seem to find out what is wrong thus far
-//!!! r5 change - videoAPI.loadFile now returns a promise
 videoAPI.loadFile = (filePath, callback) => {
     console.log('videoAPI.loadFile called...');
     callback = callback || function(){};
@@ -119,5 +116,5 @@ videoAPI.loadFile = (filePath, callback) => {
     }
 };
 
-// create an api for window objects in web pages
+// create an API for window objects in web pages
 contextBridge.exposeInMainWorld('videoAPI', videoAPI);

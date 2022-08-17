@@ -41,10 +41,10 @@
     let res = RESOLUTIONS[DEFAULT_RESOLUTION];
     let scene = new THREE.Scene();
 
-    //!!! r4 change - camera created on each call of sm.setup
+    // camera created on each call of sm.setup
     let camera;
 
-    //!!! r4 change -  using sm.replaceRender to setup renderer
+    // using sm.replaceRender to setup renderer
     let renderer, canvas;
 
     // ********** **********
@@ -52,7 +52,7 @@
     // ********** **********
     let sm = window.sm = {
         filePath: null,
-        renderer: null, //!!! r4 change - added sm.renderer, using new sm.replaceRender to setup renderer
+        renderer: null,
         canvas: null,
         frame: 0,
         frameFrac: 0,
@@ -74,7 +74,6 @@
     let update = function(){
         sm.per = Math.round(sm.frame) / sm.frameMax;
         sm.bias = getBias(sm.per);
-        // !!! r4 change - passing sm.scene, and sm.camera rather than scene, and camera
         // global in client.js
         VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias);
     };
@@ -85,9 +84,7 @@
         if(sm.loopActive){
             requestAnimationFrame(loop);
             if(secs > 1 / fps_update){
-
                 sm.setFrame();
-
                 sm.frameFrac += fps_movement * secs;
                 sm.frameFrac %= sm.frameMax;
                 sm.frame = Math.floor(sm.frameFrac)
@@ -100,19 +97,14 @@
         sm.frame = 0;
         sm.frameFrac = 0;
         sm.loopActive = false;
-
-        //!!! r4 change - create new scene object on setup
+        // create new scene object on setup
         scene = sm.scene = new THREE.Scene();
-
-        //!!! r4 change - sm.camera created on each call of sm.setup
+        // sm.camera created on each call of sm.setup
         camera = sm.camera = new THREE.PerspectiveCamera(40, res.w / res.h, 0.1, 1000);
         camera.position.set(10, 10, 10);
         camera.lookAt(0, 0, 0);
-
         scene.children = [];
-        //!!! r4 change - no longer setting background to black in sm.setup
-        //scene.background = new THREE.Color('black');
-        //!!! r5 change - added code to check if VIDEO.init returns a promise or not
+        // code to check if VIDEO.init returns a promise or not
         let hard = {data: 'default promise object'};
         (VIDEO.init(sm, scene, camera) || Promise.resolve(hard) ).then((obj) => {
             if(obj === hard){
@@ -139,8 +131,7 @@
             loop();
         }
     };
-
-    //!!! r4 change - added replace renderer method
+    // replace renderer method
     sm.replaceRenderer = function(newRenderer){
         // remove old canvas element if not null
         if(sm.canvas){
@@ -157,10 +148,8 @@
         canvas.style.width = Math.floor(ratio.w * 420) + 'px';
         canvas.style.height = Math.floor(ratio.h * 420) + 'px';
     };
-
-    //!!! r4 change -  call replace renderer for first time here before calling sm.setup
+    // call replace renderer for first time here before calling sm.setup
     sm.replaceRenderer( new THREE.WebGLRenderer() )
     sm.setup();
-
 }
     ());

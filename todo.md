@@ -19,7 +19,7 @@
 * () have a clientMod.setup method
 * () have a createSM method in client.js
 * () have a clean sm object on each call of 
-* bump electronjs up to 14.2.9
+* () bump electronjs up to 14.2.9
 
 ## () - r6 - Webgl test, help menu, VIDEO #17
 * (done) start VIDEO 17 that will be about a simple webgl2 test
@@ -28,6 +28,7 @@
 
 * () I will want to have a webgl2 test that involves using the isWebgl2 boolen of a webgl renderer
 * () Display the result of this webgl test in the help about menu 
+
 * () add a view readme file feature in help menu
 * () add LICENSE
 * () update readme file with legal section

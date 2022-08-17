@@ -10,7 +10,7 @@ function createMainWindow() {
             height: 700,
             backgroundColor: '#008888',
             webPreferences: {
-                // I tried to disable webSecurity to see if that would fix the isshue with CSP and vuejs (did not work)
+                // I tried to disable webSecurity to see if that would fix the issue with CSP and vuejs (did not work)
                 webSecurity: true,
                 contextIsolation: true,
                 preload: path.resolve( __dirname, 'preload.js')
