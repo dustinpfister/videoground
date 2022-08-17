@@ -22,7 +22,6 @@ videoAPI.webGL2_test_pass = false;
 
 videoAPI.setWebGLTest = function(testResult){
     videoAPI.webGL2_test_pass = testResult;
-    return Promise.resolve();
 };
 
 // the events object

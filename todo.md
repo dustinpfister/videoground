@@ -26,10 +26,11 @@
 * (done) start VIDEO 17 that will be about a simple webgl2 test
 * (done) make VIDEO 17 the start video
 * (done) bump electronjs up to 13.6.9
-
 * (done) menuABout event started
-* () I will want to have a webgl2 test that involves using the isWebgl2 boolean of a webgl renderer
-* () Display the result of this webgl test in the help about menu 
+* (done) Display the result of this webgl test in the help about menu 
+* (done) I will want to have a webgl2 test that involves using the isWebgl2 boolean of a webgl renderer
+
+* () see about fixing #8 by starting a new conf json file
 
 * () add a view readme file feature in help menu
 * () add LICENSE

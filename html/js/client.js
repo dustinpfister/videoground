@@ -22,9 +22,9 @@
     // ********** **********
     //!!! r6 change - setting webgl test value
     console.log(videoAPI.webGL2_test_pass);
-    videoAPI.setWebGLTest(true).then(() => {
-         console.log(videoAPI.webGL2_test_pass);
-	})
+	
+	var testRenderer = new THREE.WebGLRenderer();
+    videoAPI.setWebGLTest(testRenderer.capabilities.isWebGL2);
     console.log(videoAPI.webGL2_test_pass);
 
     // ********** **********
