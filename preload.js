@@ -19,6 +19,17 @@ videoAPI.uri_startvideo = videoAPI.pathJoin( videoAPI.dir_root, 'start-videos/vi
 // the events object
 const EVENT = {};
 
+
+//!!! r6 change added menu about event
+EVENT.menuAbout = function(callback){
+    ipcRenderer.on('menuAbout', callback);
+};
+//!!! r6 change added menu canceled
+// menu canceled event
+EVENT.menuCanceled = function(callback){
+    ipcRenderer.on('menuCanceled', callback);
+};
+
 // export to images
 EVENT.menuExport = function(callback){
     ipcRenderer.on('menuExport', function(evnt, result, mode) {

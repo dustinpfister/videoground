@@ -151,5 +151,11 @@
     // call replace renderer for first time here before calling sm.setup
     sm.replaceRenderer( new THREE.WebGLRenderer() )
     sm.setup();
+
+   // EVENTS
+   //!!! r6 change - menuAbout event
+    videoAPI.on('menuAbout', function(evnt){
+        console.log('menu about');
+    });
 }
     ());
