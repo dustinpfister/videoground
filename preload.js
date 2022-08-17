@@ -16,6 +16,10 @@ videoAPI.pathDirname = path.dirname;
 // start video URI value
 videoAPI.uri_startvideo = videoAPI.pathJoin( videoAPI.dir_root, 'start-videos/video17.js' );
 
+//!!! r6 change - webgl2 test
+// webgl2 test
+videoAPI.webGL2_test_pass = false;
+
 // the events object
 const EVENT = {};
 

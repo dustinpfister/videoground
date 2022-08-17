@@ -18,6 +18,11 @@
     const DEFAULT_RESOLUTION = 2; // going with 480p as a default for this
 
     // ********** **********
+    // webGL2 test
+    // ********** **********
+    videoAPI.webGL2_test_pass = true;
+
+    // ********** **********
     // HELPER FUNCTIONS
     // ********** **********
 
