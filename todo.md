@@ -9,7 +9,7 @@
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
 * ( fixed in r5 ) - #6 - it looks like scripts are not run in order of the index value, this should be the case
 * ( fixed in r5 ) - #7 - syscall 0403 error running on rpi os bullseye see: https://github.com/electron/fiddle/issues/900
-* () #8 - videoAPI.webGL2_test_pass remains false client side
+* ( fixed in r6 ) #8 - videoAPI.webGL2_test_pass remains false client side
 
 ## () - r8 -
 * bump electronjs up to 15.5.7
@@ -29,8 +29,12 @@
 * (done) menuABout event started
 * (done) Display the result of this webgl test in the help about menu 
 * (done) I will want to have a webgl2 test that involves using the isWebgl2 boolean of a webgl renderer
+* (done) see about fixing #8
 
-* () see about fixing #8, and much more by starting a new conf json file
+* () sm.threejsRevision string that is the current revision number being used
+
+* () start a user data folder using code based off of the electronjs example for this
+* () start conf.json file in new user data folder
 
 * () add a view readme file feature in help menu
 * () add LICENSE
