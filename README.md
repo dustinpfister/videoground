@@ -6,7 +6,11 @@ I wanted to make simple tool for making videos using electronjs, threejs, vuejs,
       <a href="https://www.youtube.com/watch?v=Mq37hBHx-Qc">
          <img src="https://img.youtube.com/vi/Mq37hBHx-Qc/0.jpg" style="width:50%;">
       </a>
+    <p>
+        Video for my [biplane group threejs project](https://github.com/dustinpfister/test_threejs/tree/master/views/forpost/threejs-examples-biplane-group) that also uses a [land module](https://github.com/dustinpfister/test_threejs/tree/master/views/forpost/threejs-examples-object-grid-wrap-land) that works on top my [grid wrap module](https://github.com/dustinpfister/test_threejs/tree/master/views/forpost/threejs-examples-object-grid-wrap) that I use often in projects
+    </p>
 </div>
+
 
 The core idea of what I think this project should do is to just simply create a collection of png files for each frame as a means of exporting. Once I have a collection of images from there I can use a tool like ffmpeg to create a video file from the command line. I can then take a raw video file made from the frames and create another video file with ffmpeg that will include an audio track that is made with additional software tools like [Musescore](https://musescore.org/en) and [Audacity](https://www.audacityteam.org/).
 
@@ -35,7 +39,7 @@ $ npm start
 
 ## How to start making videos
 
-So then once videoground is up and running the nest question is how to get going making videos with this. In this section I will be going over what the options are when it comes to a hello world example, and where to find example videos to start with.
+So then once videoground is up and running the next question is how to get going making videos with this. There is a whole lot of ground to cover with that one as I use, and keep making all kinds of additional javaScript module that I use to make videos. In this section I will be going over what the options are when it comes to a hello world example, and where to find example videos to start with in other content projects that I have made thus far.
 
 ### Video Ground Hello world file
 
