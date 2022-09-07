@@ -41,6 +41,16 @@ $ npm start
 
 So then once videoground is up and running the next question is how to get going making videos with this. There is a whole lot of ground to cover with that one as I use, and keep making all kinds of additional javaScript module that I use to make videos. In this section I will be going over what the options are when it comes to a hello world example, and where to find example videos to start with in other content projects that I have made thus far.
 
+<div align="center">
+    <a href="https://www.youtube.com/watch?v=AzuB6ExUE64">
+        <img src="https://img.youtube.com/vi/AzuB6ExUE64/0.jpg" style="width:50%;">
+    </a><br>
+    <p>
+        <a href="https://github.com/dustinpfister/test_threejs/tree/master/views/forpost/threejs-examples-weird-face-1">Weird Face one</a> from my 
+        <a href="https://dustinpfister.github.io/2021/02/19/threejs-examples/">threejs example Project Collection</a>
+    </p>
+</div>
+
 ### Video Ground Hello world file
 
 There are a number of feature to cover when it comes to everything there is to work with the core of videoground. However for now it might be best to just have a simple hello world example in the readme file here.
