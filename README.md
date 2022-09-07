@@ -1,6 +1,6 @@
 ﻿# Videoground
 
-I wanted to make a real electronjs powered project that is a simple tool for making videos using threejs, vuejs, and a whole lot of vanilla javaScript code of my own. VideoGround is then the project that I came up with that I use to make videos that I post to [youtube at my javaweaver channel](https://www.youtube.com/user/javaweaver). So be sure to check out the channel if you would like to see what some content looks like using this tool.
+I wanted to make simple tool for making videos using electronjs, threejs, vuejs, and a whole lot of vanilla javaScript code of my own. VideoGround is then the project that I came up with that I use to make videos that I post to [youtube at my javaweaver channel](https://www.youtube.com/user/javaweaver). So be sure to check out the channel if you would like to see what some content looks like using this tool.
 
 <div align="center">
       <a href="https://www.youtube.com/watch?v=Mq37hBHx-Qc">
@@ -8,7 +8,7 @@ I wanted to make a real electronjs powered project that is a simple tool for mak
       </a>
 </div>
 
-The core idea of what I think this project should do is to just simply create a collection of png files for each frame as a means of exporting. Once I have a collection of images from there I can use a tool like ffmpeg to create a video file. Once I have a video file making a final product will then involve using additional software tools such as audacity, MuseScore, and OpenShot to add audio and preform any additional final processing type tasks.
+The core idea of what I think this project should do is to just simply create a collection of png files for each frame as a means of exporting. Once I have a collection of images from there I can use a tool like ffmpeg to create a video file from the command line. I can then take a raw video file made from the frames and create another video file with ffmpeg that will include an audio track that is made with additional software tools like [Musescore](https://musescore.org/en) and [Audacity](https://www.audacityteam.org/).
 
 ## Install
 
@@ -22,7 +22,9 @@ $ npm start
 ```
 ### Download a specific revision
 
-The latest state of master might not always be the best revision to go with. So then there is cloning down a certain revision such as r4. To do so the process is more or less the same I will just want to add the -b option when using the clone sub command of git. Wile doing so I might want to name a different name for the folder such as vgr4 or something to that effect if I am going to have more than one revision to work with.
+The latest is not always the greatest when it comes to many things with software, often things go in a direction in which there are just to many features packed into a single application. However when it comes to videoground the latest state of master might not always be stable regardless if I keep this minimal or not. It then might be a good idea to clone down a certain revision such as r4 for example. 
+
+To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to name a different name for the folder such as vgr4 or something to that effect if I am going to have more than one revision to work with on a system.
 
 ```
 $ git clone -b "0.4.0" --depth 1 https://github.com/dustinpfister/videoground vgr4
@@ -78,12 +80,23 @@ On top of the core of what videoground is I should also have a number of officia
 
 ## Creating a video from frame images with ffmpeg
 
+Once I use the export to frames feature I will then want to use software outside of videoground to create a raw video, as well as a final result for upload. Although I am sure there are a number of options for making a video from a collection of frame files I have come to like to use ffmpeg from the command line.
+
+### Create raw video from frames
+
 If I have a folder of png files in the range of 'frame-0000.png' to 'frame-9999.png', then using ffmpeg with the -i option should work with the value 'frame-%04d.png'. I will then want to add any additional options such as setting the framerate, and of course I will want to give an output file.
 
 ```
-$ ffmpeg -framerate 30 -i frame-%04d.png -pix_fmt yuv420p output.mp4
+$ ffmpeg -framerate 30 -i frame-%04d.png -pix_fmt yuv420p raw.mp4
 ```
 
+### Create a final video from raw video and audio
+
+After I have my raw video file made from the frames, ffmpeg can unce again be used to create a final video with an audo file.
+
+```
+$ ffmpeg -i raw.mp4 -i bv-001-16m-30s.mp3 final.mp4
+```
 
 ## Getting this to work well on raspberry PI OS
 
@@ -116,6 +129,4 @@ On raspberry pi os buster chromium 90.x is used, and on bullseye I am seeing 101
 
 ## What the goals are with this project
 
-When it comes to what the goals are in terms of adding features there is only so much that I might want to add. If I do keep working on this I am going to end up completing the core set of features that I want. Once that is done I am going to want to be a little more reserved about adding features, choosing to move forward with features that I only really truly want and need. In fact as of r3 I would say I am all ready at a point where the goal is to just refine the features that I all ready have in place.
-
-
+When it comes to what the goals are in terms of adding features there is only so much that I might want to add. If I do keep working on this I am going to end up completing the core set of features that I want. Once that is done I am going to want to be a little more reserved about adding features, choosing to move forward with features that I only really truly want and need. In fact as of r3 I would say I am all ready at a point where the goal is to just refine the features that I all ready have in place for the most part.
