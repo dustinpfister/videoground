@@ -7,7 +7,7 @@ I wanted to make simple tool for making videos using electronjs, threejs, vuejs,
          <img src="https://img.youtube.com/vi/Mq37hBHx-Qc/0.jpg" style="width:50%;">
       </a>
     <p>
-        Video for my [biplane group threejs project](https://github.com/dustinpfister/test_threejs/tree/master/views/forpost/threejs-examples-biplane-group) that also uses a [land module](https://github.com/dustinpfister/test_threejs/tree/master/views/forpost/threejs-examples-object-grid-wrap-land) that works on top my [grid wrap module](https://github.com/dustinpfister/test_threejs/tree/master/views/forpost/threejs-examples-object-grid-wrap) that I use often in projects
+        Video for my <a href="https://github.com/dustinpfister/test_threejs/tree/master/views/forpost/threejs-examples-biplane-group">biplane group threejs project</a> that also uses a <a href="https://github.com/dustinpfister/test_threejs/tree/master/views/forpost/threejs-examples-object-grid-wrap-land">land module</a> that works on top my <a href="https://github.com/dustinpfister/test_threejs/tree/master/views/forpost/threejs-examples-object-grid-wrap">grid wrap module</a> that I use often in projects
     </p>
 </div>
 
