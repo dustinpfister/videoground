@@ -129,16 +129,20 @@ I came into a problem with syscall 0403 when trying to run the electronjs binary
 
 ### The latest is not always the greatest
 
-Late versions of electronjs will not work at all, or will work with significant problems. So then I am keeping the version of electronjs and thus also node and chrome fixed at the latest revisions of cretin older major releases. Revisions r0 threw r5 have been using 10.4.7 of electronjs.
+Late versions of electronjs will not work at all, or will work with significant problems. So then I am keeping the version of electronjs and thus also node and chrome fixed at the latest revisions of cretin older major releases. Revisions r0 threw r5 have been using 10.4.7 of electronjs. As of r6 forward I am starting to creep things forward but only to a certain point at this time because of limitations of the hardware and software used with a raspberry PI.
 
 ```
 r0 – r5:
   electron: 10.4.7
   node: 12:16.3
   chrome: 85.0.4183.121
+r6 - 
+  electronjs: 13.6.9
+  node 14.16.0
+  chrome: 91.0.4472.164
 ```
 
-On raspberry pi os buster chromium 90.x is used, and on bullseye I am seeing 101.x when it comes to the builds in the official repos that are installed out of the box. So when updating to later versions of electronjs I will likely want to keep things in that range. Bleeding edge versions of electronjs using chrome 104+ do not seem to be working so great at the time of this writing.
+On raspberry PI os buster chromium 90.x is used, and on bullseye I am seeing 101.x when it comes to the builds in the official repos that are installed out of the box. So when updating to later versions of electronjs I will likely want to keep things in that range. Bleeding edge versions of electronjs using chrome 104+ do not seem to be working so great at the time of this writing.
 
 
 ## What the goals are with this project
