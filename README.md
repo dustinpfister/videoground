@@ -14,6 +14,10 @@ I wanted to make simple tool for making videos using electronjs, threejs, vuejs,
 
 The core idea of what I think this project should do is to just simply create a collection of png files for each frame as a means of exporting. Once I have a collection of images from there I can use a tool like ffmpeg to create a video file from the command line. I can then take a raw video file made from the frames and create another video file with ffmpeg that will include an audio track that is made with additional software tools like [Musescore](https://musescore.org/en) and [Audacity](https://www.audacityteam.org/).
 
+## What the goals are with this project
+
+When it comes to what the goals are in terms of adding features there is only so much that I might want to add. If I do keep working on this I am going to end up completing the core set of features that I want. Once that is done I am going to want to be a little more reserved about adding features, choosing to move forward with features that I only really truly want and need. In fact as of r3 I would say I am all ready at a point where the goal is to just refine the features that I all ready have in place for the most part. I have made a lot of videos with this all ready, so in a way this is all ready a done deal.
+
 ## Install
 
 If the latest revision will work okay just clone down a shallow copy with git. Once the folder is downloaded cd into the root of the folder and just do an npm install to get the version of electronjs that is set in the package.json file. Once everything is set up I can then just do an npm start to run videoground. If all works well the current state video should be displayed along with the source code for that video in the textarea element.
@@ -144,7 +148,3 @@ r6 -
 
 On raspberry PI os buster chromium 90.x is used, and on bullseye I am seeing 101.x when it comes to the builds in the official repos that are installed out of the box. So when updating to later versions of electronjs I will likely want to keep things in that range. Bleeding edge versions of electronjs using chrome 104+ do not seem to be working so great at the time of this writing.
 
-
-## What the goals are with this project
-
-When it comes to what the goals are in terms of adding features there is only so much that I might want to add. If I do keep working on this I am going to end up completing the core set of features that I want. Once that is done I am going to want to be a little more reserved about adding features, choosing to move forward with features that I only really truly want and need. In fact as of r3 I would say I am all ready at a point where the goal is to just refine the features that I all ready have in place for the most part.
