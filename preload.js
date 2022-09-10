@@ -6,6 +6,25 @@ const promisify = require('util').promisify;
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
+
+const userData = require( path.join(__dirname, 'lib/user-data/user-data.js') );
+console.log(userData);
+
+userData.create()
+.then((obj)=>{
+    console.log('user data file looks good');
+    console.log(obj);
+})
+.catch(()=>{
+    console.warn('error creating user data file:')
+})
+
+
+
+//const userData = require(  path.join(__dirname, 'lib/user-data/user-data.js') );
+
+//console.log(userData)
+
 // the api that will be window.videoAPI in the client side code
 let videoAPI = {};
 
