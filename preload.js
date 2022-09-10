@@ -10,14 +10,26 @@ const writeFile = promisify(fs.writeFile);
 const userData = require( path.join(__dirname, 'lib/user-data/user-data.js') );
 console.log(userData);
 
-userData.create()
+const OPT_USERDATA = {
+    app_name: 'videoground',
+    file_name: 'system.json',
+    data_default:{
+       webgl2: false,
+       platfrom: 'unkown'
+    }
+};
+
+userData.create(OPT_USERDATA)
+.catch((e)=>{
+    console.warn('error creating user data file:');
+    console.wran(e.message);
+})
 .then((obj)=>{
     console.log('user data file looks good');
     console.log(obj);
+    userData.set(OPT_USERDATA, 'foo', 'bar');
 })
-.catch(()=>{
-    console.warn('error creating user data file:')
-})
+
 
 
 
