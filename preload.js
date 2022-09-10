@@ -32,7 +32,9 @@ const EVENT = {};
 EVENT.menuAbout = function(callback){
     ipcRenderer.on('menuAbout', function(evnt){
         callback(evnt);
-        ipcRenderer.send('menuAboutMessageReady', videoAPI.webGL2_test_pass)
+        console.log('sending message to main: ');
+        console.log('videoAPI.webGL2_test_pass: ' + videoAPI.webGL2_test_pass);
+        ipcRenderer.send('menuAboutMessageReady', videoAPI.webGL2_test_pass);
     });
 };
 //!!! r6 change added menu canceled

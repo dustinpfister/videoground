@@ -38,6 +38,9 @@
 * (done) Display the result of this webgl test in the help about menu 
 * (done) I will want to have a webgl2 test that involves using the isWebgl2 boolean of a webgl renderer
 * (done) see about fixing #8
+
+* () using the videoAPI to store state is bad news, it still reads false in client.js
+
 * () sm.r string that is the current threejs revision number being used
 * () update readme one last time before 0.6.0 tag
 
