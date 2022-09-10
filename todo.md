@@ -16,11 +16,7 @@
 
 
 ## () - r8 - user data folder
-* () start a user data folder using code based off of the electronjs example for this
-* () start conf.json file in new user data folder
-* () add a view readme file feature in help menu
-* () add LICENSE
-* () update readme file with legal section
+
 * bump electronjs up to 15.5.7
 
 ## () - r7 - Clean sm object on each call of setup method
@@ -40,9 +36,15 @@
 * (done) I will want to have a webgl2 test that involves using the isWebgl2 boolean of a webgl renderer
 * (done) see about fixing #8
 
-* () using the videoAPI to store state is bad news, it still reads false in client.js look into ways to make a better system
+* () start a user data folder using code based off of the electronjs example for this
+* () start conf.json file in new user data folder
+
+* () using the videoAPI to store state is bad news, see about using the user data solution in place of this
 
 * () sm.r string that is the current threejs revision number being used
+* () add a view readme file feature in help menu
+* () add LICENSE
+* () update readme file with legal section
 * () update readme one last time before 0.6.0 tag
 
 ## ( done 08/16/2022 ) - r5 - Better running of scripts, VIDEO.init promise feature, video #15 #16
