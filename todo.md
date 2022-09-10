@@ -9,7 +9,8 @@
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
 * ( fixed in r5 ) - #6 - it looks like scripts are not run in order of the index value, this should be the case
 * ( fixed in r5 ) - #7 - syscall 0403 error running on rpi os bullseye see: https://github.com/electron/fiddle/issues/900
-* ( fixed in r6 ) - #8 - videoAPI.webGL2-test-pass remains false client side
+* ( fixed in r6 ) - #8 - videoAPI.webGL2-test-pass set true
+* () - #9 - videoAPI.webGL2-test-pass still false when read client side look into another way to store state
 
 ## () - r9 - 
 
@@ -39,7 +40,7 @@
 * (done) I will want to have a webgl2 test that involves using the isWebgl2 boolean of a webgl renderer
 * (done) see about fixing #8
 
-* () using the videoAPI to store state is bad news, it still reads false in client.js
+* () using the videoAPI to store state is bad news, it still reads false in client.js look into ways to make a better system
 
 * () sm.r string that is the current threejs revision number being used
 * () update readme one last time before 0.6.0 tag

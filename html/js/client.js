@@ -166,7 +166,8 @@
    //!!! r6 change - menuAbout event
     videoAPI.on('menuAbout', function(evnt){
         console.log('menu about');
-        console.log(videoAPI.webGL2_test_pass);
+        //!!! Value is still false here.
+        console.log(videoAPI.webGL2_test_pass); 
     });
 }
     ());
