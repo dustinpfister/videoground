@@ -31,11 +31,9 @@ const EVENT = {};
 //!!! r6 change added menu about event
 EVENT.menuAbout = function(callback){
     ipcRenderer.on('menuAbout', function(evnt){
-		
-		callback(evnt);
-		ipcRenderer.send('menuAboutMessageReady', videoAPI.webGL2_test_pass)
-		
-	});
+        callback(evnt);
+        ipcRenderer.send('menuAboutMessageReady', videoAPI.webGL2_test_pass)
+    });
 };
 //!!! r6 change added menu canceled
 // menu canceled event

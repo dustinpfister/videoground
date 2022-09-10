@@ -9,36 +9,36 @@
 * ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
 * ( fixed in r5 ) - #6 - it looks like scripts are not run in order of the index value, this should be the case
 * ( fixed in r5 ) - #7 - syscall 0403 error running on rpi os bullseye see: https://github.com/electron/fiddle/issues/900
-* ( fixed in r6 ) #8 - videoAPI.webGL2_test_pass remains false client side
+* ( fixed in r6 ) - #8 - videoAPI.webGL2-test-pass remains false client side
 
-## () - r8 -
+## () - r9 - 
+
+
+## () - r8 - user data folder
+* () start a user data folder using code based off of the electronjs example for this
+* () start conf.json file in new user data folder
+* () add a view readme file feature in help menu
+* () add LICENSE
+* () update readme file with legal section
 * bump electronjs up to 15.5.7
 
 ## () - r7 - Clean sm object on each call of setup method
+* () bump electronjs up to 14.2.9
 * () I will need to turn client.js into a module that returns a public API like clientMod
 * () have a clientMod.createSM method
 * () have a clientMod.setup method
 * () have a createSM method in client.js
 * () have a clean sm object on each call of 
-* () bump electronjs up to 14.2.9
 
 ## () - r6 - conf.json, Webgl test, help menu, VIDEO #17
 * (done) start VIDEO 17 that will be about a simple webgl2 test
 * (done) make VIDEO 17 the start video
 * (done) bump electronjs up to 13.6.9
-* (done) menuABout event started
+* (done) menuAbout event started
 * (done) Display the result of this webgl test in the help about menu 
 * (done) I will want to have a webgl2 test that involves using the isWebgl2 boolean of a webgl renderer
 * (done) see about fixing #8
-
-* () sm.threejsRevision string that is the current revision number being used
-
-* () start a user data folder using code based off of the electronjs example for this
-* () start conf.json file in new user data folder
-
-* () add a view readme file feature in help menu
-* () add LICENSE
-* () update readme file with legal section
+* () sm.r string that is the current threejs revision number being used
 * () update readme one last time before 0.6.0 tag
 
 ## ( done 08/16/2022 ) - r5 - Better running of scripts, VIDEO.init promise feature, video #15 #16

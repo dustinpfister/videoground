@@ -85,16 +85,16 @@ const MainMenuTemplate = [
                     const mainWindow = BrowserWindow.fromId(1);
                     // electron revision number
                     const r = pkg.version.split('.')[1];
-					//!!! r6 change - calling new menu about event
-					 mainWindow.webContents.send('menuAbout');
-					/*
+                    //!!! r6 change - calling new menu about event
+                    mainWindow.webContents.send('menuAbout');
+                    /*
                     dialog.showMessageBox(mainWindow, {
                         message: 'VideoGround: r' + r + '\n' +
                         'electron: ' + process.versions['electron'] + '\n' +
                         'node: ' + process.versions['node'] + '\n' +
                         'chrome: ' + process.versions['chrome'] + '\n'
                     });
-					*/
+                    */
                 }
             }
         ]

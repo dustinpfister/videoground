@@ -22,8 +22,8 @@
     // ********** **********
     //!!! r6 change - setting webgl test value
     console.log(videoAPI.webGL2_test_pass);
-	
-	var testRenderer = new THREE.WebGLRenderer();
+
+    var testRenderer = new THREE.WebGLRenderer();
     videoAPI.setWebGLTest(testRenderer.capabilities.isWebGL2);
     console.log(videoAPI.webGL2_test_pass);
 
@@ -166,7 +166,7 @@
    //!!! r6 change - menuAbout event
     videoAPI.on('menuAbout', function(evnt){
         console.log('menu about');
-		console.log(videoAPI.webGL2_test_pass);
+        console.log(videoAPI.webGL2_test_pass);
     });
 }
     ());
