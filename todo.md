@@ -11,6 +11,7 @@
 * ( fixed in r5 ) - #7 - syscall 0403 error running on rpi os bullseye see: https://github.com/electron/fiddle/issues/900
 * ( fixed in r6 ) - #8 - videoAPI.webGL2-test-pass set true
 * () - #9 - videoAPI.webGL2-test-pass still false when read client side look into another way to store state
+* () - #10 - error loading dae textures when loading from more than one folder
 
 ## () - r9 - 
 
