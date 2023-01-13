@@ -111,8 +111,9 @@ videoAPI.writeFrame = (imageFolder, frameIndex, dataURL, callback) => {
     callback = callback || function(){};
     let data = dataURL.split(',')[1];
     let buf = Buffer.from(data, 'base64');
-    //let filePath = path.join(imageFolder, 'frame-' + frameIndex + '.png'); 
-    let filePath = path.join(imageFolder, 'frame-' + String(frameIndex).padStart(4, 0) + '.png'); 
+    //let filePath = path.join(imageFolder, 'frame-' + frameIndex + '.png');
+    //!!! r6 change - frame-dddd.png to frame-dddddd.png 
+    let filePath = path.join(imageFolder, 'frame-' + String(frameIndex).padStart(6, 0) + '.png'); 
     return writeFile(filePath, buf, 'binary')
     .then(()=>{
          callback(null);
