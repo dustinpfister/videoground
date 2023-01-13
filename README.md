@@ -12,7 +12,11 @@ I wanted to make simple tool for making videos using electronjs, threejs, vuejs,
 </div>
 
 
-The core idea of what I think this project should do is to just simply create a collection of png files for each frame as a means of exporting. Once I have a collection of images from there I can use a tool like ffmpeg to create a video file from the command line. I can then take a raw video file made from the frames and create another video file with ffmpeg that will include an audio track that is made with additional software tools like [Musescore](https://musescore.org/en) and [Audacity](https://www.audacityteam.org/).
+## Frame by Frame Exporting
+
+The main way of exporting should be in a collection of png files for each frame as a means of exporting. Once I have a collection of images from there I can use a tool like ffmpeg to create a video file from the command line. I can then take a raw video file made from the frames and create another video file with ffmpeg that will include an audio track that is made with additional software tools like [Musescore](https://musescore.org/en) and [Audacity](https://www.audacityteam.org/).
+
+Exporting this way may not be preferred for many reasons that I do not care to get into detail with here. However I have found that this is just simply a tired yet true way of exporting that has not broken for me yet, and will still work just fine when it comes to sticking to short 30 second to maybe at most 5 minute videos. After that the shortcomings of this form of exporting should become a bit to much of a pain. If I do keep working on this project maybe I will get around to having better export options, but in any case this kind of export must always work as a fall back of sorts in the event that other options break.
 
 ## What the goals are with this project
 
