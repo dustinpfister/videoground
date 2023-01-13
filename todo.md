@@ -36,15 +36,14 @@
 * (done) Display the result of this webgl test in the help about menu 
 * (done) I will want to have a webgl2 test that involves using the isWebgl2 boolean of a webgl renderer
 * (done) see about fixing #8
-
 * (done) start a user data folder using code based off of the electronjs example for this
 * (done) start system.json file in new user data folder
-* () use userData to get and set webgl state
+* (done) frame-dddddd.png in place of frame-dddd.png
 
+* () use userData to get and set webgl state
 * () start a settings.json file
 * () use settings.json to set the location of a video file to start with
 * () use setings.json to set the start folder for opening or saving a sile
-
 * () sm.r string that is the current threejs revision number being used
 * () add a view readme file feature in help menu
 * () add LICENSE
