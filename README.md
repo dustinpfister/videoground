@@ -20,7 +20,7 @@ Exporting this way may not be preferred for many reasons that I do not care to g
 
 ## What the goals are with this project
 
-When it comes to what the goals are in terms of adding features there is only so much that I might want to add. If I do keep working on this I am going to end up completing the core set of features that I want. Once that is done I am going to want to be a little more reserved about adding features, choosing to move forward with features that I only really truly want and need. In fact as of r3 I would say I am all ready at a point where the goal is to just refine the features that I all ready have in place for the most part. I have made a lot of videos with this all ready, so in a way this is all ready a done deal.
+When it comes to what the goals are in terms of adding features there is only so much that I might want to add. If I do keep working on this I am going to end up completing the core set of features that I want. Once that is done I am going to want to be a little more reserved about adding features, choosing to move forward with features that I only really truly want and need. In fact as of r3 I would say I am all ready at a point where the goal is to just refine the features that I all ready have in place for the most part.
 
 ## Install
 
@@ -34,12 +34,12 @@ $ npm start
 ```
 ### Download a specific revision
 
-The latest is not always the greatest when it comes to many things with software, often things go in a direction in which there are just to many features packed into a single application. However when it comes to videoground the latest state of master might not always be stable regardless if I keep this minimal or not. It then might be a good idea to clone down a certain revision such as r4 for example. 
+The latest is not always the greatest when it comes to many things with software, often things go in a direction in which there are just too many features packed into a single application. However when it comes to videoground the latest state of master might not always be stable regardless if I keep this minimal or not. It then might be a good idea to clone down a certain revision such as R5 for example. 
 
-To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to name a different name for the folder such as vgr4 or something to that effect if I am going to have more than one revision to work with on a system.
+To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to name a different name for the folder such as R5 or something to that effect if I am going to have more than one revision to work with on a system. While I am at it I can also use --depth 1 to make sure that I do not get the full hisotory up to that point as well.
 
 ```
-$ git clone -b "0.4.0" --depth 1 https://github.com/dustinpfister/videoground vgr4
+$ git clone -b "0.5.0" --depth 1 https://github.com/dustinpfister/videoground vgr4
 $ cd vgr4
 $ npm install
 $ npm start
@@ -47,7 +47,7 @@ $ npm start
 
 ## How to start making videos
 
-So then once videoground is up and running the next question is how to get going making videos with this. There is a whole lot of ground to cover with that one as I use, and keep making all kinds of additional javaScript module that I use to make videos. In this section I will be going over what the options are when it comes to a hello world example, and where to find example videos to start with in other content projects that I have made thus far.
+Once videoground is up and running the next question is how to get going making videos with this. There is a whole lot of ground to cover with that one as I use, and keep making all kinds of additional javaScript module that I use to make videos. In this section I will be going over what the options are when it comes to a hello world example, and where to find example videos to start with in other content projects that I have made thus far.
 
 <div align="center">
     <a href="https://www.youtube.com/watch?v=AzuB6ExUE64">
@@ -92,9 +92,9 @@ The two main functions to define in the javaScript file are VIDEO.init, and VIDE
 
 In the [start-videos folder](https://github.com/dustinpfister/videoground/tree/master/start-videos) I have a number of video files that are intended to be starting points for projects, but are also used to just demonstrate or test features of videoground itself while I work on it. One of these files will be the official start video that will be used each time video ground starts for the first time. 
 
-### My videoground-blog-posts repository
+### My Content repos
 
-Thus far I just have one content repository called [videoground-blog-posts](https://github.com/dustinpfister/videoground-blog-posts) where I have a massive collection of videos made using this program. As the name suggests this is a repo of videos that are to be used as video embeds for my [blog posts on threejs](https://dustinpfister.github.io/categories/three-js/).
+Thus far I just have two content repositories one called [videoground-blog-posts](https://github.com/dustinpfister/videoground-blog-posts), and the other is called [videoground-beta-world](https://github.com/dustinpfister/videoground-beta-world). As the name suggests with videoground-blog-posts this is a repo of videos that are to be used as video embeds for my [blog posts on threejs](https://dustinpfister.github.io/categories/three-js/). The other colleciton called veideoground-beta-world is being used as a dumping ground for excremental content that may or may not lead to other collections of content.
 
 ## Official js files
 
