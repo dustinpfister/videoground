@@ -39,6 +39,8 @@
 * (done) frame-dddddd.png in place of frame-dddd.png
 
 * (done) start a videoAPI.log method
+* () log method for ui-video-code.js
+* () use log method of ui-video-code.js for all console.logs in the file
 
 * () use new videoAPI.log method
 

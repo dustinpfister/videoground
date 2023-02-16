@@ -1,4 +1,8 @@
 (function () {
+    // log method for ui-video-code
+    const log =  (mess) => {
+        videoAPI.log(mess, 'ui-video-code.js');
+    };
     // vm instance for video code input text area
     var vm = new Vue({
         el: '#wrap_video_code',
@@ -84,13 +88,16 @@
                             }
                         }else{
                             // loading done
-                            console.log('loading done!');
+                            log('loading done!');
                             sm.setup();
                         }
                     };
                     loadLoop();
                 }else{
                     // no scripts? then just run setup
+
+
+
                     sm.setup();
                 }
             });
@@ -102,7 +109,7 @@
     // MENU EVENTS
     // ********** **********
     videoAPI.on('menuOpenFile', function(text, e, filePath){
-        console.log('Menu open event handler in ui-video-code.js');
+        log('Menu open event handler in ui-video-code.js');
         setFilePath(filePath);
         loadText(text);
     });
@@ -111,7 +118,7 @@
         if(!result.canceled){
         videoAPI.writeJSFile(result.filePath, vm.$data.videoJS)
         .then(()=>{
-            console.log('wrote file: ' + result.filePath);
+            log('wrote file: ' + result.filePath);
         })
         .catch((e)=>{
             console.warn(e.message);
@@ -120,13 +127,12 @@
     });
     // on menu error
     videoAPI.on('menuError', function(evnt, err){
-        console.log(err);
+        log(err);
     });
-
     // ********** **********
     // LOAD STARTING VIDEO FILE
     // ********** **********
-    videoAPI.log('Calling videoAPI.loadFile for first time for: ' + videoAPI.uri_startvideo, 'ui-video-code');
+    log('Calling videoAPI.loadFile for first time for: ' + videoAPI.uri_startvideo);
     videoAPI.loadFile(videoAPI.uri_startvideo)
     .then((result)=>{
         setFilePath(result.filePath);
