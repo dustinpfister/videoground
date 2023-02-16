@@ -18,8 +18,11 @@ canvas{
   height: 240px;
   width: 100%;
 }
-
 .wrap_ui{
   padding: 10px;
   line-height: 25px;
+}
+.textarea_js{
+   width: 100%;
+   height: 240px;
 }

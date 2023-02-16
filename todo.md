@@ -62,8 +62,8 @@
 * (done) have new textChange method for ui-video-code.js that is called when text changes, but does nothing
 * (done) add a new run button to the template, and have that call the updateVideo method
 * (done) add a run button for the ui in video-code-ui.js
+* (done) textarea-js CSS class for the text area for js input
 
-* () add a view readme file feature in help menu
 * () add LICENSE
 * () update readme file with legal section
 * () update readme one last time before 0.6.0 tag

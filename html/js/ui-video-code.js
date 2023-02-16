@@ -9,7 +9,7 @@
         template: '<div class="wrap_ui">' +
             '<span>{{ fileName }}</span><br><br>' +
             '<button name="run" v-on:click="updateVideo">Run</button><br>'+
-            '<textarea v-model="videoJS" cols="60" rows="10" v-on:input="textChange"></textarea>'+
+            '<textarea class="textarea_js" v-model="videoJS" v-on:input="textChange"></textarea>'+
         '</div>',
         data: {
            sm: sm,
