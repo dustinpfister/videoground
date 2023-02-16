@@ -8,17 +8,22 @@
         el: '#wrap_video_code',
         template: '<div class="wrap_ui">' +
             '<span>{{ fileName }}</span><br><br>' +
-            '<textarea v-model="videoJS" cols="60" rows="10" v-on:input="updateVideo"></textarea>'+
+            '<button name="run" v-on:click="updateVideo">Run</button><br>'+
+            '<textarea v-model="videoJS" cols="60" rows="10" v-on:input="textChange"></textarea>'+
         '</div>',
         data: {
            sm: sm,
            fileName: null,
-           filePath: null, // the current path for the video.js file
+           filePath: null, 
            videoJS: '\/\/ Video JavaScript goes here'
         },
         methods: {
+            textChange : () => {
+                log('Text change');
+            },
             updateVideo : function(e){
-                loadText(e.target.value);
+                //loadText(e.target.value);
+                loadText(vm.$data.videoJS);
             }
         }
     });

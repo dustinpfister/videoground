@@ -25,8 +25,27 @@
 * () have a createSM method in client.js
 * () have a clean sm object on each call of 
 
+## () - rx - dae-helper.js
+* () bake dae-helper.js R0 into videoground itself
+* () update DAE loading feature to make use of dae-helper.js
+* () allow for setting resource paths for each file
 
-## () - r6 - conf.json, run button, Webgl test, help menu, VIDEO #17
+## () - rx - export frames to user data folder, export to video
+* () update default path for frame exports to /home/username/.videoground/frames
+* () when exporting to /home/username/.videoground/frames crate the folder if it is not there
+* () start a new export to video option
+* () the export to video option will make an ffmpeg call after frames are rendered
+
+## () - rx - settings.json, video18-start.js
+* () new video18-start.js file that will just be the new start video for this revision.
+* () rename all the older start videos where there is an addtiona text over the name that gives some idea as to what the file is about
+* () start a settings.json file
+* () use settings.json to set the location of a video file to start with
+* () use setings.json to set the start folder for opening or saving a sile
+* () sm.r string that is the current threejs revision number being used
+* () use userData to get and set webgl state
+
+## () - r6 - run button, User Data Folder, Webgl test, help menu, VIDEO #17
 * (done) start VIDEO 17 that will be about a simple webgl2 test
 * (done) make VIDEO 17 the start video
 * (done) bump electronjs up to 13.6.9
@@ -37,21 +56,12 @@
 * (done) start a user data folder using code based off of the electronjs example for this
 * (done) start system.json file in new user data folder
 * (done) frame-dddddd.png in place of frame-dddd.png
-
 * (done) start a videoAPI.log method
-* () log method for ui-video-code.js
-* () use log method of ui-video-code.js for all console.logs in the file
-
-* () use new videoAPI.log method
-
-
-* () add a run button
-
-* () start a settings.json file
-* () use settings.json to set the location of a video file to start with
-* () use setings.json to set the start folder for opening or saving a sile
-* () sm.r string that is the current threejs revision number being used
-* () use userData to get and set webgl state
+* (done) log method for ui-video-code.js
+* (done) use log method of ui-video-code.js for all console.logs in the file
+* (done) have new textChange method for ui-video-code.js that is called when text changes, but does nothing
+* (done) add a new run button to the template, and have that call the updateVideo method
+* (done) add a run button for the ui in video-code-ui.js
 
 * () add a view readme file feature in help menu
 * () add LICENSE
