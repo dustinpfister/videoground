@@ -13,14 +13,11 @@
 * () - #9 - videoAPI.webGL2-test-pass still false when read client side look into another way to store state
 * () - #10 - error loading dae textures when loading from more than one folder
 
-## () - r9 - 
-
-
-## () - r8 - user data folder
+## () - rx - user data folder
 
 * bump electronjs up to 15.5.7
 
-## () - r7 - Clean sm object on each call of setup method
+## () - rx - Clean sm object on each call of setup method
 * () bump electronjs up to 14.2.9
 * () I will need to turn client.js into a module that returns a public API like clientMod
 * () have a clientMod.createSM method
@@ -28,7 +25,8 @@
 * () have a createSM method in client.js
 * () have a clean sm object on each call of 
 
-## () - r6 - conf.json, Webgl test, help menu, VIDEO #17
+
+## () - r6 - conf.json, run button, Webgl test, help menu, VIDEO #17
 * (done) start VIDEO 17 that will be about a simple webgl2 test
 * (done) make VIDEO 17 the start video
 * (done) bump electronjs up to 13.6.9
@@ -40,15 +38,24 @@
 * (done) start system.json file in new user data folder
 * (done) frame-dddddd.png in place of frame-dddd.png
 
-* () use userData to get and set webgl state
+* (done) start a videoAPI.log method
+
+* () use new videoAPI.log method
+
+
+* () add a run button
+
 * () start a settings.json file
 * () use settings.json to set the location of a video file to start with
 * () use setings.json to set the start folder for opening or saving a sile
 * () sm.r string that is the current threejs revision number being used
+* () use userData to get and set webgl state
+
 * () add a view readme file feature in help menu
 * () add LICENSE
 * () update readme file with legal section
 * () update readme one last time before 0.6.0 tag
+
 
 ## ( done 08/16/2022 ) - r5 - Better running of scripts, VIDEO.init promise feature, video #15 #16
 * (done) see about fixing #6 and make video #15 about that

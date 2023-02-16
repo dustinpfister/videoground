@@ -39,6 +39,23 @@ userData.create(OPT_USERDATA)
 
 // the api that will be window.videoAPI in the client side code
 let videoAPI = {};
+//-------- ----------
+// LOGGING
+//-------- ----------
+videoAPI.log = ( mess, id ) => {
+    console.log('----------');
+    if(typeof mess === 'String' || typeof mess === 'Number'){
+        console.log(id + ':' + mess);
+    }else{
+        console.log(id + ':' );
+        console.log(mess)
+    }
+    console.log('----------');
+};
+
+const log =  (mess)=> {
+    videoAPI.log(mess, 'preload.js');
+};
 
 videoAPI.dir_root = __dirname;
 videoAPI.pathJoin = path.join;
@@ -142,7 +159,7 @@ videoAPI.writeJSFile = (filePath, text, callback) => {
 // load a javascript video file
 //!!! BUG #2 has to do with this, and as of r5 I can not seem to find out what is wrong thus far
 videoAPI.loadFile = (filePath, callback) => {
-    console.log('videoAPI.loadFile called...');
+    log('loadFile method called for ' + filePath);
     callback = callback || function(){};
     if(filePath){
         // if path is not absolute

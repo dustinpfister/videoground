@@ -4,7 +4,6 @@
         el: '#wrap_video_code',
         template: '<div class="wrap_ui">' +
             '<span>{{ fileName }}</span><br><br>' +
-            //'<span>{{ filePath }}</span><br>' +
             '<textarea v-model="videoJS" cols="60" rows="10" v-on:input="updateVideo"></textarea>'+
         '</div>',
         data: {
@@ -127,15 +126,13 @@
     // ********** **********
     // LOAD STARTING VIDEO FILE
     // ********** **********
-    console.log('Calling videoAPI.loadFile for first time for: ' + videoAPI.uri_startvideo);
+    videoAPI.log('Calling videoAPI.loadFile for first time for: ' + videoAPI.uri_startvideo, 'ui-video-code');
     videoAPI.loadFile(videoAPI.uri_startvideo)
     .then((result)=>{
-        console.log('videoAPI.loadFile: The then function called');
         setFilePath(result.filePath);
         loadText(result.text);
     })
     .catch((e)=>{
-        console.log(' catch')
         console.warn(e.message);
     });
 }
