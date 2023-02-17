@@ -1,16 +1,4 @@
 //-------- ----------
-// CONSTS
-//-------- ----------
-const REVISION = '7_dev';
-const OPT_USERDATA = {
-    app_name: 'videoground_r' + REVISION,
-    file_name: 'system.json',
-    data_default:{
-       webgl2: false,
-       platfrom: 'unknown'
-    }
-};
-//-------- ----------
 // NODE CORE MODULES
 //-------- ----------
 const { contextBridge, ipcRenderer} = require('electron');
@@ -20,13 +8,27 @@ const promisify = require('util').promisify;
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 //-------- ----------
+// CONSTS
+//-------- ----------
+const REVISION = '7_dev';
+const URI_VIDEO_START = path.join(__dirname, 'start-videos/video18-r7-start.js');
+const OPT_USERDATA_SETTINGS = {
+    app_name: 'videoground_r' + REVISION,
+    file_name: 'settings.json',
+    data_default:{
+       //foo: 'baz'
+       //webgl2: false,
+       //platfrom: 'unknown'
+    }
+};
+//-------- ----------
 // CUSTOM MODULES
 //-------- ----------
 const userData = require( path.join(__dirname, 'lib/user-data/user-data.js') );
 //-------- ----------
 // CREATE USER DATA OBJECT
 //-------- ----------
-userData.create(OPT_USERDATA)
+userData.create(OPT_USERDATA_SETTINGS)
 .catch((e)=>{
     console.warn('error creating user data file:');
     console.wran(e.message);
@@ -34,8 +36,8 @@ userData.create(OPT_USERDATA)
 .then((obj)=>{
     console.log('user data file looks good');
     console.log(obj);
-    userData.set(OPT_USERDATA, 'foo', 'bar');
-})
+    //userData.set(OPT_USERDATA_SETTINGS, 'foo', 'bar');
+});
 //-------- ----------
 // VIDEO API
 //-------- ----------
@@ -61,7 +63,7 @@ videoAPI.pathJoin = path.join;
 videoAPI.pathBasename = path.basename;
 videoAPI.pathDirname = path.dirname;
 // start video URI value
-videoAPI.uri_startvideo = videoAPI.pathJoin( videoAPI.dir_root, 'start-videos/video18-r7-start.js' );
+videoAPI.uri_startvideo = URI_VIDEO_START;
 // wgl2 test
 videoAPI.webGL2_test_pass = false;
 videoAPI.setWebGLTest = function(testResult){
