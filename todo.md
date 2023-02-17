@@ -49,6 +49,7 @@
 ## () - r7 - Settings.json
 * (done) new REVISION const in preload.js set to '7_dev' string
 * (done) try bumping electionjs to 14.2.9
+* (done) display REVISION const in about menu
 * () new video18-r7-start.js file that will just be the new start video for this revision.
 * () rename all the older start videos as video[VIDNUMBER]-r[REVISION]-[DESC]
 * () make a settings.json file in the user data folder

@@ -73,9 +73,13 @@ const EVENT = {};
 EVENT.menuAbout = function(callback){
     ipcRenderer.on('menuAbout', function(evnt){
         callback(evnt);
-        console.log('sending message to main: ');
-        console.log('videoAPI.webGL2_test_pass: ' + videoAPI.webGL2_test_pass);
-        ipcRenderer.send('menuAboutMessageReady', videoAPI.webGL2_test_pass);
+        //console.log('sending message to main: ');
+        //console.log('videoAPI.webGL2_test_pass: ' + videoAPI.webGL2_test_pass);
+        const about = {
+            webGL2_test_pass: videoAPI.webGL2_test_pass,
+            r: REVISION
+        };
+        ipcRenderer.send('menuAboutMessageReady', about);
     });
 };
 // menu canceled event
