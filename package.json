@@ -7,7 +7,7 @@
     "start": "electron --no-sandbox ."
   },
   "author": "Dustin Pfister",
-  "license": "GPL-3.0",
+  "license": "GPL-2.0",
   "devDependencies": {
     "electron": "^13.6.9"
   }

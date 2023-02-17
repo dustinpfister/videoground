@@ -150,6 +150,7 @@ r6 -
 
 On raspberry PI os buster chromium 90.x is used, and on bullseye I am seeing 101.x when it comes to the builds in the official repos that are installed out of the box. So when updating to later versions of electronjs I will likely want to keep things in that range. Bleeding edge versions of electronjs using chrome 104+ do not seem to be working so great at the time of this writing.
 
+## LICENSE
 
-## LEGAL
+I am declaring all of the original source code that I have written under the terms of the GPL V2 LICENSE. this repo contains some source borrowed source code which is of course under the terms of the respective licenses of those projects. Many of which are also GPL or MIT licensed projects.
 
