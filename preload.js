@@ -29,7 +29,7 @@ const userData = require( path.join(__dirname, 'lib/user-data/user-data.js') );
 userData.create(OPT_USERDATA_SETTINGS)
 .catch((e)=>{
     console.warn('error creating user data file:');
-    console.wran(e.message);
+    console.warn(e.message);
 })
 .then((obj)=>{
     console.log('user data file looks good');
