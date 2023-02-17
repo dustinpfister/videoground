@@ -14,7 +14,6 @@
 * () - #10 - error loading dae textures when loading from more than one folder
 
 ## () - rx - user data folder
-
 * bump electronjs up to 15.5.7
 
 ## () - rx - Clean sm object on each call of setup method
@@ -35,6 +34,12 @@
 * () when exporting to /home/username/.videoground/frames crate the folder if it is not there
 * () start a new export to video option
 * () the export to video option will make an ffmpeg call after frames are rendered
+
+## () - rx - js editing improvements
+* () LF to CRLF End Of Line Conversion
+* () Edit save menu item
+* () Ctrl+s shortcut
+* () astrisk in title when there are unsaved changes
 
 ## () - rx - settings.json, video18-start.js
 * () new video18-start.js file that will just be the new start video for this revision.
