@@ -1,6 +1,6 @@
 ﻿# Videoground
 
-I wanted to make simple tool for making videos using electronjs, threejs, vuejs, and a whole lot of vanilla javaScript code of my own. VideoGround is then the project that I came up with that I use to make videos that I post to [youtube at my javaweaver channel](https://www.youtube.com/user/javaweaver). So be sure to check out the channel if you would like to see what some content looks like using this tool.
+I wanted to a make simple tool for creating videos using electronjs, threejs, vuejs, and a whole lot of vanilla javaScript code of my own. VideoGround is then the project that I came up with that I use to make videos that I post to [youtube at my javaweaver channel](https://www.youtube.com/user/javaweaver). So be sure to check out the channel if you would like to see what some content looks like using this tool.
 
 <div align="center">
       <a href="https://www.youtube.com/watch?v=Mq37hBHx-Qc">
@@ -11,20 +11,19 @@ I wanted to make simple tool for making videos using electronjs, threejs, vuejs,
     </p>
 </div>
 
+## What the goals are with this project
+
+When it comes to what the goals are with this project I have all ready archived the core set of goals that I had in mind. This is the reason why I stalled with the development of R6 of videoground for a long time. I have been more interested in figuring out what direction I should go in terms of content rather that improving the core tool that I use to make such content. However I do have a few plains worked out for additional changes that should happen in the todo list. many of these changes are for the sake of improving features that are all ready in place rather than making this project too complex.
 
 ## Frame by Frame Exporting
 
-The main way of exporting should be as a collection of png files for each frame written to a target export folder in the OS file system. Once I have a collection of images from there I can use a tool like ffmpeg to create a video file from the command line. I can then take a raw video file made from the frames and create another video file with ffmpeg that will include an audio track that is made with additional software tools like [Musescore](https://musescore.org/en) and [Audacity](https://www.audacityteam.org/).
+The main way of exporting thus far is as a collection of png files for each frame written to a target export folder in the OS file system. Once I have a collection of images from there I can use a command line tool like [ffmpeg](https://ffmpeg.org/) to create a video file. I can then take that raw video file made from the frames, and create another video file with ffmpeg that will include an audio track that is made with additional software tools like [Musescore](https://musescore.org/en), [Audacity](https://www.audacityteam.org/) and anything else that helps just work out what the audio track should be.
 
-Exporting this way may not be preferred for many reasons that I do not care to get into detail with here. However I have found that this is just simply a tired yet true way of exporting that has not broken for me yet, and will still work just fine when it comes to sticking to short 30 second to maybe at most 5 minute videos. After that the shortcomings of this form of exporting should become a bit to much of a pain. If I do keep working on this project maybe I will get around to having better export options, but in any case this kind of export must always work as a fall back of sorts in the event that other options break.
-
-## What the goals are with this project
-
-When it comes to what the goals are in terms of adding features there is only so much that I might want to add. If I do keep working on this I am going to end up completing the core set of features that I want. Once that is done I am going to want to be a little more reserved about adding features, choosing to move forward with features that I only really truly want and need. In fact as of r3 I would say I am all ready at a point where the goal is to just refine the features that I all ready have in place for the most part.
+Exporting this way may not be preferred for many reasons that I do not care to get into detail with here. However I have found that this is just simply a tired yet true way of exporting that has not broken for me yet, and will still work just fine when it comes to sticking to short 30 second to maybe at most 10 minute videos. After that the shortcomings of this form of exporting do start to become a bit a pain but might still be workable. If I do keep working on this project maybe I will get around to having better export options, but in any case this kind of export must always work as a fall back of sorts in the event that other options break. Also for one reason or another I might want to export this way anyway.
 
 ## Install
 
-If the latest revision will work okay just clone down a shallow copy with git. Once the folder is downloaded cd into the root of the folder and just do an npm install to get the version of electronjs that is set in the package.json file. Once everything is set up I can then just do an npm start to run videoground. If all works well the current state video should be displayed along with the source code for that video in the textarea element.
+If the latest revision will work okay just clone down a shallow copy with git. Once the folder is downloaded cd into the root of the folder and just do an npm install to get the version of electronjs that is set in the package.json file. Once everything is set up just do an npm start to run videoground. If all works well the current start video should be displayed along with the source code for that video in the textarea element.
 
 ```
 $ git clone --depth 1 https://github.com/dustinpfister/videoground
@@ -32,11 +31,12 @@ $ cd videoground
 $ npm install
 $ npm start
 ```
+
 ### Download a specific revision
 
 The latest is not always the greatest when it comes to many things with software, often things go in a direction in which there are just too many features packed into a single application. However when it comes to videoground the latest state of master might not always be stable regardless if I keep this minimal or not. It then might be a good idea to clone down a certain revision such as R5 for example. 
 
-To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to name a different name for the folder such as R5 or something to that effect if I am going to have more than one revision to work with on a system. While I am at it I can also use --depth 1 to make sure that I do not get the full hisotory up to that point as well.
+To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to name a different name for the folder such as R5 or something to that effect if I am going to have more than one revision to work with on a system. 
 
 ```
 $ git clone -b "0.5.0" --depth 1 https://github.com/dustinpfister/videoground vgr4
@@ -47,7 +47,7 @@ $ npm start
 
 ## How to start making videos
 
-Once videoground is up and running the next question is how to get going making videos with this. There is a whole lot of ground to cover with that one as I use, and keep making all kinds of additional javaScript module that I use to make videos. In this section I will be going over what the options are when it comes to a hello world example, and where to find example videos to start with in other content projects that I have made thus far.
+Once videoground is up and running the next question is how to get going making videos with this. There is a whole lot of ground to cover with that one, I am making a lot of changes at the time of this writing, and there is also no official DOCS at this time. So for now it would be best to just look at the source code of the start videos, and additional content repositories that I have set up thus far. In this section I will be going over what the options are when it comes to a hello world example, and where to find example and project videos that I have made thus far.
 
 <div align="center">
     <a href="https://www.youtube.com/watch?v=AzuB6ExUE64">
@@ -61,7 +61,7 @@ Once videoground is up and running the next question is how to get going making 
 
 ### Video Ground Hello world file
 
-There are a number of feature to cover when it comes to everything there is to work with the core of videoground. However for now it might be best to just have a simple hello world example in the readme file here.
+As of R6 there are at least two methods that I would want to define for the main VIDEO API. There is the init method that will be called once to set up the scene object, and do anything and everything that needs to happen to set up the video. The init method can return a promise and this will delay the calling of the update method for the first time. The update method is then the other method that I would want to define when it comes to what I want to do on frame by frame basis.
 
 ```js
 // init method for the video
@@ -85,8 +85,6 @@ VIDEO.update = function(sm, scene, camera, per, bias){
     mesh.position.x = -4 + 8 * sm.bias;
 };
 ```
-
-The two main functions to define in the javaScript file are VIDEO.init, and VIDEO.update. The init function will be called once to set up things, that the update function is how to go about updating things on a frame by fame basis.
 
 ### The start-videos folder of this repo
 
@@ -151,4 +149,7 @@ r6 -
 ```
 
 On raspberry PI os buster chromium 90.x is used, and on bullseye I am seeing 101.x when it comes to the builds in the official repos that are installed out of the box. So when updating to later versions of electronjs I will likely want to keep things in that range. Bleeding edge versions of electronjs using chrome 104+ do not seem to be working so great at the time of this writing.
+
+
+## LEGAL
 
