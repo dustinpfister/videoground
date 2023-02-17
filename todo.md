@@ -41,7 +41,14 @@
 * () Ctrl+s shortcut
 * () astrisk in title when there are unsaved changes
 
-## () - rx - settings.json, video18-start.js
+## () - rx - javaScript and JSM client systems, and Revision Number Selection
+* () I will want a window-main-javascript html file for using a threejs revision by way of three.min.js
+* () I will want a window-main-jsm html file for using three.module.js
+* () add r91, r146, and r149 (or r150 if out ) for additional threejs revision options
+* () add three.min.js for all revision where available
+* () add three.module.js for all revisions where available
+
+## () - rx - Settings.json, video18-start.js
 * () new video18-start.js file that will just be the new start video for this revision.
 * () rename all the older start videos where there is an addtiona text over the name that gives some idea as to what the file is about
 * () start a settings.json file
@@ -50,10 +57,10 @@
 * () sm.r string that is the current threejs revision number being used
 * () use userData to get and set webgl state
 
-## () - r6 - run button, User Data Folder, Webgl test, help menu, VIDEO #17
+## () - r6 - run button, User Data Folder started, Webgl test, help menu, VIDEO #17
+* (done) bump electronjs up to 13.6.9
 * (done) start VIDEO 17 that will be about a simple webgl2 test
 * (done) make VIDEO 17 the start video
-* (done) bump electronjs up to 13.6.9
 * (done) menuAbout event started
 * (done) Display the result of this webgl test in the help about menu 
 * (done) I will want to have a webgl2 test that involves using the isWebgl2 boolean of a webgl renderer
