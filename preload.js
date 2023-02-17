@@ -1,24 +1,31 @@
-// preload with contextIsolation enabled
+//-------- ----------
+// CONSTS
+//-------- ----------
+const REVISION = '7_dev';
+const OPT_USERDATA = {
+    app_name: 'videoground_r' + REVISION,
+    file_name: 'system.json',
+    data_default:{
+       webgl2: false,
+       platfrom: 'unknown'
+    }
+};
+//-------- ----------
+// NODE CORE MODULES
+//-------- ----------
 const { contextBridge, ipcRenderer} = require('electron');
 const path = require('path');
 const fs = require('fs');
 const promisify = require('util').promisify;
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
-
-
+//-------- ----------
+// CUSTOM MODULES
+//-------- ----------
 const userData = require( path.join(__dirname, 'lib/user-data/user-data.js') );
-console.log(userData);
-
-const OPT_USERDATA = {
-    app_name: 'videoground',
-    file_name: 'system.json',
-    data_default:{
-       webgl2: false,
-       platfrom: 'unkown'
-    }
-};
-
+//-------- ----------
+// CREATE USER DATA OBJECT
+//-------- ----------
 userData.create(OPT_USERDATA)
 .catch((e)=>{
     console.warn('error creating user data file:');
@@ -29,19 +36,13 @@ userData.create(OPT_USERDATA)
     console.log(obj);
     userData.set(OPT_USERDATA, 'foo', 'bar');
 })
-
-
-
-
-//const userData = require(  path.join(__dirname, 'lib/user-data/user-data.js') );
-
-//console.log(userData)
-
-// the api that will be window.videoAPI in the client side code
-let videoAPI = {};
 //-------- ----------
-// LOGGING
+// VIDEO API
 //-------- ----------
+let videoAPI = {
+  r: REVISION
+};
+// logging
 videoAPI.log = ( mess, id ) => {
     console.log('----------');
     if(typeof mess === 'String' || typeof mess === 'Number'){
@@ -52,31 +53,23 @@ videoAPI.log = ( mess, id ) => {
     }
     console.log('----------');
 };
-
 const log =  (mess)=> {
     videoAPI.log(mess, 'preload.js');
 };
-
 videoAPI.dir_root = __dirname;
 videoAPI.pathJoin = path.join;
 videoAPI.pathBasename = path.basename;
 videoAPI.pathDirname = path.dirname;
 // start video URI value
 videoAPI.uri_startvideo = videoAPI.pathJoin( videoAPI.dir_root, 'start-videos/video17.js' );
-
-//!!! r6 change - webgl2 test
-// webgl2 test
+// wgl2 test
 videoAPI.webGL2_test_pass = false;
-
 videoAPI.setWebGLTest = function(testResult){
     videoAPI.webGL2_test_pass = testResult;
 };
-
 // the events object
 const EVENT = {};
-
-
-//!!! r6 change added menu about event
+// about menu
 EVENT.menuAbout = function(callback){
     ipcRenderer.on('menuAbout', function(evnt){
         callback(evnt);
@@ -85,12 +78,10 @@ EVENT.menuAbout = function(callback){
         ipcRenderer.send('menuAboutMessageReady', videoAPI.webGL2_test_pass);
     });
 };
-//!!! r6 change added menu canceled
 // menu canceled event
 EVENT.menuCanceled = function(callback){
     ipcRenderer.on('menuCanceled', callback);
 };
-
 // export to images
 EVENT.menuExport = function(callback){
     ipcRenderer.on('menuExport', function(evnt, result, mode) {
@@ -98,7 +89,6 @@ EVENT.menuExport = function(callback){
         callback(evnt, result, imageFolder, mode);
     });
 };
-
 // when a file is opened with file > open
 EVENT.menuOpenFile = function(callback){
     ipcRenderer.on('menuOpenFile', function(evnt, result) {
@@ -106,30 +96,25 @@ EVENT.menuOpenFile = function(callback){
         videoAPI.loadFile(filePath, callback, evnt, result);
     });
 };
-
+// save a file
 EVENT.menuSaveFile = function(callback){
     ipcRenderer.on('menuSaveFile', callback);
 };
-
 // when an error happens with a menu option
 EVENT.menuError = function(callback){
     ipcRenderer.on('menuError', function(evnt, err) {
         callback(evnt, err);
     });
 };
-
 // The main on method to attach events
 videoAPI.on = function(eventType, callback){
    EVENT[eventType](callback);
 };
-
 // write a frame file to the given image folder, and frame index
 videoAPI.writeFrame = (imageFolder, frameIndex, dataURL, callback) => {
     callback = callback || function(){};
     let data = dataURL.split(',')[1];
     let buf = Buffer.from(data, 'base64');
-    //let filePath = path.join(imageFolder, 'frame-' + frameIndex + '.png');
-    //!!! r6 change - frame-dddd.png to frame-dddddd.png 
     let filePath = path.join(imageFolder, 'frame-' + String(frameIndex).padStart(6, 0) + '.png'); 
     return writeFile(filePath, buf, 'binary')
     .then(()=>{
@@ -141,7 +126,6 @@ videoAPI.writeFrame = (imageFolder, frameIndex, dataURL, callback) => {
          return Promise.reject(e);
      });
 };
-
 // write js file text
 videoAPI.writeJSFile = (filePath, text, callback) => {
     callback = callback || function(){};
@@ -155,7 +139,6 @@ videoAPI.writeJSFile = (filePath, text, callback) => {
          return Promise.reject(e);
      });
 };
-
 // load a javascript video file
 //!!! BUG #2 has to do with this, and as of r5 I can not seem to find out what is wrong thus far
 videoAPI.loadFile = (filePath, callback) => {
@@ -188,6 +171,5 @@ videoAPI.loadFile = (filePath, callback) => {
         return Promise.reject(e);
     }
 };
-
 // create an API for window objects in web pages
 contextBridge.exposeInMainWorld('videoAPI', videoAPI);

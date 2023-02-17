@@ -41,14 +41,17 @@
 * () Ctrl+s shortcut
 * () astrisk in title when there are unsaved changes
 
-## () - rx - javaScript and JSM client systems, and Revision Number Selection
+## () - r8 - javaScript and JSM client systems, and Revision Number Selection
+* () set REVISION const in preload.js set to '8_dev'
 * () I will want a window-main-javascript html file for using a threejs revision by way of three.min.js
 * () I will want a window-main-jsm html file for using three.module.js
 * () add r91, r146, and r149 (or r150 if out ) for additional threejs revision options
 * () add three.min.js for all revision where available
 * () add three.module.js for all revisions where available
+* () preload.js REVISION, and package.json set to 8 and commit with message '0.7.0'
 
 ## () - r7 - Settings.json
+* (done) new REVISION const in preload.js set to '7_dev' string
 * () try bumping electionjs to 14.2.9
 * () new video18-r7-start.js file that will just be the new start video for this revision.
 * () rename all the older start videos as video[VIDNUMBER]-r[REVISION]-[DESC]
@@ -56,7 +59,7 @@
 * () use settings.json to set the location of a video file to start with
 * () use setings.json to set the start folder for opening or saving a file
 * () sm.r string that is the current threejs revision number being used
-* () change package.json version 0.7.0 and commit '0.7.0'
+* () preload.js REVISION, and package.json set to 7 and commit with message '0.7.0'
 
 ## ( done 02/17/2023 ) - r6 - run button, User Data Folder started, Webgl test, help menu, VIDEO #17
 * (done) bump electronjs up to 13.6.9
