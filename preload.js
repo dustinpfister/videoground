@@ -16,9 +16,7 @@ const OPT_USERDATA_SETTINGS = {
     app_name: 'videoground_r' + REVISION,
     file_name: 'settings.json',
     data_default:{
-       //foo: 'baz'
-       //webgl2: false,
-       //platfrom: 'unknown'
+       uri_video_start: URI_VIDEO_START
     }
 };
 //-------- ----------
@@ -36,7 +34,6 @@ userData.create(OPT_USERDATA_SETTINGS)
 .then((obj)=>{
     console.log('user data file looks good');
     console.log(obj);
-    //userData.set(OPT_USERDATA_SETTINGS, 'foo', 'bar');
 });
 //-------- ----------
 // VIDEO API
@@ -158,16 +155,17 @@ videoAPI.loadFile = (filePath, callback) => {
         // read the file and send it to the client
         return readFile(filePath, 'utf8')
         .then((text)=>{
-            
+
+            userData.set(OPT_USERDATA_SETTINGS, 'uri_video_start', filePath);
+
             callback(text, null, filePath);
             return Promise.resolve({
                 text: text,
                 e: null,
                 filePath: filePath
-            })
+            });
         })
         .catch((e)=>{
-            
             callback(null, e, filePath);
             return Promise.reject(e);
         })
