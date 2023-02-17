@@ -61,7 +61,7 @@ videoAPI.pathJoin = path.join;
 videoAPI.pathBasename = path.basename;
 videoAPI.pathDirname = path.dirname;
 // start video URI value
-videoAPI.uri_startvideo = videoAPI.pathJoin( videoAPI.dir_root, 'start-videos/video17.js' );
+videoAPI.uri_startvideo = videoAPI.pathJoin( videoAPI.dir_root, 'start-videos/video18-r7-start.js' );
 // wgl2 test
 videoAPI.webGL2_test_pass = false;
 videoAPI.setWebGLTest = function(testResult){
