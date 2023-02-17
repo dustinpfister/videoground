@@ -13,11 +13,7 @@
 * () - #9 - videoAPI.webGL2-test-pass still false when read client side look into another way to store state
 * () - #10 - error loading dae textures when loading from more than one folder
 
-## () - rx - user data folder
-* bump electronjs up to 15.5.7
-
 ## () - rx - Clean sm object on each call of setup method
-* () bump electronjs up to 14.2.9
 * () I will need to turn client.js into a module that returns a public API like clientMod
 * () have a clientMod.createSM method
 * () have a clientMod.setup method
@@ -52,7 +48,7 @@
 
 ## () - r7 - Settings.json
 * (done) new REVISION const in preload.js set to '7_dev' string
-* () try bumping electionjs to 14.2.9
+* (done) try bumping electionjs to 14.2.9
 * () new video18-r7-start.js file that will just be the new start video for this revision.
 * () rename all the older start videos as video[VIDNUMBER]-r[REVISION]-[DESC]
 * () make a settings.json file in the user data folder

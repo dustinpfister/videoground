@@ -9,6 +9,6 @@
   "author": "Dustin Pfister",
   "license": "GPL-2.0",
   "devDependencies": {
-    "electron": "^13.6.9"
+    "electron": "^14.2.9"
   }
 }
