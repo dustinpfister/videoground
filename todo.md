@@ -52,9 +52,11 @@
 * (done) display REVISION const in about menu
 * (done) new video18-r7-start.js file that will just be the new start video for this revision.
 * (done) rename all the older start videos as video\[VIDNUMBER\]-r\[REVISION\]-\[DESC\]
+* (done) make a settings.json file in the user data folder
+* (done) use settings.json to set the location of a video file to start with
 
-* () make a settings.json file in the user data folder
-* () use settings.json to set the location of a video file to start with
+* () use the uri video start key in settings.json as the start video
+
 * () use setings.json to set the start folder for opening or saving a file
 
 * () update README to reflect changes made in R7
