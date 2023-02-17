@@ -51,13 +51,13 @@
 * (done) try bumping electionjs to 14.2.9
 * (done) display REVISION const in about menu
 * (done) new video18-r7-start.js file that will just be the new start video for this revision.
-
-* () rename all the older start videos as video[VIDNUMBER]-r[REVISION]-[DESC]
+* (done) rename all the older start videos as video\[VIDNUMBER\]-r\[REVISION\]-\[DESC\]
 
 * () make a settings.json file in the user data folder
 * () use settings.json to set the location of a video file to start with
 * () use setings.json to set the start folder for opening or saving a file
-* () sm.r string that is the current threejs revision number being used
+
+* () update README to reflect changes made in R7
 * () preload.js REVISION, and package.json set to 7 and commit with message '0.7.0'
 
 ## ( done 02/17/2023 ) - r6 - run button, User Data Folder started, Webgl test, help menu, VIDEO #17

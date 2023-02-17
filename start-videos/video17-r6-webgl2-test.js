@@ -20,13 +20,11 @@ VIDEO.init = function(sm, scene, camera){
         new THREE.MeshNormalMaterial());
     mesh.position.set(0, 0, -5);
     scene.add(mesh);
-
+    // if isWebGL2?
     if(sm.renderer.capabilities.isWebGL2){
         scene.background = new THREE.Color(0, 0.2, 0);
     }
-
 };
-
 // update method for the video
 VIDEO.update = function(sm, scene, camera, per, bias){
     let mesh = scene.userData.mesh;
