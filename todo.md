@@ -55,6 +55,8 @@
 * (done) make a settings.json file in the user data folder
 * (done) use settings.json to set the location of a video file to start with
 
+* () I will want a new videoAPI.getSettings method that will load the current state of settings.json
+* () use the new videoAPI.getSettings method in ui-video-code.js to get the current start video uri
 * () use the uri video start key in settings.json as the start video
 
 * () use setings.json to set the start folder for opening or saving a file
