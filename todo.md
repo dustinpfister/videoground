@@ -60,6 +60,8 @@
 * (done) use setings.json to set the start folder for opening or saving a file
 * (done) update start file uri on each save of a file
 
+* (done) client.js is to vague, just make it all part off video-setup.js
+
 * () see about having a file > Open Recent menu option
 
 * () update README to reflect changes made in R7
