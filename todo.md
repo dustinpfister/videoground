@@ -54,12 +54,12 @@
 * (done) rename all the older start videos as video\[VIDNUMBER\]-r\[REVISION\]-\[DESC\]
 * (done) make a settings.json file in the user data folder
 * (done) use settings.json to set the location of a video file to start with
+* (done) I will want a new videoAPI.getSettings method that will load the current state of settings.json
+* (done) use the new videoAPI.getSettings method in ui-video-code.js to get the current start video uri
+* (done) use the uri video start key in settings.json as the start video
+* (done) use setings.json to set the start folder for opening or saving a file
 
-* () I will want a new videoAPI.getSettings method that will load the current state of settings.json
-* () use the new videoAPI.getSettings method in ui-video-code.js to get the current start video uri
-* () use the uri video start key in settings.json as the start video
 
-* () use setings.json to set the start folder for opening or saving a file
 
 * () update README to reflect changes made in R7
 * () preload.js REVISION, and package.json set to 7 and commit with message '0.7.0'

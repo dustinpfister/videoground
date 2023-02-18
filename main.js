@@ -52,14 +52,8 @@ app.on('window-all-closed', function () {
 //******** **********
 // EVENTS
 //******** **********
-
-//!!! r6 change - menu about message ready event
 ipcMain.on('menuAboutMessageReady', function(evnt, about){
     const mainWindow = BrowserWindow.fromId(1);
-    //const pkg = require( path.join(__dirname, 'package.json') );
-    //const r = pkg.version.split('.')[1];
-    //console.log('Menu About Message Ready: ');
-    //console.log('webGL2_test_pass: ' + webGL2_test_pass);
     dialog.showMessageBox(mainWindow, {
         message: 'VideoGround: r' + about.r + '\n' +
             'electron: ' + process.versions['electron'] + '\n' +

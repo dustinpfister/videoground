@@ -41,6 +41,11 @@ userData.create(OPT_USERDATA_SETTINGS)
 let videoAPI = {
   r: REVISION
 };
+
+videoAPI.getSettings = () => {
+    return userData.get(OPT_USERDATA_SETTINGS);
+};
+
 // logging
 videoAPI.log = ( mess, id ) => {
     console.log('----------');

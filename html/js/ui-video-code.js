@@ -137,14 +137,27 @@
     // ********** **********
     // LOAD STARTING VIDEO FILE
     // ********** **********
-    log('Calling videoAPI.loadFile for first time for: ' + videoAPI.uri_startvideo);
-    videoAPI.loadFile(videoAPI.uri_startvideo)
+    //!!! R7 Change - loading settings object, and use the start video uri there
+    // only use the hard coded start video if there is an error
+    videoAPI.getSettings()
+    .then((obj_settings)=>{
+        log('Was able to get the settings object just fine.');
+        //console.log(opt);
+        return videoAPI.loadFile(obj_settings.uri_video_start)
+    })
+    .catch((e)=>{
+        log('There was an error getting the settings object.');
+        log(e.message);
+        log('loading the hard coded start video then...');
+        return videoAPI.loadFile(videoAPI.uri_startvideo)
+    })
     .then((result)=>{
         setFilePath(result.filePath);
         loadText(result.text);
     })
     .catch((e)=>{
-        console.warn(e.message);
+        log('error loading text when trying to load the start file.');
+        log(e.message);
     });
 }
     ());
