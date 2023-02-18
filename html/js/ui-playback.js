@@ -5,7 +5,8 @@
     //-------- ---------
     var vm = new Vue({
         el: '#wrap_playpack',
-        template: '<div class="wrap_ui">' +
+        template: '<div class="wrap_ui wrap_ui_playback">' +
+            '<span>Playback Controls:</span><br>' +
             '<input type="button" value="play/pause" v-on:click="play"><br>' +
             '<input type="button" value="frame+" v-on:click="stepFrame(1)">  ' +
             '<input type="button" value="frame-" v-on:click="stepFrame(-1)"><br>' +

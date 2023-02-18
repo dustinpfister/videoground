@@ -31,11 +31,9 @@
 * () start a new export to video option
 * () the export to video option will make an ffmpeg call after frames are rendered
 
-## () - rx - js editing improvements
-* () LF to CRLF End Of Line Conversion
-* () Edit save menu item
-* () Ctrl+s shortcut
-* () astrisk in title when there are unsaved changes
+## () - rx - Logger lib
+* () start a /lib/logger/index.js that will be the main logger lib used by all javaScript files
+* () have a videoAPI.createLogger funciton that can be used to create a logger for each of the client files
 
 ## () - r8 - javaScript and JSM client systems, and Revision Number Selection
 * () set REVISION const in preload.js set to '8_dev'
@@ -46,7 +44,7 @@
 * () add three.module.js for all revisions where available
 * () preload.js REVISION, and package.json set to 8 and commit with message '0.7.0'
 
-## () - r7 - Settings.json, Open recent
+## () - r7 - Settings.json, Open recent, new File, Save
 * (done) new REVISION const in preload.js set to '7_dev' string
 * (done) try bumping electionjs to 14.2.9
 * (done) display REVISION const in about menu
@@ -60,9 +58,15 @@
 * (done) use setings.json to set the start folder for opening or saving a file
 * (done) update start file uri on each save of a file
 * (done) client.js is to vague, just make it all part off video-setup.js
+* (done) CSS: make it so that it is clear as to what is part of ui-playback and ui-video-code
 
 * () see about making the start folder always be the same as the start file when opening a new file
+* () have a file > new option
 * () see about having a file > Open Recent menu option
+* () see about having a file > Save menu option
+* () LF to CRLF End Of Line Conversion
+* () Ctrl+s shortcut
+* () astrisk in title when there are unsaved changes
 
 * () update README to reflect changes made in R7
 * () preload.js REVISION, and package.json set to 7 and commit with message '0.7.0'

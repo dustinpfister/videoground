@@ -10,8 +10,9 @@
     // vm instance for video code input text area
     var vm = new Vue({
         el: '#wrap_video_code',
-        template: '<div class="wrap_ui">' +
-            '<span>{{ fileName }}</span><br><br>' +
+        template: '<div class="wrap_ui wrap_ui_video_code">' +
+            '<span>Video Code Controls:</span><br>' +
+            '<span>fileName: {{ fileName }}</span><br>' +
             '<button name="run" v-on:click="updateVideo">Run</button><br>'+
             '<textarea class="textarea_js" v-model="videoJS" v-on:input="textChange"></textarea>'+
         '</div>',

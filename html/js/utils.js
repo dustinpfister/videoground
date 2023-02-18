@@ -1,3 +1,4 @@
+// utils.js - just a dumping ground for any utility funcitons I want to use for the client system
 var utils = {};
 
 // DAE tools

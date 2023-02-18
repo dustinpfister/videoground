@@ -18,9 +18,17 @@ canvas{
   height: 240px;
   width: 100%;
 }
+#wrap_playpack{}
+#wrap_video_code{}
 .wrap_ui{
   padding: 10px;
   line-height: 25px;
+}
+.wrap_ui_playback{
+  background: #888800;
+}
+.wrap_ui_video_code{
+  background: #008888;
 }
 .textarea_js{
    width: 100%;
