@@ -58,6 +58,7 @@
 * (done) use the new videoAPI.getSettings method in ui-video-code.js to get the current start video uri
 * (done) use the uri video start key in settings.json as the start video
 * (done) use setings.json to set the start folder for opening or saving a file
+* (done) update start file uri on each save of a file
 
 
 

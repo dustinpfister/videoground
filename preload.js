@@ -139,6 +139,9 @@ videoAPI.writeJSFile = (filePath, text, callback) => {
     callback = callback || function(){};
     return writeFile(filePath, text, 'utf8')
     .then(()=>{
+         //!!! r7 change - update start video to this file on each load
+         userData.set(OPT_USERDATA_SETTINGS, 'uri_video_start', filePath);
+         // calback and promise
          callback(null);
          return Promise.resolve();
      })
@@ -160,9 +163,9 @@ videoAPI.loadFile = (filePath, callback) => {
         // read the file and send it to the client
         return readFile(filePath, 'utf8')
         .then((text)=>{
-
+            //!!! r7 change - update start video to this on each load
             userData.set(OPT_USERDATA_SETTINGS, 'uri_video_start', filePath);
-
+            // callback and return promise
             callback(text, null, filePath);
             return Promise.resolve({
                 text: text,

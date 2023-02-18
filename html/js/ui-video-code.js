@@ -124,6 +124,7 @@
         videoAPI.writeJSFile(result.filePath, vm.$data.videoJS)
         .then(()=>{
             log('wrote file: ' + result.filePath);
+            setFilePath(result.filePath);
         })
         .catch((e)=>{
             console.warn(e.message);
