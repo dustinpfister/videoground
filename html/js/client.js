@@ -162,12 +162,10 @@
     sm.replaceRenderer( new THREE.WebGLRenderer() )
     sm.setup();
 
-   // EVENTS
-   //!!! r6 change - menuAbout event
+    // EVENTS
     videoAPI.on('menuAbout', function(evnt){
-        console.log('menu about');
-        //!!! Value is still false here.
-        console.log(videoAPI.webGL2_test_pass); 
+        console.log('ABOUT MENU EVENT!! (client.js)');
     });
+
 }
     ());

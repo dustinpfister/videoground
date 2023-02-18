@@ -1,5 +1,8 @@
+// ui-playback-code.js - For playback controls of the video
 (function () {
-    // vm for playback controls
+    //-------- ---------
+    // VUE FOR PLAYBACK CONTROLS
+    //-------- ---------
     var vm = new Vue({
         el: '#wrap_playpack',
         template: '<div class="wrap_ui">' +
@@ -37,7 +40,9 @@
             }
         }
     });
-
+    //-------- ---------
+    // WRITE FRAME RECURSIVE FUNCTION
+    //-------- ---------
     var writeFrame = (imageFolder, frameIndex) => {
         var data = vm.$data,
         sm = data.sm;
@@ -57,7 +62,9 @@
             console.warn(e);
         });
     };
-
+    //-------- ---------
+    // MENU EVENTS
+    //-------- ---------
     videoAPI.on('menuExport', function(evnt, result, imageFolder, mode){
         writeFrame(imageFolder, 0); 
     });

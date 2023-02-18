@@ -1,8 +1,12 @@
+// ui-video-code.js - For the user interface that is used to edit and run the javaScript code for the video
 (function () {
     // log method for ui-video-code
     const log =  (mess) => {
         videoAPI.log(mess, 'ui-video-code.js');
     };
+    //-------- ----------
+    // VUE FOR VIDEO CODE USER INTERFACE
+    //-------- ----------
     // vm instance for video code input text area
     var vm = new Vue({
         el: '#wrap_video_code',
@@ -27,6 +31,9 @@
             }
         }
     });
+    //-------- ----------
+    // ADDITIONAL METHODS
+    //-------- ----------
     // load dae
     var loadDAE = function(callback){
         // if there are dea paths then I will want to load them	
@@ -100,9 +107,6 @@
                     loadLoop();
                 }else{
                     // no scripts? then just run setup
-
-
-
                     sm.setup();
                 }
             });
@@ -110,9 +114,9 @@
             console.warn(e.message);
         }
     };
-    // ********** **********
+    //-------- ----------
     // MENU EVENTS
-    // ********** **********
+    //-------- ----------
     videoAPI.on('menuOpenFile', function(text, e, filePath){
         log('Menu open event handler in ui-video-code.js');
         setFilePath(filePath);
@@ -135,9 +139,10 @@
     videoAPI.on('menuError', function(evnt, err){
         log(err);
     });
-    // ********** **********
+    videoAPI.on('menuAbout', function(evnt){});
+    //-------- ----------
     // LOAD STARTING VIDEO FILE
-    // ********** **********
+    //-------- ----------
     //!!! R7 Change - loading settings object, and use the start video uri there
     // only use the hard coded start video if there is an error
     videoAPI.getSettings()

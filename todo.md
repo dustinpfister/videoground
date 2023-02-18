@@ -46,7 +46,7 @@
 * () add three.module.js for all revisions where available
 * () preload.js REVISION, and package.json set to 8 and commit with message '0.7.0'
 
-## () - r7 - Settings.json
+## () - r7 - Settings.json, Open recent
 * (done) new REVISION const in preload.js set to '7_dev' string
 * (done) try bumping electionjs to 14.2.9
 * (done) display REVISION const in about menu
@@ -60,7 +60,7 @@
 * (done) use setings.json to set the start folder for opening or saving a file
 * (done) update start file uri on each save of a file
 
-
+* () see about having a file > Open Recent menu option
 
 * () update README to reflect changes made in R7
 * () preload.js REVISION, and package.json set to 7 and commit with message '0.7.0'
