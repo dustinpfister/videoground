@@ -68,21 +68,18 @@
 * (done) README.md for constants.js
 * (done) using webGL1Renderer
 * (done) start folder location for saveAs should also be the same for open
+* (done) I will want a helper function in menu.js for code that I am reparting for each menu action such as open, save as, ect
 
-* () I will want a helper function in menu.js for code that I am reparting for each menu action such as open, save as, ect
+* () see about having a file > Save menu option
+* () Ctrl+s shortcut for save
 
 * () start a file > new option in menu.js
 * () have the new option use the start video as the start point for the new video
-
 * () see about having a file > Open Recent menu option
-* () see about having a file > Save menu option
 * () LF to CRLF End Of Line Conversion
-* () Ctrl+s shortcut for save
 * () astrisk in title when there are unsaved changes
-
 * () have a way to set a templates location in settings.json
 * () start a file > new from template option
-
 * () see if videoAPI.webGL2-test-pass can be set by way of electionjs features
 
 * () update README to reflect changes made in R7

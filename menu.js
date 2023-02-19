@@ -5,7 +5,22 @@ const path = require('path');
 // CUSTOM MODULES
 //-------- ----------
 const userData = require( path.join(__dirname, 'lib/user-data/user-data.js') );
-const CONSTANT = require( path.join(__dirname, 'lib/constants/constants.js') )
+const CONSTANT = require( path.join(__dirname, 'lib/constants/constants.js') );
+//-------- ----------
+// HELPERS
+//-------- ----------
+const updateDilogOptions = (opt) => {
+    return userData.get(CONSTANT.OPT_USERDATA_SETTINGS)
+    .then((settings)=>{
+        const folder = path.dirname( settings.uri_video_start);
+        opt.defaultPath = folder;
+        return Promise.resolve(opt);
+    })
+    .catch(()=>{
+        console.warn('Error updaing dilog options with settings.json');
+        return Promise.resolve(opt);
+     });
+};
 //-------- ----------
 // MENU
 //-------- ----------
@@ -24,14 +39,8 @@ const MainMenuTemplate = [
                         defaultPath: '/',
                         properties: ['openFile']
                     };
-                    userData.get(CONSTANT.OPT_USERDATA_SETTINGS)
-                    .then((settings)=>{
-                        const folder = path.dirname( settings.uri_video_start);
-                        opt_open.defaultPath = folder;
-                    })
-                    .catch(()=>{
-                    })
-                    .then( ()=>{
+                    updateDilogOptions(opt_open)
+                    .then( (opt_open) => {
                         const mainWindow = BrowserWindow.fromId(1);
                         dialog.showOpenDialog(mainWindow, opt_open)
                         .then((result) => {
@@ -51,38 +60,23 @@ const MainMenuTemplate = [
             {
                 label: 'Save As',
                 click: () => {
-
-
                     const opt_save = {
                         properties: ['showHiddenFiles']
                     };
-
-
-userData.get(CONSTANT.OPT_USERDATA_SETTINGS)
-then((settings)=>{
-const folder = path.dirname( settings.uri_video_start);
-opt_save.defaultPath = folder;
-})
-.catch(()=>{
-})
-.then( ()=>{
-
-
-                    const mainWindow = BrowserWindow.fromId(1);
-                    dialog.showSaveDialog(mainWindow, opt_save)
-                    .then((result) => {
-                        if(result.canceled){
-                            mainWindow.webContents.send('menuCanceled', result);
-                        }else{
-                            mainWindow.webContents.send('menuSaveFile', result);
-                        }
-                    }).catch((err) => {
-                        mainWindow.webContents.send('menuError', err);
+                    updateDilogOptions(opt_save)
+                    .then( (opt_save) => {
+                        const mainWindow = BrowserWindow.fromId(1);
+                        dialog.showSaveDialog(mainWindow, opt_save)
+                        .then((result) => {
+                            if(result.canceled){
+                                mainWindow.webContents.send('menuCanceled', result);
+                            }else{
+                                mainWindow.webContents.send('menuSaveFile', result);
+                            }
+                        }).catch((err) => {
+                            mainWindow.webContents.send('menuError', err);
+                        });
                     });
-
-
-});
-
                 }
             },
             // EXPORT TO IMAGES
