@@ -14,6 +14,7 @@ function createMainWindow() {
                 // I tried to disable webSecurity to see if that would fix the issue with CSP and vuejs (did not work)
                 webSecurity: true,
                 contextIsolation: true,
+                nativeWindowOpen: true,
                 preload: path.resolve( __dirname, 'preload.js')
             }
         });
