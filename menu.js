@@ -26,7 +26,8 @@ const MainMenuTemplate = [
                     };
                     userData.get(CONSTANT.OPT_USERDATA_SETTINGS)
                     .then((settings)=>{
-                        opt_open.defaultPath = settings.uri_video_start;
+                        const folder = path.dirname( settings.uri_video_start);
+                        opt_open.defaultPath = folder;
                     })
                     .catch(()=>{
                     })
