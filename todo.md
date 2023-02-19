@@ -42,7 +42,9 @@
 * () add r91, r146, and r149 (or r150 if out ) for additional threejs revision options
 * () add three.min.js for all revision where available
 * () add three.module.js for all revisions where available
-* () preload.js REVISION, and package.json set to 8 and commit with message '0.7.0'
+
+* () update README to reflect changes made in R8
+* () REVISION in constants.js, and package.json set to 8 and commit with message '0.7.0'
 
 ## () - r7 - Settings.json, Open recent, new File, Save
 * (done) new REVISION const in preload.js set to '7_dev' string
@@ -61,19 +63,23 @@
 * (done) CSS: make it so that it is clear as to what is part of ui-playback and ui-video-code
 * (done) see about making the start folder always be the same as the start file when opening a new file
 * (done) looks like I am going to need a constants.js file
-
 * (done) move new constants.js file to lib folder
-* () README.md for constants.js
+* (done) README.md for constants.js
 
-* () have a file > new option
+* () start a file > new option in menu.js
+* () have the new option use the start video as the start point for the new video
+
 * () see about having a file > Open Recent menu option
 * () see about having a file > Save menu option
 * () LF to CRLF End Of Line Conversion
-* () Ctrl+s shortcut
+* () Ctrl+s shortcut for save
 * () astrisk in title when there are unsaved changes
 
+* () have a way to set a templates location in settings.json
+* () start a file > new from template option
+
 * () update README to reflect changes made in R7
-* () preload.js REVISION, and package.json set to 7 and commit with message '0.7.0'
+* () REVISION in constants.js, and package.json set to 7 and commit with message '0.7.0'
 
 ## ( done 02/17/2023 ) - r6 - run button, User Data Folder started, Webgl test, help menu, VIDEO #17
 * (done) bump electronjs up to 13.6.9
