@@ -18,7 +18,7 @@ function createMainWindow() {
             }
         });
     // load the html file for the main window
-    mainWindow.loadFile('html/window_main_r140.html');
+    mainWindow.loadFile('html/window_main_r146.html');
     // Open the DevTools for debugging
     mainWindow.webContents.openDevTools();
     const menu = Menu.buildFromTemplate( require( path.join(__dirname, 'menu.js') ) );

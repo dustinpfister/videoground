@@ -49,6 +49,7 @@
 ## () - r7 - Settings.json, Open recent, new File, Save
 * (done) new REVISION const in preload.js set to '7_dev' string
 * (done) try bumping electionjs to 14.2.9
+* (done) add r146 to html/js/threejs
 * (done) display REVISION const in about menu
 * (done) new video18-r7-start.js file that will just be the new start video for this revision.
 * (done) rename all the older start videos as video\[VIDNUMBER\]-r\[REVISION\]-\[DESC\]
@@ -65,6 +66,7 @@
 * (done) looks like I am going to need a constants.js file
 * (done) move new constants.js file to lib folder
 * (done) README.md for constants.js
+* (done) using webGL1Renderer
 
 * () start a file > new option in menu.js
 * () have the new option use the start video as the start point for the new video
@@ -77,6 +79,8 @@
 
 * () have a way to set a templates location in settings.json
 * () start a file > new from template option
+
+* () see if videoAPI.webGL2-test-pass can be set by way of electionjs features
 
 * () update README to reflect changes made in R7
 * () REVISION in constants.js, and package.json set to 7 and commit with message '0.7.0'

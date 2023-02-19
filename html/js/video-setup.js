@@ -34,10 +34,10 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     // webGL2 test
     //-------- ----------
     //!!! r6 change - setting webgl test value
-    console.log(videoAPI.webGL2_test_pass);
-    var testRenderer = new THREE.WebGLRenderer();
-    videoAPI.setWebGLTest(testRenderer.capabilities.isWebGL2);
-    console.log(videoAPI.webGL2_test_pass);
+    //console.log(videoAPI.webGL2_test_pass);
+    //var testRenderer = new THREE.WebGLRenderer();
+    //videoAPI.setWebGLTest(testRenderer.capabilities.isWebGL2);
+    //console.log(videoAPI.webGL2_test_pass);
     //-------- ----------
     // HELPER FUNCTIONS
     //-------- ----------
@@ -164,7 +164,7 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         canvas.style.height = Math.floor(ratio.h * 420) + 'px';
     };
     // call replace renderer for first time here before calling sm.setup
-    sm.replaceRenderer( new THREE.WebGLRenderer() )
+    sm.replaceRenderer( new THREE.WebGL1Renderer() )
     sm.setup();
     //-------- ----------
     // MENU EVENTS
