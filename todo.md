@@ -59,8 +59,11 @@
 * (done) update start file uri on each save of a file
 * (done) client.js is to vague, just make it all part off video-setup.js
 * (done) CSS: make it so that it is clear as to what is part of ui-playback and ui-video-code
+* (done) see about making the start folder always be the same as the start file when opening a new file
+* (done) looks like I am going to need a constants.js file
 
-* () see about making the start folder always be the same as the start file when opening a new file
+* () move new constants.js file to lib folder
+
 * () have a file > new option
 * () see about having a file > Open Recent menu option
 * () see about having a file > Save menu option

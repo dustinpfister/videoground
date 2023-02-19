@@ -10,15 +10,10 @@ const writeFile = promisify(fs.writeFile);
 //-------- ----------
 // CONSTS
 //-------- ----------
-const REVISION = '7_dev';
-const URI_VIDEO_START = path.join(__dirname, 'start-videos/video18-r7-start.js');
-const OPT_USERDATA_SETTINGS = {
-    app_name: 'videoground_r' + REVISION,
-    file_name: 'settings.json',
-    data_default:{
-       uri_video_start: URI_VIDEO_START
-    }
-};
+const CONSTANT = require( path.join(__dirname, 'constants.js') )
+const REVISION = CONSTANT.REVISION;
+const URI_VIDEO_START = CONSTANT.URI_VIDEO_START;
+const OPT_USERDATA_SETTINGS = CONSTANT.OPT_USERDATA_SETTINGS;
 //-------- ----------
 // CUSTOM MODULES
 //-------- ----------

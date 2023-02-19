@@ -1,8 +1,17 @@
 // load app and BrowserWindow
 const { app, Menu, BrowserWindow, dialog } = require('electron');
 const path = require('path');
-
-// Custom Menus
+//-------- ----------
+// CUSTOM MODULES
+//-------- ----------
+const userData = require( path.join(__dirname, 'lib/user-data/user-data.js') );
+const CONSTANT = require( path.join(__dirname, 'constants.js') )
+const REVISION = CONSTANT.REVISION;
+const URI_VIDEO_START = CONSTANT.URI_VIDEO_START;
+const OPT_USERDATA_SETTINGS = CONSTANT.OPT_USERDATA_SETTINGS;
+//-------- ----------
+// MENU
+//-------- ----------
 const isMac = process.platform === 'darwin';
 const pkg = require( path.join(__dirname, 'package.json') );
 // The main menu for the main window
@@ -14,18 +23,29 @@ const MainMenuTemplate = [
             {
                 label: 'Open',
                 click: function(){
-                    const mainWindow = BrowserWindow.fromId(1);
-                    dialog.showOpenDialog(mainWindow, {
+                    const opt_open = {
+                        defaultPath: '/',
                         properties: ['openFile']
-                    }).then((result) => {
-                        if(result.canceled){
-                            mainWindow.webContents.send('menuCanceled', result);
-                        }else{
-                            mainWindow.webContents.send('menuOpenFile', result);
-                        }
-                    }).catch((err) => {
-                        // error getting file path
-                        mainWindow.webContents.send('menuError', err);
+                    };
+                    userData.get(OPT_USERDATA_SETTINGS)
+                    .then((settings)=>{
+                        opt_open.defaultPath = settings.uri_video_start;
+                    })
+                    .catch(()=>{
+                    })
+                    .then( ()=>{
+                        const mainWindow = BrowserWindow.fromId(1);
+                        dialog.showOpenDialog(mainWindow, opt_open)
+                        .then((result) => {
+                            if(result.canceled){
+                                mainWindow.webContents.send('menuCanceled', result);
+                            }else{
+                                mainWindow.webContents.send('menuOpenFile', result);
+                            }
+                        }).catch((err) => {
+                            // error getting file path
+                            mainWindow.webContents.send('menuError', err);
+                        });
                     });
                 }
             },
