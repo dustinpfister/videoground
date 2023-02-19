@@ -5,10 +5,7 @@ const path = require('path');
 // CUSTOM MODULES
 //-------- ----------
 const userData = require( path.join(__dirname, 'lib/user-data/user-data.js') );
-const CONSTANT = require( path.join(__dirname, 'constants.js') )
-const REVISION = CONSTANT.REVISION;
-const URI_VIDEO_START = CONSTANT.URI_VIDEO_START;
-const OPT_USERDATA_SETTINGS = CONSTANT.OPT_USERDATA_SETTINGS;
+const CONSTANT = require( path.join(__dirname, 'lib/constants/constants.js') )
 //-------- ----------
 // MENU
 //-------- ----------
@@ -27,7 +24,7 @@ const MainMenuTemplate = [
                         defaultPath: '/',
                         properties: ['openFile']
                     };
-                    userData.get(OPT_USERDATA_SETTINGS)
+                    userData.get(CONSTANT.OPT_USERDATA_SETTINGS)
                     .then((settings)=>{
                         opt_open.defaultPath = settings.uri_video_start;
                     })

@@ -62,7 +62,8 @@
 * (done) see about making the start folder always be the same as the start file when opening a new file
 * (done) looks like I am going to need a constants.js file
 
-* () move new constants.js file to lib folder
+* (done) move new constants.js file to lib folder
+* () README.md for constants.js
 
 * () have a file > new option
 * () see about having a file > Open Recent menu option

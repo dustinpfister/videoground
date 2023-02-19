@@ -10,7 +10,7 @@ const writeFile = promisify(fs.writeFile);
 //-------- ----------
 // CONSTS
 //-------- ----------
-const CONSTANT = require( path.join(__dirname, 'constants.js') )
+const CONSTANT = require( path.join(__dirname, 'lib/constants/constants.js') )
 const REVISION = CONSTANT.REVISION;
 const URI_VIDEO_START = CONSTANT.URI_VIDEO_START;
 const OPT_USERDATA_SETTINGS = CONSTANT.OPT_USERDATA_SETTINGS;
