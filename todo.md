@@ -68,6 +68,8 @@
 * (done) README.md for constants.js
 * (done) using webGL1Renderer
 
+* () start folder location for saveAs should also be the same for open
+
 * () start a file > new option in menu.js
 * () have the new option use the start video as the start point for the new video
 
