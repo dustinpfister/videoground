@@ -67,8 +67,9 @@
 * (done) move new constants.js file to lib folder
 * (done) README.md for constants.js
 * (done) using webGL1Renderer
+* (done) start folder location for saveAs should also be the same for open
 
-* () start folder location for saveAs should also be the same for open
+* () I will want a helper function in menu.js for code that I am reparting for each menu action such as open, save as, ect
 
 * () start a file > new option in menu.js
 * () have the new option use the start video as the start point for the new video

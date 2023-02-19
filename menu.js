@@ -51,10 +51,26 @@ const MainMenuTemplate = [
             {
                 label: 'Save As',
                 click: () => {
-                    const mainWindow = BrowserWindow.fromId(1);
-                    dialog.showSaveDialog(mainWindow, {
+
+
+                    const opt_save = {
                         properties: ['showHiddenFiles']
-                    }).then((result) => {
+                    };
+
+
+userData.get(CONSTANT.OPT_USERDATA_SETTINGS)
+then((settings)=>{
+const folder = path.dirname( settings.uri_video_start);
+opt_save.defaultPath = folder;
+})
+.catch(()=>{
+})
+.then( ()=>{
+
+
+                    const mainWindow = BrowserWindow.fromId(1);
+                    dialog.showSaveDialog(mainWindow, opt_save)
+                    .then((result) => {
                         if(result.canceled){
                             mainWindow.webContents.send('menuCanceled', result);
                         }else{
@@ -63,6 +79,10 @@ const MainMenuTemplate = [
                     }).catch((err) => {
                         mainWindow.webContents.send('menuError', err);
                     });
+
+
+});
+
                 }
             },
             // EXPORT TO IMAGES
