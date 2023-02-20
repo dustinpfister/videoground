@@ -81,9 +81,6 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     let secs = 0,
     fps_update = 30,   // fps rate to update ( low fps for low CPU use, but choppy video )
     fps_movement = 60, // fps rate to move camera
-    frame = 0,
-    frameMax = 600,
-    loopActive = false,
     lt = new Date();
     // update
     let update = function(){

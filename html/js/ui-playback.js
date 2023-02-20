@@ -12,7 +12,7 @@
             '<input type="button" value="frame-" v-on:click="stepFrame(-1)"><br>' +
             '<input type="text" size="5" v-model="targetFrame"><input type="button" value="set frame" v-on:click="setFrame"><br>' +
             '<input type="text" size="5" v-model="sm.frameMax"><input type="button" value="set max frame" v-on:click="setFrame"><br>' +
-             '<span> {{ sm.frame }} / {{ sm.frameMax}} </span>' + 
+             '<span> {{ sm.frame }} / {{ sm.frameMax }} </span>' + 
         '</div>',
         data: {
            sm: sm,
@@ -69,6 +69,4 @@
     videoAPI.on('menuExport', function(evnt, result, imageFolder, mode){
         writeFrame(imageFolder, 0); 
     });
-
-}
-    ());
+}());
