@@ -1,5 +1,5 @@
 // load app and BrowserWindow
-const { app, Menu, BrowserWindow, dialog, ipcMain } = require('electron');
+const { app, Menu, BrowserWindow, dialog, ipcMain} = require('electron');
 const path = require('path');
 //-------- ----------
 // CUSTOM MODULES
@@ -13,9 +13,6 @@ const CONSTANT = require( path.join(__dirname, 'lib/constants/constants.js') );
 const updateDilogOptions = (opt) => {
     return userData.get(CONSTANT.OPT_USERDATA_SETTINGS)
     .then((settings)=>{
-
-console.log(settings);
-
         const folder = path.dirname( settings.uri_video_start);
         opt.defaultPath = folder;
         return Promise.resolve(opt);
@@ -31,9 +28,6 @@ const saveAsDialog =  (opt_saveas) => {
      opt_saveas = opt_saveas || {
          properties: ['showHiddenFiles']
      };
-
-console.log(opt_saveas);
-
      const mainWindow = BrowserWindow.fromId(1);
      return dialog.showSaveDialog(mainWindow, opt_saveas)
      .then((result) => {
@@ -59,6 +53,7 @@ const MainMenuTemplate = [
             // open a file
             {
                 label: 'Open',
+                accelerator: 'CommandOrControl+O',
                 click: function(){
                     const opt_open = {
                         defaultPath: '/',
@@ -84,6 +79,7 @@ const MainMenuTemplate = [
             // save the current file
             {
                 label: 'Save',
+                accelerator: 'CommandOrControl+S',
                 click: () => {
                     const mainWindow = BrowserWindow.fromId(1);
                     // just trigger the event

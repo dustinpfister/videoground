@@ -73,23 +73,22 @@
 * (done) start a new menuSaveFile event
 * (done) have a file > Save menu option that will directly save the file if there is a filename
 * (done) have a videoAPI.saveAsDialog method that can be used from ui-video-code.js
-
-
-<!-- keyboard shprtcuts -->
-* () Ctrl+s shortcut for save
+* (done) Ctrl+s shortcut for save
+* (done) Cyrl+o shortcut for open
 
 <!-- file new-->
 * () start a file > new option in menu.js
+* () use the hard coded start video as the start point for the new video
 * () when creating a new file the fileName and filePath vm data object values should be null
 * () use menuSaveAsFile videoAPI.saveAsDialog in save event when fileName and filePath vm data object values are null
 
-* () have the new option use the start video as the start point for the new video
+
 * () see about having a file > Open Recent menu option
+
 * () LF to CRLF End Of Line Conversion
 * () astrisk in title when there are unsaved changes
-* () have a way to set a templates location in settings.json
 * () start a file > new from template option
-* () see if videoAPI.webGL2-test-pass can be set by way of electionjs features
+* () have a way to set a templates location in settings.json
 
 * () update README to reflect changes made in R7
 * () REVISION in constants.js, and package.json set to 7 and commit with message '0.7.0'
