@@ -65,7 +65,7 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     //-------- ----------
     // THE STATE MACHINE (sm) object
     //-------- ----------
-    let sm = window.sm = {
+    const sm = window.sm = {
         filePath: null,
         renderer: null,
         canvas: null,
@@ -76,31 +76,31 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         bias: 0,
         scene: scene,
         camera: null,
-        loopActive: false
+        loopActive: false,
+        secs: 0,
+        lt: new Date(),
+        fps_update: 30,       // fps rate to update ( low fps for low CPU use, but choppy playback video )
+        fps_movement: 30
     };
-    let secs = 0,
-    fps_update = 30,   // fps rate to update ( low fps for low CPU use, but choppy video )
-    fps_movement = 60, // fps rate to move camera
-    lt = new Date();
     // update
-    let update = function(){
+    const update = function(){
         sm.per = Math.round(sm.frame) / sm.frameMax;
         sm.bias = getBias(sm.per);
         // global in client.js
         VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias);
     };
     // app loop
-    let loop = function () {
-        let now = new Date(),
-        secs = (now - lt) / 1000;
+    const loop = function () {
+        const now = new Date();
+        sm.secs = (now - sm.lt) / 1000;
         if(sm.loopActive){
             requestAnimationFrame(loop);
-            if(secs > 1 / fps_update){
+            if(sm.secs > 1 / sm.fps_update){
                 sm.setFrame();
-                sm.frameFrac += fps_movement * secs;
+                sm.frameFrac += sm.fps_movement * sm.secs;
                 sm.frameFrac %= sm.frameMax;
                 sm.frame = Math.floor(sm.frameFrac)
-                lt = now;
+                sm.lt = now;
             }
         }
     };
@@ -139,7 +139,7 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     sm.play = function(){
         sm.loopActive = !sm.loopActive;
         if(sm.loopActive){
-            lt = new Date();
+            sm.lt = new Date();
             loop();
         }
     };

@@ -75,6 +75,10 @@
 * (done) have a videoAPI.saveAsDialog method that can be used from ui-video-code.js
 * (done) Ctrl+s shortcut for save
 * (done) Cyrl+o shortcut for open
+<!-- html/js/video-setup.js -->
+* (done) removed vars that are not used anymore
+* (done) make sec, fps-update, fps-movement, and lt part of sm object
+
 <!-- file new-->
 * () start a file > new option in menu.js
 * () use the hard coded start video as the start point for the new video
