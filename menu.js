@@ -17,7 +17,7 @@ const updateDilogOptions = (opt) => {
         return Promise.resolve(opt);
     })
     .catch(()=>{
-        console.warn('Error updaing dilog options with settings.json');
+        console.warn('Error updating dilog options with settings.json');
         return Promise.resolve(opt);
      });
 };
@@ -56,10 +56,18 @@ const MainMenuTemplate = [
                     });
                 }
             },
-            // SAVE A FILE
+            {
+                label: 'Save',
+                click: () => {
+                    //mainWindow.webContents.send('menuSaveFile');
+                }
+            },
+            // SAVE AS FILE MENU OPTION
             {
                 label: 'Save As',
                 click: () => {
+
+
                     const opt_save = {
                         properties: ['showHiddenFiles']
                     };
@@ -77,6 +85,7 @@ const MainMenuTemplate = [
                             mainWindow.webContents.send('menuError', err);
                         });
                     });
+
                 }
             },
             // EXPORT TO IMAGES

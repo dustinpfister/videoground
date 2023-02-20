@@ -70,7 +70,12 @@
 * (done) start folder location for saveAs should also be the same for open
 * (done) I will want a helper function in menu.js for code that I am reparting for each menu action such as open, save as, ect
 
-* () see about having a file > Save menu option
+
+* () rename menuSaveFile event to menuSaveAsFile event
+* () start a new menuSaveFile event
+
+* () have a file > Save menu option that will directly save the file if there is a filename
+
 * () Ctrl+s shortcut for save
 
 * () start a file > new option in menu.js
