@@ -123,18 +123,29 @@
         setFilePath(filePath);
         loadText(text);
     });
-    // on save file
-    //videoAPI.on('menuSaveFile', function(evnt, result){
-    videoAPI.on('menuSaveAsFile', function(evnt, result){
-        if(!result.canceled){
-        videoAPI.writeJSFile(result.filePath, vm.$data.videoJS)
+    // save the current file
+    videoAPI.on('menuSaveFile', () => {
+        const uri_file = videoAPI.pathJoin(vm.$data.filePath, vm.$data.fileName);
+        log('Save file event started for ' + uri_file);
+        videoAPI.writeJSFile(uri_file, vm.$data.videoJS)
         .then(()=>{
-            log('wrote file: ' + result.filePath);
-            setFilePath(result.filePath);
+           log('Saved the current file: ' + vm.$data.fileName);
         })
         .catch((e)=>{
             console.warn(e.message);
         });
+    });
+    // save a file as
+    videoAPI.on('menuSaveAsFile', function(evnt, result){
+        if(!result.canceled){
+            videoAPI.writeJSFile(result.filePath, vm.$data.videoJS)
+            .then(()=>{
+                log('Saved a new file as: ' + result.filePath);
+                setFilePath(result.filePath);
+            })
+            .catch((e)=>{
+                console.warn(e.message);
+            });
         }
     });
     // on menu error

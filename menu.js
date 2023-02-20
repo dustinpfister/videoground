@@ -56,17 +56,19 @@ const MainMenuTemplate = [
                     });
                 }
             },
+            // save the current file
             {
                 label: 'Save',
                 click: () => {
+                    const mainWindow = BrowserWindow.fromId(1);
+                    // just trigger the event
+                    mainWindow.webContents.send('menuSaveFile');
                 }
             },
             // SAVE AS FILE MENU OPTION
             {
                 label: 'Save As',
                 click: () => {
-
-
                     const opt_save = {
                         properties: ['showHiddenFiles']
                     };

@@ -43,14 +43,14 @@ videoAPI.getSettings = () => {
 
 // logging
 videoAPI.log = ( mess, id ) => {
-    console.log('----------');
-    if(typeof mess === 'String' || typeof mess === 'Number'){
+    //console.log('----------');
+    if(typeof mess === 'string' || typeof mess === 'number'){
         console.log(id + ':' + mess);
     }else{
         console.log(id + ':' );
         console.log(mess)
     }
-    console.log('----------');
+    //console.log('----------');
 };
 const log =  (mess)=> {
     videoAPI.log(mess, 'preload.js');
@@ -99,7 +99,11 @@ EVENT.menuOpenFile = function(callback){
         videoAPI.loadFile(filePath, callback, evnt, result);
     });
 };
-// save a file
+// save as a file
+EVENT.menuSaveFile = function(callback){
+    ipcRenderer.on('menuSaveFile', callback);
+};
+// save as a file
 EVENT.menuSaveAsFile = function(callback){
     ipcRenderer.on('menuSaveAsFile', callback);
 };
