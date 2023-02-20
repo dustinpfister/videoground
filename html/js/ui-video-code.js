@@ -125,7 +125,7 @@
     });
     // on save file
     //videoAPI.on('menuSaveFile', function(evnt, result){
-    videoAPI.on('menuSaveFile', function(evnt, result){
+    videoAPI.on('menuSaveAsFile', function(evnt, result){
         if(!result.canceled){
         videoAPI.writeJSFile(result.filePath, vm.$data.videoJS)
         .then(()=>{

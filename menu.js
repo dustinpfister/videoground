@@ -59,7 +59,6 @@ const MainMenuTemplate = [
             {
                 label: 'Save',
                 click: () => {
-                    //mainWindow.webContents.send('menuSaveFile');
                 }
             },
             // SAVE AS FILE MENU OPTION
@@ -79,7 +78,7 @@ const MainMenuTemplate = [
                             if(result.canceled){
                                 mainWindow.webContents.send('menuCanceled', result);
                             }else{
-                                mainWindow.webContents.send('menuSaveFile', result);
+                                mainWindow.webContents.send('menuSaveAsFile', result);
                             }
                         }).catch((err) => {
                             mainWindow.webContents.send('menuError', err);

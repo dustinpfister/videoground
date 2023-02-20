@@ -100,8 +100,8 @@ EVENT.menuOpenFile = function(callback){
     });
 };
 // save a file
-EVENT.menuSaveFile = function(callback){
-    ipcRenderer.on('menuSaveFile', callback);
+EVENT.menuSaveAsFile = function(callback){
+    ipcRenderer.on('menuSaveAsFile', callback);
 };
 // when an error happens with a menu option
 EVENT.menuError = function(callback){
