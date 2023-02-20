@@ -31,7 +31,7 @@ const MainMenuTemplate = [
     {
         label: 'File',
         submenu: [
-            isMac ? { role: 'close' }: { role: 'quit' },
+            // open a file
             {
                 label: 'Open',
                 click: function(){
@@ -86,7 +86,6 @@ const MainMenuTemplate = [
                             mainWindow.webContents.send('menuError', err);
                         });
                     });
-
                 }
             },
             // EXPORT TO IMAGES
@@ -108,7 +107,9 @@ const MainMenuTemplate = [
                         mainWindow.webContents.send('menuError', err);
                     });
                 }
-            }
+            },
+            // quit
+            isMac ? { role: 'close' }: { role: 'quit' }
         ]
     },
     {
