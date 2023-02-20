@@ -118,6 +118,9 @@
     //-------- ----------
     // MENU EVENTS
     //-------- ----------
+
+//videoAPI.saveAsDialog();
+
     videoAPI.on('menuOpenFile', function(text, e, filePath){
         log('Menu open event handler in ui-video-code.js');
         setFilePath(filePath);

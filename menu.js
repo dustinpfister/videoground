@@ -9,22 +9,33 @@ const CONSTANT = require( path.join(__dirname, 'lib/constants/constants.js') );
 //-------- ----------
 // HELPERS
 //-------- ----------
+// update the options object used for open and save as events to user data settings
 const updateDilogOptions = (opt) => {
     return userData.get(CONSTANT.OPT_USERDATA_SETTINGS)
     .then((settings)=>{
+
+console.log(settings);
+
         const folder = path.dirname( settings.uri_video_start);
         opt.defaultPath = folder;
         return Promise.resolve(opt);
     })
-    .catch(()=>{
+    .catch((e)=>{
         console.warn('Error updating dilog options with settings.json');
+        console.warn(e.message);
         return Promise.resolve(opt);
      });
 };
-// save as dilog helper used in save as menu item
+// save as dilog helper used in save as file menu item, and saveAsDialogRequest event at bottom of file
 const saveAsDialog =  (opt_saveas) => {
+     opt_saveas = opt_saveas || {
+         properties: ['showHiddenFiles']
+     };
+
+console.log(opt_saveas);
+
      const mainWindow = BrowserWindow.fromId(1);
-     dialog.showSaveDialog(mainWindow, opt_saveas)
+     return dialog.showSaveDialog(mainWindow, opt_saveas)
      .then((result) => {
          if(result.canceled){
              mainWindow.webContents.send('menuCanceled', result);
@@ -151,6 +162,11 @@ const MainMenuTemplate = [
 //-------- ----------
 // EVENTS
 //-------- ----------
-
+ipcMain.on('saveAsDialogRequest', function(evnt, opt_saveas){
+    updateDilogOptions(opt_saveas)
+    .then( (opt_saveas) => {
+        saveAsDialog(opt_saveas);
+    });
+});
 
 module.exports = MainMenuTemplate;

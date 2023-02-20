@@ -72,12 +72,13 @@
 * (done) rename menuSaveFile event to menuSaveAsFile event
 * (done) start a new menuSaveFile event
 * (done) have a file > Save menu option that will directly save the file if there is a filename
+* (done) have a videoAPI.saveAsDialog method that can be used from ui-video-code.js
+
 
 <!-- keyboard shprtcuts -->
 * () Ctrl+s shortcut for save
+
 <!-- file new-->
-* () have a videoAPI.saveAsDialog method that can be used from ui-video-code.js
-* () use new videoAPI.saveAsDialog method for menuSaveAsFile event handerler in ui-video-code.js
 * () start a file > new option in menu.js
 * () when creating a new file the fileName and filePath vm data object values should be null
 * () use menuSaveAsFile videoAPI.saveAsDialog in save event when fileName and filePath vm data object values are null

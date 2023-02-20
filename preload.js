@@ -72,8 +72,6 @@ const EVENT = {};
 EVENT.menuAbout = function(callback){
     ipcRenderer.on('menuAbout', function(evnt){
         callback(evnt);
-        //console.log('sending message to main: ');
-        //console.log('videoAPI.webGL2_test_pass: ' + videoAPI.webGL2_test_pass);
         const about = {
             webGL2_test_pass: videoAPI.webGL2_test_pass,
             r: REVISION
@@ -182,5 +180,13 @@ videoAPI.loadFile = (filePath, callback) => {
         return Promise.reject(e);
     }
 };
+
+videoAPI.saveAsDialog = (opt_saveas) => {
+    opt_saveas = opt_saveas || {
+         properties: ['showHiddenFiles']
+    };
+    ipcRenderer.send('saveAsDialogRequest', opt_saveas);
+};
+
 // create an API for window objects in web pages
 contextBridge.exposeInMainWorld('videoAPI', videoAPI);
