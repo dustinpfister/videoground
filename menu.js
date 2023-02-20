@@ -1,5 +1,5 @@
 // load app and BrowserWindow
-const { app, Menu, BrowserWindow, dialog } = require('electron');
+const { app, Menu, BrowserWindow, dialog, ipcMain } = require('electron');
 const path = require('path');
 //-------- ----------
 // CUSTOM MODULES
@@ -20,6 +20,20 @@ const updateDilogOptions = (opt) => {
         console.warn('Error updating dilog options with settings.json');
         return Promise.resolve(opt);
      });
+};
+// save as dilog helper used in save as menu item
+const saveAsDialog =  (opt_saveas) => {
+     const mainWindow = BrowserWindow.fromId(1);
+     dialog.showSaveDialog(mainWindow, opt_saveas)
+     .then((result) => {
+         if(result.canceled){
+             mainWindow.webContents.send('menuCanceled', result);
+         }else{
+             mainWindow.webContents.send('menuSaveAsFile', result);
+         }
+    }).catch((err) => {
+        mainWindow.webContents.send('menuError', err);
+    });
 };
 //-------- ----------
 // MENU
@@ -69,22 +83,12 @@ const MainMenuTemplate = [
             {
                 label: 'Save As',
                 click: () => {
-                    const opt_save = {
+                    const opt_saveas = {
                         properties: ['showHiddenFiles']
                     };
-                    updateDilogOptions(opt_save)
-                    .then( (opt_save) => {
-                        const mainWindow = BrowserWindow.fromId(1);
-                        dialog.showSaveDialog(mainWindow, opt_save)
-                        .then((result) => {
-                            if(result.canceled){
-                                mainWindow.webContents.send('menuCanceled', result);
-                            }else{
-                                mainWindow.webContents.send('menuSaveAsFile', result);
-                            }
-                        }).catch((err) => {
-                            mainWindow.webContents.send('menuError', err);
-                        });
+                    updateDilogOptions(opt_saveas)
+                    .then( (opt_saveas) => {
+                        saveAsDialog(opt_saveas);
                     });
                 }
             },
@@ -143,5 +147,10 @@ const MainMenuTemplate = [
         ]
     }
 ];
+
+//-------- ----------
+// EVENTS
+//-------- ----------
+
 
 module.exports = MainMenuTemplate;

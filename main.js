@@ -50,9 +50,9 @@ app.on('window-all-closed', function () {
         app.quit()
 });
 
-//******** **********
+//-------- ----------
 // EVENTS
-//******** **********
+//-------- ----------
 ipcMain.on('menuAboutMessageReady', function(evnt, about){
     const mainWindow = BrowserWindow.fromId(1);
     dialog.showMessageBox(mainWindow, {
