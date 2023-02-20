@@ -75,21 +75,19 @@
 * (done) have a videoAPI.saveAsDialog method that can be used from ui-video-code.js
 * (done) Ctrl+s shortcut for save
 * (done) Cyrl+o shortcut for open
-
 <!-- file new-->
 * () start a file > new option in menu.js
 * () use the hard coded start video as the start point for the new video
 * () when creating a new file the fileName and filePath vm data object values should be null
-* () use menuSaveAsFile videoAPI.saveAsDialog in save event when fileName and filePath vm data object values are null
-
-
-* () see about having a file > Open Recent menu option
-
-* () LF to CRLF End Of Line Conversion
-* () astrisk in title when there are unsaved changes
+* () use videoAPI.saveAsDialog in save event when fileName and filePath vm data object values are null
 * () start a file > new from template option
 * () have a way to set a templates location in settings.json
-
+<!-- open recent -->
+* () see about having a file > Open Recent menu option
+<!-- MISC -->
+* () LF to CRLF End Of Line Conversion
+* () astrisk in title when there are unsaved changes
+<!-- FIN-->
 * () update README to reflect changes made in R7
 * () REVISION in constants.js, and package.json set to 7 and commit with message '0.7.0'
 
