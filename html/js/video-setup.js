@@ -143,6 +143,22 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
             loop();
         }
     };
+    // set the resoluton of the renderer, update the camera also
+    sm.resSet = function(new_index){
+        sm.res_current_index = new_index === undefined ? sm.res_current_index : new_index;
+        sm.res = sm.res_options[sm.res_current_index];
+        // set size of the renderer canvas
+        sm.renderer.setSize(sm.res.w, sm.res.h);
+        // set scaled size of canvas
+        let ratio = getRatio(sm.res);
+        sm.canvas.style.width = Math.floor(ratio.w * 420) + 'px';
+        sm.canvas.style.height = Math.floor(ratio.h * 420) + 'px';
+        // update camera aspect ratio
+        if(sm.camera){
+            sm.camera.aspect = sm.res.w / sm.res.h;
+            sm.camera.updateProjectionMatrix();
+        }
+    },
     // replace renderer method
     sm.replaceRenderer = function(newRenderer){
         // remove old canvas element if not null
@@ -154,11 +170,16 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         sm.canvas = sm.renderer.domElement;
         // append to wrap canvas
         WRAP_CANVAS.appendChild(sm.canvas);
-        sm.renderer.setSize(sm.res.w, sm.res.h);
+
+
+        sm.resSet(sm.res_current_index);
+
         // set scaled size of canvas
+/*
         let ratio = getRatio(sm.res);
         sm.canvas.style.width = Math.floor(ratio.w * 420) + 'px';
         sm.canvas.style.height = Math.floor(ratio.h * 420) + 'px';
+*/
     };
     // call replace renderer for first time here before calling sm.setup
     sm.replaceRenderer( new THREE.WebGL1Renderer() )
