@@ -23,13 +23,15 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     // Sticking with 'youtube friendly' options when it comes to resolution
     // https://support.google.com/youtube/answer/6375112?hl=en&co=GENIE.Platform%3DDesktop
     const RESOLUTIONS = [
+        {w: 256, h: 144},
         {w: 426, h: 240},
         {w: 640, h: 360},
         {w: 854, h: 480},
         {w: 1280, h: 720},
-        {w: 1920, h: 1080}
+        {w: 1920, h: 1080},
+        {w: 3840, h: 2160}   // 4k
     ];
-    const DEFAULT_RESOLUTION = 2; // going with 480p as a default for this
+    const DEFAULT_RESOLUTION = 3; // going with 480p as a default for this
     //-------- ----------
     // webGL2 test
     //-------- ----------
