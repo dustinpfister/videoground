@@ -57,25 +57,23 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     // SCENE, CAMERA, and RENDERER
     //-------- ----------
     let res = RESOLUTIONS[DEFAULT_RESOLUTION];
-    let scene = new THREE.Scene();
-    // camera created on each call of sm.setup
-    let camera;
+    //let scene = new THREE.Scene();
     // using sm.replaceRender to setup renderer
-    let renderer, canvas;
+    //let renderer, canvas;
     //-------- ----------
     // THE STATE MACHINE (sm) object
     //-------- ----------
     Object.assign(sm, {
         filePath: null,
-        renderer: null,
         canvas: null,
         frame: 0,
         frameFrac: 0,
         frameMax: 600,
         per: 0,
         bias: 0,
-        scene: scene,
+        scene: new THREE.Scene(),
         camera: null,
+        renderer: null,
         loopActive: false,
         secs: 0,
         lt: new Date(),
@@ -110,15 +108,15 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         sm.frameFrac = 0;
         sm.loopActive = false;
         // create new scene object on setup
-        scene = sm.scene = new THREE.Scene();
+        sm.scene = new THREE.Scene();
         // sm.camera created on each call of sm.setup
-        camera = sm.camera = new THREE.PerspectiveCamera(40, res.w / res.h, 0.1, 1000);
-        camera.position.set(10, 10, 10);
-        camera.lookAt(0, 0, 0);
-        scene.children = [];
+        sm.camera = new THREE.PerspectiveCamera(40, res.w / res.h, 0.1, 1000);
+        sm.camera.position.set(10, 10, 10);
+        sm.camera.lookAt(0, 0, 0);
+        //sm.scene.children = [];
         // code to check if VIDEO.init returns a promise or not
         let hard = {data: 'default promise object'};
-        (VIDEO.init(sm, scene, camera) || Promise.resolve(hard) ).then((obj) => {
+        (VIDEO.init(sm, sm.scene, sm.camera) || Promise.resolve(hard) ).then((obj) => {
             if(obj === hard){
                 console.log('sm.setup: no promise used');
             }else{
@@ -150,15 +148,15 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
             sm.canvas.remove();
         }
         // update renderer and canvas
-        renderer = sm.renderer = newRenderer;
-        canvas = sm.canvas = renderer.domElement;
+        sm.renderer = newRenderer;
+        sm.canvas = sm.renderer.domElement;
         // append to wrap canvas
-        WRAP_CANVAS.appendChild(canvas);
-        renderer.setSize(res.w, res.h);
+        WRAP_CANVAS.appendChild(sm.canvas);
+        sm.renderer.setSize(res.w, res.h);
         // set scaled size of canvas
         let ratio = getRatio(res);
-        canvas.style.width = Math.floor(ratio.w * 420) + 'px';
-        canvas.style.height = Math.floor(ratio.h * 420) + 'px';
+        sm.canvas.style.width = Math.floor(ratio.w * 420) + 'px';
+        sm.canvas.style.height = Math.floor(ratio.h * 420) + 'px';
     };
     // call replace renderer for first time here before calling sm.setup
     sm.replaceRenderer( new THREE.WebGL1Renderer() )
