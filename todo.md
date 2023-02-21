@@ -82,7 +82,9 @@
 * (done) removed camera, renderer, and scene globals in favor of sm.camera, ect
 * (done) current RESOLUTION as sm.res
 * () pass false when setting size in sm.setup
-
+<!-- html/ui-playback-->
+* () I would like to have a resolution selection drop down
+* () it would be nice to make the preview canvas bigger or smaller
 <!-- file new-->
 * () start a file > new option in menu.js
 * () use the hard coded start video as the start point for the new video
