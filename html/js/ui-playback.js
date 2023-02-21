@@ -12,13 +12,12 @@
             '<input type="button" value="frame-" v-on:click="stepFrame(-1)"><br>' +
             '<input type="text" size="5" v-model="targetFrame"><input type="button" value="set frame" v-on:click="setFrame">' +
             '<input type="text" size="5" v-model="sm.frameMax"><input type="button" value="set max frame" v-on:click="setFrame"><br>' +
-
-
-'<select id="res_options" v-model="res_index" v-on:click="resChange">'+
-    '<option v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
-'</select><br>' +
-
-
+            '<select id="res_options" v-model="res_index" v-on:click="resChange">'+
+                '<option v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
+            '</select><br>' +
+            '<input type="button" value="preview+" v-on:click="stepPreview(1)">' +
+            '<input type="button" value="preview-" v-on:click="stepPreview(-1)">' +
+            ' {{ sm.previewSize }} <br>' +
              '<span> {{ sm.frame }} / {{ sm.frameMax }} </span>' + 
         '</div>',
         data: {
@@ -26,13 +25,12 @@
            res_index: '',
            targetFrame: 0
         },
-
-updated: function(){
-   const res_current_index = this.$data.sm.res_current_index;
-   const default_res_option = this.$el.querySelector('#res_options').children[res_current_index];
-   default_res_option.selected = true;
-
-},
+        updated: function(){
+            // set the starting resoution index
+            const res_current_index = this.$data.sm.res_current_index;
+            const default_res_option = this.$el.querySelector('#res_options').children[res_current_index];
+            default_res_option.selected = true;
+        },
         methods: {
             stepFrame: function(delta){
                 sm.frameFrac += parseInt(delta);
@@ -41,6 +39,14 @@ updated: function(){
                 sm.frame = Math.floor(sm.frameFrac);
                 sm.setFrame();
             },
+
+            stepPreview: function(delta){
+
+                sm.previewSize += 5 * delta;
+                sm.resSet();
+                sm.setFrame();
+            },
+
             // set a frame
             setFrame: function(){
                 var sm = this.$data.sm;
@@ -54,15 +60,12 @@ updated: function(){
                 var sm = this.$data.sm;
                 sm.play();
             },
+            // res change method for the resolution section drop down menu
             resChange : function(e){
-                // update sm.res_current_index
+                // get the target value that wil contain the string with the index in it.
                 const res_string = e.target.value;
                 const sm = this.$data.sm;
-                //sm.res_current_index = parseInt(res_string.split('_')[0]);
-                // update sm.res to the element in sm.res_options
-                //sm.res = sm.res_options[sm.res_current_index];
-                //console.log('current res index: ' + sm.res_current_index);
-                //console.log('sm.res: ', sm.res);
+                // call resSet passing new index to use
                 sm.resSet(parseInt(res_string.split('_')[0]));
                 sm.setFrame();
             }

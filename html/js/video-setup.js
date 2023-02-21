@@ -81,7 +81,7 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         lt: new Date(),
         fps_update: 30,       // fps rate to update ( low fps for low CPU use, but choppy playback video )
         fps_movement: 30,
-        previewSize: 600
+        previewSize: 400
     });
     // update
     const update = function(){
