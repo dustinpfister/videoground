@@ -10,12 +10,19 @@
             '<input type="button" value="play/pause" v-on:click="play">' +
             '<input type="button" value="frame+" v-on:click="stepFrame(1)">' +
             '<input type="button" value="frame-" v-on:click="stepFrame(-1)"><br>' +
-            '<input type="text" size="5" v-model="targetFrame"><input type="button" value="set frame" v-on:click="setFrame"><br>' +
+            '<input type="text" size="5" v-model="targetFrame"><input type="button" value="set frame" v-on:click="setFrame">' +
             '<input type="text" size="5" v-model="sm.frameMax"><input type="button" value="set max frame" v-on:click="setFrame"><br>' +
+
+'<select v-model="res_index" ><option>0_256x144_youtube_144p</option></select><br>' +
+
+
              '<span> {{ sm.frame }} / {{ sm.frameMax }} </span>' + 
         '</div>',
         data: {
            sm: sm,
+
+res_index: '0_256x144_youtube_144p',
+
            targetFrame: 0
         },
         methods: {
