@@ -42,11 +42,11 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     // HELPER FUNCTIONS
     //-------- ----------
     // get bias value helper
-    let getBias = (per) => {
+    const getBias = (per) => {
         return 1 - Math.abs(per - 0.5) / 0.5;
     };
     // get an object like {w: 1, h: 0.75} from an object like { w: 640, h: 480}
-    let getRatio = (res) => {
+    const getRatio = (res) => {
        let m = Math.max(res.w, res.h);
        return {
            w : res.w / m,
@@ -56,14 +56,12 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     //-------- ----------
     // SCENE, CAMERA, and RENDERER
     //-------- ----------
-    let res = RESOLUTIONS[DEFAULT_RESOLUTION];
-    //let scene = new THREE.Scene();
-    // using sm.replaceRender to setup renderer
-    //let renderer, canvas;
+    //let res = RESOLUTIONS[DEFAULT_RESOLUTION];
     //-------- ----------
     // THE STATE MACHINE (sm) object
     //-------- ----------
     Object.assign(sm, {
+        res: RESOLUTIONS[DEFAULT_RESOLUTION],
         filePath: null,
         canvas: null,
         frame: 0,
@@ -110,7 +108,7 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         // create new scene object on setup
         sm.scene = new THREE.Scene();
         // sm.camera created on each call of sm.setup
-        sm.camera = new THREE.PerspectiveCamera(40, res.w / res.h, 0.1, 1000);
+        sm.camera = new THREE.PerspectiveCamera(40, sm.res.w / sm.res.h, 0.1, 1000);
         sm.camera.position.set(10, 10, 10);
         sm.camera.lookAt(0, 0, 0);
         //sm.scene.children = [];
@@ -152,9 +150,9 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         sm.canvas = sm.renderer.domElement;
         // append to wrap canvas
         WRAP_CANVAS.appendChild(sm.canvas);
-        sm.renderer.setSize(res.w, res.h);
+        sm.renderer.setSize(sm.res.w, sm.res.h);
         // set scaled size of canvas
-        let ratio = getRatio(res);
+        let ratio = getRatio(sm.res);
         sm.canvas.style.width = Math.floor(ratio.w * 420) + 'px';
         sm.canvas.style.height = Math.floor(ratio.h * 420) + 'px';
     };

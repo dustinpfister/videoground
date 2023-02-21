@@ -80,7 +80,7 @@
 * (done) make sec, fps-update, fps-movement, and lt part of sm object
 * (done) using Object.assign to append to sm object
 * (done) removed camera, renderer, and scene globals in favor of sm.camera, ect
-
+* (done) current RESOLUTION as sm.res
 * () pass false when setting size in sm.setup
 
 <!-- file new-->
