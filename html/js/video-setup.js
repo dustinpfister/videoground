@@ -64,6 +64,7 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     //-------- ----------
     Object.assign(sm, {
         res: RESOLUTIONS[DEFAULT_RESOLUTION],
+        res_options: RESOLUTIONS,
         filePath: null,
         canvas: null,
         frame: 0,

@@ -13,7 +13,10 @@
             '<input type="text" size="5" v-model="targetFrame"><input type="button" value="set frame" v-on:click="setFrame">' +
             '<input type="text" size="5" v-model="sm.frameMax"><input type="button" value="set max frame" v-on:click="setFrame"><br>' +
 
-'<select v-model="res_index" ><option>0_256x144_youtube_144p</option></select><br>' +
+
+'<select v-model="res_index">'+
+    '<option v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
+'</select><br>' +
 
 
              '<span> {{ sm.frame }} / {{ sm.frameMax }} </span>' + 
