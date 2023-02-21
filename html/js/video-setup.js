@@ -80,7 +80,8 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         secs: 0,
         lt: new Date(),
         fps_update: 30,       // fps rate to update ( low fps for low CPU use, but choppy playback video )
-        fps_movement: 30
+        fps_movement: 30,
+        previewSize: 600
     });
     // update
     const update = function(){
@@ -148,11 +149,11 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         sm.res_current_index = new_index === undefined ? sm.res_current_index : new_index;
         sm.res = sm.res_options[sm.res_current_index];
         // set size of the renderer canvas
-        sm.renderer.setSize(sm.res.w, sm.res.h);
+        sm.renderer.setSize(sm.res.w, sm.res.h, false);
         // set scaled size of canvas
         let ratio = getRatio(sm.res);
-        sm.canvas.style.width = Math.floor(ratio.w * 420) + 'px';
-        sm.canvas.style.height = Math.floor(ratio.h * 420) + 'px';
+        sm.canvas.style.width = Math.floor(ratio.w * sm.previewSize) + 'px';
+        sm.canvas.style.height = Math.floor(ratio.h * sm.previewSize) + 'px';
         // update camera aspect ratio
         if(sm.camera){
             sm.camera.aspect = sm.res.w / sm.res.h;

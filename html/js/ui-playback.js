@@ -58,12 +58,13 @@ updated: function(){
                 // update sm.res_current_index
                 const res_string = e.target.value;
                 const sm = this.$data.sm;
-                sm.res_current_index = parseInt(res_string.split('_')[0]);
+                //sm.res_current_index = parseInt(res_string.split('_')[0]);
                 // update sm.res to the element in sm.res_options
                 //sm.res = sm.res_options[sm.res_current_index];
                 //console.log('current res index: ' + sm.res_current_index);
                 //console.log('sm.res: ', sm.res);
-                sm.resSet();
+                sm.resSet(parseInt(res_string.split('_')[0]));
+                sm.setFrame();
             }
         }
     });

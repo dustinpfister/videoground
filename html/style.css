@@ -19,7 +19,7 @@ input{
 }
 #wrap_canvas{
   background: #afafaf;
-  height: 240px;
+  /*height: 240px;*/
   width: 100%;
 }
 #wrap_playpack{}

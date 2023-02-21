@@ -75,16 +75,16 @@
 * (done) have a videoAPI.saveAsDialog method that can be used from ui-video-code.js
 * (done) Ctrl+s shortcut for save
 * (done) Cyrl+o shortcut for open
-<!-- html/js/video-setup.js -->
 * (done) removed vars that are not used anymore
 * (done) make sec, fps-update, fps-movement, and lt part of sm object
 * (done) using Object.assign to append to sm object
 * (done) removed camera, renderer, and scene globals in favor of sm.camera, ect
 * (done) current RESOLUTION as sm.res
-* () pass false when setting size in sm.setup
-<!-- html/ui-playback-->
-* () I would like to have a resolution selection drop down
+* (done) have a resolution selection element for ui-playback
+
+
 * () it would be nice to make the preview canvas bigger or smaller
+* () pass false when setting size in sm.setup
 <!-- file new-->
 * () start a file > new option in menu.js
 * () use the hard coded start video as the start point for the new video
