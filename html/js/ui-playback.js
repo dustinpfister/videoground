@@ -14,7 +14,7 @@
             '<input type="text" size="5" v-model="sm.frameMax"><input type="button" value="set max frame" v-on:click="setFrame"><br>' +
 
 
-'<select v-model="res_index">'+
+'<select id="res_options" v-model="res_index" v-on:click="resChange">'+
     '<option v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
 '</select><br>' +
 
@@ -23,11 +23,16 @@
         '</div>',
         data: {
            sm: sm,
-
-res_index: '0_256x144_youtube_144p',
-
+           res_index: '',
            targetFrame: 0
         },
+
+updated: function(){
+   const res_current_index = this.$data.sm.res_current_index;
+   const default_res_option = this.$el.querySelector('#res_options').children[res_current_index];
+   default_res_option.selected = true;
+
+},
         methods: {
             stepFrame: function(delta){
                 sm.frameFrac += parseInt(delta);
@@ -48,6 +53,17 @@ res_index: '0_256x144_youtube_144p',
             play: function(){
                 var sm = this.$data.sm;
                 sm.play();
+            },
+            resChange : function(e){
+                // update sm.res_current_index
+                const res_string = e.target.value;
+                const sm = this.$data.sm;
+                sm.res_current_index = parseInt(res_string.split('_')[0]);
+                // update sm.res to the element in sm.res_options
+                sm.res = sm.res_options[sm.res_current_index];
+                console.log('current res index: ' + sm.res_current_index);
+                console.log('sm.res: ', sm.res);
+
             }
         }
     });
