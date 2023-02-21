@@ -7,8 +7,8 @@
         el: '#wrap_playpack',
         template: '<div class="wrap_ui wrap_ui_playback">' +
             '<span>Playback Controls:</span><br>' +
-            '<input type="button" value="play/pause" v-on:click="play"><br>' +
-            '<input type="button" value="frame+" v-on:click="stepFrame(1)">  ' +
+            '<input type="button" value="play/pause" v-on:click="play">' +
+            '<input type="button" value="frame+" v-on:click="stepFrame(1)">' +
             '<input type="button" value="frame-" v-on:click="stepFrame(-1)"><br>' +
             '<input type="text" size="5" v-model="targetFrame"><input type="button" value="set frame" v-on:click="setFrame"><br>' +
             '<input type="text" size="5" v-model="sm.frameMax"><input type="button" value="set max frame" v-on:click="setFrame"><br>' +
