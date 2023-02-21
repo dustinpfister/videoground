@@ -15,7 +15,7 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
 //---------- ----------
 // SM OBJECT - used by ui-playback.js and ui-video-code.js
 //---------- ----------
-(function () {
+(function (sm) {
     //-------- ----------
     // HARD CODED SETTINGS
     //-------- ----------
@@ -65,7 +65,7 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     //-------- ----------
     // THE STATE MACHINE (sm) object
     //-------- ----------
-    const sm = window.sm = {
+    Object.assign(sm, {
         filePath: null,
         renderer: null,
         canvas: null,
@@ -81,7 +81,7 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         lt: new Date(),
         fps_update: 30,       // fps rate to update ( low fps for low CPU use, but choppy playback video )
         fps_movement: 30
-    };
+    });
     // update
     const update = function(){
         sm.per = Math.round(sm.frame) / sm.frameMax;
@@ -168,4 +168,4 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     //-------- ----------
     videoAPI.on('menuAbout', function(evnt){});
 }
-    ());
+    ( this['sm'] = {} ));
