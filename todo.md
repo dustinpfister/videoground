@@ -35,16 +35,30 @@
 * () start a /lib/logger/index.js that will be the main logger lib used by all javaScript files
 * () have a videoAPI.createLogger funciton that can be used to create a logger for each of the client files
 
-## () - r8 - javaScript and JSM client systems, and Revision Number Selection
-* () set REVISION const in preload.js set to '8_dev'
+## () - r9 - javaScript and JSM client systems, and Revision Number Selection
+* () set REVISION const in preload.js set to '9_dev'
+
 * () I will want a window-main-javascript html file for using a threejs revision by way of three.min.js
 * () I will want a window-main-jsm html file for using three.module.js
 * () add r91, r146, and r149 (or r150 if out ) for additional threejs revision options
 * () add three.min.js for all revision where available
 * () add three.module.js for all revisions where available
 
+* () update README to reflect changes made in R9
+* () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
+
+## () - r8 - render frames x to y
+* () set REVISION const in preload.js set to '8_dev'
+
+* () when exporting to frames have an options dialog
+* () I should be able to set a start frame and end frame within the current frame range
+```
+   for examle say that I started rendering a 10,000 frame video but my computer froze at 9,850
+   I can set a start frame of 9850 and continue until 10,000
+```
+
 * () update README to reflect changes made in R8
-* () REVISION in constants.js, and package.json set to 8 and commit with message '0.7.0'
+* () REVISION in constants.js, and package.json set to 8 and commit with message '0.8.0'
 
 ## () - r7 - Settings.json, Open recent, new File, Save
 * (done) new REVISION const in preload.js set to '7_dev' string
