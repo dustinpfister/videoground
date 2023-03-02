@@ -35,15 +35,38 @@
 * () start a /lib/logger/index.js that will be the main logger lib used by all javaScript files
 * () have a videoAPI.createLogger funciton that can be used to create a logger for each of the client files
 
+## () - rx - file new option
+* () start a file > new option in menu.js
+* () use the hard coded start video as the start point for the new video
+* () when creating a new file the fileName and filePath vm data object values should be null
+* () use videoAPI.saveAsDialog in save event when fileName and filePath vm data object values are null
+* () start a file > new from template option
+* () have a way to set a templates location in settings.json
+
+## () - rx - file open recent plugin
+* () This might need to be an optional plug in actually
+* () see about having a file > Open Recent menu option
+
+## () - r10 - plugin system
+* () set REVISION const in preload.js set to '10_dev'
+* () start an plugin system so that I have a way to start creating built in, and optional features
+* () see about turning the export by frame feature the first built in plugin
+
+* () start a new repo videoground-plugins that will work as a way to pull down optional plugins
+* () have a diolog that can be used to pull up an index of plugins for this repo
+* () have it so that more than one github url can be given
+* () the first option plugin can be something like a javaScript formatter
+
+* () update README to reflect changes made in R10
+* () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
+
 ## () - r9 - javaScript and JSM client systems, and Revision Number Selection
 * () set REVISION const in preload.js set to '9_dev'
-
 * () I will want a window-main-javascript html file for using a threejs revision by way of three.min.js
 * () I will want a window-main-jsm html file for using three.module.js
 * () add r91, r146, and r149 (or r150 if out ) for additional threejs revision options
 * () add three.min.js for all revision where available
 * () add three.module.js for all revisions where available
-
 * () update README to reflect changes made in R9
 * () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
 
@@ -53,7 +76,7 @@
 * () when exporting to frames have an options dialog
 * () I should be able to set a start frame and end frame within the current frame range
 ```
-   for examle say that I started rendering a 10,000 frame video but my computer froze at 9,850
+   for example say that I started rendering a 10,000 frame video but my computer froze at 9,850
    I can set a start frame of 9850 and continue until 10,000
 ```
 
@@ -97,18 +120,9 @@
 * (done) have a resolution selection element for ui-playback
 * (done) it would be nice to make the preview canvas bigger or smaller
 * (done) pass false when setting size in sm.setup
-<!-- file new-->
-* () start a file > new option in menu.js
-* () use the hard coded start video as the start point for the new video
-* () when creating a new file the fileName and filePath vm data object values should be null
-* () use videoAPI.saveAsDialog in save event when fileName and filePath vm data object values are null
-* () start a file > new from template option
-* () have a way to set a templates location in settings.json
-<!-- open recent -->
-* () see about having a file > Open Recent menu option
 <!-- MISC -->
 * () LF to CRLF End Of Line Conversion
-* () astrisk in title when there are unsaved changes
+* () asterisk in title when there are unsaved changes
 <!-- FIN-->
 * () update README to reflect changes made in R7
 * () REVISION in constants.js, and package.json set to 7 and commit with message '0.7.0'
