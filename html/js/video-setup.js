@@ -31,7 +31,7 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         {w: 1920, h: 1080},
         {w: 3840, h: 2160}   // 4k
     ];
-    const DEFAULT_RESOLUTION = 3; // going with 480p as a default for this
+    const DEFAULT_RESOLUTION = 4; // going with 720p as a default for this
     //-------- ----------
     // webGL2 test
     //-------- ----------

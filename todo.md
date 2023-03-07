@@ -120,6 +120,7 @@
 * (done) have a resolution selection element for ui-playback
 * (done) it would be nice to make the preview canvas bigger or smaller
 * (done) pass false when setting size in sm.setup
+* (done) make 720p the default res
 <!-- MISC -->
 * () LF to CRLF End Of Line Conversion
 * () asterisk in title when there are unsaved changes
