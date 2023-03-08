@@ -8,7 +8,7 @@
     // VUE FOR VIDEO CODE USER INTERFACE
     //-------- ----------
     // vm instance for video code input text area
-    var vm = new Vue({
+    const vm = new Vue({
         el: '#wrap_video_code',
         template: '<div class="wrap_ui wrap_ui_video_code">' +
             '<span>Video Code Controls:</span><br>' +
@@ -20,6 +20,7 @@
            sm: sm,
            fileName: null,
            filePath: null, 
+           EOL_text: '\r\n',
            videoJS: '\/\/ Video JavaScript goes here'
         },
         methods: {
@@ -35,6 +36,10 @@
     //-------- ----------
     // ADDITIONAL METHODS
     //-------- ----------
+    var convertEOL = (text, EOL_text) => {
+        EOL_text = EOL_text || '\r\n';
+        return text.replace(/\r\n|\r|\n/g, EOL_text);
+    };
     // load dae
     var loadDAE = function(callback){
         // if there are dea paths then I will want to load them	
@@ -118,9 +123,6 @@
     //-------- ----------
     // MENU EVENTS
     //-------- ----------
-
-//videoAPI.saveAsDialog();
-
     videoAPI.on('menuOpenFile', function(text, e, filePath){
         log('Menu open event handler in ui-video-code.js');
         setFilePath(filePath);
@@ -130,6 +132,9 @@
     videoAPI.on('menuSaveFile', () => {
         const uri_file = videoAPI.pathJoin(vm.$data.filePath, vm.$data.fileName);
         log('Save file event started for ' + uri_file);
+        // convert EOL
+        vm.$data.videoJS = convertEOL(vm.$data.videoJS, vm.$data.EOL_text);
+        // save
         videoAPI.writeJSFile(uri_file, vm.$data.videoJS)
         .then(()=>{
            log('Saved the current file: ' + vm.$data.fileName);
@@ -141,6 +146,9 @@
     // save a file as
     videoAPI.on('menuSaveAsFile', function(evnt, result){
         if(!result.canceled){
+            // convert EOL
+            vm.$data.videoJS = convertEOL(vm.$data.videoJS, vm.$data.EOL_text);
+            // save
             videoAPI.writeJSFile(result.filePath, vm.$data.videoJS)
             .then(()=>{
                 log('Saved a new file as: ' + result.filePath);
