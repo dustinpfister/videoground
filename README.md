@@ -13,17 +13,17 @@ I wanted to a make simple tool for creating videos using electronjs, threejs, vu
 
 ## What the goals are with this project
 
-When it comes to what the goals are with this project I have all ready archived the core set of goals that I had in mind. This is the reason why I stalled with the development of R6 of videoground for a long time. I have been more interested in figuring out what direction I should go in terms of content rather that improving the core tool that I use to make such content. However I do have a few plains worked out for additional changes that should happen in the todo list. many of these changes are for the sake of improving features that are all ready in place rather than making this project too complex.
+When it comes to what the goals are with this project I have all ready archived the core set of goals that I had in mind. This is the reason why I stalled with the development of R6 of videoground for a long time. I have been more interested in figuring out what direction I should go in terms of content rather that improving the core tool that I use to make such content. However I do have a few plans worked out for additional changes that should happen in the todo list. Many of these changes are for the sake of improving features that are all ready in place rather than making this project too complex as I would like to keep this tool rather minimal. Currently much of the additional code that I use in projects is in the from of additional scripts that I keep copies of in each content repo. I do not think that is such a great way of handing things though so one featured planed out at least is to have a plugin system.
 
 ## Frame by Frame Exporting
 
-The main way of exporting thus far is as a collection of png files for each frame written to a target export folder in the OS file system. Once I have a collection of images from there I can use a command line tool like [ffmpeg](https://ffmpeg.org/) to create a video file. I can then take that raw video file made from the frames, and create another video file with ffmpeg that will include an audio track that is made with additional software tools like [Musescore](https://musescore.org/en), [Audacity](https://www.audacityteam.org/) and anything else that helps just work out what the audio track should be.
+The main way of exporting thus far is as a collection of png files for each frame written to a target export folder in the OS file system. Once I have a collection of images from there I can use a command line tool like [ffmpeg](https://ffmpeg.org/) to create a video file from this collection of image files. I can then take that raw video file made from the frames, and create another video file with ffmpeg, or any video editing program for that matter. There I can include an audio track that is made with additional software tools like [Musescore](https://musescore.org/en), [Audacity](https://www.audacityteam.org/) and anything else that can be used to work out what the audio track should be.
 
-Exporting this way may not be preferred for many reasons that I do not care to get into detail with here. However I have found that this is just simply a tired yet true way of exporting that has not broken for me yet, and will still work just fine when it comes to sticking to short 30 second to maybe at most 10 minute videos. After that the shortcomings of this form of exporting do start to become a bit a pain but might still be workable. If I do keep working on this project maybe I will get around to having better export options, but in any case this kind of export must always work as a fall back of sorts in the event that other options break. Also for one reason or another I might want to export this way anyway.
+Exporting this way may not be preferred for many reasons that I do not care to get into detail with here. However I have found that this is just simply a tired yet true way of exporting that has not broken for me yet. This kind of exporting will still work just fine when it comes to sticking to short 30 second to maybe at most 10 minute videos. After that the shortcomings of this form of exporting do start to become a bit a pain but might still be workable. If I do keep working on this project maybe I will get around to having better export options, but in any case this kind of export must always work as a fall back of sorts in the event that other options break.
 
 ## Install
 
-If the latest revision will work okay just clone down a shallow copy with git. Once the folder is downloaded cd into the root of the folder and just do an npm install to get the version of electronjs that is set in the package.json file. Once everything is set up just do an npm start to run videoground. If all works well the current start video should be displayed along with the source code for that video in the textarea element.
+As of thing writing I am just committing directly to the master branch. Still of the latest state of the project works okay there is just cloning down a copy, cd into the folder, and then do an npm install. After that one can just call npm start to run videoground. When cloning down one might want to make the depth 1 so that you do not pull down the full commit history.
 
 ```
 $ git clone --depth 1 https://github.com/dustinpfister/videoground
@@ -34,20 +34,20 @@ $ npm start
 
 ### Download a specific revision
 
-The latest is not always the greatest when it comes to many things with software, often things go in a direction in which there are just too many features packed into a single application. However when it comes to videoground the latest state of master might not always be stable regardless if I keep this minimal or not. It then might be a good idea to clone down a certain revision such as R5 for example. 
+The latest is not always the greatest when it comes to many things with software. When it comes to videoground the latest state of master might not always be stable. It then might be a good idea to clone down a certain revision such as R6 for example. 
 
-To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to name a different name for the folder such as R5 or something to that effect if I am going to have more than one revision to work with on a system. 
+To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to name a different name for the folder such as vgr6 or something to that effect if I am going to have more than one revision to work with on a system. 
 
 ```
-$ git clone -b "0.5.0" --depth 1 https://github.com/dustinpfister/videoground vgr4
-$ cd vgr4
+$ git clone -b "0.6.0" --depth 1 https://github.com/dustinpfister/videoground vgr6
+$ cd vgr6
 $ npm install
 $ npm start
 ```
 
 ## How to start making videos
 
-Once videoground is up and running the next question is how to get going making videos with this. There is a whole lot of ground to cover with that one, I am making a lot of changes at the time of this writing, and there is also no official DOCS at this time. So for now it would be best to just look at the source code of the start videos, and additional content repositories that I have set up thus far. In this section I will be going over what the options are when it comes to a hello world example, and where to find example and project videos that I have made thus far.
+Once videoground is up and running the next question is how to get going making videos with this. There is a whole lot of ground to cover with that one, I am making a lot of changes at the time of this writing, and there is also no official DOCS at this time. So for now it would be best to just look at the source code of the start videos, and additional content repositories that I have set up thus far. In this section I will be going over what the options are when it comes to a hello world example, and where to find example and project videos.
 
 <div align="center">
     <a href="https://www.youtube.com/watch?v=AzuB6ExUE64">
@@ -92,11 +92,7 @@ In the [start-videos folder](https://github.com/dustinpfister/videoground/tree/m
 
 ### My Content repos
 
-Thus far I just have two content repositories one called [videoground-blog-posts](https://github.com/dustinpfister/videoground-blog-posts), and the other is called [videoground-beta-world](https://github.com/dustinpfister/videoground-beta-world). As the name suggests with videoground-blog-posts this is a repo of videos that are to be used as video embeds for my [blog posts on threejs](https://dustinpfister.github.io/categories/three-js/). The other colleciton called veideoground-beta-world is being used as a dumping ground for excremental content that may or may not lead to other collections of content.
-
-## Official js files
-
-On top of the core of what videoground is I should also have a number of official javaScript files that are to be used with video javaScript files. When I make an additional content repository I will want to have javaScript files that center around what the nature of the content is that I might not want to include in the core of videoground itself. Still there are some usual suspect module that I will likely want to include in the core of videoground. What I have in terms of these javaScript modules can be found in the start videos folder as of r5.
+Thus far I just have two PUBLIC content repositories one called [videoground-blog-posts](https://github.com/dustinpfister/videoground-blog-posts), and the other is called [videoground-beta-world](https://github.com/dustinpfister/videoground-beta-world). As the name suggests with videoground-blog-posts this is a repo of videos that are to be used as video embeds for my [blog posts on threejs](https://dustinpfister.github.io/categories/three-js/). The other collection is called videoground-beta-world and that one is being used as a dumping ground for experimental content that may or may not lead to other collections of content.
 
 ## Creating a video from frame images with ffmpeg
 
@@ -112,7 +108,7 @@ $ ffmpeg -framerate 30 -i frame-%04d.png -pix_fmt yuv420p raw.mp4
 
 ### Create a final video from raw video and audio
 
-After I have my raw video file made from the frames, ffmpeg can unce again be used to create a final video with an audo file.
+After I have my raw video file made from the frames, ffmpeg can once again be used to create a final video with an audio file.
 
 ```
 $ ffmpeg -i raw.mp4 -i bv-001-16m-30s.mp3 final.mp4
@@ -152,5 +148,5 @@ On raspberry PI os buster chromium 90.x is used, and on bullseye I am seeing 101
 
 ## LICENSE
 
-I am declaring all of the original source code that I have written under the terms of the GPL V2 LICENSE. this repo contains some source borrowed source code which is of course under the terms of the respective licenses of those projects. Many of which are also GPL or MIT licensed projects.
+I am declaring all of the original source code that I have written under the terms of the GPL V2 LICENSE. This repo contains some borrowed source code which is of course under the terms of the respective licenses of those projects. Many of which are also GPL or MIT licensed projects.
 
