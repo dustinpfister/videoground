@@ -1,6 +1,6 @@
 ﻿# Videoground
 
-I wanted to a make simple tool for creating videos using electronjs, threejs, vuejs, and a whole lot of vanilla javaScript code of my own. VideoGround is then the project that I came up with that I use to make videos that I post to [youtube at my javaweaver channel](https://www.youtube.com/user/javaweaver). So be sure to check out the channel if you would like to see what some content looks like using this tool.
+I wanted to a make simple tool for creating videos using electronjs, threejs, vuejs, and a whole lot of vanilla javaScript code of my own. VideoGround is then the project that I came up with that I use to make videos that I post to my [javaweaver Youtube channel](https://www.youtube.com/user/javaweaver). So you can check out the channel if you would like to see what some content looks like using this tool.
 
 <div align="center">
       <a href="https://www.youtube.com/watch?v=Mq37hBHx-Qc">
@@ -13,7 +13,7 @@ I wanted to a make simple tool for creating videos using electronjs, threejs, vu
 
 ## What the goals are with this project
 
-When it comes to what the goals are with this project I have all ready archived the core set of goals that I had in mind. This is the reason why I stalled with the development of R6 of videoground for a long time. I have been more interested in figuring out what direction I should go in terms of content rather that improving the core tool that I use to make such content. However I do have a few plans worked out for additional changes that should happen in the todo list. Many of these changes are for the sake of improving features that are all ready in place rather than making this project too complex as I would like to keep this tool rather minimal. Currently much of the additional code that I use in projects is in the from of additional scripts that I keep copies of in each content repo. I do not think that is such a great way of handing things though so one featured planed out at least is to have a plugin system.
+When it comes to what the goals are with this project I have all ready achieved the core set of goals that I had in mind. This is one reason why I stalled with the development of R6 of videoground for a long time. However now I have been more interested in figuring out what direction I should go in terms of future revisions of this project as I am using it just about every day. So I do have a few plans worked out for additional changes that should happen in the todo list. Many of these changes are for the sake of improving features that are all ready in place rather than making this project too complex as I would like to keep this tool rather minimal. Currently much of the additional code that I use in projects is in the from of additional scripts that I keep copies of in each content repo. I do not think that is such a great way of handing things though so one featured planed out at least is to have a plugin system. I would also like to automate some things that I am doing manually, as well as make additional work flow improvements.
 
 ## Frame by Frame Exporting
 
@@ -149,4 +149,3 @@ On raspberry PI os buster chromium 90.x is used, and on bullseye I am seeing 101
 ## LICENSE
 
 I am declaring all of the original source code that I have written under the terms of the GPL V2 LICENSE. This repo contains some borrowed source code which is of course under the terms of the respective licenses of those projects. Many of which are also GPL or MIT licensed projects.
-
