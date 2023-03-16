@@ -123,8 +123,8 @@
         },
         methods: {
             textChange : () => {
+                vm.$data.videoJS = convertEOL(vm.$data.videoJS, vm.$data.EOL_text);
                 vm.$data.unsaved_changes = !(vm.$data.videoJS === vm.$data.videoJS_last);
-                log('Text changed, unsaved_changes: ' + vm.$data.unsaved_changes);
                 updateTitle(vm);
             },
             updateVideo : function(e){
