@@ -32,12 +32,18 @@
            callback();
         }
     };
+    // code for updaing the title
+    const updateTitle = (vm) => {
+        let ast = vm.$data.unsaved_changes ? '* ' : '';
+        document.title = ast + 'VideoGround - ' + vm.$data.fileName;
+    };
     // set filePath helper
     var setFilePath = (vm, filePath) => {
         sm.filePath = vm.$data.filePath = videoAPI.pathDirname(filePath);
         vm.$data.fileName = videoAPI.pathBasename(filePath);
         // update title
-        document.title = 'VideoGround - ' + vm.$data.fileName;
+        //document.title = 'VideoGround - ' + vm.$data.fileName;
+        updateTitle(vm);
     };
     // load text
     var loadText = (vm, text) => {
@@ -119,6 +125,7 @@
             textChange : () => {
                 vm.$data.unsaved_changes = !(vm.$data.videoJS === vm.$data.videoJS_last);
                 log('Text changed, unsaved_changes: ' + vm.$data.unsaved_changes);
+                updateTitle(vm);
             },
             updateVideo : function(e){
                 loadText(vm, vm.$data.videoJS);
@@ -132,6 +139,8 @@
         log('Menu open event handler in ui-video-code.js');
         setFilePath(vm, filePath);
         vm.$data.videoJS_last = vm.$data.videoJS = convertEOL(text, vm.$data.EOL_text);
+        vm.$data.unsaved_changes = false;
+        updateTitle(vm);
         loadText(vm, text);
     });
     // save the current file
@@ -140,6 +149,8 @@
         log('Save file event started for ' + uri_file);
         // convert EOL
         vm.$data.videoJS_last = vm.$data.videoJS = convertEOL(vm.$data.videoJS, vm.$data.EOL_text);
+        vm.$data.unsaved_changes = false;
+        updateTitle(vm);
         // save
         videoAPI.writeJSFile(uri_file, vm.$data.videoJS)
         .then(()=>{
@@ -154,6 +165,8 @@
         if(!result.canceled){
             // convert EOL
             vm.$data.videoJS_last = vm.$data.videoJS = convertEOL(vm.$data.videoJS, vm.$data.EOL_text);
+            vm.$data.unsaved_changes = false;
+            updateTitle(vm);
             // save
             videoAPI.writeJSFile(result.filePath, vm.$data.videoJS)
             .then(()=>{
