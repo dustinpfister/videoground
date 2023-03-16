@@ -146,6 +146,7 @@
 * (done) asterisk in title when there are unsaved changes
 * (done) fix bug where unsaved-changes does not go back to false when content goes back to the way it was
 <!-- FIN-->
+* (done) fixed a bug where a starting option for res was not being set to start with 
 * () update README to reflect changes made in R7
 * () REVISION in constants.js, and package.json set to 7 and commit with message '0.7.0'
 

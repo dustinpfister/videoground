@@ -12,8 +12,8 @@
             '<input type="button" value="frame-" v-on:click="stepFrame(-1)"><br>' +
             '<input type="text" size="5" v-model="targetFrame"><input type="button" value="set frame" v-on:click="setFrame">' +
             '<input type="text" size="5" v-model="sm.frameMax"><input type="button" value="set max frame" v-on:click="setFrame"><br>' +
-            '<select id="res_options" v-model="res_index" v-on:click="resChange">'+
-                '<option v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
+            '<select ref="foo" id="res_options" v-model="res_index" v-on:click="resChange">'+
+                '<option  v-bind:ref="\'res_\' + i" v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
             '</select><br>' +
             '<input type="button" value="preview+" v-on:click="stepPreview(1)">' +
             '<input type="button" value="preview-" v-on:click="stepPreview(-1)">' +
@@ -24,6 +24,11 @@
            sm: sm,
            res_index: '',
            targetFrame: 0
+        },
+        mounted: function() {
+            // doing this to set starting option for res select element
+            const option = this.$refs['res_' + sm.res_current_index][0];
+            option.setAttribute('selected', 'selected')
         },
         updated: function(){
             // set the starting resoution index
@@ -39,14 +44,11 @@
                 sm.frame = Math.floor(sm.frameFrac);
                 sm.setFrame();
             },
-
             stepPreview: function(delta){
-
                 sm.previewSize += 5 * delta;
                 sm.resSet();
                 sm.setFrame();
             },
-
             // set a frame
             setFrame: function(){
                 var sm = this.$data.sm;
@@ -66,8 +68,16 @@
                 const res_string = e.target.value;
                 const sm = this.$data.sm;
                 // call resSet passing new index to use
-                sm.resSet(parseInt(res_string.split('_')[0]));
-                sm.setFrame();
+                const arr = res_string.split('_');
+                if(arr[0] === '' || arr.length === 0){
+                    console.log('THERE IS A PROBLEM GETTING THE RES INDEX');
+                    console.log(arr);
+                }else{
+                    console.log('arr index looks good');
+                    console.log(arr);
+                    sm.resSet( parseInt( arr[0] ) );
+                    sm.setFrame();
+                }
             }
         }
     });
