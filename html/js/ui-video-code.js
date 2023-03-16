@@ -13,19 +13,23 @@
         template: '<div class="wrap_ui wrap_ui_video_code">' +
             '<span>Video Code Controls:</span><br>' +
             '<span>fileName: {{ fileName }}</span><br>' +
+            '<span> unsaved changes: {{ unsaved_changes }}</span><br>' +
             '<button name="run" v-on:click="updateVideo">Run</button><br>'+
             '<textarea class="textarea_js" v-model="videoJS" v-on:input="textChange"></textarea>'+
         '</div>',
         data: {
            sm: sm,
+           unsaved_changes: false,
            fileName: null,
            filePath: null, 
            EOL_text: '\r\n',
-           videoJS: '\/\/ Video JavaScript goes here'
+           videoJS_last: '',   // only updates on save, and load events
+           videoJS: ''
         },
         methods: {
             textChange : () => {
-                log('Text change');
+                vm.$data.unsaved_changes = !(vm.$data.videoJS === vm.$data.videoJS_last);
+                log('Text changed, unsaved_changes: ' + vm.$data.unsaved_changes);
             },
             updateVideo : function(e){
                 //loadText(e.target.value);
@@ -76,6 +80,7 @@
             VIDEO.scripts = undefined;
             // !!! - #1 - USING EVAL FOR NOW UNTIL I FIGURE OUT SOMTHING BETTER
             eval(text);
+            // set last and current videoJS
             vm.$data.videoJS = text;
             // load any and all dae files first
             loadDAE( () => {
@@ -126,6 +131,7 @@
     videoAPI.on('menuOpenFile', function(text, e, filePath){
         log('Menu open event handler in ui-video-code.js');
         setFilePath(filePath);
+        vm.$data.videoJS_last = vm.$data.videoJS = convertEOL(text, vm.$data.EOL_text);
         loadText(text);
     });
     // save the current file
@@ -133,7 +139,7 @@
         const uri_file = videoAPI.pathJoin(vm.$data.filePath, vm.$data.fileName);
         log('Save file event started for ' + uri_file);
         // convert EOL
-        vm.$data.videoJS = convertEOL(vm.$data.videoJS, vm.$data.EOL_text);
+        vm.$data.videoJS_last = vm.$data.videoJS = convertEOL(vm.$data.videoJS, vm.$data.EOL_text);
         // save
         videoAPI.writeJSFile(uri_file, vm.$data.videoJS)
         .then(()=>{
@@ -147,7 +153,7 @@
     videoAPI.on('menuSaveAsFile', function(evnt, result){
         if(!result.canceled){
             // convert EOL
-            vm.$data.videoJS = convertEOL(vm.$data.videoJS, vm.$data.EOL_text);
+            vm.$data.videoJS_last = vm.$data.videoJS = convertEOL(vm.$data.videoJS, vm.$data.EOL_text);
             // save
             videoAPI.writeJSFile(result.filePath, vm.$data.videoJS)
             .then(()=>{
@@ -182,8 +188,10 @@
         return videoAPI.loadFile(videoAPI.uri_startvideo)
     })
     .then((result)=>{
+        log('got a result just fine for the start file to load.');
         setFilePath(result.filePath);
         loadText(result.text);
+        vm.$data.videoJS_last = result.text;
     })
     .catch((e)=>{
         log('error loading text when trying to load the start file.');

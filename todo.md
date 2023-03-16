@@ -140,6 +140,7 @@
 * (done) make 720p the default res
 * (done) LF to CRLF End Of Line Conversion
 <!-- MISC -->
+* (done) vm.$data.unsaved_changes in ui-video-code.js
 * () asterisk in title when there are unsaved changes
 <!-- FIN-->
 * () update README to reflect changes made in R7
