@@ -141,6 +141,11 @@
 * (done) LF to CRLF End Of Line Conversion
 <!-- MISC -->
 * (done) vm.$data.unsaved_changes in ui-video-code.js
+
+* () setTitle helper function in ui-video-code.js
+* () update title on each text change event in ui-video-code.js
+* () update title on each call of setFilePath in ui-video-code.js
+
 * () asterisk in title when there are unsaved changes
 <!-- FIN-->
 * () update README to reflect changes made in R7

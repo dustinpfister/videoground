@@ -1,45 +1,12 @@
 // ui-video-code.js - For the user interface that is used to edit and run the javaScript code for the video
 (function () {
+    //-------- ----------
+    // HELPER METHODS
+    //-------- ----------
     // log method for ui-video-code
     const log =  (mess) => {
         videoAPI.log(mess, 'ui-video-code.js');
     };
-    //-------- ----------
-    // VUE FOR VIDEO CODE USER INTERFACE
-    //-------- ----------
-    // vm instance for video code input text area
-    const vm = new Vue({
-        el: '#wrap_video_code',
-        template: '<div class="wrap_ui wrap_ui_video_code">' +
-            '<span>Video Code Controls:</span><br>' +
-            '<span>fileName: {{ fileName }}</span><br>' +
-            '<span> unsaved changes: {{ unsaved_changes }}</span><br>' +
-            '<button name="run" v-on:click="updateVideo">Run</button><br>'+
-            '<textarea class="textarea_js" v-model="videoJS" v-on:input="textChange"></textarea>'+
-        '</div>',
-        data: {
-           sm: sm,
-           unsaved_changes: false,
-           fileName: null,
-           filePath: null, 
-           EOL_text: '\r\n',
-           videoJS_last: '',   // only updates on save, and load events
-           videoJS: ''
-        },
-        methods: {
-            textChange : () => {
-                vm.$data.unsaved_changes = !(vm.$data.videoJS === vm.$data.videoJS_last);
-                log('Text changed, unsaved_changes: ' + vm.$data.unsaved_changes);
-            },
-            updateVideo : function(e){
-                //loadText(e.target.value);
-                loadText(vm.$data.videoJS);
-            }
-        }
-    });
-    //-------- ----------
-    // ADDITIONAL METHODS
-    //-------- ----------
     var convertEOL = (text, EOL_text) => {
         EOL_text = EOL_text || '\r\n';
         return text.replace(/\r\n|\r|\n/g, EOL_text);
@@ -66,13 +33,14 @@
         }
     };
     // set filePath helper
-    var setFilePath = (filePath) => {
+    var setFilePath = (vm, filePath) => {
         sm.filePath = vm.$data.filePath = videoAPI.pathDirname(filePath);
         vm.$data.fileName = videoAPI.pathBasename(filePath);
-        document.title = 'VideoGround - ' + vm.$data.fileName;    
+        // update title
+        document.title = 'VideoGround - ' + vm.$data.fileName;
     };
     // load text
-    var loadText = (text) => {
+    var loadText = (vm, text) => {
         try{
             // by default no dae files are used
             VIDEO.daePaths = null;
@@ -126,13 +94,45 @@
         }
     };
     //-------- ----------
+    // VUE FOR VIDEO CODE USER INTERFACE
+    //-------- ----------
+    // vm instance for video code input text area
+    const vm = new Vue({
+        el: '#wrap_video_code',
+        template: '<div class="wrap_ui wrap_ui_video_code">' +
+            '<span>Video Code Controls:</span><br>' +
+            '<span>fileName: {{ fileName }}</span><br>' +
+            '<span> unsaved changes: {{ unsaved_changes }}</span><br>' +
+            '<button name="run" v-on:click="updateVideo">Run</button><br>'+
+            '<textarea class="textarea_js" v-model="videoJS" v-on:input="textChange"></textarea>'+
+        '</div>',
+        data: {
+           sm: sm,
+           unsaved_changes: false,
+           fileName: null,
+           filePath: null, 
+           EOL_text: '\r\n',
+           videoJS_last: '',   // only updates on save, and load events
+           videoJS: ''
+        },
+        methods: {
+            textChange : () => {
+                vm.$data.unsaved_changes = !(vm.$data.videoJS === vm.$data.videoJS_last);
+                log('Text changed, unsaved_changes: ' + vm.$data.unsaved_changes);
+            },
+            updateVideo : function(e){
+                loadText(vm, vm.$data.videoJS);
+            }
+        }
+    });
+    //-------- ----------
     // MENU EVENTS
     //-------- ----------
     videoAPI.on('menuOpenFile', function(text, e, filePath){
         log('Menu open event handler in ui-video-code.js');
-        setFilePath(filePath);
+        setFilePath(vm, filePath);
         vm.$data.videoJS_last = vm.$data.videoJS = convertEOL(text, vm.$data.EOL_text);
-        loadText(text);
+        loadText(vm, text);
     });
     // save the current file
     videoAPI.on('menuSaveFile', () => {
@@ -158,7 +158,7 @@
             videoAPI.writeJSFile(result.filePath, vm.$data.videoJS)
             .then(()=>{
                 log('Saved a new file as: ' + result.filePath);
-                setFilePath(result.filePath);
+                setFilePath(vm, result.filePath);
             })
             .catch((e)=>{
                 console.warn(e.message);
@@ -189,8 +189,8 @@
     })
     .then((result)=>{
         log('got a result just fine for the start file to load.');
-        setFilePath(result.filePath);
-        loadText(result.text);
+        setFilePath(vm, result.filePath);
+        loadText(vm, result.text);
         vm.$data.videoJS_last = result.text;
     })
     .catch((e)=>{
