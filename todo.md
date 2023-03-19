@@ -26,7 +26,7 @@
 * () allow for setting resource paths for each file
 
 ## () - r14 - export frames to user data folder, export to video
-* () set REVISION const in preload.js set to '14_dev'
+* () set REVISION const in constants.js set to '14_dev'
 * () try bumping electionjs to to 21.4.3 ( lateset as of 03/16/2023 )
 
 * () update default path for frame exports to /home/username/.videoground/frames
@@ -35,14 +35,14 @@
 * () the export to video option will make an ffmpeg call after frames are rendered
 
 ## () - r13 - Logger lib
-* () set REVISION const in preload.js set to '13_dev'
+* () set REVISION const in constants.js set to '13_dev'
 * () try bumping electionjs to to 20.3.12, might not work out okay so be ready to stay fixed at lateset stable
 
 * () start a /lib/logger/index.js that will be the main logger lib used by all javaScript files
 * () have a videoAPI.createLogger funciton that can be used to create a logger for each of the client files
 
 ## () - r12 - file new option
-* () set REVISION const in preload.js set to '12_dev'
+* () set REVISION const in constants.js set to '12_dev'
 * () try bumping electionjs to to 19.1.9, might not work out okay so be ready to stay fixed at lateset stable
 
 * () start a file > new option in menu.js
@@ -53,14 +53,14 @@
 * () have a way to set a templates location in settings.json
 
 ## () - r11 - file open recent plugin
-* () set REVISION const in preload.js set to '11_dev'
+* () set REVISION const in constants.js set to '11_dev'
 * () try bumping electionjs to 18.3.15 which is the latest for 18.x, might not work okay so be prepared to say with 17.x
 
 * () This might need to be an optional plug in actually
 * () see about having a file > Open Recent menu option
 
 ## () - r10 - plugin system
-* () set REVISION const in preload.js set to '10_dev'
+* () set REVISION const in constants.js set to '10_dev'
 * () try bumping electionjs to 17.4.11 which using chrome 98 and node 16.13
 
 * () start an plugin system so that I have a way to start creating built in, and optional features
@@ -75,7 +75,7 @@
 * () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
 
 ## () - r9 - javaScript and JSM client systems, and Revision Number Selection
-* () set REVISION const in preload.js set to '9_dev'
+* () set REVISION const in constants.js set to '9_dev'
 * () try bumping electionjs to 16.2.8 which is using chrome 96 and node 16.9
 
 * () I will want a window-main-javascript html file for using a threejs revision by way of three.min.js
@@ -87,8 +87,9 @@
 * () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
 
 ## () - r8 - render frames x to y
-* () set REVISION const in preload.js set to '8_dev'
+* () set REVISION const in constants.js set to '8_dev'
 * () try bumping electionjs to 15.5.7 which using chrome 94 and node 16.5
+* () start a video19-r8-start.js file and make it the start video in constants.js
 
 * () when exporting to frames have an options dialog
 * () I should be able to set a start frame and end frame within the current frame range
@@ -100,7 +101,7 @@
 * () update README to reflect changes made in R8
 * () REVISION in constants.js, and package.json set to 8 and commit with message '0.8.0'
 
-## () - r7 - Settings.json,  last video on start
+## ( done 03/19/2023 ) - r7 - Settings.json,  last video on start
 * (done) new REVISION const in preload.js set to '7_dev' string
 * (done) try bumping electionjs to 14.2.9 that uses chrome 93 and node 14
 * (done) add r146 to html/js/threejs
@@ -148,7 +149,7 @@
 <!-- FIN-->
 * (done) fixed a bug where a starting option for res was not being set to start with 
 * (done) update README to reflect changes made in R7
-* () REVISION in constants.js, and package.json set to 7 and commit with message '0.7.0'
+* (done) REVISION in constants.js, and package.json set to 7 and commit with message '0.7.0'
 
 ## ( done 02/17/2023 ) - r6 - run button, User Data Folder started, Webgl test, help menu, VIDEO #17
 * (done) bump electronjs up to 13.6.9

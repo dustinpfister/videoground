@@ -1,6 +1,6 @@
 {
   "name": "electronjs-example-videoground",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Video Creation Program electronjs example",
   "main": "main.js",
   "scripts": {
