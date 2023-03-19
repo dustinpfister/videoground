@@ -87,8 +87,7 @@
 * () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
 
 ## () - r8 - render frames x to y
-* () set REVISION const in constants.js set to '8_dev'
-* () try bumping electionjs to 15.5.7 which using chrome 94 and node 16.5
+* (done) set REVISION const in constants.js set to '8_dev'
 * () start a video19-r8-start.js file and make it the start video in constants.js
 
 * () when exporting to frames have an options dialog
@@ -97,7 +96,8 @@
    for example say that I started rendering a 10,000 frame video but my computer froze at 9,850
    I can set a start frame of 9850 and continue until 10,000
 ```
-
+<!-- FIN-->
+* () try bumping electionjs to 15.5.7 which is using chrome 94 and node 16.5
 * () update README to reflect changes made in R8
 * () REVISION in constants.js, and package.json set to 8 and commit with message '0.8.0'
 
@@ -146,7 +146,6 @@
 * (done) update title on each call of setFilePath in ui-video-code.js
 * (done) asterisk in title when there are unsaved changes
 * (done) fix bug where unsaved-changes does not go back to false when content goes back to the way it was
-<!-- FIN-->
 * (done) fixed a bug where a starting option for res was not being set to start with 
 * (done) update README to reflect changes made in R7
 * (done) REVISION in constants.js, and package.json set to 7 and commit with message '0.7.0'
