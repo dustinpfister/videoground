@@ -1,6 +1,6 @@
 ﻿# Videoground
 
-I wanted to a make simple tool for creating videos using electronjs, threejs, vuejs, and a whole lot of vanilla javaScript code of my own. VideoGround is then the project that I came up with that I use to make videos that I post to my [javaweaver Youtube channel](https://www.youtube.com/user/javaweaver). So you can check out the channel if you would like to see what some content looks like using this tool.
+I wanted to a make tool for creating videos using mainly electronjs, and threejs, along with a whole lot of vanilla javaScript code of my own to create video projects. VideoGround is then the project that I came up with that I use to make videos that I post to my [javaweaver Youtube channel](https://www.youtube.com/user/javaweaver). So you can check out the channel if you would like to see what some content looks like using this tool.
 
 <div align="center">
       <a href="https://www.youtube.com/watch?v=Mq37hBHx-Qc">
@@ -11,9 +11,22 @@ I wanted to a make simple tool for creating videos using electronjs, threejs, vu
     </p>
 </div>
 
-## What the goals are with this project
+## What the goals where with this project
 
-When it comes to what the goals are with this project I have all ready achieved the core set of goals that I had in mind. This is one reason why I stalled with the development of R6 of videoground for a long time. However now I have been more interested in figuring out what direction I should go in terms of future revisions of this project as I am using it just about every day. So I do have a few plans worked out for additional changes that should happen in the todo list. Many of these changes are for the sake of improving features that are all ready in place rather than making this project too complex as I would like to keep this tool rather minimal. Currently much of the additional code that I use in projects is in the from of additional scripts that I keep copies of in each content repo. I do not think that is such a great way of handing things though so one featured planed out at least is to have a plugin system. I would also like to automate some things that I am doing manually, as well as make additional work flow improvements.
+When it comes to what the goals where with this project I have all ready achieved the core set of goals that I had in mind. I just wanted to make a tool that I can use to create a whole bunch of frame images with some javaScript code on top of threejs. I can then take it from there by using ffmpeg, and other tools to create a final product.
+
+* R0 - Basic frame by frame export feature working
+* R1 - Built in feature for loading \*.dae files
+* R2 - Can load additional scripts without hacking over video ground source code
+* R3 - Resolution modes in place
+* R4 - New scene object each time javascript code is loaded again
+* R5 - VIDEO.init method can be used to return a promise, allows using all kinds of loaders
+* R6 - RUN button over auto running code as it is being edited
+* R7 - User data folder, last video on start
+
+## What the the current goals with this project
+
+Although the simple core set of goals have been accomplished with this project there is still a lot of room for growth. So I do have a few plans worked out for additional changes that should happen in the todo list. Many of these changes are for the sake of improving features that are all ready in place rather than making this project too complex as I would like to keep this tool rather minimal. For now there is just making features that are really truly needed, and making code readability changes.
 
 ## Frame by Frame Exporting
 

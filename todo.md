@@ -100,7 +100,7 @@
 * () update README to reflect changes made in R8
 * () REVISION in constants.js, and package.json set to 8 and commit with message '0.8.0'
 
-## () - r7 - Settings.json, Open recent, new File, Save
+## () - r7 - Settings.json,  last video on start
 * (done) new REVISION const in preload.js set to '7_dev' string
 * (done) try bumping electionjs to 14.2.9 that uses chrome 93 and node 14
 * (done) add r146 to html/js/threejs
@@ -147,7 +147,7 @@
 * (done) fix bug where unsaved-changes does not go back to false when content goes back to the way it was
 <!-- FIN-->
 * (done) fixed a bug where a starting option for res was not being set to start with 
-* () update README to reflect changes made in R7
+* (done) update README to reflect changes made in R7
 * () REVISION in constants.js, and package.json set to 7 and commit with message '0.7.0'
 
 ## ( done 02/17/2023 ) - r6 - run button, User Data Folder started, Webgl test, help menu, VIDEO #17
