@@ -92,15 +92,16 @@
 * (done) make video19-r8-start.js just a simply collection of moving shapes
 * (done) fix bug with frame step - button not wrapping around
 * (done) setting render range values to typical values after calling video init method
-<!-- ui-playback.js -->
-
+* (done) see about adding a keyboad shortcut for export to frames ctrl+e
+<!-- /html/ui-playback.js -->
+<!-- /menu.js -->
+* () I would still like to have an export to frames dialog
+* () can click a browse button as a way to set/change export folder
+* () see about starting a dialog in menu.js, just getting all the info there and being done with it.
 <!-- settings.json -->
 * () use settings.json to store a default folder for exporting frames
 * () make the default location in the user data folder
 * () create the folder if it is not there
-<!-- expport to frames dialog -->
-* () I would still like to have an export to frames dialog
-* () can click a browse button as a way to set/change export folder
 
 <!-- FIN-->
 * () try bumping electionjs to 15.5.7 which is using chrome 94 and node 16.5

@@ -55,6 +55,7 @@ app.on('window-all-closed', function () {
 //-------- ----------
 ipcMain.on('menuAboutMessageReady', function(evnt, about){
     const mainWindow = BrowserWindow.fromId(1);
+    console.log('yes this is called once')
     dialog.showMessageBox(mainWindow, {
         message: 'VideoGround: r' + about.r + '\n' +
             'electron: ' + process.versions['electron'] + '\n' +

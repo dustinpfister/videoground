@@ -102,6 +102,7 @@ const MainMenuTemplate = [
             // EXPORT TO IMAGES
             {
                 label: 'Export to Images',
+                accelerator: 'CommandOrControl+E',
                 click: function(){
                     const mainWindow = BrowserWindow.fromId(1);
                     // dialog will need to be used to select a folder
@@ -137,8 +138,9 @@ const MainMenuTemplate = [
                 label: 'About',
                 click: function(){
                     const mainWindow = BrowserWindow.fromId(1);
+
                     // electron revision number
-                    const r = pkg.version.split('.')[1];
+                    //const r = pkg.version.split('.')[1];
                     //!!! r6 change - calling new menu about event
                     mainWindow.webContents.send('menuAbout');
                     /*
