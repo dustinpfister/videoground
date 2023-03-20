@@ -107,7 +107,8 @@
         .then(() => {
             console.log('wrote frame: ' + frameIndex);
             var nextFrameIndex = frameIndex + 1;
-            if(nextFrameIndex < sm.frameMax){
+            //if(nextFrameIndex < sm.frameMax){
+            if(nextFrameIndex < sm.render_frame_end){
                 writeFrame(imageFolder, nextFrameIndex);
             }
         })
@@ -119,6 +120,7 @@
     // MENU EVENTS
     //-------- ---------
     videoAPI.on('menuExport', function(evnt, result, imageFolder, mode){
-        writeFrame(imageFolder, 0); 
+
+        writeFrame(imageFolder, sm.render_frame_start); 
     });
 }());

@@ -71,6 +71,10 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         frame: 0,
         frameFrac: 0,
         frameMax: 600,
+
+        render_frame_start: 550, // start and end render frames
+        render_frame_end: 560,
+
         per: 0,
         bias: 0,
         scene: new THREE.Scene(),
