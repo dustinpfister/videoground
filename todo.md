@@ -89,24 +89,13 @@
 ## () - r8 - render frames x to y
 * (done) set REVISION const in constants.js set to '8_dev'
 * (done) start a video19-r8-start.js file and make it the start video in constants.js
-
-* () when exporting to frames have an options dialog
-* () I should be able to set a start frame and end frame within the current frame range
-
-```
-   for example say that I started rendering a 10,000 frame video but my computer froze at 9,850
-   I can set a start frame of 9850 and continue until 10,000
-```
-<!-- ui-playback.js -->
 * (done) the 'set max frame' just calls the same set frame method, so I removed it.
 * (done) call 'set frame' to 'set frame to target'
-
-<!-- video19-r8-start.js -->
-* () make video19-r8-start.js just a simply collection of moving shapes
-
-<!-- video20-r9-manyobjects.js -->
-* () create a start video that is just a whole lot of objects
-* () see how many you can add until rendreing really starts to slow down
+* (done) have an sm.render\_frame\_start as well as sm.render\_frame\_end
+* (done) can set new sm render values in vm template
+* (done) make video19-r8-start.js just a simply collection of moving shapes
+<!-- ui-playback.js -->
+* (done) fix bug with frame step - button not wrapping around
 
 <!-- FIN-->
 * () try bumping electionjs to 15.5.7 which is using chrome 94 and node 16.5

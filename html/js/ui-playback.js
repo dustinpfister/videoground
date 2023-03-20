@@ -11,12 +11,7 @@
             '<input type="button" value="play/pause" v-on:click="play">' +
             '<input type="button" value="frame+" v-on:click="stepFrame(1)">' +
             '<input type="button" value="frame-" v-on:click="stepFrame(-1)"><br>' +
-
-            //!!! direct set of frameFrac might be cool in some ways, but I still like the target frame feature
-            // that way I can just click set frame to keep setting back to a given point
-            //'<input type="text" size="5" v-model="sm.frameFrac" v-on:change="setFrame" >'+
-
-
+            // target frame and max frame
             '<input type="text" size="5" v-model="targetFrame" v-on:change="setFrame" >' + 
             '<input type="text" size="5" v-model="sm.frameMax">'+
             '<input type="button" value="Set frame to target" v-on:click="setFrame"><br>' +
@@ -24,11 +19,19 @@
             '<select ref="foo" id="res_options" v-model="res_index" v-on:click="resChange">'+
                 '<option  v-bind:ref="\'res_\' + i" v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
             '</select><br>' +
+
+
+            '<input type="text" size="5" v-model="sm.render_frame_start">'+
+            '<input type="text" size="5" v-model="sm.render_frame_end"><br>'+
+
             // preview
             '<input type="button" value="preview+" v-on:click="stepPreview(1)">' +
             '<input type="button" value="preview-" v-on:click="stepPreview(-1)">' +
             ' {{ sm.previewSize }} <br>' +
              '<span> {{ sm.frame }} / {{ sm.frameMax }} </span>' + 
+            //!!! direct set of frameFrac might be cool in some ways, but I still like the target frame feature
+            // that way I can just click set frame to keep setting back to a given point
+            //'<input type="text" size="5" v-model="sm.frameFrac" v-on:change="setFrame" >'+
         '</div>',
         data: {
            sm: sm,
@@ -50,7 +53,7 @@
             stepFrame: function(delta){
                 sm.frameFrac += parseInt(delta);
                 sm.frameFrac = sm.frameFrac > sm.frameMax ? 0 : sm.frameFrac;
-                sm.frameFrac = sm.frameFrac < 0 ? sm.frameMax : sm.frameFrac;
+                sm.frameFrac = sm.frameFrac < 0 ? sm.frameMax - 1 : sm.frameFrac;
                 sm.frame = Math.floor(sm.frameFrac);
                 sm.setFrame();
             },
@@ -107,8 +110,7 @@
         .then(() => {
             console.log('wrote frame: ' + frameIndex);
             var nextFrameIndex = frameIndex + 1;
-            //if(nextFrameIndex < sm.frameMax){
-            if(nextFrameIndex < sm.render_frame_end){
+            if(nextFrameIndex < Math.min( sm.render_frame_end, sm.frameMax ) ){
                 writeFrame(imageFolder, nextFrameIndex);
             }
         })
@@ -120,7 +122,8 @@
     // MENU EVENTS
     //-------- ---------
     videoAPI.on('menuExport', function(evnt, result, imageFolder, mode){
-
+        sm.render_frame_start = parseInt(sm.render_frame_start);
+        sm.render_frame_end = parseInt(sm.render_frame_end);
         writeFrame(imageFolder, sm.render_frame_start); 
     });
 }());
