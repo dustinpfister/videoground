@@ -25,14 +25,10 @@
 * () update DAE loading feature to make use of dae-helper.js
 * () allow for setting resource paths for each file
 
-## () - r14 - export frames to user data folder, export to video
+## () - r14 - ?
 * () set REVISION const in constants.js set to '14_dev'
 * () try bumping electionjs to to 21.4.3 ( lateset as of 03/16/2023 )
 
-* () update default path for frame exports to /home/username/.videoground/frames
-* () when exporting to /home/username/.videoground/frames crate the folder if it is not there
-* () start a new export to video option
-* () the export to video option will make an ffmpeg call after frames are rendered
 
 ## () - r13 - Logger lib
 * () set REVISION const in constants.js set to '13_dev'
@@ -77,7 +73,7 @@
 ## () - r9 - javaScript and JSM client systems, and Revision Number Selection
 * () set REVISION const in constants.js set to '9_dev'
 * () try bumping electionjs to 16.2.8 which is using chrome 96 and node 16.9
-
+<!-- new client-->
 * () I will want a window-main-javascript html file for using a threejs revision by way of three.min.js
 * () I will want a window-main-jsm html file for using three.module.js
 * () add r91, r146, and r149 (or r150 if out ) for additional threejs revision options
@@ -95,8 +91,16 @@
 * (done) can set new sm render values in vm template
 * (done) make video19-r8-start.js just a simply collection of moving shapes
 * (done) fix bug with frame step - button not wrapping around
+* (done) setting render range values to typical values after calling video init method
 <!-- ui-playback.js -->
 
+<!-- settings.json -->
+* () use settings.json to store a default folder for exporting frames
+* () make the default location in the user data folder
+* () create the folder if it is not there
+<!-- expport to frames dialog -->
+* () I would still like to have an export to frames dialog
+* () can click a browse button as a way to set/change export folder
 
 <!-- FIN-->
 * () try bumping electionjs to 15.5.7 which is using chrome 94 and node 16.5
