@@ -182,7 +182,7 @@
     videoAPI.on('menuError', function(evnt, err){
         log(err);
     });
-    videoAPI.on('menuAbout', function(evnt){});
+    //videoAPI.on('menuAbout', function(evnt){});
     //-------- ----------
     // LOAD STARTING VIDEO FILE
     //-------- ----------
