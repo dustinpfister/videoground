@@ -97,6 +97,9 @@
    for example say that I started rendering a 10,000 frame video but my computer froze at 9,850
    I can set a start frame of 9850 and continue until 10,000
 ```
+<!-- ui-playback.js -->
+* (done) the 'set max frame' just calls the same set frame method, so I removed it.
+
 <!-- video19-r8-start.js -->
 * () make video19-r8-start.js just a simply collection of moving shapes
 

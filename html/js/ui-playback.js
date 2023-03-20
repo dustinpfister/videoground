@@ -10,8 +10,15 @@
             '<input type="button" value="play/pause" v-on:click="play">' +
             '<input type="button" value="frame+" v-on:click="stepFrame(1)">' +
             '<input type="button" value="frame-" v-on:click="stepFrame(-1)"><br>' +
-            '<input type="text" size="5" v-model="targetFrame"><input type="button" value="set frame" v-on:click="setFrame">' +
-            '<input type="text" size="5" v-model="sm.frameMax"><input type="button" value="set max frame" v-on:click="setFrame"><br>' +
+
+
+            '<input type="text" size="5" v-model="targetFrame" v-on:change="setFrame" >'+
+            '<input type="button" value="set frame" v-on:click="setFrame">' +
+            '<input type="text" size="5" v-model="sm.frameMax"><br>'+
+
+            //!!! Why have this button that runs the same function?
+            //'<input type="button" value="set max frame" v-on:click="setFrame"><br>' +
+
             '<select ref="foo" id="res_options" v-model="res_index" v-on:click="resChange">'+
                 '<option  v-bind:ref="\'res_\' + i" v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
             '</select><br>' +
@@ -51,6 +58,7 @@
             },
             // set a frame
             setFrame: function(){
+
                 var sm = this.$data.sm;
                 sm.frameMax = parseInt(sm.frameMax);
                 sm.frameFrac = parseFloat(this.$data.targetFrame);
