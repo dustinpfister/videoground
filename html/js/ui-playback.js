@@ -6,25 +6,25 @@
     var vm = new Vue({
         el: '#wrap_playpack',
         template: '<div class="wrap_ui wrap_ui_playback">' +
+            // playback
             '<span>Playback Controls:</span><br>' +
             '<input type="button" value="play/pause" v-on:click="play">' +
             '<input type="button" value="frame+" v-on:click="stepFrame(1)">' +
             '<input type="button" value="frame-" v-on:click="stepFrame(-1)"><br>' +
 
-
-            '<input type="text" size="5" v-model="targetFrame" v-on:change="setFrame" >'+
-
             //!!! direct set of frameFrac might be cool in some ways, but I still like the target frame feature
             // that way I can just click set frame to keep setting back to a given point
-
             //'<input type="text" size="5" v-model="sm.frameFrac" v-on:change="setFrame" >'+
 
+
+            '<input type="text" size="5" v-model="targetFrame" v-on:change="setFrame" >' + 
             '<input type="text" size="5" v-model="sm.frameMax">'+
             '<input type="button" value="Set frame to target" v-on:click="setFrame"><br>' +
-
+            // res select
             '<select ref="foo" id="res_options" v-model="res_index" v-on:click="resChange">'+
                 '<option  v-bind:ref="\'res_\' + i" v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
             '</select><br>' +
+            // preview
             '<input type="button" value="preview+" v-on:click="stepPreview(1)">' +
             '<input type="button" value="preview-" v-on:click="stepPreview(-1)">' +
             ' {{ sm.previewSize }} <br>' +
