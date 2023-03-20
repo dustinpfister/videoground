@@ -128,6 +128,8 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
                 console.log('sm.setup: looks like VIDEO.init returned a promsie:');
                 console.log(obj);
             }
+            sm.render_frame_start = 0;
+            sm.render_frame_end = sm.frameMax;
             sm.setFrame();
         });
     };

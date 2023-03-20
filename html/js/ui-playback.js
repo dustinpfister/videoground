@@ -19,11 +19,9 @@
             '<select ref="foo" id="res_options" v-model="res_index" v-on:click="resChange">'+
                 '<option  v-bind:ref="\'res_\' + i" v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
             '</select><br>' +
-
-
-            '<input type="text" size="5" v-model="sm.render_frame_start">'+
+            // frame render range values
+            'render frames: <input type="text" size="5" v-model="sm.render_frame_start">'+
             '<input type="text" size="5" v-model="sm.render_frame_end"><br>'+
-
             // preview
             '<input type="button" value="preview+" v-on:click="stepPreview(1)">' +
             '<input type="button" value="preview-" v-on:click="stepPreview(-1)">' +
@@ -64,7 +62,6 @@
             },
             // set a frame
             setFrame: function(){
-
                 var sm = this.$data.sm;
                 //sm.frameMax = parseInt(sm.frameMax);
                 sm.frameFrac = parseFloat(this.$data.targetFrame);

@@ -94,8 +94,9 @@
 * (done) have an sm.render\_frame\_start as well as sm.render\_frame\_end
 * (done) can set new sm render values in vm template
 * (done) make video19-r8-start.js just a simply collection of moving shapes
-<!-- ui-playback.js -->
 * (done) fix bug with frame step - button not wrapping around
+<!-- ui-playback.js -->
+
 
 <!-- FIN-->
 * () try bumping electionjs to 15.5.7 which is using chrome 94 and node 16.5
