@@ -13,11 +13,14 @@
 
 
             '<input type="text" size="5" v-model="targetFrame" v-on:change="setFrame" >'+
-            '<input type="button" value="set frame" v-on:click="setFrame">' +
-            '<input type="text" size="5" v-model="sm.frameMax"><br>'+
 
-            //!!! Why have this button that runs the same function?
-            //'<input type="button" value="set max frame" v-on:click="setFrame"><br>' +
+            //!!! direct set of frameFrac might be cool in some ways, but I still like the target frame feature
+            // that way I can just click set frame to keep setting back to a given point
+
+            //'<input type="text" size="5" v-model="sm.frameFrac" v-on:change="setFrame" >'+
+
+            '<input type="text" size="5" v-model="sm.frameMax">'+
+            '<input type="button" value="Set frame to target" v-on:click="setFrame"><br>' +
 
             '<select ref="foo" id="res_options" v-model="res_index" v-on:click="resChange">'+
                 '<option  v-bind:ref="\'res_\' + i" v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
@@ -60,8 +63,9 @@
             setFrame: function(){
 
                 var sm = this.$data.sm;
-                sm.frameMax = parseInt(sm.frameMax);
+                //sm.frameMax = parseInt(sm.frameMax);
                 sm.frameFrac = parseFloat(this.$data.targetFrame);
+                sm.frameFrac = parseFloat(sm.frameFrac);
                 sm.frame = Math.floor(sm.frameFrac);
                 sm.setFrame();
             },

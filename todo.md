@@ -99,6 +99,7 @@
 ```
 <!-- ui-playback.js -->
 * (done) the 'set max frame' just calls the same set frame method, so I removed it.
+* (done) call 'set frame' to 'set frame to target'
 
 <!-- video19-r8-start.js -->
 * () make video19-r8-start.js just a simply collection of moving shapes
