@@ -20,6 +20,11 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     // HARD CODED SETTINGS
     //-------- ----------
     const WRAP_CANVAS = document.querySelector('#wrap_canvas');
+    const canvas_2d = document.createElement('canvas');
+    canvas_2d.style.display = 'block';
+    const ctx_2d = canvas_2d.getContext('2d');
+    WRAP_CANVAS.appendChild( canvas_2d );
+
     // Sticking with 'youtube friendly' options when it comes to resolution
     // https://support.google.com/youtube/answer/6375112?hl=en&co=GENIE.Platform%3DDesktop
     const RESOLUTIONS = [
@@ -67,7 +72,8 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         res_current_index: DEFAULT_RESOLUTION,
         res_options: RESOLUTIONS,
         filePath: null,
-        canvas: null,
+        canvas: canvas_2d,
+        ctx: ctx_2d,
         frame: 0,
         frameFrac: 0,
         frameMax: 300,
@@ -137,8 +143,21 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     sm.setFrame = function(){
         // call update method
         update();
+
+
+const ctx = sm.ctx;
+const canvas = sm.canvas;
+//ctx.fillStyle = 'black';
+ctx.clearRect(0,0, canvas.width, canvas.height);
+
+
         // render
         sm.renderer.render(sm.scene, sm.camera);
+
+
+ctx.drawImage(sm.renderer.domElement, 32, 32, 640, 360);
+
+
     };
     // start loop
     sm.play = function(){
@@ -156,6 +175,8 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         sm.renderer.setSize(sm.res.w, sm.res.h, false);
         // set scaled size of canvas
         let ratio = getRatio(sm.res);
+        sm.canvas.width = sm.res.w;
+        sm.canvas.height = sm.res.h;
         sm.canvas.style.width = Math.floor(ratio.w * sm.previewSize) + 'px';
         sm.canvas.style.height = Math.floor(ratio.h * sm.previewSize) + 'px';
         // update camera aspect ratio
@@ -167,14 +188,14 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     // replace renderer method
     sm.replaceRenderer = function(newRenderer){
         // remove old canvas element if not null
-        if(sm.canvas){
-            sm.canvas.remove();
-        }
+        //if(sm.canvas){
+        //    sm.canvas.remove();
+       /// }
         // update renderer and canvas
         sm.renderer = newRenderer;
-        sm.canvas = sm.renderer.domElement;
+        //sm.canvas = sm.renderer.domElement;
         // append to wrap canvas
-        WRAP_CANVAS.appendChild(sm.canvas);
+        //WRAP_CANVAS.appendChild(sm.canvas);
 
 
         sm.resSet(sm.res_current_index);

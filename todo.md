@@ -14,8 +14,12 @@
 * () - #10 - error loading dae textures when loading from more than one folder
 
 ## () - r9 - VIDEO.render, simple 2d rendering
+* () have a sm.canvas be a plain old 2d canvas that is created once in video-setup.js
+
+
 * () I will want a VIDEO.render function
 * () if no VIDEO.render is defined in the video file, then the defualt action should be just what is all ready in place with this
+* () video20-r9-start.js video demos new 2d rendering feature
 * () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
 
 ## ( done 06/11/2023 ) - r8 - render frames x to y
