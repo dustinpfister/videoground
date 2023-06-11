@@ -6,11 +6,17 @@
 // create main VIDEO OBJECT
 let VIDEO = {};
 // init method for the video
-VIDEO.init = function(scene, camera){
+VIDEO.init = function(sm, scene, camera){
     //return Promise.resolve();
 };
+// default render method
+VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
+   ctx.clearRect(0,0, canvas.width, canvas.height);
+   sm.renderer.render(sm.scene, sm.camera);
+   ctx.drawImage(sm.renderer.domElement, 0, 0, sm.canvas.width, sm.canvas.height);
+};
 // update method for the video
-VIDEO.update = function(state, scene, camera, secs, per, bias){
+VIDEO.update = function(sm, scene, camera, secs, per, bias){
 };
 //---------- ----------
 // SM OBJECT - used by ui-playback.js and ui-video-code.js
@@ -24,7 +30,6 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     canvas_2d.style.display = 'block';
     const ctx_2d = canvas_2d.getContext('2d');
     WRAP_CANVAS.appendChild( canvas_2d );
-
     // Sticking with 'youtube friendly' options when it comes to resolution
     // https://support.google.com/youtube/answer/6375112?hl=en&co=GENIE.Platform%3DDesktop
     const RESOLUTIONS = [
@@ -92,12 +97,12 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
         previewSize: 400
     });
     // update
-    const update = function(){
-        sm.per = Math.round(sm.frame) / sm.frameMax;
-        sm.bias = getBias(sm.per);
+    //const update = function(){
+    //    sm.per = Math.round(sm.frame) / sm.frameMax;
+    //    sm.bias = getBias(sm.per);
         // global in client.js
-        VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias);
-    };
+    //    VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias);
+    //};
     // app loop
     const loop = function () {
         const now = new Date();
@@ -142,22 +147,12 @@ VIDEO.update = function(state, scene, camera, secs, per, bias){
     // set frame
     sm.setFrame = function(){
         // call update method
-        update();
-
-
-const ctx = sm.ctx;
-const canvas = sm.canvas;
-//ctx.fillStyle = 'black';
-ctx.clearRect(0,0, canvas.width, canvas.height);
-
-
-        // render
-        sm.renderer.render(sm.scene, sm.camera);
-
-
-ctx.drawImage(sm.renderer.domElement, 32, 32, 640, 360);
-
-
+        //update();
+        sm.per = Math.round(sm.frame) / sm.frameMax;
+        sm.bias = getBias(sm.per);
+        // call VIDEO.update, then VIDEO.render
+        VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias);
+        VIDEO.render(sm, sm.canvas, sm.ctx, sm.scene, sm.camera, sm.renderer);
     };
     // start loop
     sm.play = function(){
