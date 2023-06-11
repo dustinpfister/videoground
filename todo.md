@@ -16,8 +16,9 @@
 ## () - r9 - VIDEO.render, simple 2d rendering
 * () I will want a VIDEO.render function
 * () if no VIDEO.render is defined in the video file, then the defualt action should be just what is all ready in place with this
+* () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
 
-## () - r8 - render frames x to y
+## ( done 06/11/2023 ) - r8 - render frames x to y
 * (done) set REVISION const in constants.js set to '8_dev'
 * (done) start a video19-r8-start.js file and make it the start video in constants.js
 * (done) the 'set max frame' just calls the same set frame method, so I removed it.
@@ -28,8 +29,7 @@
 * (done) fix bug with frame step - button not wrapping around
 * (done) setting render range values to typical values after calling video init method
 * (done) see about adding a keyboad shortcut for export to frames ctrl+e
-<!-- FIN-->
-* () REVISION in constants.js, and package.json set to 8 and commit with message '0.8.0'
+* (done) REVISION in constants.js, and package.json set to 8 and commit with message '0.8.0'
 
 ## ( done 03/19/2023 ) - r7 - Settings.json,  last video on start
 * (done) new REVISION const in preload.js set to '7_dev' string
