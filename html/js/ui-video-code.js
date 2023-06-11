@@ -48,10 +48,8 @@
     // load text
     var loadText = (vm, text) => {
         try{
-            // by default no dae files are used
-            VIDEO.daePaths = null;
-            VIDEO.daeResults = [];
-            VIDEO.scripts = undefined;
+            // set defauts
+            sm.setDefaults();
             // !!! - #1 - USING EVAL FOR NOW UNTIL I FIGURE OUT SOMTHING BETTER
             eval(text);
             // set last and current videoJS

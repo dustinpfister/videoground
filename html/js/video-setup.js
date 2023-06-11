@@ -118,7 +118,20 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
             }
         }
     };
-    // setup
+
+    // set defaults for VIDEO, to be called before sm.setup ( see ui-video-code.js ) 
+    sm.setDefaults = () => {
+        VIDEO.daePaths = null;
+        VIDEO.daeResults = [];
+        VIDEO.scripts = undefined;
+        VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
+            ctx.clearRect(0,0, canvas.width, canvas.height);
+            sm.renderer.render(sm.scene, sm.camera);
+            ctx.drawImage(sm.renderer.domElement, 0, 0, sm.canvas.width, sm.canvas.height);
+        };
+    };
+
+    // setup is to be called after text of video file has been applyed ( see ui-video-code.js ) 
     sm.setup = function(){
         sm.frame = 0;
         sm.frameFrac = 0;
@@ -203,7 +216,8 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
 */
     };
     // call replace renderer for first time here before calling sm.setup
-    sm.replaceRenderer( new THREE.WebGL1Renderer() )
+    sm.replaceRenderer( new THREE.WebGL1Renderer() );
+    sm.setDefaults();
     sm.setup();
     //-------- ----------
     // MENU EVENTS

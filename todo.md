@@ -18,7 +18,7 @@
 * (done) I will want a VIDEO.render function
 * (done) if no VIDEO.render is defined in the video file, then the defualt action should be just what is all ready in place with this
 * (done) video20-r9-start.js video demos new 2d rendering feature
-
+* (done) sm.setDefaults method
 
 * () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
 
