@@ -1,6 +1,6 @@
 ﻿# Videoground
 
-I wanted to a make tool for creating videos using mainly electronjs, and threejs, along with a whole lot of vanilla javaScript code of my own to create video projects. VideoGround is then the project that I came up with that I use to make videos that I post to my [javaweaver Youtube channel](https://www.youtube.com/user/javaweaver). So you can check out the channel if you would like to see what some content looks like using this tool.
+I wanted to a make tool for creating videos using mainly electronjs, threejs, and a whole lot of vanilla javaScript code of my own to create video projects. VideoGround is then the project that I came up with that I use to make videos that I post to my [javaweaver Youtube channel](https://www.youtube.com/user/javaweaver). So you can check out the channel if you would like to see what some content looks like using this tool.
 
 <div align="center">
       <a href="https://www.youtube.com/watch?v=Mq37hBHx-Qc">
@@ -13,7 +13,7 @@ I wanted to a make tool for creating videos using mainly electronjs, and threejs
 
 ## What the goals where with this project
 
-When it comes to what the goals where with this project I have all ready achieved the core set of goals that I had in mind. I just wanted to make a tool that I can use to create a whole bunch of frame images with some javaScript code on top of threejs. I can then take it from there by using ffmpeg, and other tools to create a final product.
+When it comes to what the goals where with this project I have all ready achieved the core set of goals that I had in mind as I first set the bar very low for myself on this one. I just wanted to make a tool that I can use to create a whole bunch of frame images with some javaScript code on top of threejs, and have a basic interface to work with some high level javaScript code that runs on top of everything that I am abstracting away. I can then take it from there by using ffmpeg, and other tools to create a final video product.
 
 * R0 - Basic frame by frame export feature working
 * R1 - Built in feature for loading \*.dae files
@@ -23,6 +23,7 @@ When it comes to what the goals where with this project I have all ready achieve
 * R5 - VIDEO.init method can be used to return a promise, allows using all kinds of loaders
 * R6 - RUN button over auto running code as it is being edited
 * R7 - User data folder, last video on start
+* R8 - Start and end frame render range feature
 
 ## What the the current goals with this project
 
