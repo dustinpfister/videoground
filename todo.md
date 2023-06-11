@@ -13,74 +13,9 @@
 * () - #9 - videoAPI.webGL2-test-pass still false when read client side look into another way to store state
 * () - #10 - error loading dae textures when loading from more than one folder
 
-## () - rx - Clean sm object on each call of setup method
-* () I will need to turn client.js into a module that returns a public API like clientMod
-* () have a clientMod.createSM method
-* () have a clientMod.setup method
-* () have a createSM method in client.js
-* () have a clean sm object on each call of 
-
-## () - rx - dae-helper.js
-* () bake dae-helper.js R0 into videoground itself
-* () update DAE loading feature to make use of dae-helper.js
-* () allow for setting resource paths for each file
-
-## () - r14 - ?
-* () set REVISION const in constants.js set to '14_dev'
-* () try bumping electionjs to to 21.4.3 ( lateset as of 03/16/2023 )
-
-
-## () - r13 - Logger lib
-* () set REVISION const in constants.js set to '13_dev'
-* () try bumping electionjs to to 20.3.12, might not work out okay so be ready to stay fixed at lateset stable
-
-* () start a /lib/logger/index.js that will be the main logger lib used by all javaScript files
-* () have a videoAPI.createLogger funciton that can be used to create a logger for each of the client files
-
-## () - r12 - file new option
-* () set REVISION const in constants.js set to '12_dev'
-* () try bumping electionjs to to 19.1.9, might not work out okay so be ready to stay fixed at lateset stable
-
-* () start a file > new option in menu.js
-* () use the hard coded start video as the start point for the new video
-* () when creating a new file the fileName and filePath vm data object values should be null
-* () use videoAPI.saveAsDialog in save event when fileName and filePath vm data object values are null
-* () start a file > new from template option
-* () have a way to set a templates location in settings.json
-
-## () - r11 - file open recent plugin
-* () set REVISION const in constants.js set to '11_dev'
-* () try bumping electionjs to 18.3.15 which is the latest for 18.x, might not work okay so be prepared to say with 17.x
-
-* () This might need to be an optional plug in actually
-* () see about having a file > Open Recent menu option
-
-## () - r10 - plugin system
-* () set REVISION const in constants.js set to '10_dev'
-* () try bumping electionjs to 17.4.11 which using chrome 98 and node 16.13
-
-* () start an plugin system so that I have a way to start creating built in, and optional features
-* () see about turning the export by frame feature the first built in plugin
-
-* () start a new repo videoground-plugins that will work as a way to pull down optional plugins
-* () have a diolog that can be used to pull up an index of plugins for this repo
-* () have it so that more than one github url can be given
-* () the first option plugin can be something like a javaScript formatter
-
-* () update README to reflect changes made in R10
-* () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
-
-## () - r9 - javaScript and JSM client systems, and Revision Number Selection
-* () set REVISION const in constants.js set to '9_dev'
-* () try bumping electionjs to 16.2.8 which is using chrome 96 and node 16.9
-<!-- new client-->
-* () I will want a window-main-javascript html file for using a threejs revision by way of three.min.js
-* () I will want a window-main-jsm html file for using three.module.js
-* () add r91, r146, and r149 (or r150 if out ) for additional threejs revision options
-* () add three.min.js for all revision where available
-* () add three.module.js for all revisions where available
-* () update README to reflect changes made in R9
-* () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
+## () - r9 - VIDEO.render, simple 2d rendering
+* () I will want a VIDEO.render function
+* () if no VIDEO.render is defined in the video file, then the defualt action should be just what is all ready in place with this
 
 ## () - r8 - render frames x to y
 * (done) set REVISION const in constants.js set to '8_dev'
@@ -93,19 +28,7 @@
 * (done) fix bug with frame step - button not wrapping around
 * (done) setting render range values to typical values after calling video init method
 * (done) see about adding a keyboad shortcut for export to frames ctrl+e
-<!-- /html/ui-playback.js -->
-<!-- /menu.js -->
-* () I would still like to have an export to frames dialog
-* () can click a browse button as a way to set/change export folder
-* () see about starting a dialog in menu.js, just getting all the info there and being done with it.
-<!-- settings.json -->
-* () use settings.json to store a default folder for exporting frames
-* () make the default location in the user data folder
-* () create the folder if it is not there
-
 <!-- FIN-->
-* () try bumping electionjs to 15.5.7 which is using chrome 94 and node 16.5
-* () update README to reflect changes made in R8
 * () REVISION in constants.js, and package.json set to 8 and commit with message '0.8.0'
 
 ## ( done 03/19/2023 ) - r7 - Settings.json,  last video on start
