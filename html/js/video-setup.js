@@ -44,14 +44,6 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
     const DEFAULT_RESOLUTION = 4; // going with 720p as a default for this
     const HARD_INIT_PROMISE = {data: 'default promise object'};
     //-------- ----------
-    // webGL2 test
-    //-------- ----------
-    //!!! r6 change - setting webgl test value
-    //console.log(videoAPI.webGL2_test_pass);
-    //var testRenderer = new THREE.WebGLRenderer();
-    //videoAPI.setWebGLTest(testRenderer.capabilities.isWebGL2);
-    //console.log(videoAPI.webGL2_test_pass);
-    //-------- ----------
     // HELPER FUNCTIONS
     //-------- ----------
     // get bias value helper
@@ -66,10 +58,6 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
            h : res.h / m
        };
     };
-    //-------- ----------
-    // SCENE, CAMERA, and RENDERER
-    //-------- ----------
-    //let res = RESOLUTIONS[DEFAULT_RESOLUTION];
     //-------- ----------
     // THE STATE MACHINE (sm) object
     //-------- ----------
@@ -97,13 +85,6 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
         fps_movement: 30,
         previewSize: 400
     });
-    // update
-    //const update = function(){
-    //    sm.per = Math.round(sm.frame) / sm.frameMax;
-    //    sm.bias = getBias(sm.per);
-        // global in client.js
-    //    VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias);
-    //};
     // app loop
     const loop = function () {
         const now = new Date();
@@ -119,7 +100,6 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
             }
         }
     };
-
     // set defaults for VIDEO, to be called before sm.setup ( see ui-video-code.js ) 
     sm.setDefaults = () => {
         VIDEO.daePaths = null;
@@ -131,7 +111,6 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
             ctx.drawImage(sm.renderer.domElement, 0, 0, sm.canvas.width, sm.canvas.height);
         };
     };
-
     // setup is to be called after text of video file has been applyed ( see ui-video-code.js ) 
     sm.setup = function(){
         sm.frame = 0;
@@ -143,7 +122,6 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
         sm.camera = new THREE.PerspectiveCamera(40, sm.res.w / sm.res.h, 0.1, 1000);
         sm.camera.position.set(10, 10, 10);
         sm.camera.lookAt(0, 0, 0);
-        //sm.scene.children = [];
         // code to check if VIDEO.init returns a promise or not
         (VIDEO.init(sm, sm.scene, sm.camera) || Promise.resolve(HARD_INIT_PROMISE) ).then((obj) => {
             if(obj === HARD_INIT_PROMISE){
@@ -159,8 +137,6 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
     };
     // set frame
     sm.setFrame = function(){
-        // call update method
-        //update();
         sm.per = Math.round(sm.frame) / sm.frameMax;
         sm.bias = getBias(sm.per);
         // call VIDEO.update, then VIDEO.render
@@ -195,25 +171,8 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
     },
     // replace renderer method
     sm.replaceRenderer = function(newRenderer){
-        // remove old canvas element if not null
-        //if(sm.canvas){
-        //    sm.canvas.remove();
-       /// }
-        // update renderer and canvas
         sm.renderer = newRenderer;
-        //sm.canvas = sm.renderer.domElement;
-        // append to wrap canvas
-        //WRAP_CANVAS.appendChild(sm.canvas);
-
-
         sm.resSet(sm.res_current_index);
-
-        // set scaled size of canvas
-/*
-        let ratio = getRatio(sm.res);
-        sm.canvas.style.width = Math.floor(ratio.w * 420) + 'px';
-        sm.canvas.style.height = Math.floor(ratio.h * 420) + 'px';
-*/
     };
     // call replace renderer for first time here before calling sm.setup
     sm.replaceRenderer( new THREE.WebGL1Renderer() );
