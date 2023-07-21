@@ -42,6 +42,7 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
         {w: 3840, h: 2160}   // 4k
     ];
     const DEFAULT_RESOLUTION = 4; // going with 720p as a default for this
+    const HARD_INIT_PROMISE = {data: 'default promise object'};
     //-------- ----------
     // webGL2 test
     //-------- ----------
@@ -144,9 +145,8 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
         sm.camera.lookAt(0, 0, 0);
         //sm.scene.children = [];
         // code to check if VIDEO.init returns a promise or not
-        let hard = {data: 'default promise object'};
-        (VIDEO.init(sm, sm.scene, sm.camera) || Promise.resolve(hard) ).then((obj) => {
-            if(obj === hard){
+        (VIDEO.init(sm, sm.scene, sm.camera) || Promise.resolve(HARD_INIT_PROMISE) ).then((obj) => {
+            if(obj === HARD_INIT_PROMISE){
                 console.log('sm.setup: no promise used');
             }else{
                 console.log('sm.setup: looks like VIDEO.init returned a promsie:');
