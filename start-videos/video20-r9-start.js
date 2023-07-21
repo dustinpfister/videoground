@@ -28,10 +28,11 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
    ctx.drawImage(sm.renderer.domElement, dx, dy, dw, dh);
    // addtional plain 2d overlay for status info
    ctx.fillStyle = 'black';
-   ctx.font = '50px arial';
+   ctx.font = '40px arial';
    ctx.textBaseline = 'top';
-   ctx.fillText('frame: ' + sm.frame + '/' + sm.frameMax, 5, 5);
-   ctx.fillText('a_per: ' + sm.per.toFixed(2), 5, 55);
+   ctx.fillText('frame: ' + sm.filePath, 5, 10);
+   ctx.fillText('frame: ' + sm.frame + '/' + sm.frameMax, 5, 60);
+   ctx.fillText('a_per: ' + sm.per.toFixed(2), 5, 110);
 };
 // update method for the video
 VIDEO.update = function(sm, scene, camera, per, bias){
