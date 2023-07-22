@@ -1,4 +1,5 @@
-/*    video19-r8-start - start video for r9 of videoground
+/*    video20-r9-start - start video for r9 of videoground
+      * VIDEO.render method added in r9 used for the background and rendering of scene in area of canvas
  */
 VIDEO.init = function(sm, scene, camera){
 
