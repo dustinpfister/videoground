@@ -21,7 +21,8 @@
 * (done) sm.setDefaults method
 
 <!-- update promise methods -->
-* () work more on /lib/range-read to create the funcitons that I want to use for videoAPI.read
+* (done) work more on /lib/range-read to create the funcitons that I want to use for videoAPI.read
+* () get alpha values working for rangeRead.read
 * () I will want to have a videoAPI.read method that will use the fs.read method
 * () video20-r9-start: will return a Promise that will use videoAPI.read
 * () video20-r9-start: read data from the main readme file
