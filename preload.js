@@ -18,6 +18,7 @@ const OPT_USERDATA_SETTINGS = CONSTANT.OPT_USERDATA_SETTINGS;
 // CUSTOM MODULES
 //-------- ----------
 const userData = require( path.join(__dirname, 'lib/user-data/user-data.js') );
+const rangeRead = require( path.join(__dirname, 'lib/range-read/range-read.js') );
 //-------- ----------
 // CREATE USER DATA OBJECT
 //-------- ----------
@@ -36,11 +37,17 @@ userData.create(OPT_USERDATA_SETTINGS)
 let videoAPI = {
   r: REVISION
 };
-
+// read file data
+videoAPI.read = ( uri, opt ) => {
+    return rangeRead.read( uri, opt )
+    .then( (data) => {
+        return data;
+    });
+};
+// get the settings object
 videoAPI.getSettings = () => {
     return userData.get(OPT_USERDATA_SETTINGS);
 };
-
 // logging
 videoAPI.log = ( mess, id ) => {
     //console.log('----------');
