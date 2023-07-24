@@ -42,7 +42,8 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
         {w: 3840, h: 2160}   // 4k
     ];
     const DEFAULT_RESOLUTION = 4; // going with 720p as a default for this
-    const HARD_INIT_PROMISE = {data: 'default promise object'};
+    const HARD_INIT_PROMISE = {data: 'default init promise object used'};
+    const HARD_UPDATE_PROMISE = {data: 'default update promise object used'};
     //-------- ----------
     // HELPER FUNCTIONS
     //-------- ----------
@@ -123,7 +124,9 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
         sm.camera.position.set(10, 10, 10);
         sm.camera.lookAt(0, 0, 0);
         // code to check if VIDEO.init returns a promise or not
-        (VIDEO.init(sm, sm.scene, sm.camera) || Promise.resolve(HARD_INIT_PROMISE) ).then((obj) => {
+        //!!! R9 CHANGE - made it so that sm.setup will return a promise when called
+        return (VIDEO.init(sm, sm.scene, sm.camera) || Promise.resolve(HARD_INIT_PROMISE) )
+        .then((obj) => {
             if(obj === HARD_INIT_PROMISE){
                 console.log('sm.setup: no promise used');
             }else{
@@ -140,8 +143,16 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
         sm.per = Math.round(sm.frame) / sm.frameMax;
         sm.bias = getBias(sm.per);
         // call VIDEO.update, then VIDEO.render
-        VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias);
-        VIDEO.render(sm, sm.canvas, sm.ctx, sm.scene, sm.camera, sm.renderer);
+
+        //VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias);
+        //VIDEO.render(sm, sm.canvas, sm.ctx, sm.scene, sm.camera, sm.renderer);
+
+        //!!! R9 CHNAGE - updated this method to allow for the use of Promise Objects to be returned in VIDEO.update methods
+        return (VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias) || Promise.resolve(HARD_UPDATE_PROMISE) )
+        .then((obj) => {
+            VIDEO.render(sm, sm.canvas, sm.ctx, sm.scene, sm.camera, sm.renderer);
+        });
+
     };
     // start loop
     sm.play = function(){
@@ -151,7 +162,7 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
             loop();
         }
     };
-    // set the resoluton of the renderer, update the camera also
+    // set the resolution of the renderer, update the camera also
     sm.resSet = function(new_index){
         sm.res_current_index = new_index === undefined ? sm.res_current_index : new_index;
         sm.res = sm.res_options[sm.res_current_index];

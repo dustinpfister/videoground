@@ -32,7 +32,7 @@
            callback();
         }
     };
-    // code for updaing the title
+    // code for updating the title
     const updateTitle = (vm) => {
         let ast = vm.$data.unsaved_changes ? '* ' : '';
         document.title = ast + 'VideoGround - ' + vm.$data.fileName;
@@ -48,7 +48,7 @@
     // load text
     var loadText = (vm, text) => {
         try{
-            // set defauts
+            // set defaults
             sm.setDefaults();
             // !!! - #1 - USING EVAL FOR NOW UNTIL I FIGURE OUT SOMTHING BETTER
             eval(text);

@@ -23,11 +23,16 @@
 <!-- update promise methods -->
 * (done) work more on /lib/range-read to create the funcitons that I want to use for videoAPI.read
 * (done) get alpha values working for rangeRead.read
-* () I will want to have a videoAPI.read method that will use the fs.read method
-* () video20-r9-start: will return a Promise that will use videoAPI.read
-* () video20-r9-start: read data from the main readme file
-* () video20-r9-start: display readme data in the background
+* (done) I will want to have a videoAPI.read method that will use the fs.read method
+* (done) video20-r9-start: makes use of videoAPI.read using the all ready in place promise feature of Video.init methods
+
+* (done) video-setup: the sm.setFrame method will need to be updated to make use of any promise that might be there
+* () video-setup: the loop method will need to be updated to step frame count when promise is resolved
+* () ui-playback: vm.setFrame will need to return the promise returned by calling sm.setFrame
+* () ui-playback: the writeFrame helper will need to be updated so that VideoAPI.writeFrame is called after promise is resolved
+
 * () video20-r9-start: change what the byte range is from frame to frame
+
 * () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
 
 ## ( done 06/11/2023 ) - r8 - render frames x to y
