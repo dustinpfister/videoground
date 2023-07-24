@@ -19,8 +19,6 @@
 * (done) if no VIDEO.render is defined in the video file, then the defualt action should be just what is all ready in place with this
 * (done) video20-r9-start.js video demos new 2d rendering feature
 * (done) sm.setDefaults method
-
-<!-- update promise methods -->
 * (done) work more on /lib/range-read to create the functions that I want to use for videoAPI.read
 * (done) get alpha values working for rangeRead.read
 * (done) I will want to have a videoAPI.read method that will use the fs.read method
@@ -29,8 +27,7 @@
 * (done) video-setup: the loop method will need to be updated to step frame count when promise is resolved
 * (done) ui-playback: vm.setFrame will need to return the promise returned by calling sm.setFrame
 * (done) ui-playback: the writeFrame helper will need to be updated so that VideoAPI.writeFrame is called after promise is resolved
-
-* () video20-r9-start: change what the byte range is from frame to frame
+* (done) video20-r9-start: change what the byte range is from frame to frame
 
 * () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
 
@@ -44,7 +41,7 @@
 * (done) make video19-r8-start.js just a simply collection of moving shapes
 * (done) fix bug with frame step - button not wrapping around
 * (done) setting render range values to typical values after calling video init method
-* (done) see about adding a keyboad shortcut for export to frames ctrl+e
+* (done) see about adding a keyboard shortcut for export to frames ctrl+e
 * (done) REVISION in constants.js, and package.json set to 8 and commit with message '0.8.0'
 
 ## ( done 03/19/2023 ) - r7 - Settings.json,  last video on start

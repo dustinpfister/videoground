@@ -9,13 +9,13 @@ VIDEO.init = function(sm, scene, camera){
     camera.position.set(2, 2, 2);
     camera.lookAt( 0, 0, 0 );
     // videoAPI.read can still be used to read a full file like this
-    const uri_file = videoAPI.pathJoin(sm.filePath, 'video1-r1-start.js')
-    return videoAPI.read( uri_file, { alpha: 0, buffer_size_alpha: 1} )
-    .then( (data) => {
-        const text = data
-        scene.userData.lines = text.split( /\n/ );
-        scene.userData.text = text;
-    });
+    //const uri_file = videoAPI.pathJoin(sm.filePath, 'video1-r1-start.js')
+    //return videoAPI.read( uri_file, { alpha: 0, buffer_size_alpha: 1} )
+    //.then( (data) => {
+    //    const text = data
+    //    scene.userData.lines = text.split( /\n/ );
+    //    scene.userData.text = text;
+    //});
 };
 // custom render function
 VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
@@ -30,7 +30,8 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
    ctx.fillStyle = 'black';
    ctx.font = '40px monospace';
    scene.userData.lines.forEach( (text, i) => {
-       ctx.fillText(text, 0, 40 * i - (40 * 20) * sm.per);
+       //ctx.fillText(text, 0, 40 * i - (40 * 20) * sm.per);
+       ctx.fillText(text, 0, 40 * i);
    });
    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
    ctx.fillRect(0,0, canvas.width, canvas.height);
@@ -54,5 +55,15 @@ VIDEO.update = function(sm, scene, camera, per, bias){
     const mesh1 = scene.userData.mesh1;
     mesh1.rotation.x = Math.PI * 2 * per;
     mesh1.rotation.y = Math.PI * 4 * per;
+
+    // R9 now allows for using Promises on a Frame By Frame basis
+    const uri_file = videoAPI.pathJoin(sm.filePath, '../README.md')
+    return videoAPI.read( uri_file, { alpha: sm.per, buffer_size_alpha: 1 / 8 } )
+    .then( (data) => {
+        const text = data
+        scene.userData.lines = text.split( /\n/ );
+        scene.userData.text = text;
+    });
+
 };
 
