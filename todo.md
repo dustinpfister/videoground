@@ -25,9 +25,9 @@
 * (done) get alpha values working for rangeRead.read
 * (done) I will want to have a videoAPI.read method that will use the fs.read method
 * (done) video20-r9-start: makes use of videoAPI.read using the all ready in place promise feature of Video.init methods
-
 * (done) video-setup: the sm.setFrame method will need to be updated to make use of any promise that might be there
-* () video-setup: the loop method will need to be updated to step frame count when promise is resolved
+* (done) video-setup: the loop method will need to be updated to step frame count when promise is resolved
+
 * () ui-playback: vm.setFrame will need to return the promise returned by calling sm.setFrame
 * () ui-playback: the writeFrame helper will need to be updated so that VideoAPI.writeFrame is called after promise is resolved
 

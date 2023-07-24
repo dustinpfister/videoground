@@ -91,13 +91,20 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
         const now = new Date();
         sm.secs = (now - sm.lt) / 1000;
         if(sm.loopActive){
-            requestAnimationFrame(loop);
+            //!!! R9 CHANGE - No Longer Have a single call of requeat animaiton frame here
             if(sm.secs > 1 / sm.fps_update){
-                sm.setFrame();
-                sm.frameFrac += sm.fps_movement * sm.secs;
-                sm.frameFrac %= sm.frameMax;
-                sm.frame = Math.floor(sm.frameFrac)
-                sm.lt = now;
+                //!!! R9 CHANGE - updated loop so that sm.frame, and sm.lt will only update when promise will resolve
+                sm.setFrame()
+                .then(()=>{
+                    requestAnimationFrame(loop);
+                    sm.frameFrac += sm.fps_movement * sm.secs;
+                    sm.frameFrac %= sm.frameMax;
+                    sm.frame = Math.floor(sm.frameFrac)
+                    sm.lt = now;
+                });
+            }
+            if(sm.secs < 1 / sm.fps_update){
+                requestAnimationFrame(loop);
             }
         }
     };
