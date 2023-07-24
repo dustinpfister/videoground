@@ -21,15 +21,14 @@
 * (done) sm.setDefaults method
 
 <!-- update promise methods -->
-* (done) work more on /lib/range-read to create the funcitons that I want to use for videoAPI.read
+* (done) work more on /lib/range-read to create the functions that I want to use for videoAPI.read
 * (done) get alpha values working for rangeRead.read
 * (done) I will want to have a videoAPI.read method that will use the fs.read method
 * (done) video20-r9-start: makes use of videoAPI.read using the all ready in place promise feature of Video.init methods
 * (done) video-setup: the sm.setFrame method will need to be updated to make use of any promise that might be there
 * (done) video-setup: the loop method will need to be updated to step frame count when promise is resolved
-
-* () ui-playback: vm.setFrame will need to return the promise returned by calling sm.setFrame
-* () ui-playback: the writeFrame helper will need to be updated so that VideoAPI.writeFrame is called after promise is resolved
+* (done) ui-playback: vm.setFrame will need to return the promise returned by calling sm.setFrame
+* (done) ui-playback: the writeFrame helper will need to be updated so that VideoAPI.writeFrame is called after promise is resolved
 
 * () video20-r9-start: change what the byte range is from frame to frame
 

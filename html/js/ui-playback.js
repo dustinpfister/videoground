@@ -53,12 +53,12 @@
                 sm.frameFrac = sm.frameFrac > sm.frameMax ? 0 : sm.frameFrac;
                 sm.frameFrac = sm.frameFrac < 0 ? sm.frameMax - 1 : sm.frameFrac;
                 sm.frame = Math.floor(sm.frameFrac);
-                sm.setFrame();
+                return sm.setFrame();
             },
             stepPreview: function(delta){
                 sm.previewSize += 5 * delta;
                 sm.resSet();
-                sm.setFrame();
+                return sm.setFrame();
             },
             // set a frame
             setFrame: function(){
@@ -67,7 +67,8 @@
                 sm.frameFrac = parseFloat(this.$data.targetFrame);
                 sm.frameFrac = parseFloat(sm.frameFrac);
                 sm.frame = Math.floor(sm.frameFrac);
-                sm.setFrame();
+                //!!! R9 CHANGE - return the Promise returned by calling sm.setFrame
+                return sm.setFrame();
             },
             // play or pause
             play: function(){
@@ -100,10 +101,11 @@
         var data = vm.$data,
         sm = data.sm;
         data.targetFrame = frameIndex;
-        vm.setFrame();
-        // write the current frame
-        // calling writeFrame promise style
-        videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL())
+        //!!! R9 CHNAGE - 
+        return vm.setFrame()
+        .then( ()=> {
+			return videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL());
+		})
         .then(() => {
             console.log('wrote frame: ' + frameIndex);
             var nextFrameIndex = frameIndex + 1;
