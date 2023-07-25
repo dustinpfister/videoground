@@ -1,6 +1,6 @@
 ﻿# Videoground
 
-I wanted to a make tool for creating videos using mainly electronjs, threejs, and a whole lot of vanilla javaScript code of my own to create video projects. VideoGround is then the project that I came up with that I use to make videos that I post to my [javaweaver Youtube channel](https://www.youtube.com/user/javaweaver). So you can check out the channel if you would like to see what some content looks like using this tool.
+I wanted to a make tool for creating videos using electronjs, threejs, and a whole lot of vanilla javaScript code to create video projects. VideoGround is then the project that I came up with that I use to make videos that I post to my [javaweaver Youtube channel](https://www.youtube.com/user/javaweaver) that I also embed into [my blog posts on threejs](https://dustinpfister.github.io/categories/three-js/). So you can check out the channel if you would like to see what some content looks like using this tool.
 
 <div align="center">
       <a href="https://www.youtube.com/watch?v=Mq37hBHx-Qc">
@@ -13,7 +13,7 @@ I wanted to a make tool for creating videos using mainly electronjs, threejs, an
 
 ## What the goals where with this project
 
-When it comes to what the goals where with this project I have all ready achieved the core set of goals that I had in mind as I first set the bar very low for myself on this one. I just wanted to make a tool that I can use to create a whole bunch of frame images with some javaScript code on top of threejs, and have a basic interface to work with some high level javaScript code that runs on top of everything that I am abstracting away. I can then take it from there by using ffmpeg, and other tools to create a final video product.
+When it comes to what the goals where with this project I have all ready achieved the core set of goals that I had in mind. However it is true that I first set the bar very low for myself on this one. I just simply wanted to make a tool that I can use to create a whole bunch of frame images with some javaScript code on top of threejs, and have a basic interface to work with some high level javaScript code that runs on top of everything that I am abstracting away. I can then take it from there by using ffmpeg, and other tools to create a final video product. Sense then I have starting to take note of new features and changes I would like to make from there on out, and thus far this has been the course on a revision by revision basis.
 
 * R0 - Basic frame by frame export feature working
 * R1 - Built in feature for loading \*.dae files
@@ -24,8 +24,9 @@ When it comes to what the goals where with this project I have all ready achieve
 * R6 - RUN button over auto running code as it is being edited
 * R7 - User data folder, last video on start
 * R8 - Start and end frame render range feature
+* R9 - Simple 2D canvas rendering, VIDEO.update methods can now return a Promise
 
-## What the the current goals with this project
+## What the current goals with this project
 
 Although the simple core set of goals have been accomplished with this project there is still a lot of room for growth. So I do have a few plans worked out for additional changes that should happen in the todo list. Many of these changes are for the sake of improving features that are all ready in place rather than making this project too complex as I would like to keep this tool rather minimal. For now there is just making features that are really truly needed, and making code readability changes.
 
@@ -48,12 +49,12 @@ $ npm start
 
 ### Download a specific revision
 
-The latest is not always the greatest when it comes to many things with software. When it comes to videoground the latest state of master might not always be stable. It then might be a good idea to clone down a certain revision such as R6 for example. 
+The latest is not always the greatest when it comes to many things with software. When it comes to videoground the latest state of master might not always be stable. It then might be a good idea to clone down a certain revision such as R8 for example. 
 
-To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to name a different name for the folder such as vgr6 or something to that effect if I am going to have more than one revision to work with on a system. 
+To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to name a different name for the folder such as vgr8 or something to that effect if I am going to have more than one revision to work with on a system. 
 
 ```
-$ git clone -b "0.6.0" --depth 1 https://github.com/dustinpfister/videoground vgr6
+$ git clone -b "0.8.0" --depth 1 https://github.com/dustinpfister/videoground vgr6
 $ cd vgr6
 $ npm install
 $ npm start

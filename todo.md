@@ -13,10 +13,17 @@
 * () - #9 - videoAPI.webGL2-test-pass still false when read client side look into another way to store state
 * () - #10 - error loading dae textures when loading from more than one folder
 
+## () - r10 - Write JSON data frame by frame
+
+<!-- write data on frame by frame basis -->
+* () README update
+* () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
+
+
 ## () - r9 - VIDEO.render, simple 2d rendering, update promise
 * (done) have a sm.canvas be a plain old 2d canvas that is created once in video-setup.js
 * (done) I will want a VIDEO.render function
-* (done) if no VIDEO.render is defined in the video file, then the defualt action should be just what is all ready in place with this
+* (done) if no VIDEO.render is defined in the video file, then the default action should be just what is all ready in place with this
 * (done) video20-r9-start.js video demos new 2d rendering feature
 * (done) sm.setDefaults method
 * (done) work more on /lib/range-read to create the functions that I want to use for videoAPI.read
@@ -28,7 +35,7 @@
 * (done) ui-playback: vm.setFrame will need to return the promise returned by calling sm.setFrame
 * (done) ui-playback: the writeFrame helper will need to be updated so that VideoAPI.writeFrame is called after promise is resolved
 * (done) video20-r9-start: change what the byte range is from frame to frame
-
+* (done) REDAME update
 * () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
 
 ## ( done 06/11/2023 ) - r8 - render frames x to y
