@@ -36,6 +36,7 @@
 * (done) ui-playback: the writeFrame helper will need to be updated so that VideoAPI.writeFrame is called after promise is resolved
 * (done) video20-r9-start: change what the byte range is from frame to frame
 * (done) REDAME update
+* (done) added new resolution options
 * () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
 
 ## ( done 06/11/2023 ) - r8 - render frames x to y

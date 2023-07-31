@@ -33,15 +33,19 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
     // Sticking with 'youtube friendly' options when it comes to resolution
     // https://support.google.com/youtube/answer/6375112?hl=en&co=GENIE.Platform%3DDesktop
     const RESOLUTIONS = [
-        {w: 256, h: 144},
-        {w: 426, h: 240},
-        {w: 640, h: 360},
-        {w: 854, h: 480},
-        {w: 1280, h: 720},
-        {w: 1920, h: 1080},
-        {w: 3840, h: 2160}   // 4k
+        {w: 256,  h: 144,  desc: '144p' },
+        {w: 426,  h: 240,  desc: '240p' },
+        {w: 640,  h: 360,  desc: '360p' },
+        {w: 480,  h: 480,  desc: '480 1:1' },
+        {w: 854,  h: 480,  desc: '480p' },
+        {w: 1280, h: 720,  desc: 'HD 720p' },
+        {w: 720,  h: 1280, desc: 'HD 720p ( yt short )' },
+        {w: 1920, h: 1080, desc: 'HD 1080p' },
+        {w: 1080, h: 1920, desc: 'HD 1080p ( yt short )' },
+        {w: 3840, h: 2160, desc: '4k' },
+        {w: 7680, h: 4320, desc: '8k' }
     ];
-    const DEFAULT_RESOLUTION = 4; // going with 720p as a default for this
+    const DEFAULT_RESOLUTION = 5; // going with 720p as a default for this
     const HARD_INIT_PROMISE = {data: 'default init promise object used'};
     const HARD_UPDATE_PROMISE = {data: 'default update promise object used'};
     //-------- ----------
