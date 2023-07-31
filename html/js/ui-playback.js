@@ -17,7 +17,9 @@
             '<input type="button" value="Set frame to target" v-on:click="setFrame"><br>' +
             // res select
             '<select ref="foo" id="res_options" v-model="res_index" v-on:click="resChange">'+
-                '<option  v-bind:ref="\'res_\' + i" v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h }}</option>' +
+                '<option  ' + 
+                    'v-bind:ref="\'res_\' + i" ' +
+                    'v-for="(res, i) in sm.res_options">{{ i + \'_\' + res.w + \'x\' + res.h + \' \' + res.desc }}</option>' +
             '</select><br>' +
             // frame render range values
             'render frames: <input type="text" size="5" v-model="sm.render_frame_start">'+
