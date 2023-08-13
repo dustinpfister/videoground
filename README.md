@@ -26,9 +26,9 @@ When it comes to what the goals where with this project I have all ready achieve
 * R8 - Start and end frame render range feature
 * R9 - Simple 2D canvas rendering, VIDEO.update methods can now return a Promise
 
-## What the current goals with this project
+## What the current goals with this project ( R10+ )
 
-Although the simple core set of goals have been accomplished with this project there is still a lot of room for growth. So I do have a few plans worked out for additional changes that should happen in the todo list. Many of these changes are for the sake of improving features that are all ready in place rather than making this project too complex as I would like to keep this tool rather minimal. For now there is just making features that are really truly needed, and making code readability changes.
+Although the simple core set of goals have been accomplished with this project there is still a lot of room for growth, and also a lot of features that are all ready in place should be refined. For now in R10 I am to add features that have to do with writing data in general along with the frames. The main interest with this is to create audio sample data to use with the aplay command, but this can of course have all kinds of applications beyond that.
 
 ## Frame by Frame Exporting
 

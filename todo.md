@@ -13,12 +13,12 @@
 * () - #9 - videoAPI.webGL2-test-pass still false when read client side look into another way to store state
 * () - #10 - error loading dae textures when loading from more than one folder
 
-## () - r10 - Write JSON data frame by frame
-
+## () - r10 - Write data frame by frame
+* () I will now also want to have a write method that can be used to write data on a frame by frame basis
+* () it might be possible to do somehting with append file mode, and create direct raw sample data
 <!-- write data on frame by frame basis -->
 * () README update
 * () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
-
 
 ## ( done 08/13/2023 ) - r9 - VIDEO.render, simple 2d rendering, update promise
 * (done) have a sm.canvas be a plain old 2d canvas that is created once in video-setup.js
