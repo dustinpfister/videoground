@@ -4,8 +4,8 @@ VIDEO.init = function(sm, scene, camera){
     sm.renderer.setClearColor(0x000000, 0.25);
 
     const sine = scene.userData.sine = {
-        amplitude: 1,
-        hertz: 1,
+        amplitude: 0.80,
+        hertz: 10,
         secs: 5,
         disp_offset: new THREE.Vector2(50, 200),
         disp_size: new THREE.Vector2( 1280 - 100, 200),
@@ -20,7 +20,7 @@ VIDEO.init = function(sm, scene, camera){
     while(i < sine.frames){
         const a_frame = ( i / sine.frames );
         const a_sin = sine.secs * sine.hertz * a_frame;
-        const y = Math.sin( Math.PI * a_sin );
+        const y = Math.sin( Math.PI * a_sin ) * sine.amplitude;
         const v2 = new THREE.Vector2( i, y );
         sine.v2array.push( v2 );
         i += 1;
@@ -34,11 +34,19 @@ VIDEO.init = function(sm, scene, camera){
 };
 // update method for the video
 VIDEO.update = function(sm, scene, camera, per, bias){
+    const sine = scene.userData.sine;
+    const v2 = sine.v2array[ sm.frame ];
+    const sin = v2.y;
+    let byte = Math.round( 127.5 + 128 * sin );
+    byte = THREE.MathUtils.clamp(byte, 0, 255);
+
+    console.log( ' sin= '+ sin.toFixed(2), 'byte=' + byte );
+
 
 };
 // custom render function
 VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
-    const sine = scene.userData.sine
+    const sine = scene.userData.sine;
 
     // background
     ctx.fillStyle = 'black';
@@ -61,7 +69,7 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     sine.v2array.forEach( (v2, i) => {
         const v2_pos = new THREE.Vector2();
         v2_pos.x = sine.disp_offset.x + (v2.x / sine.frames) * sine.disp_size.x;
-        v2_pos.y = sine.disp_offset.y + hh + v2.y * hh;
+        v2_pos.y = sine.disp_offset.y + hh + v2.y * hh * -1;
         if(i === 0){
             ctx.moveTo(v2_pos.x, v2_pos.y);
         }

@@ -16,8 +16,8 @@
 ## () - r10 - Write data frame by frame
 <!-- new start video -->
 * (done) start video21-r10-start.js
-* () have a simple sine wave
-* () just log what the sample data will be for now until I jave write features working.
+* (done) have a simple sine wave
+* (done) just log what the sample data will be for now until I jave write features working.
 
 <!-- append writer  -->
 * () I will now also want to have a write method that can be used to write data on a frame by frame basis
