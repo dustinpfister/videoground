@@ -20,9 +20,8 @@
 * (done) To keep things simple this video21-r10-start.js start video will just write the same byte for all samples
 
 <!-- append writer  -->
-* () I will now also want to have a write method that can be used to write data on a frame by frame basis
-* () it might be possible to do somehting with append file mode, and create direct raw sample data
-* () start module called append-writter to see about getting something up and running with this.
+* () start module called append-writter to see about getting something up and running with a writing option
+* () I will want a read me file for append-writer and at least one test file
 
 <!-- range read needs more work -->
 * () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
