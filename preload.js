@@ -19,6 +19,7 @@ const OPT_USERDATA_SETTINGS = CONSTANT.OPT_USERDATA_SETTINGS;
 //-------- ----------
 const userData = require( path.join(__dirname, 'lib/user-data/user-data.js') );
 const rangeRead = require( path.join(__dirname, 'lib/range-read/range-read.js') );
+const writer = require( path.join(__dirname, 'lib/writer-append/writer-append.js') );
 //-------- ----------
 // CREATE USER DATA OBJECT
 //-------- ----------
@@ -36,6 +37,10 @@ userData.create(OPT_USERDATA_SETTINGS)
 //-------- ----------
 let videoAPI = {
   r: REVISION
+};
+// write data using the writer append lib
+videoAPI.write = ( uri, array_bytes, clear ) => {
+    return writer.append(uri, array_bytes, clear);
 };
 // read file data
 videoAPI.read = ( uri, opt ) => {

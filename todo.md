@@ -18,10 +18,12 @@
 * (done) have a simple sine wave
 * (done) just log what the sample data will be for now until I jave write features working.
 * (done) To keep things simple this video21-r10-start.js start video will just write the same byte for all samples
+* (done) start module called writter-append to see about getting something up and running with a writing option
+* (done) I will want a read me file for append-writer and at least one test file
 
-<!-- append writer  -->
-* () start module called append-writter to see about getting something up and running with a writing option
-* () I will want a read me file for append-writer and at least one test file
+<!-- Use writer append -->
+* () make writter append part of the public api
+* () use new writer method video21-r10-start
 
 <!-- range read needs more work -->
 * () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha

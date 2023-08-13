@@ -15,7 +15,7 @@ VIDEO.init = function(sm, scene, camera){
     sm.renderer.setClearColor(0x000000, 0.25);
 
     const sine = scene.userData.sine = {
-        amplitude: 1.00,
+        amplitude: 0.80,
         wave_count: 5,
         sample_rate: 8000,
         secs: 4,
@@ -59,13 +59,17 @@ VIDEO.update = function(sm, scene, camera, per, bias){
     // for this project the byte value is just what will be set for all samples
     let i_sample = 0;
     const data_samples = [];
-    while(i_sample < sine.sample_rate){
+    const bytes_per_frame = Math.floor(sine.sample_rate / 30);
+    while(i_sample < bytes_per_frame){
         data_samples.push( byte );
         i_sample += 1;
     };
 
     // write data_samples array
     //console.log( data_samples.join(',') )
+
+    const clear = sm.frame === 0 ? true: false;
+    return videoAPI.write('~/vg-samp-data', new Uint8Array(data_samples), clear )
 
 };
 
