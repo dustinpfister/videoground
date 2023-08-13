@@ -5,8 +5,8 @@ VIDEO.init = function(sm, scene, camera){
 
     const sine = scene.userData.sine = {
         amplitude: 0.80,
-        hertz: 10,
-        secs: 5,
+        hertz: 7,
+        secs: 1,
         disp_offset: new THREE.Vector2(50, 200),
         disp_size: new THREE.Vector2( 1280 - 100, 200),
         v2array: [],
@@ -19,8 +19,13 @@ VIDEO.init = function(sm, scene, camera){
     let i = 0;
     while(i < sine.frames){
         const a_frame = ( i / sine.frames );
-        const a_sin = sine.secs * sine.hertz * a_frame;
-        const y = Math.sin( Math.PI * a_sin ) * sine.amplitude;
+
+        //const a_sin = (sine.secs * a_frame);
+        //const y = Math.sin( Math.PI * 2 * sine.hertz * a_sin ) * sine.amplitude;
+
+        const a_wave = a_frame * sine.hertz % 1;
+        const y = Math.sin( Math.PI * 2 * a_wave ) * sine.amplitude;
+
         const v2 = new THREE.Vector2( i, y );
         sine.v2array.push( v2 );
         i += 1;
