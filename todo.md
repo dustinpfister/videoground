@@ -20,7 +20,7 @@
 * () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
 
 
-## () - r9 - VIDEO.render, simple 2d rendering, update promise
+## ( done 08/13/2023 ) - r9 - VIDEO.render, simple 2d rendering, update promise
 * (done) have a sm.canvas be a plain old 2d canvas that is created once in video-setup.js
 * (done) I will want a VIDEO.render function
 * (done) if no VIDEO.render is defined in the video file, then the default action should be just what is all ready in place with this
@@ -37,7 +37,7 @@
 * (done) video20-r9-start: change what the byte range is from frame to frame
 * (done) REDAME update
 * (done) added new resolution options
-* () REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
+* (done) REVISION in constants.js, and package.json set to 9 and commit with message '0.9.0'
 
 ## ( done 06/11/2023 ) - r8 - render frames x to y
 * (done) set REVISION const in constants.js set to '8_dev'
