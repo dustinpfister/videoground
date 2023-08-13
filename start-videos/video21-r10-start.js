@@ -54,8 +54,19 @@ VIDEO.update = function(sm, scene, camera, per, bias){
     let byte = Math.round( 127.5 + 128 * sin );
     byte = THREE.MathUtils.clamp(byte, 0, 255);
 
-    // for this project the byte value is just what will be set for all samples
+
     console.log( ' sin= '+ sin.toFixed(2) + 'byte=' + byte );
+    // for this project the byte value is just what will be set for all samples
+    let i_sample = 0;
+    const data_samples = [];
+    while(i_sample < sine.sample_rate){
+        data_samples.push( byte );
+        i_sample += 1;
+    };
+
+    // write data_samples array
+    //console.log( data_samples.join(',') )
+
 };
 
 // custom render function
@@ -71,13 +82,12 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     //sm.renderer.render(sm.scene, sm.camera);
     //ctx.drawImage(sm.renderer.domElement, 0, 0, canvas.width, canvas.height);
 
-    // just draw sine disp
+    // draw sine disp
     ctx.strokeStyle = 'lime';
     ctx.lineWidth = 3;
     const sx = sine.disp_offset.x, sy = sine.disp_offset.y;
     const w = sine.disp_size.x, h = sine.disp_size.y, hh = h/2;
     ctx.strokeRect(sx, sy , w, h);
-
     ctx.beginPath();
     let i = 0;
     while(i < w){
@@ -90,20 +100,16 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
         }
         i += 1;
     }
-
-
     ctx.stroke();
 
+    // draw a cursor
     let cursor = new THREE.Vector2();
     cursor.copy( get_disp_v2(sine, Math.floor( sine.disp_size.x * sm.per ) ) );
     ctx.beginPath();
     ctx.arc(cursor.x, cursor.y, 20, 0, Math.PI * 2);
     ctx.stroke();
 
-
     // additional plain 2d overlay for status info
-    //ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-    //ctx.fillRect(0,0, canvas.width, canvas.height * 0.25);
     ctx.fillStyle = 'lime';
     ctx.font = '40px courier';
     ctx.textBaseline = 'top';

@@ -17,11 +17,7 @@
 * (done) start video21-r10-start.js
 * (done) have a simple sine wave
 * (done) just log what the sample data will be for now until I jave write features working.
-<!-- sample data fix for video21-r10-start -->
-* () I will want to work out a system where the data that is being create and displayed is sample data
-* () I will then want a sample rate for the sine object
-* () the data of the v2array should then be for samples and not frames
-* () becuase the situation will be way to much data for a v2 array as is I will need to make pure funcitons for this.
+* (done) To keep things simple this video21-r10-start.js start video will just write the same byte for all samples
 
 <!-- append writer  -->
 * () I will now also want to have a write method that can be used to write data on a frame by frame basis
