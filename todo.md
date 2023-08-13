@@ -14,8 +14,22 @@
 * () - #10 - error loading dae textures when loading from more than one folder
 
 ## () - r10 - Write data frame by frame
+<!-- new start video -->
+* (done) start video21-r10-start.js
+* () have a simple sine wave
+* () just log what the sample data will be for now until I jave write features working.
+
+<!-- append writer  -->
 * () I will now also want to have a write method that can be used to write data on a frame by frame basis
 * () it might be possible to do somehting with append file mode, and create direct raw sample data
+* () start module called append-writter to see about getting something up and running with this.
+
+<!-- range read needs more work -->
+* () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
+* () range-read: Maybe the way to do this is that of the buffer size option is used at all that will result in a whole other mode
+* () range-read: There is then having a default mode where I can give direct byte values if I just happen to know them
+* () range-read: speaking of knowing them, I might want another mode where I just get file stats, mainly the size of the file
+
 <!-- write data on frame by frame basis -->
 * () README update
 * () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
