@@ -1,5 +1,15 @@
 /*    video21-r10-start - start video for r10 of videoground
  */
+
+const get_disp_v2 = (sine, index = 0) => {
+    const v2 = sine.v2array[index];
+    const w = sine.disp_size.x, h = sine.disp_size.y, hh = h/2;
+    const v2_pos = new THREE.Vector2();
+    v2_pos.x = sine.disp_offset.x + (v2.x / w) * sine.disp_size.x;
+    v2_pos.y = sine.disp_offset.y + hh + v2.y * hh * -1;
+    return v2_pos;
+};
+
 VIDEO.init = function(sm, scene, camera){
     sm.renderer.setClearColor(0x000000, 0.25);
 
@@ -15,17 +25,14 @@ VIDEO.init = function(sm, scene, camera){
 
     sine.frames = 30 * sine.secs;
 
-    // create v2array for sine object when each vector2 is a frame index for x, and a sine value for y
+    // create v2array for sine object when each vector2 is an index for x, sample value for the frame
+    // this is used for just a vishual state so the number of objects should not be more that the size 
+    // of the display
     let i = 0;
-    while(i < sine.frames){
-        const a_frame = ( i / sine.frames );
-
-        //const a_sin = (sine.secs * a_frame);
-        //const y = Math.sin( Math.PI * 2 * sine.hertz * a_sin ) * sine.amplitude;
-
-        const a_wave = a_frame * sine.hertz % 1;
-        const y = Math.sin( Math.PI * 2 * a_wave ) * sine.amplitude;
-
+    const w = sine.disp_size.x;
+    while(i < w){
+        const a_frame = ( i / w );
+        const y = Math.sin( Math.PI * 2 * a_frame )  * sine.amplitude;;
         const v2 = new THREE.Vector2( i, y );
         sine.v2array.push( v2 );
         i += 1;
@@ -46,9 +53,8 @@ VIDEO.update = function(sm, scene, camera, per, bias){
     byte = THREE.MathUtils.clamp(byte, 0, 255);
 
     console.log( ' sin= '+ sin.toFixed(2), 'byte=' + byte );
-
-
 };
+
 // custom render function
 VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     const sine = scene.userData.sine;
@@ -70,22 +76,23 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     ctx.strokeRect(sx, sy , w, h);
 
     ctx.beginPath();
-    let cursor = new THREE.Vector2();
-    sine.v2array.forEach( (v2, i) => {
-        const v2_pos = new THREE.Vector2();
-        v2_pos.x = sine.disp_offset.x + (v2.x / sine.frames) * sine.disp_size.x;
-        v2_pos.y = sine.disp_offset.y + hh + v2.y * hh * -1;
+    let i = 0;
+    while(i < w){
+        const v2_pos = get_disp_v2(sine, i);
         if(i === 0){
             ctx.moveTo(v2_pos.x, v2_pos.y);
         }
         if(i > 0){
             ctx.lineTo(v2_pos.x, v2_pos.y);
         }
-        if(i === sm.frame){
-           cursor.copy(v2_pos);
-        }
-    });
+        i += 1;
+    }
+
+
     ctx.stroke();
+
+    let cursor = new THREE.Vector2();
+    cursor.copy( get_disp_v2(sine, Math.floor( sine.disp_size.x * sm.per ) ) );
     ctx.beginPath();
     ctx.arc(cursor.x, cursor.y, 20, 0, Math.PI * 2);
     ctx.stroke();
