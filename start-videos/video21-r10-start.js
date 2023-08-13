@@ -10,13 +10,15 @@ const get_disp_v2 = (sine, index = 0) => {
     return v2_pos;
 };
 
+
 VIDEO.init = function(sm, scene, camera){
     sm.renderer.setClearColor(0x000000, 0.25);
 
     const sine = scene.userData.sine = {
-        amplitude: 0.80,
-        hertz: 7,
-        secs: 1,
+        amplitude: 1.00,
+        wave_count: 5,
+        sample_rate: 8000,
+        secs: 4,
         disp_offset: new THREE.Vector2(50, 200),
         disp_size: new THREE.Vector2( 1280 - 100, 200),
         v2array: [],
@@ -31,8 +33,8 @@ VIDEO.init = function(sm, scene, camera){
     let i = 0;
     const w = sine.disp_size.x;
     while(i < w){
-        const a_frame = ( i / w );
-        const y = Math.sin( Math.PI * 2 * a_frame )  * sine.amplitude;;
+        const a_size = ( i / w );
+        const y = Math.sin( Math.PI * 2 * sine.wave_count * a_size )  * sine.amplitude;
         const v2 = new THREE.Vector2( i, y );
         sine.v2array.push( v2 );
         i += 1;
@@ -47,12 +49,13 @@ VIDEO.init = function(sm, scene, camera){
 // update method for the video
 VIDEO.update = function(sm, scene, camera, per, bias){
     const sine = scene.userData.sine;
-    const v2 = sine.v2array[ sm.frame ];
+    const v2 = sine.v2array[ Math.floor( sine.disp_size.x * sm.per ) ];
     const sin = v2.y;
     let byte = Math.round( 127.5 + 128 * sin );
     byte = THREE.MathUtils.clamp(byte, 0, 255);
 
-    console.log( ' sin= '+ sin.toFixed(2), 'byte=' + byte );
+    // for this project the byte value is just what will be set for all samples
+    console.log( ' sin= '+ sin.toFixed(2) + 'byte=' + byte );
 };
 
 // custom render function
