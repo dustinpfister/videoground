@@ -52,7 +52,7 @@
         methods: {
             stepFrame: function(delta){
                 sm.frameFrac += parseInt(delta);
-                sm.frameFrac = sm.frameFrac > sm.frameMax ? 0 : sm.frameFrac;
+                sm.frameFrac = sm.frameFrac >= sm.frameMax ? 0 : sm.frameFrac;
                 sm.frameFrac = sm.frameFrac < 0 ? sm.frameMax - 1 : sm.frameFrac;
                 sm.frame = Math.floor(sm.frameFrac);
                 return sm.setFrame();
