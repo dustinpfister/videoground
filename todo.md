@@ -29,8 +29,7 @@
 
 <!-- video21 -->
 * (done) do away with old create sin points method
-
-* () see about having a better vishual rep of the sound when we have high sec of wave counts
+* (done) create array disp helper method
 
 * () update render code to work with an array of raw sample data rather than vector2 objects
 
