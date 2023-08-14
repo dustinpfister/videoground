@@ -134,6 +134,8 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     ctx.stroke();
 
     // draw a cursor
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 6;
     let cursor = new THREE.Vector2();
     cursor.copy( get_disp_v2(sine, Math.floor( sine.disp_size.x * sm.per ) ) );
     ctx.beginPath();
