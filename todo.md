@@ -16,14 +16,21 @@
 ## () - r10 - Write data frame by frame
 * (done) start video21-r10-start.js
 * (done) have a simple sine wave
-* (done) just log what the sample data will be for now until I jave write features working.
+* (done) just log what the sample data will be for now until I have write features working.
 * (done) To keep things simple this video21-r10-start.js start video will just write the same byte for all samples
-* (done) start module called writter-append to see about getting something up and running with a writing option
+* (done) start module called writer-append to see about getting something up and running with a writing option
 * (done) I will want a read me file for append-writer and at least one test file
+* (done) make writer append part of the public api
+* (done) use new writer method video21-r10-start
+* (done) create\_sine\_points helper function
+* (done) create sine points should take a total size argument
+* (done) there is then giving an index, and count relative to the size
+* (done) create sine points 2 should return an array of numbers not vector2 objects
 
-<!-- Use writer append -->
-* () make writter append part of the public api
-* () use new writer method video21-r10-start
+<!-- video21 -->
+* () update render code to work with an array of raw sample data rather than vector2 objects
+* () do away with old create sin points method
+
 
 <!-- range read needs more work -->
 * () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
@@ -31,7 +38,7 @@
 * () range-read: There is then having a default mode where I can give direct byte values if I just happen to know them
 * () range-read: speaking of knowing them, I might want another mode where I just get file stats, mainly the size of the file
 
-<!-- write data on frame by frame basis -->
+<!-- final work -->
 * () README update
 * () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
 

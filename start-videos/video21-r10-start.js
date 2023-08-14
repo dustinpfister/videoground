@@ -10,67 +10,82 @@ const get_disp_v2 = (sine, index = 0) => {
     return v2_pos;
 };
 
+const create_sine_points = ( i_start, i_end, waves_per_sec = 5, secs = 3, amplitude = 0.5 ) => {
+   const sine_points = [];
+    let i = i_start;
+    while(i < i_end){
+        const a_size = ( ( i - i_start ) / i_end );
+        const wave_count = waves_per_sec * secs;
+        const y = Math.sin( Math.PI * 2 * wave_count * a_size )  * amplitude;
+        const v2 = new THREE.Vector2( i, y );
+        sine_points.push( v2 );
+        i += 1;
+    }
+    return sine_points;
+};
+
+const create_sine_points_2 = ( i_size = 20, i_start = 8, i_count = 3, waves_per_sec = 1, secs = 1, amplitude = 0.5, mode = 'bytes' ) => {
+    const sine_points = [];
+    const wave_count = waves_per_sec * secs;
+    const i_end = i_start + i_count;
+    let i = i_start;
+
+    while(i < i_end){
+        const a_point = i / i_size;
+        let samp = Math.sin( Math.PI * 2 * wave_count * a_point )  * amplitude;
+        if(mode === 'bytes'){
+            let byte = Math.round( 127.5 + 128 * samp );
+            samp = THREE.MathUtils.clamp(byte, 0, 255);
+        }
+        sine_points.push( parseFloat( samp.toFixed(2)) );
+        i += 1;
+    }
+    return sine_points;
+};
+
+//console.log( create_sine_points_2() );
 
 VIDEO.init = function(sm, scene, camera){
     sm.renderer.setClearColor(0x000000, 0.25);
-
     const sine = scene.userData.sine = {
         amplitude: 0.80,
-        waves_per_sec: 5,
+        waves_per_sec: 80,
         sample_rate: 8000,
-        secs: 4,
+        secs: 1,
         disp_offset: new THREE.Vector2(50, 200),
         disp_size: new THREE.Vector2( 1280 - 100, 200),
         v2array: [],
         frames: 0
     };
-
     sine.frames = 30 * sine.secs;
 
     // create v2array for sine object when each vector2 is an index for x, sample value for the frame
     // this is used for just a visual state so the number of objects should not be more that the size 
     // of the display
-    let i = 0;
-    const w = sine.disp_size.x;
-    while(i < w){
-        const a_size = ( i / w );
-        const wave_count = sine.waves_per_sec * sine.secs;
-        const y = Math.sin( Math.PI * 2 * wave_count * a_size )  * sine.amplitude;
-        const v2 = new THREE.Vector2( i, y );
-        sine.v2array.push( v2 );
-        i += 1;
-    }
+    sine.v2array = create_sine_points(0, sine.disp_size.x, sine.waves_per_sec, sine.secs, sine.amplitude);
 
     sm.frameMax = sine.frames;
 
-    camera.position.set(2, 2, 2);
-    camera.lookAt( 0, 0, 0 );
+    //!!! might not need to do anything with cameras if renderer dome element is not used in render process
+    //camera.position.set(2, 2, 2);
+    //camera.lookAt( 0, 0, 0 );
 
 };
 // update method for the video
 VIDEO.update = function(sm, scene, camera, per, bias){
     const sine = scene.userData.sine;
 
-    // there is just setting the same byte value for all samples...
-    const v2 = sine.v2array[ Math.floor( sine.disp_size.x * sm.per ) ];
-    const sin = v2.y;
-    let byte = Math.round( 127.5 + 128 * sin );
-    byte = THREE.MathUtils.clamp(byte, 0, 255);
-    let i_sample = 0;
-    const data_samples = [];
     const bytes_per_frame = Math.floor(sine.sample_rate / 30);
-    while(i_sample < bytes_per_frame){
-        data_samples.push( byte );
-        i_sample += 1;
-    };
+    const total_bytes = sine.sample_rate * sine.secs;
+    const i_start = bytes_per_frame * sm.frame;
+    const data_samples = create_sine_points_2( total_bytes, i_start, bytes_per_frame, sine.waves_per_sec, sine.secs, sine.amplitude, 'bytes' );
 
-    console.log( ' sin= '+ sin.toFixed(2) + 'byte=' + byte );
-    //console.log( data_samples );
+    console.log(data_samples);
+
     // write data_samples array
-
-    const clear = sm.frame === 0 ? true: false;
-    const uri = videoAPI.pathJoin(sm.filePath, 'v21-sampdata'); // '~/vg-samp-data'
-    return videoAPI.write(uri, new Uint8Array(data_samples), clear )
+    //const clear = sm.frame === 0 ? true: false;
+    //const uri = videoAPI.pathJoin(sm.filePath, 'v21-sampdata'); // '~/vg-samp-data'
+    //return videoAPI.write(uri, new Uint8Array(data_samples), clear )
 
 };
 
