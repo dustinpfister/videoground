@@ -28,8 +28,8 @@
 * (done) create sine points 2 should return an array of numbers not vector2 objects
 
 <!-- video21 -->
+* (done) do away with old create sin points method
 * () update render code to work with an array of raw sample data rather than vector2 objects
-* () do away with old create sin points method
 
 
 <!-- range read needs more work -->

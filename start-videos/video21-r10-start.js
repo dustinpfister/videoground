@@ -2,26 +2,12 @@
  */
 
 const get_disp_v2 = (sine, index = 0) => {
-    const v2 = sine.v2array[index];
+    const v2 = new THREE.Vector2(index, sine.v2array[index]);
     const w = sine.disp_size.x, h = sine.disp_size.y, hh = h/2;
     const v2_pos = new THREE.Vector2();
-    v2_pos.x = sine.disp_offset.x + (v2.x / w) * sine.disp_size.x;
+    v2_pos.x = sine.disp_offset.x + ( v2.x / w ) * sine.disp_size.x;
     v2_pos.y = sine.disp_offset.y + hh + v2.y * hh * -1;
     return v2_pos;
-};
-
-const create_sine_points = ( i_start, i_end, waves_per_sec = 5, secs = 3, amplitude = 0.5 ) => {
-   const sine_points = [];
-    let i = i_start;
-    while(i < i_end){
-        const a_size = ( ( i - i_start ) / i_end );
-        const wave_count = waves_per_sec * secs;
-        const y = Math.sin( Math.PI * 2 * wave_count * a_size )  * amplitude;
-        const v2 = new THREE.Vector2( i, y );
-        sine_points.push( v2 );
-        i += 1;
-    }
-    return sine_points;
 };
 
 const create_sine_points_2 = ( i_size = 20, i_start = 8, i_count = 3, waves_per_sec = 1, secs = 1, amplitude = 0.5, mode = 'bytes' ) => {
@@ -29,7 +15,6 @@ const create_sine_points_2 = ( i_size = 20, i_start = 8, i_count = 3, waves_per_
     const wave_count = waves_per_sec * secs;
     const i_end = i_start + i_count;
     let i = i_start;
-
     while(i < i_end){
         const a_point = i / i_size;
         let samp = Math.sin( Math.PI * 2 * wave_count * a_point )  * amplitude;
@@ -43,15 +28,13 @@ const create_sine_points_2 = ( i_size = 20, i_start = 8, i_count = 3, waves_per_
     return sine_points;
 };
 
-//console.log( create_sine_points_2() );
-
 VIDEO.init = function(sm, scene, camera){
     sm.renderer.setClearColor(0x000000, 0.25);
     const sine = scene.userData.sine = {
         amplitude: 0.80,
-        waves_per_sec: 80,
+        waves_per_sec: 120,
         sample_rate: 8000,
-        secs: 1,
+        secs: 10,
         disp_offset: new THREE.Vector2(50, 200),
         disp_size: new THREE.Vector2( 1280 - 100, 200),
         v2array: [],
@@ -59,10 +42,9 @@ VIDEO.init = function(sm, scene, camera){
     };
     sine.frames = 30 * sine.secs;
 
-    // create v2array for sine object when each vector2 is an index for x, sample value for the frame
-    // this is used for just a visual state so the number of objects should not be more that the size 
-    // of the display
-    sine.v2array = create_sine_points(0, sine.disp_size.x, sine.waves_per_sec, sine.secs, sine.amplitude);
+    // display v2 array
+    const size = sine.disp_size.x;
+    sine.v2array = create_sine_points_2( size, 0, size, sine.waves_per_sec, sine.secs, sine.amplitude, 'raw' );
 
     sm.frameMax = sine.frames;
 
@@ -80,12 +62,10 @@ VIDEO.update = function(sm, scene, camera, per, bias){
     const i_start = bytes_per_frame * sm.frame;
     const data_samples = create_sine_points_2( total_bytes, i_start, bytes_per_frame, sine.waves_per_sec, sine.secs, sine.amplitude, 'bytes' );
 
-    console.log(data_samples);
-
     // write data_samples array
-    //const clear = sm.frame === 0 ? true: false;
-    //const uri = videoAPI.pathJoin(sm.filePath, 'v21-sampdata'); // '~/vg-samp-data'
-    //return videoAPI.write(uri, new Uint8Array(data_samples), clear )
+    const clear = sm.frame === 0 ? true: false;
+    const uri = videoAPI.pathJoin(sm.filePath, 'v21-sampdata'); // '~/vg-samp-data'
+    return videoAPI.write(uri, new Uint8Array(data_samples), clear )
 
 };
 
@@ -106,7 +86,7 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     ctx.strokeStyle = 'lime';
     ctx.lineWidth = 3;
     const sx = sine.disp_offset.x, sy = sine.disp_offset.y;
-    const w = sine.disp_size.x, h = sine.disp_size.y, hh = h/2;
+    const w = sine.disp_size.x, h = sine.disp_size.y, hh = h / 2;
     ctx.strokeRect(sx, sy , w, h);
     ctx.beginPath();
     let i = 0;
