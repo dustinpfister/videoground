@@ -16,7 +16,7 @@ VIDEO.init = function(sm, scene, camera){
 
     const sine = scene.userData.sine = {
         amplitude: 0.80,
-        wave_count: 5,
+        waves_per_sec: 5,
         sample_rate: 8000,
         secs: 4,
         disp_offset: new THREE.Vector2(50, 200),
@@ -34,7 +34,8 @@ VIDEO.init = function(sm, scene, camera){
     const w = sine.disp_size.x;
     while(i < w){
         const a_size = ( i / w );
-        const y = Math.sin( Math.PI * 2 * sine.wave_count * a_size )  * sine.amplitude;
+        const wave_count = sine.waves_per_sec * sine.secs;
+        const y = Math.sin( Math.PI * 2 * wave_count * a_size )  * sine.amplitude;
         const v2 = new THREE.Vector2( i, y );
         sine.v2array.push( v2 );
         i += 1;
@@ -49,14 +50,12 @@ VIDEO.init = function(sm, scene, camera){
 // update method for the video
 VIDEO.update = function(sm, scene, camera, per, bias){
     const sine = scene.userData.sine;
+
+    // there is just setting the same byte value for all samples...
     const v2 = sine.v2array[ Math.floor( sine.disp_size.x * sm.per ) ];
     const sin = v2.y;
     let byte = Math.round( 127.5 + 128 * sin );
     byte = THREE.MathUtils.clamp(byte, 0, 255);
-
-
-    console.log( ' sin= '+ sin.toFixed(2) + 'byte=' + byte );
-    // for this project the byte value is just what will be set for all samples
     let i_sample = 0;
     const data_samples = [];
     const bytes_per_frame = Math.floor(sine.sample_rate / 30);
@@ -65,8 +64,9 @@ VIDEO.update = function(sm, scene, camera, per, bias){
         i_sample += 1;
     };
 
+    console.log( ' sin= '+ sin.toFixed(2) + 'byte=' + byte );
+    //console.log( data_samples );
     // write data_samples array
-    //console.log( data_samples.join(',') )
 
     const clear = sm.frame === 0 ? true: false;
     return videoAPI.write('~/vg-samp-data', new Uint8Array(data_samples), clear )
