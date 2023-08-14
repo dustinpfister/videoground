@@ -28,7 +28,7 @@ VIDEO.init = function(sm, scene, camera){
     sine.frames = 30 * sine.secs;
 
     // create v2array for sine object when each vector2 is an index for x, sample value for the frame
-    // this is used for just a vishual state so the number of objects should not be more that the size 
+    // this is used for just a visual state so the number of objects should not be more that the size 
     // of the display
     let i = 0;
     const w = sine.disp_size.x;
@@ -69,7 +69,8 @@ VIDEO.update = function(sm, scene, camera, per, bias){
     // write data_samples array
 
     const clear = sm.frame === 0 ? true: false;
-    return videoAPI.write('~/vg-samp-data', new Uint8Array(data_samples), clear )
+    const uri = videoAPI.pathJoin(sm.filePath, 'v21-sampdata'); // '~/vg-samp-data'
+    return videoAPI.write(uri, new Uint8Array(data_samples), clear )
 
 };
 
