@@ -22,17 +22,21 @@
 * (done) I will want a read me file for append-writer and at least one test file
 * (done) make writer append part of the public api
 * (done) use new writer method video21-r10-start
-* (done) create\_sine\_points helper function
-* (done) create sine points should take a total size argument
-* (done) there is then giving an index, and count relative to the size
-* (done) create sine points 2 should return an array of numbers not vector2 objects
+* (done) v21: create\_sine\_points helper function
+* (done) v21: create sine points should take a total size argument
+* (done) v21: there is then giving an index, and count relative to the size
+* (done) v21: create sine points 2 should return an array of numbers not vector2 objects
+* (done) v21: do away with old create sin points method
+* (done) v21: create array disp helper method
+* (done) v21: create sine points 3 : options object
 
 <!-- video21 -->
-* (done) do away with old create sin points method
-* (done) create array disp helper method
-
-* () update render code to work with an array of raw sample data rather than vector2 objects
-
+* () v21: create sine points 3 : step option
+* () v21: create array disp : use step option of create sine points 2 in in place of bytes per frame
+* () v21: create array disp : step should go up with size of bytes per frame to a certin max value
+* () v21: VIDEO.render : current frame display
+* () v21: VIDEO.render : playback overlay for total sound disp
+* () v21: update render code to work with an array of raw sample data rather than vector2 objects
 
 <!-- range read needs more work -->
 * () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
