@@ -53,8 +53,10 @@ const get_mean = (array) => {
 };
 
 // get a display v2 point with the given sine object an index
-const get_disp_v2 = (sine, index = 0) => {
-    const v2 = new THREE.Vector2(index, sine.array_disp[ index ] );
+const get_disp_v2 = (sine, samp_array, index = 0) => {
+
+    const v2 = new THREE.Vector2(index, samp_array[ index ] );
+
     const w = sine.disp_size.x, h = sine.disp_size.y, hh = h/2;
     const v2_pos = new THREE.Vector2();
     v2_pos.x = sine.disp_offset.x + ( v2.x / w ) * sine.disp_size.x;
@@ -144,7 +146,8 @@ VIDEO.init = function(sm, scene, camera){
         secs: 3,
         disp_offset: new THREE.Vector2(50, 200),
         disp_size: new THREE.Vector2( 1280 - 100, 200),
-        array_disp: [],
+        array_disp: [],   // data for whole sound
+        array_frame: [],  // data for current frame
         frames: 0
     };
     sine.frames = 30 * sine.secs;
@@ -164,7 +167,7 @@ VIDEO.update = function(sm, scene, camera, per, bias){
     const total_bytes = sine.sample_rate * sine.secs;
     const i_start = bytes_per_frame * sm.frame;
 
-    const data_samples =  create_sine_points_3({
+    const data_samples =  sine.array_frame = create_sine_points_3({
         i_size : total_bytes,
         i_start : i_start,
         i_count : bytes_per_frame,
@@ -181,6 +184,28 @@ VIDEO.update = function(sm, scene, camera, per, bias){
 
 };
 
+
+const draw_disp = (ctx, sine, array, y_delta = 0) => {
+    ctx.strokeStyle = 'lime';
+    ctx.lineWidth = 3;
+    const sx = sine.disp_offset.x, sy = sine.disp_offset.y  + y_delta;
+    const w = sine.disp_size.x, h = sine.disp_size.y, hh = h / 2;
+    ctx.strokeRect(sx, sy , w, h);
+    ctx.beginPath();
+    let i = 0;
+    while(i < w){
+        const v2_pos = get_disp_v2(sine, array, i);
+        if(i === 0){
+            ctx.moveTo(v2_pos.x, v2_pos.y + y_delta);
+        }
+        if(i > 0){
+            ctx.lineTo(v2_pos.x, v2_pos.y + y_delta);
+        }
+        i += 1;
+    }
+    ctx.stroke();
+};
+
 // custom render function
 VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     const sine = scene.userData.sine;
@@ -195,33 +220,17 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     //ctx.drawImage(sm.renderer.domElement, 0, 0, canvas.width, canvas.height);
 
     // draw sine disp
-    ctx.strokeStyle = 'lime';
-    ctx.lineWidth = 3;
-    const sx = sine.disp_offset.x, sy = sine.disp_offset.y;
-    const w = sine.disp_size.x, h = sine.disp_size.y, hh = h / 2;
-    ctx.strokeRect(sx, sy , w, h);
-    ctx.beginPath();
-    let i = 0;
-    while(i < w){
-        const v2_pos = get_disp_v2(sine, i);
-        if(i === 0){
-            ctx.moveTo(v2_pos.x, v2_pos.y);
-        }
-        if(i > 0){
-            ctx.lineTo(v2_pos.x, v2_pos.y);
-        }
-        i += 1;
-    }
-    ctx.stroke();
+
+    draw_disp(ctx, sine, sine.array_disp, -40);
 
     // draw a cursor
-    ctx.strokeStyle = 'white';
-    ctx.lineWidth = 6;
-    let cursor = new THREE.Vector2();
-    cursor.copy( get_disp_v2(sine, Math.floor( sine.disp_size.x * sm.per ) ) );
-    ctx.beginPath();
-    ctx.arc(cursor.x, cursor.y, 20, 0, Math.PI * 2);
-    ctx.stroke();
+    //ctx.strokeStyle = 'white';
+    //ctx.lineWidth = 6;
+    //let cursor = new THREE.Vector2();
+    //cursor.copy( get_disp_v2(sine, sine.array_disp, Math.floor( sine.disp_size.x * sm.per ) ) );
+    //ctx.beginPath();
+    //ctx.arc(cursor.x, cursor.y, 20, 0, Math.PI * 2);
+    //ctx.stroke();
 
     // additional plain 2d overlay for status info
     ctx.fillStyle = 'lime';
