@@ -30,11 +30,12 @@
 * (done) v21: create array disp helper method
 * (done) v21: create sine points 3 : options object
 * (done) v21: create sine points 3 : step option
+* (done) v21: create array disp : use step option of create sine points 2 in in place of bytes per frame
+* (done) v21: create array disp : step should go up with size of bytes per frame to a certin max value
+* (done) v21: VIDEO.render : current frame display
 
 <!-- video21 -->
-* () v21: create array disp : use step option of create sine points 2 in in place of bytes per frame
-* () v21: create array disp : step should go up with size of bytes per frame to a certin max value
-* () v21: VIDEO.render : current frame display
+* () v21: better way to compress the data of the full sound
 * () v21: VIDEO.render : playback overlay for total sound disp
 * () v21: update render code to work with an array of raw sample data rather than vector2 objects
 

@@ -53,11 +53,20 @@ const get_mean = (array) => {
 };
 
 // get a display v2 point with the given sine object an index
-const get_disp_v2 = (sine, samp_array, index = 0) => {
-
-    const v2 = new THREE.Vector2(index, samp_array[ index ] );
+const get_disp_v2 = (sine, samp_array, px = 0, mode = 'raw') => {
 
     const w = sine.disp_size.x, h = sine.disp_size.y, hh = h/2;
+    let index = px;
+    if(samp_array.length < w){
+       index = Math.floor( samp_array.length * (px / w) );
+    }
+    const v2 = new THREE.Vector2(px, samp_array[ index ] );
+
+    if(mode === 'bytes'){
+        v2.y = -1 + (v2.y / 255) * 2;
+    }
+
+
     const v2_pos = new THREE.Vector2();
     v2_pos.x = sine.disp_offset.x + ( v2.x / w ) * sine.disp_size.x;
     v2_pos.y = sine.disp_offset.y + hh + v2.y * hh * -1;
@@ -74,7 +83,6 @@ const create_array_disp = (sine, a_frame = 0.25 ) => {
          const a_disp = i / size;
          const frame = Math.floor(sine.secs * 30 * a_disp);
          const i_start = bytes_per_frame * frame;
-
          const data_samples =  create_sine_points_3({
              i_size : total_bytes,
              i_start : i_start,
@@ -86,50 +94,15 @@ const create_array_disp = (sine, a_frame = 0.25 ) => {
              mode: 'raw',
              step: Math.floor(bytes_per_frame * a_frame)
          });
-
-
-
-
-
          //!!! not sure how best to do this
          // just taking a mean, or the highest and lowest does not work so great
-
-const mean = get_mean(data_samples);
-const dev = standard_deviation(data_samples);
-
-
-         //array_disp.push( mean);
-         //array_disp.push( -1 + mean * 2 );
-
          const a = Math.max.apply(null, data_samples );
          const b = Math.min.apply(null, data_samples );
          let n = a;
-
          if( Math.abs( b ) >= a ){
              n = b;
          }
-
-         //array_disp.push( n * ( mean * data_samples.length ) );
-
          array_disp.push( n );
-         //array_disp.push( mean  );
-         //array_disp.push( dev);
-         //array_disp.push( dev * n );
-
-
-         //const c = n * ( mean * data_samples.length );
-         //const d = THREE.MathUtils.clamp(c, -1, 1);
-         //array_disp.push( d );
-
-
-if(i === 0){
-    console.log(data_samples);
-    console.log( mean );
-    console.log( dev );
-    console.log( a, b );
-}
-
-
          i += 1;
     }
     return array_disp;
@@ -185,7 +158,7 @@ VIDEO.update = function(sm, scene, camera, per, bias){
 };
 
 
-const draw_disp = (ctx, sine, array, y_delta = 0) => {
+const draw_disp = (ctx, sine, array, y_delta = 0, mode = 'raw') => {
     ctx.strokeStyle = 'lime';
     ctx.lineWidth = 3;
     const sx = sine.disp_offset.x, sy = sine.disp_offset.y  + y_delta;
@@ -194,7 +167,7 @@ const draw_disp = (ctx, sine, array, y_delta = 0) => {
     ctx.beginPath();
     let i = 0;
     while(i < w){
-        const v2_pos = get_disp_v2(sine, array, i);
+        const v2_pos = get_disp_v2(sine, array, i, mode);
         if(i === 0){
             ctx.moveTo(v2_pos.x, v2_pos.y + y_delta);
         }
@@ -220,8 +193,9 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     //ctx.drawImage(sm.renderer.domElement, 0, 0, canvas.width, canvas.height);
 
     // draw sine disp
+    draw_disp(ctx, sine, sine.array_disp, -70, 'raw');
 
-    draw_disp(ctx, sine, sine.array_disp, -40);
+    draw_disp(ctx, sine, sine.array_frame,  200, 'bytes');
 
     // draw a cursor
     //ctx.strokeStyle = 'white';
