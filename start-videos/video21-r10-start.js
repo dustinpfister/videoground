@@ -36,6 +36,22 @@ const create_sine_points_3 = ( opt = {} ) => {
     return sine_points;
 };
 
+const standard_deviation = (array) => {
+    if( !array || array.length === 0){
+         return 0;
+    }
+    const n = array.length
+    const mean = array.reduce((a, b) => a + b) / n
+    return Math.sqrt(array.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / n)
+};
+
+const get_mean = (array) => {
+    if( !array || array.length === 0){
+         return 0;
+    }
+    return array.reduce( (acc, n) => { return acc + n  }, 0 ) / array.length;
+};
+
 // get a display v2 point with the given sine object an index
 const get_disp_v2 = (sine, index = 0) => {
     const v2 = new THREE.Vector2(index, sine.array_disp[ index ] );
@@ -69,13 +85,16 @@ const create_array_disp = (sine, a_frame = 0.25 ) => {
              step: Math.floor(bytes_per_frame * a_frame)
          });
 
-if(i === 0){
-    console.log(data_samples);
-}
+
+
+
 
          //!!! not sure how best to do this
          // just taking a mean, or the highest and lowest does not work so great
-         const mean = data_samples.reduce( (acc, n) => { return acc + n  }, 0 ) / data_samples.length;
+
+const mean = get_mean(data_samples);
+const dev = standard_deviation(data_samples);
+
 
          //array_disp.push( mean);
          //array_disp.push( -1 + mean * 2 );
@@ -83,17 +102,31 @@ if(i === 0){
          const a = Math.max.apply(null, data_samples );
          const b = Math.min.apply(null, data_samples );
          let n = a;
-         if( Math.abs( b ) > a ){
+
+         if( Math.abs( b ) >= a ){
              n = b;
          }
+
          //array_disp.push( n * ( mean * data_samples.length ) );
 
          array_disp.push( n );
          //array_disp.push( mean  );
+         //array_disp.push( dev);
+         //array_disp.push( dev * n );
+
 
          //const c = n * ( mean * data_samples.length );
          //const d = THREE.MathUtils.clamp(c, -1, 1);
          //array_disp.push( d );
+
+
+if(i === 0){
+    console.log(data_samples);
+    console.log( mean );
+    console.log( dev );
+    console.log( a, b );
+}
+
 
          i += 1;
     }
@@ -115,7 +148,7 @@ VIDEO.init = function(sm, scene, camera){
         frames: 0
     };
     sine.frames = 30 * sine.secs;
-    sine.array_disp = create_array_disp(sine, 0.05 );
+    sine.array_disp = create_array_disp(sine, 0.1 );
     sm.frameMax = sine.frames;
 
     //!!! might not need to do anything with cameras if renderer dome element is not used in render process
