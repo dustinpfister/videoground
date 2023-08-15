@@ -29,9 +29,9 @@
 * (done) v21: do away with old create sin points method
 * (done) v21: create array disp helper method
 * (done) v21: create sine points 3 : options object
+* (done) v21: create sine points 3 : step option
 
 <!-- video21 -->
-* () v21: create sine points 3 : step option
 * () v21: create array disp : use step option of create sine points 2 in in place of bytes per frame
 * () v21: create array disp : step should go up with size of bytes per frame to a certin max value
 * () v21: VIDEO.render : current frame display
