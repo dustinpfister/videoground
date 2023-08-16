@@ -67,6 +67,7 @@ const get_disp_v2 = (sine, samp_array, px = 0, mode = 'raw') => {
     return v2_pos;
 };
 // create the v2 array display
+/*
 const create_array_disp = (sine, a_frame = 0.25 ) => {
     const size = sine.disp_size.x;
     const total_bytes = sine.sample_rate * sine.secs;
@@ -100,6 +101,8 @@ const create_array_disp = (sine, a_frame = 0.25 ) => {
     }
     return array_disp;
 };
+*/
+/*
 const draw_disp = (ctx, sine, array, y_delta = 0, mode = 'raw') => {
     ctx.strokeStyle = 'lime';
     ctx.lineWidth = 3;
@@ -117,6 +120,46 @@ const draw_disp = (ctx, sine, array, y_delta = 0, mode = 'raw') => {
             ctx.lineTo(v2_pos.x, v2_pos.y + y_delta);
         }
         i += 1;
+    }
+    ctx.stroke();
+};
+*/
+const getsamp_lossy_random = (sample_array, i, index_step) => {
+    const a = Math.random();
+    const i_delta = Math.floor(a * index_step);
+    const samp = sample_array[i + i_delta];
+    return samp;
+};
+
+const draw_sample_data = (ctx, sample_array, opt = {} ) => {
+    const sx = opt.sx === undefined ? 0 : opt.sx;
+    const sy = opt.sy === undefined ? 0 : opt.sy;
+    const w = opt.w === undefined ? 100 : opt.w;
+    const h = opt.h === undefined ? 25 : opt.h;
+    const getsamp_lossy = opt.getsamp_lossy || function(sample_array, i ){ return sample_array[i]; };
+    const sample_count = sample_array.length;
+    const disp_hh = h / 2;
+    let index_step = 1;
+    if( sample_count >= w ){
+        index_step = Math.floor( sample_count / w );
+    }   
+    ctx.strokeStyle = 'lime';
+    ctx.linewidth = 3;
+    ctx.beginPath();
+    let i = 1;
+    ctx.moveTo(sx, sy + disp_hh + sample_array[0] * disp_hh );
+    while(i < sample_count){
+        const x = sx + w * ( i / sample_count );
+        let samp = 0;
+        if( index_step === 1 ){
+           samp = sample_array[ i ];
+        }
+        if(index_step > 1){
+           samp = getsamp_lossy(sample_array, i, index_step);
+        }       
+        const y = sy + disp_hh + samp * disp_hh;
+        ctx.lineTo(x, y);
+        i += index_step;
     }
     ctx.stroke();
 };
@@ -138,8 +181,18 @@ VIDEO.init = function(sm, scene, camera){
     };
     sine.frames = 30 * sine.secs;
     sine.bytes_per_frame = Math.floor(sine.sample_rate / 30 );
-    sine.array_disp = create_array_disp(sine, 0.1 );
+    //sine.array_disp = create_array_disp(sine, 0.1 );
     sm.frameMax = sine.frames;
+
+    const total_bytes = sine.sample_rate * sine.secs;
+    sine.array_disp = create_sine_points_3({
+        i_size: total_bytes,
+        i_start:0,
+        i_count: total_bytes,
+        frequency: sine.frequency,
+        secs: sine.secs,
+        mode: 'raw'
+    });
 
     //!!! might not need to do anything with cameras if renderer dome element is not used in render process
     //camera.position.set(2, 2, 2);
@@ -182,10 +235,13 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     //sm.renderer.render(sm.scene, sm.camera);
     //ctx.drawImage(sm.renderer.domElement, 0, 0, canvas.width, canvas.height);
 
-    // draw sine disp
-    draw_disp(ctx, sine, sine.array_disp, -70, 'raw');
 
-    draw_disp(ctx, sine, sine.array_frame,  200, 'bytes');
+draw_sample_data(ctx, sine.array_disp, { w: 1000, h: 100, sy: 100, sx: 20 })
+
+    // draw sine disp
+    //draw_disp(ctx, sine, sine.array_disp, -70, 'raw');
+
+    //draw_disp(ctx, sine, sine.array_frame,  200, 'bytes');
 
     // draw a cursor
     //ctx.strokeStyle = 'white';
