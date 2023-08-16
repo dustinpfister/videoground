@@ -5,7 +5,6 @@
 //-------- ----------
 // create sine points array
 const create_sine_points_3 = ( opt = {} ) => {
-
     const i_size = opt.i_size === undefined ? 20 : opt.i_size;
     const i_start = opt.i_start === undefined ? 8 : opt.i_start;
     const i_count = opt.i_count === undefined ? 8 : opt.i_count;
@@ -14,7 +13,6 @@ const create_sine_points_3 = ( opt = {} ) => {
     const amplitude = opt.amplitude === undefined ? 0.75 : opt.amplitude;
     const mode = opt.mode === undefined ? 'bytes' : opt.mode;
     const step = opt.step === undefined ? 1 : opt.step; 
-
     const sine_points = [];
     const wave_count = frequency * secs;
     const i_end = i_start + i_count;
@@ -35,7 +33,7 @@ const create_sine_points_3 = ( opt = {} ) => {
     }
     return sine_points;
 };
-
+/*
 const standard_deviation = (array) => {
     if( !array || array.length === 0){
          return 0;
@@ -51,22 +49,18 @@ const get_mean = (array) => {
     }
     return array.reduce( (acc, n) => { return acc + n  }, 0 ) / array.length;
 };
-
+*/
 // get a display v2 point with the given sine object an index
 const get_disp_v2 = (sine, samp_array, px = 0, mode = 'raw') => {
-
     const w = sine.disp_size.x, h = sine.disp_size.y, hh = h/2;
     let index = px;
     if(samp_array.length < w){
        index = Math.floor( samp_array.length * (px / w) );
     }
     const v2 = new THREE.Vector2(px, samp_array[ index ] );
-
     if(mode === 'bytes'){
         v2.y = -1 + (v2.y / 255) * 2;
     }
-
-
     const v2_pos = new THREE.Vector2();
     v2_pos.x = sine.disp_offset.x + ( v2.x / w ) * sine.disp_size.x;
     v2_pos.y = sine.disp_offset.y + hh + v2.y * hh * -1;
@@ -75,24 +69,23 @@ const get_disp_v2 = (sine, samp_array, px = 0, mode = 'raw') => {
 // create the v2 array display
 const create_array_disp = (sine, a_frame = 0.25 ) => {
     const size = sine.disp_size.x;
-    const bytes_per_frame = Math.floor(sine.sample_rate / 30 );
     const total_bytes = sine.sample_rate * sine.secs;
     const array_disp = [];
     let i = 0;
     while(i < size){
          const a_disp = i / size;
          const frame = Math.floor(sine.secs * 30 * a_disp);
-         const i_start = bytes_per_frame * frame;
+         const i_start = sine.bytes_per_frame * frame;
          const data_samples =  create_sine_points_3({
              i_size : total_bytes,
              i_start : i_start,
              //i_count : bytes_from_frame,
-             i_count : bytes_per_frame,
+             i_count : sine.bytes_per_frame,
              frequency: sine.frequency,
              secs: sine.secs,
              amplitude: sine.amplitude,
              mode: 'raw',
-             step: Math.floor(bytes_per_frame * a_frame)
+             step: Math.floor(sine.bytes_per_frame * a_frame)
          });
          //!!! not sure how best to do this
          // just taking a mean, or the highest and lowest does not work so great
@@ -107,57 +100,6 @@ const create_array_disp = (sine, a_frame = 0.25 ) => {
     }
     return array_disp;
 };
-//-------- ----------
-// INIT
-//-------- ----------
-VIDEO.init = function(sm, scene, camera){
-    sm.renderer.setClearColor(0x000000, 0.25);
-    const sine = scene.userData.sine = {
-        amplitude: 0.65,
-        frequency: 80,
-        sample_rate: 8000,
-        secs: 3,
-        disp_offset: new THREE.Vector2(50, 200),
-        disp_size: new THREE.Vector2( 1280 - 100, 200),
-        array_disp: [],   // data for whole sound
-        array_frame: [],  // data for current frame
-        frames: 0
-    };
-    sine.frames = 30 * sine.secs;
-    sine.array_disp = create_array_disp(sine, 0.1 );
-    sm.frameMax = sine.frames;
-
-    //!!! might not need to do anything with cameras if renderer dome element is not used in render process
-    //camera.position.set(2, 2, 2);
-    //camera.lookAt( 0, 0, 0 );
-
-};
-// update method for the video
-VIDEO.update = function(sm, scene, camera, per, bias){
-    const sine = scene.userData.sine;
-
-    const bytes_per_frame = Math.floor(sine.sample_rate / 30 );
-    const total_bytes = sine.sample_rate * sine.secs;
-    const i_start = bytes_per_frame * sm.frame;
-
-    const data_samples =  sine.array_frame = create_sine_points_3({
-        i_size : total_bytes,
-        i_start : i_start,
-        i_count : bytes_per_frame,
-        frequency: sine.frequency,
-        secs: sine.secs,
-        amplitude: sine.amplitude,
-        mode: 'bytes'
-    });
-
-    // write data_samples array
-    const clear = sm.frame === 0 ? true: false;
-    const uri = videoAPI.pathJoin(sm.filePath, 'v21-sampdata'); // '~/vg-samp-data'
-    return videoAPI.write(uri, new Uint8Array(data_samples), clear )
-
-};
-
-
 const draw_disp = (ctx, sine, array, y_delta = 0, mode = 'raw') => {
     ctx.strokeStyle = 'lime';
     ctx.lineWidth = 3;
@@ -178,8 +120,56 @@ const draw_disp = (ctx, sine, array, y_delta = 0, mode = 'raw') => {
     }
     ctx.stroke();
 };
+//-------- ----------
+// INIT
+//-------- ----------
+VIDEO.init = function(sm, scene, camera){
+    sm.renderer.setClearColor(0x000000, 0.25);
+    const sine = scene.userData.sine = {
+        amplitude: 0.65,
+        frequency: 80,
+        sample_rate: 64000,
+        secs: 3,
+        disp_offset: new THREE.Vector2(50, 200),
+        disp_size: new THREE.Vector2( 1280 - 100, 200),
+        array_disp: [],   // data for whole sound
+        array_frame: [],  // data for current frame
+        frames: 0
+    };
+    sine.frames = 30 * sine.secs;
+    sine.bytes_per_frame = Math.floor(sine.sample_rate / 30 );
+    sine.array_disp = create_array_disp(sine, 0.1 );
+    sm.frameMax = sine.frames;
 
-// custom render function
+    //!!! might not need to do anything with cameras if renderer dome element is not used in render process
+    //camera.position.set(2, 2, 2);
+    //camera.lookAt( 0, 0, 0 );
+
+};
+//-------- ----------
+// UPDATE
+//-------- ----------
+VIDEO.update = function(sm, scene, camera, per, bias){
+    const sine = scene.userData.sine;
+    const total_bytes = sine.sample_rate * sine.secs;
+    const i_start = sine.bytes_per_frame * sm.frame;
+    const data_samples =  sine.array_frame = create_sine_points_3({
+        i_size : total_bytes,
+        i_start : i_start,
+        i_count : sine.bytes_per_frame,
+        frequency: sine.frequency,
+        secs: sine.secs,
+        amplitude: sine.amplitude,
+        mode: 'bytes'
+    });
+    // write data_samples array
+    const clear = sm.frame === 0 ? true: false;
+    const uri = videoAPI.pathJoin(sm.filePath, 'v21-sampdata'); // '~/vg-samp-data'
+    return videoAPI.write(uri, new Uint8Array(data_samples), clear )
+};
+//-------- ----------
+// RENDER
+//-------- ----------
 VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     const sine = scene.userData.sine;
 
@@ -208,8 +198,10 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
 
     // additional plain 2d overlay for status info
     ctx.fillStyle = 'lime';
-    ctx.font = '40px courier';
+    ctx.font = '25px courier';
     ctx.textBaseline = 'top';
-    ctx.fillText('frame: ' + sm.frame + '/' + sm.frameMax, 5, 10);
+    ctx.fillText('frame: ' + sm.frame + '/' + sm.frameMax, 5, 5);
+    ctx.fillText('sample rate : ' + sine.sample_rate + ' Hz, frequency: ' + sine.frequency + ' Hz' , 5, 35);
+    ctx.fillText('bytes_per_frame: ' + sine.bytes_per_frame, 5, 60);
 };
 
