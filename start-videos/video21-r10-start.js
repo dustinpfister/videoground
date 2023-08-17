@@ -42,15 +42,28 @@ const getsamp_lossy_random = (sample_array, i, index_step) => {
     const samp = sample_array[i + i_delta];
     return samp;
 };
+const getsamp_lossy_pingpong = (function(){
+    let high = 0;
+    return ( sample_array, i, index_step ) => {
+        const frame_samps = sample_array.slice( i, i + index_step );
+        const a = Math.max.apply(null, frame_samps);
+        const b = Math.min.apply(null, frame_samps);
+        let samp = b;
+        if(high){
+            samp = a;
+        }
+        high += 1;
+        high %= 2;
+        return samp;
+    };
+}());
 const draw_sample_data = (ctx, sample_array, opt = {} ) => {
-
     const sx = opt.sx === undefined ? 0 : opt.sx;
     const sy = opt.sy === undefined ? 0 : opt.sy;
     const w = opt.w === undefined ? 100 : opt.w;
     const h = opt.h === undefined ? 25 : opt.h;
     const getsamp_lossy = opt.getsamp_lossy || function(sample_array, i ){ return sample_array[i]; };
     const mode = opt.mode || 'raw';
-
     const sample_count = sample_array.length;
     const disp_hh = h / 2;
     let index_step = 1;
@@ -103,9 +116,9 @@ VIDEO.init = function(sm, scene, camera){
     sm.renderer.setClearColor(0x000000, 0.25);
     const sine = scene.userData.sine = {
         amplitude: 0.65,
-        frequency: 120,
+        frequency: 80,
         sample_rate: 8000,
-        secs: 10,
+        secs: 3,
         disp_offset: new THREE.Vector2(50, 200),
         disp_size: new THREE.Vector2( 1280 - 100, 200),
         array_disp: [],   // data for whole sound
@@ -152,7 +165,7 @@ VIDEO.update = function(sm, scene, camera, per, bias){
 //-------- ----------
 // RENDER
 //-------- ----------
-const opt_disp = { w: 1280 - 50 * 2, h: 250, sy: 100, sx: 50, getsamp_lossy: getsamp_lossy_random };
+const opt_disp = { w: 1280 - 50 * 2, h: 250, sy: 100, sx: 50, getsamp_lossy: getsamp_lossy_pingpong };
 const opt_frame = { w: 1280 - 50 * 2, h: 250, sy: 400, sx: 50, mode: 'bytes' };
 VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     const sine = scene.userData.sine;
