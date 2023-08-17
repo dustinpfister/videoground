@@ -146,7 +146,7 @@ VIDEO.update = function(sm, scene, camera, per, bias){
     });
     // write data_samples array
     const clear = sm.frame === 0 ? true: false;
-    const uri = videoAPI.pathJoin(sm.filePath, 'v21-sampdata'); // '~/vg-samp-data'
+    const uri = videoAPI.pathJoin(sm.filePath, 'vg-sampdata');
     return videoAPI.write(uri, new Uint8Array(data_samples), clear )
 };
 //-------- ----------
