@@ -4,21 +4,32 @@
 // CREATE SINE POINTS METHIOD
 //-------- ----------
 // create sine points array
-const create_sine_points_3 = ( opt = {} ) => {
+const create_sine_points_4 = ( opt = {} ) => {
     const i_size = opt.i_size === undefined ? 20 : opt.i_size;
     const i_start = opt.i_start === undefined ? 8 : opt.i_start;
     const i_count = opt.i_count === undefined ? 8 : opt.i_count;
-    const frequency = opt.frequency === undefined ? 1 : opt.frequency;
+    //const frequency = opt.frequency === undefined ? 1 : opt.frequency;
     const secs = opt.secs === undefined ? 1 : opt.secs;
-    const amplitude = opt.amplitude === undefined ? 0.75 : opt.amplitude;
+
+    //const amplitude = opt.amplitude === undefined ? 0.75 : opt.amplitude;
+
     const mode = opt.mode === undefined ? 'bytes' : opt.mode;
     const step = opt.step === undefined ? 1 : opt.step; 
     const sine_points = [];
-    const wave_count = frequency * secs;
+
     const i_end = i_start + i_count;
     let i = i_start;
     while(i < i_end){
         const a_point = i / i_size;
+
+        const a_pp = THREE.MathUtils.pingpong(a_point * 16, 1);
+
+        const amplitude = 0.20 + (0.75 * a_point) * THREE.MathUtils.smoothstep( a_pp, 0, 1);
+        const frequency = 80 + 200 * a_point;
+
+        const wave_count = frequency * secs;
+
+
         let samp = Math.sin( Math.PI * 2 * wave_count * a_point )  * amplitude;
         if(mode === 'bytes'){
             let byte = Math.round( 127.5 + 128 * samp );
@@ -116,9 +127,9 @@ VIDEO.init = function(sm, scene, camera){
     sm.renderer.setClearColor(0x000000, 0.25);
     const sine = scene.userData.sine = {
         amplitude: 0.65,
-        frequency: 80,
-        sample_rate: 8000,
-        secs: 3,
+        frequency: 200,
+        sample_rate: 32000,
+        secs: 5,
         disp_offset: new THREE.Vector2(50, 200),
         disp_size: new THREE.Vector2( 1280 - 100, 200),
         array_disp: [],   // data for whole sound
@@ -129,7 +140,7 @@ VIDEO.init = function(sm, scene, camera){
     sine.bytes_per_frame = Math.floor(sine.sample_rate / 30 );
     sm.frameMax = sine.frames;
     const total_bytes = sine.sample_rate * sine.secs;
-    sine.array_disp = create_sine_points_3({
+    sine.array_disp = create_sine_points_4({
         i_size: total_bytes,
         i_start:0,
         i_count: total_bytes,
@@ -148,7 +159,7 @@ VIDEO.update = function(sm, scene, camera, per, bias){
     const sine = scene.userData.sine;
     const total_bytes = sine.sample_rate * sine.secs;
     const i_start = sine.bytes_per_frame * sm.frame;
-    const data_samples =  sine.array_frame = create_sine_points_3({
+    const data_samples =  sine.array_frame = create_sine_points_4({
         i_size : total_bytes,
         i_start : i_start,
         i_count : sine.bytes_per_frame,
@@ -165,7 +176,7 @@ VIDEO.update = function(sm, scene, camera, per, bias){
 //-------- ----------
 // RENDER
 //-------- ----------
-const opt_disp = { w: 1280 - 50 * 2, h: 250, sy: 100, sx: 50, getsamp_lossy: getsamp_lossy_pingpong };
+const opt_disp = { w: 1280 - 50 * 2, h: 250, sy: 100, sx: 50, getsamp_lossy: getsamp_lossy_random };
 const opt_frame = { w: 1280 - 50 * 2, h: 250, sy: 400, sx: 50, mode: 'bytes' };
 VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     const sine = scene.userData.sine;
@@ -188,7 +199,7 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
     ctx.font = '25px courier';
     ctx.textBaseline = 'top';
     ctx.fillText('frame: ' + sm.frame + '/' + sm.frameMax, 5, 5);
-    ctx.fillText('sample rate : ' + sine.sample_rate + ' Hz, frequency: ' + sine.frequency + ' Hz' , 5, 35);
+    ctx.fillText('sample rate : ' + sine.sample_rate , 5, 35);
     ctx.fillText('bytes_per_frame: ' + sine.bytes_per_frame, 5, 60);
 };
 

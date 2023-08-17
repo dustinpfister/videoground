@@ -33,11 +33,12 @@
 * (done) v21: create array disp : use step option of create sine points 2 in in place of bytes per frame
 * (done) v21: create array disp : step should go up with size of bytes per frame to a certin max value
 * (done) v21: VIDEO.render : current frame display
+* (done) v21: worked out a draw sample data method that seems to work okay, and if not is extensible
+* (done) v21: VIDEO.render : playback overlay for total sound disp
+<!-- video22 -->
+* () v22: start video22-r10-samp-amplitude.js based off of video21
+* () v22: see about working out a way to adjust amplitude over time using curves
 
-<!-- video21 -->
-* () v21: better way to compress the data of the full sound
-* () v21: VIDEO.render : playback overlay for total sound disp
-* () v21: update render code to work with an array of raw sample data rather than vector2 objects
 
 <!-- range read needs more work -->
 * () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
