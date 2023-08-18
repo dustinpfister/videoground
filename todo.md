@@ -37,6 +37,9 @@
 * (done) v21: VIDEO.render : playback overlay for total sound disp
 * (done) v22: start video22-r10-samp-amplitude.js based off of video21
 * (done) v22: see about working out a way to adjust amplitude over time
+<!-- write int16 typed arrays -->
+* () writer-append: update to allow for writing Int16Arrays
+
 <!-- range read needs more work -->
 * () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
 * () range-read: Maybe the way to do this is that of the buffer size option is used at all that will result in a whole other mode
