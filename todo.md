@@ -35,11 +35,8 @@
 * (done) v21: VIDEO.render : current frame display
 * (done) v21: worked out a draw sample data method that seems to work okay, and if not is extensible
 * (done) v21: VIDEO.render : playback overlay for total sound disp
-<!-- video22 -->
-* () v22: start video22-r10-samp-amplitude.js based off of video21
-* () v22: see about working out a way to adjust amplitude over time using curves
-
-
+* (done) v22: start video22-r10-samp-amplitude.js based off of video21
+* (done) v22: see about working out a way to adjust amplitude over time
 <!-- range read needs more work -->
 * () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
 * () range-read: Maybe the way to do this is that of the buffer size option is used at all that will result in a whole other mode

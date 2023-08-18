@@ -45,8 +45,8 @@ const create_sine_points_4 = ( opt = {} ) => {
 };
 const for_sample_one = ( samp_set, i, a_point ) => {
     const a_amp = THREE.MathUtils.smootherstep(a_point, 0, 1);
-    samp_set.amplitude = 0.05 + 0.45 * a_amp;
-    const a_freq = Math.sin( Math.PI * (a_point * 4 % 1) );
+    samp_set.amplitude = 0.15 + 0.45 * a_amp;
+    const a_freq = Math.sin( Math.PI * (a_point * 1 % 1) );
     samp_set.frequency = 400 - 320 * a_freq;
     return samp_set;
 };
