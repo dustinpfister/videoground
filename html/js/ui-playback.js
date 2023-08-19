@@ -106,8 +106,8 @@
         //!!! R9 CHNAGE - 
         return vm.setFrame()
         .then( ()=> {
-			return videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL());
-		})
+            return videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL());
+        })
         .then(() => {
             console.log('wrote frame: ' + frameIndex);
             var nextFrameIndex = frameIndex + 1;
