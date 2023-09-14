@@ -38,9 +38,10 @@
 * (done) v22: start video22-r10-samp-amplitude.js based off of video21
 * (done) v22: see about working out a way to adjust amplitude over time
 * (done) writer-append: update to allow for writing Int16Arrays
+* (done) I would like to have a way to set an intended video mode for a video file
+* (done) v23: video23 can be a test of this new feature
 <!-- set video mode in video file -->
-* () I would like to have a way to set an intended video mode for a video file
-* () v23: video23 can be a test of this new feature
+* () see about setting the drop down menu also
 <!-- export file folder, and isExport method -->
 * () see about having an sm.exportPath value that is the export folder location when exporting
 * () have a sm.isExport boolean that is true when exporting

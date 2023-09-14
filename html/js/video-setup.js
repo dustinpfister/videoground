@@ -5,6 +5,8 @@
 //---------- ----------
 // create main VIDEO OBJECT
 let VIDEO = {};
+// remode
+VIDEO.resmode = 5;
 // init method for the video
 VIDEO.init = function(sm, scene, camera){
     //return Promise.resolve();
@@ -45,7 +47,7 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
         {w: 3840, h: 2160, desc: '4k' },
         {w: 7680, h: 4320, desc: '8k' }
     ];
-    const DEFAULT_RESOLUTION = 5; // going with 720p as a default for this
+    //const DEFAULT_RESOLUTION = 5; // going with 720p as a default for this
     const HARD_INIT_PROMISE = {data: 'default init promise object used'};
     const HARD_UPDATE_PROMISE = {data: 'default update promise object used'};
     //-------- ----------
@@ -67,8 +69,8 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
     // THE STATE MACHINE (sm) object
     //-------- ----------
     Object.assign(sm, {
-        res: RESOLUTIONS[DEFAULT_RESOLUTION],
-        res_current_index: DEFAULT_RESOLUTION,
+        res: RESOLUTIONS[VIDEO.resmode],
+        res_current_index: VIDEO.resmode,
         res_options: RESOLUTIONS,
         filePath: null,
         canvas: canvas_2d,
@@ -114,6 +116,7 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
     };
     // set defaults for VIDEO, to be called before sm.setup ( see ui-video-code.js ) 
     sm.setDefaults = () => {
+        VIDEO.resmode = 5;
         VIDEO.daePaths = null;
         VIDEO.daeResults = [];
         VIDEO.scripts = undefined;

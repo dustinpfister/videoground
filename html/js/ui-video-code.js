@@ -56,6 +56,11 @@
             vm.$data.videoJS = text;
             // load any and all dae files first
             loadDAE( () => {
+
+if(VIDEO.resmode){
+    sm.resSet( parseInt(VIDEO.resmode) );
+}
+
                 // load scripts
                 if(VIDEO.scripts){
                     var loaded = 0,
