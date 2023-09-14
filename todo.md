@@ -38,6 +38,13 @@
 * (done) v22: start video22-r10-samp-amplitude.js based off of video21
 * (done) v22: see about working out a way to adjust amplitude over time
 * (done) writer-append: update to allow for writing Int16Arrays
+<!-- set video mode in video file -->
+* () I would like to have a way to set an intended video mode for a video file
+* () v23: video23 can be a test of this new feature
+<!-- export file folder, and isExport method -->
+* () see about having an sm.exportPath value that is the export folder location when exporting
+* () have a sm.isExport boolean that is true when exporting
+* () v24: video24 can then be a test of this new feature
 <!-- write int16 typed arrays -->
 * () writer-append: update to allow for both le and be 16 bit ints
 <!-- range read needs more work -->
@@ -45,7 +52,6 @@
 * () range-read: Maybe the way to do this is that of the buffer size option is used at all that will result in a whole other mode
 * () range-read: There is then having a default mode where I can give direct byte values if I just happen to know them
 * () range-read: speaking of knowing them, I might want another mode where I just get file stats, mainly the size of the file
-
 <!-- final work -->
 * () README update
 * () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
