@@ -117,6 +117,7 @@
                 data.targetFrame = VIDEO.thum_frame;
                 return vm.setFrame()
                 .then( ()=> {
+                    VIDEO.thum_overlay(sm, sm.canvas, sm.ctx);
                     return videoAPI.writeFrame(imageFolder, 'thum', sm.canvas.toDataURL());
                 });
             }

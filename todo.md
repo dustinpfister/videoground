@@ -42,11 +42,9 @@
 * (done) v23: video23 can be a test of this new feature
 * (done) see about setting the drop down menu also
 * (done) add a new feature where a thumnail image is rendered in the export folder
-
-<!-- VIDEO.thum_frame, VIDEO.thum_overlay -->
-* () have the frame index default to an index that is half way by default
-* () I would like to be able to set what the frame index should be for the thum
-* () I would like to be able to draw on top of the canvas for the thumnail
+* (done) have the frame index default to an index that is half way by default
+* (done) I would like to be able to set what the frame index should be for the thum
+* (done) I would like to be able to draw on top of the canvas for the thumnail
 
 <!-- export file folder, and isExport method -->
 * () see about having an sm.exportPath value that is the export folder location when exporting

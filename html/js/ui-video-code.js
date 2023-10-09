@@ -41,6 +41,7 @@
     var setFilePath = (vm, filePath) => {
         sm.filePath = vm.$data.filePath = videoAPI.pathDirname(filePath);
         vm.$data.fileName = videoAPI.pathBasename(filePath);
+        sm.fileName = fileName = vm.$data.fileName;
         // update title
         //document.title = 'VideoGround - ' + vm.$data.fileName;
         updateTitle(vm);
