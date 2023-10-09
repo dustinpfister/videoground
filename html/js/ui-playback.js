@@ -118,7 +118,8 @@
                 return vm.setFrame()
                 .then( ()=> {
                     VIDEO.thum_overlay(sm, sm.canvas, sm.ctx);
-                    return videoAPI.writeFrame(imageFolder, 'thum', sm.canvas.toDataURL());
+                    const thum_name = 'thum-' + sm.fileName.replace(/\.js/, '');
+                    return videoAPI.writeFrame(imageFolder, thum_name, sm.canvas.toDataURL());
                 });
             }
         })

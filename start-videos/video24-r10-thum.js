@@ -5,7 +5,6 @@
 // THUM
 //-------- ----------
 VIDEO.thum_frame = 10;
-/*
 VIDEO.thum_overlay = (sm, canvas, ctx) => {
     ctx.fillStyle = 'white';
     ctx.font = '50px arial';
@@ -13,7 +12,6 @@ VIDEO.thum_overlay = (sm, canvas, ctx) => {
     ctx.textBaseline = 'top';
     ctx.fillText('THUM', 10, 10);
 };
-*/
 //-------- ----------
 // INIT
 //-------- ----------
