@@ -40,19 +40,32 @@
 * (done) writer-append: update to allow for writing Int16Arrays
 * (done) I would like to have a way to set an intended video mode for a video file
 * (done) v23: video23 can be a test of this new feature
-<!-- set video mode in video file -->
-* () see about setting the drop down menu also
+* (done) see about setting the drop down menu also
+* (done) add a new feature where a thumnail image is rendered in the export folder
+
+<!-- VIDEO.thum_frame, VIDEO.thum_overlay -->
+* () have the frame index default to an index that is half way by default
+* () I would like to be able to set what the frame index should be for the thum
+* () I would like to be able to draw on top of the canvas for the thumnail
+
 <!-- export file folder, and isExport method -->
 * () see about having an sm.exportPath value that is the export folder location when exporting
 * () have a sm.isExport boolean that is true when exporting
 * () v24: video24 can then be a test of this new feature
+
+<!-- On Export done event-->
+* () see about having an on export done event
+* () use this feature to trigger a script that will run ffmpeg when done
+
 <!-- write int16 typed arrays -->
 * () writer-append: update to allow for both le and be 16 bit ints
+
 <!-- range read needs more work -->
 * () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
 * () range-read: Maybe the way to do this is that of the buffer size option is used at all that will result in a whole other mode
 * () range-read: There is then having a default mode where I can give direct byte values if I just happen to know them
 * () range-read: speaking of knowing them, I might want another mode where I just get file stats, mainly the size of the file
+
 <!-- final work -->
 * () README update
 * () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'

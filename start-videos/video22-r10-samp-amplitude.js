@@ -131,7 +131,7 @@ VIDEO.init = function(sm, scene, camera){
         amplitude: 0.65,
         frequency: 200,
         sample_rate: 32000,
-        secs: 5,
+        secs: 1,
         disp_offset: new THREE.Vector2(50, 200),
         disp_size: new THREE.Vector2( 1280 - 100, 200),
         array_disp: [],   // data for whole sound

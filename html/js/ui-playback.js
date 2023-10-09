@@ -109,10 +109,13 @@
             return videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL());
         })
         .then(() => {
-            console.log('wrote frame: ' + frameIndex);
             var nextFrameIndex = frameIndex + 1;
             if(nextFrameIndex < Math.min( sm.render_frame_end, sm.frameMax ) ){
                 writeFrame(imageFolder, nextFrameIndex);
+            }else{
+                console.log('Rendering of frames done.');
+                console.log('folder: ' + imageFolder);
+                return videoAPI.writeFrame(imageFolder, 'thum', sm.canvas.toDataURL());
             }
         })
         .catch((e)=>{
