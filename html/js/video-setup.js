@@ -5,6 +5,8 @@
 //---------- ----------
 // create main VIDEO OBJECT
 let VIDEO = {};
+
+/*
 // remode
 VIDEO.resmode = 5;
 // init method for the video
@@ -20,10 +22,28 @@ VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
 // update method for the video
 VIDEO.update = function(sm, scene, camera, secs, per, bias){
 };
+*/
 //---------- ----------
 // SM OBJECT - used by ui-playback.js and ui-video-code.js
 //---------- ----------
 (function (sm) {
+
+    // set defaults for VIDEO, to be called before sm.setup ( see ui-video-code.js ) 
+    sm.setDefaults = () => {
+        VIDEO.resmode = 5;
+        VIDEO.daePaths = null;
+        VIDEO.daeResults = [];
+        VIDEO.scripts = undefined;
+        VIDEO.init = function(sm, scene, camera){};
+        VIDEO.update = function(sm, scene, camera, secs, per, bias){};
+        VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
+            ctx.clearRect(0,0, canvas.width, canvas.height);
+            sm.renderer.render(sm.scene, sm.camera);
+            ctx.drawImage(sm.renderer.domElement, 0, 0, sm.canvas.width, sm.canvas.height);
+        };
+    };
+    sm.setDefaults();
+
     //-------- ----------
     // HARD CODED SETTINGS
     //-------- ----------
@@ -114,18 +134,7 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
             }
         }
     };
-    // set defaults for VIDEO, to be called before sm.setup ( see ui-video-code.js ) 
-    sm.setDefaults = () => {
-        VIDEO.resmode = 5;
-        VIDEO.daePaths = null;
-        VIDEO.daeResults = [];
-        VIDEO.scripts = undefined;
-        VIDEO.render = function(sm, canvas, ctx, scene, camera, renderer){
-            ctx.clearRect(0,0, canvas.width, canvas.height);
-            sm.renderer.render(sm.scene, sm.camera);
-            ctx.drawImage(sm.renderer.domElement, 0, 0, sm.canvas.width, sm.canvas.height);
-        };
-    };
+
     // setup is to be called after text of video file has been applyed ( see ui-video-code.js ) 
     sm.setup = function(){
         sm.frame = 0;
