@@ -106,7 +106,7 @@
         //!!! R9 CHNAGE - 
         return vm.setFrame()
         .then( ()=> {
-            return videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL());
+            return videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL() );
         })
         .then(() => {
             var nextFrameIndex = frameIndex + 1;
@@ -115,7 +115,11 @@
             }else{
                 console.log('Rendering of frames done.');
                 console.log('folder: ' + imageFolder);
-                return videoAPI.writeFrame(imageFolder, 'thum', sm.canvas.toDataURL());
+                data.targetFrame = 15;
+                return vm.setFrame()
+                .then( ()=> {
+                    return videoAPI.writeFrame(imageFolder, 'thum', sm.canvas.toDataURL());
+                });
             }
         })
         .catch((e)=>{
