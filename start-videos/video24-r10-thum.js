@@ -1,6 +1,8 @@
 /*    video24-r10-thum - video for r10 of videoground
           * testing out new thumbnail features
  */
+
+VIDEO.thum_frame = undefined;
 //-------- ----------
 // INIT
 //-------- ----------

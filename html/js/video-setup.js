@@ -30,6 +30,8 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
 
     // set defaults for VIDEO, to be called before sm.setup ( see ui-video-code.js ) 
     sm.setDefaults = () => {
+        VIDEO.thum_frame = -1; // -1, undefined, or false for half way
+        VIDEO.thum_overlay = function(){};
         VIDEO.resmode = 5;
         VIDEO.daePaths = null;
         VIDEO.daeResults = [];
@@ -158,6 +160,11 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
             }
             sm.render_frame_start = 0;
             sm.render_frame_end = sm.frameMax;
+            // R10 - default thum frame
+            if(VIDEO.thum_frame === -1 || VIDEO.thum_frame === false || VIDEO.thum_frame === undefined ){
+                VIDEO.thum_frame = Math.floor(sm.frameMax / 2);
+            }
+            // setup
             sm.setFrame();
         });
     };
