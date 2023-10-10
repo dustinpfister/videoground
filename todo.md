@@ -46,10 +46,7 @@
 * (done) I would like to be able to set what the frame index should be for the thum
 * (done) I would like to be able to draw on top of the canvas for the thumnail
 * (done) have a sm.isExport boolean that is true when exporting
-
-<!-- export file folder, and isExport method -->
-* () see about having an sm.exportPath value that is the export folder location when exporting
-* () v24: video24 can then be a test of this new feature
+* (done) see about having an sm.imageFolder value that is the export folder location when exporting
 
 <!-- On Export done event-->
 * () see about having an on export done event

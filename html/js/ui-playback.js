@@ -104,6 +104,7 @@
         sm = data.sm;
         data.targetFrame = frameIndex;
         sm.isExport = true;
+        sm.imageFolder = imageFolder;
         return vm.setFrame()
         .then( ()=> {
             return videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL() );
