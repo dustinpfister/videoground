@@ -97,6 +97,7 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
     // THE STATE MACHINE (sm) object
     //-------- ----------
     Object.assign(sm, {
+        isExport: false,
         fileName: 'untitled',
         res: RESOLUTIONS[VIDEO.resmode],
         res_current_index: VIDEO.resmode,
@@ -146,6 +147,7 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
 
     // setup is to be called after text of video file has been applyed ( see ui-video-code.js ) 
     sm.setup = function(){
+        sm.isExport = false;
         sm.frame = 0;
         sm.frameFrac = 0;
         sm.loopActive = false;

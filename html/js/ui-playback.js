@@ -103,6 +103,7 @@
         var data = vm.$data,
         sm = data.sm;
         data.targetFrame = frameIndex;
+        sm.isExport = true;
         return vm.setFrame()
         .then( ()=> {
             return videoAPI.writeFrame(imageFolder, sm.frame, sm.canvas.toDataURL() );
@@ -114,6 +115,7 @@
             }else{
                 console.log('Rendering of frames done.');
                 console.log('folder: ' + imageFolder);
+                sm.isExport = false;
                 data.targetFrame = VIDEO.thum_frame;
                 return vm.setFrame()
                 .then( ()=> {
