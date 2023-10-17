@@ -30,6 +30,7 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
 
     // set defaults for VIDEO, to be called before sm.setup ( see ui-video-code.js ) 
     sm.setDefaults = () => {
+        VIDEO.name = '';
         VIDEO.thum_frame = -1; // -1, undefined, or false for half way
         VIDEO.thum_overlay = (sm, canvas, ctx) => {
             ctx.fillStyle = 'white';
