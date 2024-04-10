@@ -115,10 +115,10 @@ Once I use the export to frames feature I will then want to use software outside
 
 ### Create raw video from frames
 
-If I have a folder of png files in the range of 'frame-000000.png' to 'frame-999999.png', then using ffmpeg with the -i option should work with the value 'frame-%06d.png'. I will then want to add any additional options such as setting the framerate, and of course I will want to give an output file. When doing so I will want to set the yuv420p pixel format for the output file. I have also found that I can also sneek in an audio source along with the frames so I only have to render once.
+If I have a folder of png files in the range of 'frame-000000.png' to 'frame-999999.png', then using ffmpeg with the -i option should work with the value 'frame-%06d.png'. I will then want to add any additional options such as setting the framerate, and of course I will want to give an output file. When doing so I will want to set the yuv420p pixel format for the output file. I have also found that I can also sneek in an audio source along with the frames so I only have to render once. When adding audio I have found that I will also want to set the audio quality as well such as 192k.
 
 ```
-$ ffmpeg -framerate 30 -i frame-%06d.png -i video.wav -pix_fmt yuv420p raw.mp4
+$ ffmpeg -framerate 30 -i frame-%06d.png -i video.wav -b:a 192k -pix_fmt yuv420p raw.mp4
 ```
 
 ### Create a final video from raw video and audio
