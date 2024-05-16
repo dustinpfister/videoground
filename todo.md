@@ -13,7 +13,22 @@
 * () - #9 - videoAPI.webGL2-test-pass still false when read client side look into another way to store state
 * () - #10 - error loading dae textures when loading from more than one folder
 
-## () - r10 - Write data frame by frame
+## () - r11 - JSM, fixes for writing and read functions
+<!-- update electronjs version -->
+* () try updating to electronjs 30.0.6, use lower version if id does not work out
+<!-- JSM -->
+* () see about allowing for suport of loading JSM scripts in place of type text/javaScript deals
+<!-- write and read methods -->
+* () writer-append: update to allow for both le and be 16 bit ints
+* () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
+* () range-read: Maybe the way to do this is that of the buffer size option is used at all that will result in a whole other mode
+* () range-read: There is then having a default mode where I can give direct byte values if I just happen to know them
+* () range-read: speaking of knowing them, I might want another mode where I just get file stats, mainly the size of the file
+<!-- final work -->
+* () README update
+* () REVISION in constants.js, and package.json set to 11 and commit with message '0.11.0'
+
+## () - r10 - Write data frame by frame, on export done event
 * (done) start video21-r10-start.js
 * (done) have a simple sine wave
 * (done) just log what the sample data will be for now until I have write features working.
@@ -49,15 +64,7 @@
 * (done) see about having an sm.imageFolder value that is the export folder location when exporting
 <!-- On Export done event-->
 * () see about having an on export done event
-* () use this feature to trigger a script that will run ffmpeg when done
-<!-- write int16 typed arrays -->
-* () writer-append: update to allow for both le and be 16 bit ints
-<!-- range read needs more work -->
-* () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
-* () range-read: Maybe the way to do this is that of the buffer size option is used at all that will result in a whole other mode
-* () range-read: There is then having a default mode where I can give direct byte values if I just happen to know them
-* () range-read: speaking of knowing them, I might want another mode where I just get file stats, mainly the size of the file
-
+* () v25: use this feature to trigger a script that will run ffmpeg when done
 <!-- final work -->
 * () README update
 * () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'

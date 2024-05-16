@@ -6,8 +6,7 @@
 <!-- JSM -->
 
 ## () - rx - javaScript and JSM client systems, and Revision Number Selection
-* () set REVISION const in constants.js set to '9_dev'
-* () try bumping electionjs to 16.2.8 which is using chrome 96 and node 16.9
+* () set REVISION const in constants.js set to 'x_dev'
 * () I will want a window-main-javascript html file for using a threejs revision by way of three.min.js
 * () I will want a window-main-jsm html file for using three.module.js
 * () add r91, r146, and r149 (or r150 if out ) for additional threejs revision options
@@ -18,8 +17,7 @@
 
 <!-- PLUG IN SYSTEM -->
 ## () - rx - plugin system
-* () set REVISION const in constants.js set to '10_dev'
-* () try bumping electionjs to 17.4.11 which using chrome 98 and node 16.13
+* () set REVISION const in constants.js set to 'x_dev'
 * () start an plugin system so that I have a way to start creating built in, and optional features
 * () see about turning the export by frame feature the first built in plugin
 * () start a new repo videoground-plugins that will work as a way to pull down optional plugins
@@ -30,8 +28,7 @@
 * () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
 
 ## () - rx - file open recent plugin
-* () set REVISION const in constants.js set to '11_dev'
-* () try bumping electionjs to 18.3.15 which is the latest for 18.x, might not work okay so be prepared to say with 17.x
+* () set REVISION const in constants.js set to 'x_dev'
 * () This might need to be an optional plug in actually
 * () see about having a file > Open Recent menu option
 
@@ -54,7 +51,6 @@ I would like remove the old DAE loader that I have in the core ov videoground in
 
 ## () - rx - Logger lib
 * () set REVISION const in constants.js set to '13_dev'
-* () try bumping electionjs to to 20.3.12, might not work out okay so be ready to stay fixed at lateset stable
 * () start a /lib/logger/index.js that will be the main logger lib used by all javaScript files
 * () have a videoAPI.createLogger funciton that can be used to create a logger for each of the client files
 
@@ -72,7 +68,6 @@ I would like remove the old DAE loader that I have in the core ov videoground in
 
 ## () - rx - file new option
 * () set REVISION const in constants.js set to '12_dev'
-* () try bumping electionjs to to 19.1.9, might not work out okay so be ready to stay fixed at lateset stable
 * () start a file > new option in menu.js
 * () use the hard coded start video as the start point for the new video
 * () when creating a new file the fileName and filePath vm data object values should be null
