@@ -13,20 +13,27 @@
 * () - #9 - videoAPI.webGL2-test-pass still false when read client side look into another way to store state
 * () - #10 - error loading dae textures when loading from more than one folder
 
-## () - r11 - JSM, fixes for writing and read functions
-<!-- update electronjs version -->
-* (done) try updating to electronjs 30.0.6, use lower version if id does not work out
-* (done) using electron 19.1.9 for now.
-* () update the threejs revision number to r162
-* () update vuejs to 2.7.16
-<!-- JSM -->
-* () see about allowing for suport of loading JSM scripts in place of type text/javaScript deals
+## () - r13 - vuejs3, ui improvements
+
+## () - r12 - iframe mode
+<!-- vuejs -->
+* () see about updating vuejs to 2.7.16 for now
 <!-- write and read methods -->
 * () writer-append: update to allow for both le and be 16 bit ints
 * () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
 * () range-read: Maybe the way to do this is that of the buffer size option is used at all that will result in a whole other mode
 * () range-read: There is then having a default mode where I can give direct byte values if I just happen to know them
 * () range-read: speaking of knowing them, I might want another mode where I just get file stats, mainly the size of the file
+
+## () - r11 - JSM, fixes for writing and read functions
+* (done) try updating to electronjs 30.0.6, use lower version if id does not work out
+* (done) using electron 19.1.9 for now.
+* (done) add threejs revision number r162
+* (done) I can start with a window\_main\_r162.html file JSM scripts in place of type text/javaScript deals
+* (done) I will want to start a new client\_jsm folder in the html/js folder
+
+* () looks like I have an electronjs is ready message each time I open a file for some reason
+
 <!-- final work -->
 * () README update
 * () REVISION in constants.js, and package.json set to 11

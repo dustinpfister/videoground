@@ -5,6 +5,9 @@
 // INIT
 //-------- ----------
 VIDEO.init = (sm, scene, camera) => {
+
+console.log(THREE.REVISION);
+
     sm.renderer.setClearColor(0x000000, 0.25);
     
     scene.add( new THREE.GridHelper( 10, 10 ) );

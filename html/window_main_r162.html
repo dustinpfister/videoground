@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="wrap_main">
+        <div id="wrap_canvas"></div>
+        <div id="wrap_playpack"></div>
+        <div id="wrap_video_code"></div>
+    </div>
+    <!-- vuejs and threejs -->
+    <script src="js/vue/2.6.14/vue.min.js"></script>
+    
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "./js/threejs/0.162.0/three.module.js"
+        }
+    }
+    </script>
+    
+    
+    <script type="module" src="js/client_jsm/video-setup.module.js"></script>
+    <script type="module" src="js/client_jsm/ui-playback.module.js"></script>
+    <script type="module" src="js/client_jsm/ui-video-code.module.js"></script>
+    
+    <!--
+       <script src="js/threejs/0.146.0/three.min.js"></script>
+    -->
+    
+    
+    
+    <!--<script src="js/threejs/0.146.0/loaders/ColladaLoader.js"></script>-->
+    <!-- my js -->
+    <!--
+    <script src="js/utils.js"></script>
+    <script src="js/video-setup.js"></script>
+    <script src="js/ui-playback.js"></script>
+    <script src="js/ui-video-code.js"></script>
+    -->
+    <!-- Video Scripts -->
+    <div id="wrap_video_scripts"></div>
+  </body>
+</html>

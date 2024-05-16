@@ -1,10 +1,13 @@
 //   video-setup.js - Create the VIDEO object that is the start of the actual video js file to play
-//       
+//
+import * as THREE from 'three';
+
+ 
 //---------- ----------
 // VIDEO object
 //---------- ----------
 // create main VIDEO OBJECT
-let VIDEO = {};
+let VIDEO = window.VIDEO = {};
 
 //---------- ----------
 // SM OBJECT - used by ui-playback.js and ui-video-code.js
@@ -214,4 +217,4 @@ let VIDEO = {};
     //-------- ----------
     videoAPI.on('menuAbout', function(evnt){});
 }
-    ( this['sm'] = {} ));
+    ( window['sm'] = {} ));
