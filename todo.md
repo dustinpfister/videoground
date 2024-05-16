@@ -62,10 +62,10 @@
 * (done) I would like to be able to draw on top of the canvas for the thumnail
 * (done) have a sm.isExport boolean that is true when exporting
 * (done) see about having an sm.imageFolder value that is the export folder location when exporting
-<!-- On Export done event-->
 * (done) see about having an on export done event
 * (done) v25: start a video25-r10-export-done file that will be a demo of this on export done event
-* () v25: use this feature to trigger a script that will run ffmpeg when done
+* (done) looks like I will need an exec function in preload.js if I want to call commands when frames are done rendering
+* (done) v25: use this feature to trigger a script that will run ffmpeg when done
 <!-- final work -->
 * () README update
 * () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'

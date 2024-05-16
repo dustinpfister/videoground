@@ -4,9 +4,11 @@
 const { contextBridge, ipcRenderer} = require('electron');
 const path = require('path');
 const fs = require('fs');
+const cp = require('child_process');
 const promisify = require('util').promisify;
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
+const exec = promisify( cp.exec );
 //-------- ----------
 // CONSTS
 //-------- ----------
@@ -37,6 +39,9 @@ userData.create(OPT_USERDATA_SETTINGS)
 //-------- ----------
 let videoAPI = {
   r: REVISION
+};
+videoAPI.exec = ( cmd_str ) => {
+    return exec( cmd_str );
 };
 // write data using the writer append lib
 videoAPI.write = ( uri, array_bytes, clear ) => {
