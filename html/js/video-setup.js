@@ -50,6 +50,11 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
             sm.renderer.render(sm.scene, sm.camera);
             ctx.drawImage(sm.renderer.domElement, 0, 0, sm.canvas.width, sm.canvas.height);
         };
+        VIDEO.export_done = function(sm, scene, camera){
+            console.log('export done!');
+            console.log('no custom VIDEO.export_done method given.');
+            console.log('videoAPI.exec can be used to run commands in such a function if given.');
+        };
     };
     sm.setDefaults();
 
