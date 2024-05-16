@@ -24,33 +24,44 @@ $ npm start
 
 ### Download a specific revision
 
-The latest is not always the greatest when it comes to many things with software. When it comes to videoground the latest state of master might not always be stable. It then might be a good idea to clone down a certain revision such as R9 for example. To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to give a different name for the folder such as vgr9 or something to that effect if I am going to have more than one revision to work with on a system. 
+The latest is not always the greatest when it comes to many things with software. When it comes to videoground the latest state of master might not always be stable. It then might be a good idea to clone down a certain revision such as R10 for example. To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to give a different name for the folder such as vgr9 or something to that effect if I am going to have more than one revision to work with on a system. 
 
 ```
-$ git clone -b "0.9.0" --depth 1 https://github.com/dustinpfister/videoground vgr6
+$ git clone -b "0.10.0" --depth 1 https://github.com/dustinpfister/videoground vg_r10
 $ cd vgr6
 $ npm install
 $ npm start
 ```
 
-## What the goals where with this project
+## Goals of the Project
+
+I have been using this project to make videos for a long time all ready, so it does work good enough for the most part. However that does not meen that there is not still work to do, there is a great deal of that last I checked. So for the sake of
+
+### What the current goals with this project are ( R11+ )
+
+With R11 forward I would like to make a lot of code readability changes, and also allow for using JSM over old text/javaScript mime type javaScript files. I am sure that there are a whole lot of bugs that I would like to fix with the many feature that I have all ready added, and also some might need to be removed as I now prefer to use everything and anything I can in use space. I would also like to work out a system that allows for me to not use eval to run javaScript code, this is something that I should have done from the start, but better later than never.
+
+* Be able to use JSM or old text/javaScript mime type style files
+* Update threejs from r146 to r162
+* Use an iframe that contains an html file that is overwritten by videoground rather than using a canvas element and eval
+* code readability improvements, various improvements to features all ready in place
+
+### What has all ready been done
 
 I was able to get the core set of goals that I wanted with this project done right away, however it is true that I first set the bar very low for myself on this one. I just simply wanted to make a tool that I can use to create a whole bunch of frame images with some javaScript code on top of threejs, and have a basic interface to work with some javaScript code that runs on top of this. I can then take it from there by using ffmpeg, and other tools to create a final video product that can then be uploaded to YouTube. Sense then I have starting to take note of new features and changes I would like to make from there on out, and thus far this has been the case on a revision by revision basis.
 
-* R0 - Basic frame by frame export feature working
-* R1 - Built in feature for loading \*.dae files
-* R2 - Can load additional scripts without hacking over video ground source code
-* R3 - Resolution modes in place
-* R4 - New scene object each time javascript code is loaded again
-* R5 - VIDEO.init method can be used to return a promise, allows using all kinds of loaders
-* R6 - RUN button over auto running code as it is being edited
-* R7 - User data folder, last video on start
-* R8 - Start and end frame render range feature
-* R9 - Simple 2D canvas rendering, VIDEO.update methods can now return a Promise
+* R0   - Basic frame by frame export feature working
+* R1   - Built in feature for loading \*.dae files
+* R2   - Can load additional scripts without hacking over video ground source code
+* R3   - Resolution modes in place
+* R4   - New scene object each time javascript code is loaded again
+* R5   - VIDEO.init method can be used to return a promise, allows using all kinds of loaders
+* R6   - RUN button over auto running code as it is being edited
+* R7   - User data folder, last video on start
+* R8   - Start and end frame render range feature
+* R9   - Simple 2D canvas rendering, VIDEO.update methods can now return a Promise
+* R10  - added videoAPI.write method, VIDEO.export\_done method
 
-## What the current goals with this project are ( R10+ )
-
-The main idea I have now in R10 has to do with writing data in general along with the frames. The main interest with this is to create audio sample data to use with the aplay command, or directly author a wav file, but this can of course have all kinds of applications beyond that. Other use cases would have to do with logging debug data out in plain text, or html format, or create any kind of data alone with the frames.
 
 ## How to start making videos
 
