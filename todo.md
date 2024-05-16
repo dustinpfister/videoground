@@ -66,8 +66,7 @@
 * (done) v25: start a video25-r10-export-done file that will be a demo of this on export done event
 * (done) looks like I will need an exec function in preload.js if I want to call commands when frames are done rendering
 * (done) v25: use this feature to trigger a script that will run ffmpeg when done
-<!-- final work -->
-* () README update
+* (done) README update
 * () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
 
 ## ( done 08/13/2023 ) - r9 - VIDEO.render, simple 2d rendering, update promise

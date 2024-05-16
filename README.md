@@ -1,6 +1,6 @@
 ﻿# Videoground
 
-I wanted to a make tool for creating videos using electronjs, threejs, and a whole lot of vanilla javaScript code to create video projects. VideoGround is then the project that I came up with that I use to make videos that I post to my [javaweaver Youtube channel](https://www.youtube.com/user/javaweaver) that I also embed into [my blog posts on threejs](https://dustinpfister.github.io/categories/three-js/). So you can check out the channel if you would like to see what some content looks like using this tool.
+I wanted to a make tool using electronjs, threejs, and a whole lot of vanilla javaScript code to make interesting video projects. VideoGround is then the project that I came up with that I use to make videos that I post to my [javaweaver Youtube channel](https://www.youtube.com/user/javaweaver) so you can then check out the channel if you would like to see what some content looks like using this tool.
 
 <div align="center">
       <a href="https://www.youtube.com/watch?v=Mq37hBHx-Qc">
@@ -11,9 +11,31 @@ I wanted to a make tool for creating videos using electronjs, threejs, and a who
     </p>
 </div>
 
+## Install
+
+As of thing writing I am just committing directly to the master branch. Still if the latest state of the project works okay there is just cloning down a copy, cd into the folder, and then do an npm install. After that one can just call npm start to run videoground. When cloning down one might want to make the depth 1 so that you do not pull down the full commit history.
+
+```
+$ git clone --depth 1 https://github.com/dustinpfister/videoground
+$ cd videoground
+$ npm install
+$ npm start
+```
+
+### Download a specific revision
+
+The latest is not always the greatest when it comes to many things with software. When it comes to videoground the latest state of master might not always be stable. It then might be a good idea to clone down a certain revision such as R9 for example. To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to give a different name for the folder such as vgr9 or something to that effect if I am going to have more than one revision to work with on a system. 
+
+```
+$ git clone -b "0.9.0" --depth 1 https://github.com/dustinpfister/videoground vgr6
+$ cd vgr6
+$ npm install
+$ npm start
+```
+
 ## What the goals where with this project
 
-I was able to get the core set of goals that I wanted with this project done right away, however it is true that I first set the bar very low for myself on this one. I just simply wanted to make a tool that I can use to create a whole bunch of frame images with some javaScript code on top of threejs, and have a basic interface to work with some high level javaScript code that runs on top of this. I can then take it from there by using ffmpeg, and other tools to create a final video product that can then be uploaded to YouTube. Sense then I have starting to take note of new features and changes I would like to make from there on out, and thus far this has been the case on a revision by revision basis.
+I was able to get the core set of goals that I wanted with this project done right away, however it is true that I first set the bar very low for myself on this one. I just simply wanted to make a tool that I can use to create a whole bunch of frame images with some javaScript code on top of threejs, and have a basic interface to work with some javaScript code that runs on top of this. I can then take it from there by using ffmpeg, and other tools to create a final video product that can then be uploaded to YouTube. Sense then I have starting to take note of new features and changes I would like to make from there on out, and thus far this has been the case on a revision by revision basis.
 
 * R0 - Basic frame by frame export feature working
 * R1 - Built in feature for loading \*.dae files
@@ -29,36 +51,6 @@ I was able to get the core set of goals that I wanted with this project done rig
 ## What the current goals with this project are ( R10+ )
 
 The main idea I have now in R10 has to do with writing data in general along with the frames. The main interest with this is to create audio sample data to use with the aplay command, or directly author a wav file, but this can of course have all kinds of applications beyond that. Other use cases would have to do with logging debug data out in plain text, or html format, or create any kind of data alone with the frames.
-
-## Frame by Frame Exporting
-
-The main way of exporting thus far is as a collection of png files for each frame written to a target export folder in the OS file system. Once I have a collection of images from there I can use a command line tool like [ffmpeg](https://ffmpeg.org/) to create a video file from this collection of image files. I can then take that raw video file made from the frames, and create another video file with ffmpeg, or any video editing program for that matter. There I can include an audio track that is made with additional software tools like [Musescore](https://musescore.org/en), [Audacity](https://www.audacityteam.org/) and anything else that can be used to work out what the audio track should be.
-
-Exporting this way may not be preferred for many reasons that I do not care to get into detail with here. However I have found that this is just simply a tired yet true way of exporting that has not broken for me yet. This kind of exporting will still work just fine when it comes to sticking to short 30 second to maybe at most 10 minute videos. After that the shortcomings of this form of exporting do start to become a bit a pain but might still be workable. If I do keep working on this project maybe I will get around to having better export options, but in any case this kind of export must always work as a fall back of sorts in the event that other options break.
-
-## Install
-
-As of thing writing I am just committing directly to the master branch. Still of the latest state of the project works okay there is just cloning down a copy, cd into the folder, and then do an npm install. After that one can just call npm start to run videoground. When cloning down one might want to make the depth 1 so that you do not pull down the full commit history.
-
-```
-$ git clone --depth 1 https://github.com/dustinpfister/videoground
-$ cd videoground
-$ npm install
-$ npm start
-```
-
-### Download a specific revision
-
-The latest is not always the greatest when it comes to many things with software. When it comes to videoground the latest state of master might not always be stable. It then might be a good idea to clone down a certain revision such as R8 for example. 
-
-To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to name a different name for the folder such as vgr8 or something to that effect if I am going to have more than one revision to work with on a system. 
-
-```
-$ git clone -b "0.9.0" --depth 1 https://github.com/dustinpfister/videoground vgr6
-$ cd vgr6
-$ npm install
-$ npm start
-```
 
 ## How to start making videos
 
@@ -109,11 +101,59 @@ In the [start-videos folder](https://github.com/dustinpfister/videoground/tree/m
 
 Thus far I just have two PUBLIC content repositories one called [videoground-blog-posts](https://github.com/dustinpfister/videoground-blog-posts), and the other is called [videoground-beta-world](https://github.com/dustinpfister/videoground-beta-world). As the name suggests with videoground-blog-posts this is a repo of videos that are to be used as video embeds for my [blog posts on threejs](https://dustinpfister.github.io/categories/three-js/). The other collection is called videoground-beta-world and that one is being used as a dumping ground for experimental content that may or may not lead to other collections of content.
 
-## Creating a video from frame images with ffmpeg
 
-Once I use the export to frames feature I will then want to use software outside of videoground to create a raw video, as well as a final result for upload. Although I am sure there are a number of options for making a video from a collection of frame files I have come to like to use ffmpeg from the command line.
+## Frame by Frame Exporting
 
-### Create raw video from frames
+The main way of exporting thus far is as a collection of png files for each frame written to a target export folder in the OS file system. Once I have a collection of images from there I can use a command line tool like [ffmpeg](https://ffmpeg.org/) to create a video file from this collection of image files. I can then take that raw video file made from the frames, and create another video file with ffmpeg, or any video editing program for that matter. There I can include an audio track that is made with additional software tools like [Musescore](https://musescore.org/en), [Audacity](https://www.audacityteam.org/) and anything else that can be used to work out what the audio track should be.
+
+Exporting this way may not be preferred for many reasons that I do not care to get into detail with here. However I have found that this is just simply a tired yet true way of exporting that has not broken for me yet. This kind of exporting will still work just fine when it comes to sticking to short 30 second to maybe at most 10 minute videos. After that the shortcomings of this form of exporting do start to become a bit of a pain, but might still be workable. If I do keep working on this project maybe I will get around to having better export options, but in any case this kind of export must always work as a fall back of sorts in the event that other options break.
+
+### Using the VIDEO.export_done method to create the final video
+
+Also I now have ways to go about rendering audio along with the frames as the wav file format is fairly easy to do so with. Also as or R10 I can now make use of a function that will be called when the rendering of frames is done. Inside the body of this on export done event of sorts I can call commands to ffmpeg to create a final video file with or without an audio track, and also call additional commands to clean up the file system of the frames as well if I want.
+
+```js
+// INIT
+VIDEO.init = (sm, scene, camera) => {
+    sm.renderer.setClearColor(0x000000, 0.25);
+    scene.add( new THREE.GridHelper( 10, 10 ) );
+    scene.add( new THREE.Mesh( new THREE.BoxGeometry( 3, 3, 3 ), new THREE.MeshDepthMaterial() ) );  
+    sm.frameMax = 30;
+};
+// UPDATE
+VIDEO.update = (sm, scene, camera, per, bias) => {
+    camera.position.set(8.0 - 16 * per, 3.5, 6.0);
+    camera.near = 4.00;
+    camera.far = 100.0;
+    camera.updateProjectionMatrix();
+    camera.lookAt( 0, 0, 0 ); 
+};
+// RENDER
+VIDEO.render = (sm, canvas, ctx, scene, camera, renderer) => {
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0,0, canvas.width, canvas.height);
+    sm.renderer.render(sm.scene, sm.camera);
+    ctx.drawImage(sm.renderer.domElement, 0, 0, canvas.width, canvas.height);
+};
+// EXPORT DONE
+VIDEO.export_done = (sm) => {
+    const in_file = videoAPI.pathJoin( sm.imageFolder, 'frame-%06d.png' );
+    const out_file = videoAPI.pathJoin( sm.imageFolder, 'raw.mp4' );
+    const exec_line = 'ffmpeg -y -framerate 30 -i ' + in_file + ' -pix_fmt yuv420p ' + out_file;
+    const clean_line = 'find ' + videoAPI.pathJoin( sm.imageFolder, 'frame-*.png') + ' -delete';
+    videoAPI.exec( exec_line )
+    .then( (data) => {
+        console.log( 'looks like that went well' );
+        return videoAPI.exec(clean_line);
+    })
+    .then( (data) => {
+        console.log('clean up is done');
+        console.log(data)
+    });    
+};
+```
+
+### Cretaing a final video from the command line 
 
 If I have a folder of png files in the range of 'frame-000000.png' to 'frame-999999.png', then using ffmpeg with the -i option should work with the value 'frame-%06d.png'. I will then want to add any additional options such as setting the framerate, and of course I will want to give an output file. When doing so I will want to set the yuv420p pixel format for the output file. I have also found that I can also sneek in an audio source along with the frames so I only have to render once. When adding audio I have found that I will also want to set the audio quality as well such as 192k.
 
@@ -121,17 +161,9 @@ If I have a folder of png files in the range of 'frame-000000.png' to 'frame-999
 $ ffmpeg -framerate 30 -i frame-%06d.png -i video.wav -b:a 192k -pix_fmt yuv420p raw.mp4
 ```
 
-### Create a final video from raw video and audio
-
-If I just have a raw video file made from the frames alone, ffmpeg can once again be used to create a final video with an audio file. To do this I will just need to give the video and audio files as import source files, and then the final output file that I want.
-
-```
-$ ffmpeg -i raw.mp4 -i bv-001-16m-30s.mp3 final.mp4
-```
-
 ## Getting this to work well on raspberry PI OS
 
-I like using raspberry pi computers and with that the raspberry pi OS Linux based operating system. With that I have run into a lot of problems getting various things to work that have to do with 3d. For one thing I like to use blender to make DAE Files, but late versions of blender will not work on raspberry pi OS because the openGl requirements are to high. Still as far as getting video ground itself to work on rpi I have had success by making use of some fixes with flags when calling the electronjs binary, and also using older versions of the electronjs binary and thus also nodejs and chrome.
+I like using Raspberry PI computers and with that the Raspberry PI OS Linux based operating system. With that I have run into a lot of problems getting various things to work that have to do with 3d. For one thing I like to use blender to make DAE Files, but late versions of blender will not work on raspberry pi OS because the openGl requirements are to high. Still as far as getting video ground itself to work on rpi I have had success by making use of some fixes with flags when calling the electronjs binary, and also using older versions of the electronjs binary and thus also nodejs and chrome. As of this writing R10 is the latest revision that I have used on Raspberry PI os that seems to work okay, but I am now at a point in which I am going to want to use newer revisions of electionjs that might break an Raspberry PI OS. Still when it comes to using an ARM system those are what I like to use, so if I can I will keep trying to get it to work.
 
 ### Be sure to call the electronjs binary with the no-sandbox flag
 
@@ -164,3 +196,5 @@ On raspberry PI os buster chromium 90.x is used, and on bullseye I am seeing 101
 ## LICENSE
 
 I am declaring all of the original source code that I have written under the terms of the GPL V2 LICENSE. This repo contains some borrowed source code which is of course under the terms of the respective licenses of those projects. Many of which are also GPL or MIT licensed projects.
+
+
