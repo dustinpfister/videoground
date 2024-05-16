@@ -21,7 +21,7 @@ const updateDilogOptions = (opt) => {
         console.warn('Error updating dilog options with settings.json');
         console.warn(e.message);
         return Promise.resolve(opt);
-     });
+    });
 };
 // save as dilog helper used in save as file menu item, and saveAsDialogRequest event at bottom of file
 const saveAsDialog =  (opt_saveas) => {
@@ -55,7 +55,10 @@ const MainMenuTemplate = [
                 label: 'Open',
                 accelerator: 'CommandOrControl+O',
                 click: function(){
+                
+                
                     const opt_open = {
+                        title: 'Open a File',
                         defaultPath: '/',
                         properties: ['openFile']
                     };
@@ -74,6 +77,7 @@ const MainMenuTemplate = [
                             mainWindow.webContents.send('menuError', err);
                         });
                     });
+                    
                 }
             },
             // save the current file

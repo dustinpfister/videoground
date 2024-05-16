@@ -31,8 +31,13 @@
 * (done) add threejs revision number r162
 * (done) I can start with a window\_main\_r162.html file JSM scripts in place of type text/javaScript deals
 * (done) I will want to start a new client\_jsm folder in the html/js folder
+<!-- switch between JSM and JS modes -->
+* () I will need a way to switch between JSM and JS client systems
 
+<!-- File Open Bug -->
 * () looks like I have an electronjs is ready message each time I open a file for some reason
+* () looks like there is no fix for this: https://github.com/electron/electron/issues/32857
+* () I might need to see about using some other option for opening a file to fix this.
 
 <!-- final work -->
 * () README update

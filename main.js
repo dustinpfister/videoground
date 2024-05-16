@@ -20,9 +20,9 @@ function createMainWindow() {
         });
     // load the html file for the main window
 
-    //mainWindow.loadFile('html/window_main_r146.html');
+    mainWindow.loadFile('html/window_main_r146.html');
 
-    mainWindow.loadFile('html/window_main_r162.html');
+    //mainWindow.loadFile('html/window_main_r162.html');
 
     // Open the DevTools for debugging
     mainWindow.webContents.openDevTools();
