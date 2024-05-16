@@ -119,10 +119,17 @@
                 sm.isExport = false;
                 data.targetFrame = VIDEO.thum_frame;
                 return vm.setFrame()
+                // create the thum image
                 .then( ()=> {
                     VIDEO.thum_overlay(sm, sm.canvas, sm.ctx);
                     const thum_name = 'thum-' + sm.fileName.replace(/\.js/, '');
                     return videoAPI.writeFrame(imageFolder, thum_name, sm.canvas.toDataURL());
+                })
+                // call the on export done method if there is one
+                .then(()=>{
+                   if(VIDEO.export_done){
+                      VIDEO.export_done(sm);
+                   }
                 });
             }
         })

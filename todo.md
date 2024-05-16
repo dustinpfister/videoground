@@ -63,7 +63,8 @@
 * (done) have a sm.isExport boolean that is true when exporting
 * (done) see about having an sm.imageFolder value that is the export folder location when exporting
 <!-- On Export done event-->
-* () see about having an on export done event
+* (done) see about having an on export done event
+* (done) v25: start a video25-r10-export-done file that will be a demo of this on export done event
 * () v25: use this feature to trigger a script that will run ffmpeg when done
 <!-- final work -->
 * () README update

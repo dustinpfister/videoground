@@ -36,7 +36,18 @@ VIDEO.render = (sm, canvas, ctx, scene, camera, renderer) => {
 //-------- ----------
 // EXPORT DONE
 //-------- ----------
-VIDEO.export_done = () => {
+VIDEO.export_done = (sm) => {
     console.log('export done!');
+    
+    // commands used for video only, and video + audio
+    // ffmpeg -framerate 30 -i frame-%06d.png -pix_fmt yuv420p raw.mp4
+    // ffmpeg -framerate 30 -i frame-%06d.png -i video.wav -b:a 192k -pix_fmt yuv420p raw.mp4
+    
+    const in_file = videoAPI.pathJoin( sm.imageFolder, 'frame-%06d.png' );
+    const out_file = videoAPI.pathJoin( sm.imageFolder, 'raw.mp4' );
+    const exec_line = 'ffmpeg -framerate 30 -i ' + in_file + ' -pix_fmt yuv420p ' + out_file;
+    
+    
+    console.log( exec_line );
 };
 

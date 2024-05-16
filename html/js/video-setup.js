@@ -128,9 +128,7 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
         const now = new Date();
         sm.secs = (now - sm.lt) / 1000;
         if(sm.loopActive){
-            //!!! R9 CHANGE - No Longer Have a single call of requeat animaiton frame here
             if(sm.secs > 1 / sm.fps_update){
-                //!!! R9 CHANGE - updated loop so that sm.frame, and sm.lt will only update when promise will resolve
                 sm.setFrame()
                 .then(()=>{
                     requestAnimationFrame(loop);
@@ -158,8 +156,7 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
         sm.camera = new THREE.PerspectiveCamera(40, sm.res.w / sm.res.h, 0.1, 1000);
         sm.camera.position.set(10, 10, 10);
         sm.camera.lookAt(0, 0, 0);
-        // code to check if VIDEO.init returns a promise or not
-        //!!! R9 CHANGE - made it so that sm.setup will return a promise when called
+        // call init
         return (VIDEO.init(sm, sm.scene, sm.camera) || Promise.resolve(HARD_INIT_PROMISE) )
         .then((obj) => {
             if(obj === HARD_INIT_PROMISE){
@@ -182,17 +179,12 @@ VIDEO.update = function(sm, scene, camera, secs, per, bias){
     sm.setFrame = function(){
         sm.per = Math.round(sm.frame) / sm.frameMax;
         sm.bias = getBias(sm.per);
-        // call VIDEO.update, then VIDEO.render
-
-        //VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias);
-        //VIDEO.render(sm, sm.canvas, sm.ctx, sm.scene, sm.camera, sm.renderer);
-
-        //!!! R9 CHNAGE - updated this method to allow for the use of Promise Objects to be returned in VIDEO.update methods
-        return (VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias) || Promise.resolve(HARD_UPDATE_PROMISE) )
+        // allow for using a promise in VIDEO.update methods
+        return ( VIDEO.update(sm, sm.scene, sm.camera, sm.per, sm.bias ) || Promise.resolve( HARD_UPDATE_PROMISE ) )
         .then((obj) => {
+            // render should then be called after update is truly done
             VIDEO.render(sm, sm.canvas, sm.ctx, sm.scene, sm.camera, sm.renderer);
         });
-
     };
     // start loop
     sm.play = function(){
