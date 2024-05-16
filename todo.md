@@ -15,7 +15,9 @@
 
 ## () - r11 - JSM, fixes for writing and read functions
 <!-- update electronjs version -->
-* () try updating to electronjs 30.0.6, use lower version if id does not work out
+* (done) try updating to electronjs 30.0.6, use lower version if id does not work out
+* (done) using electron 19.1.9 for now.
+* () update the threejs revision number to r162
 <!-- JSM -->
 * () see about allowing for suport of loading JSM scripts in place of type text/javaScript deals
 <!-- write and read methods -->
@@ -26,9 +28,11 @@
 * () range-read: speaking of knowing them, I might want another mode where I just get file stats, mainly the size of the file
 <!-- final work -->
 * () README update
-* () REVISION in constants.js, and package.json set to 11 and commit with message '0.11.0'
+* () REVISION in constants.js, and package.json set to 11
+* () update this todo list with done date for revision 
+* () commit with message '0.11.0'
 
-## () - r10 - Write data frame by frame, on export done event
+## ( done 05/16/2024 ) - r10 - Write data frame by frame, on export done event
 * (done) start video21-r10-start.js
 * (done) have a simple sine wave
 * (done) just log what the sample data will be for now until I have write features working.
@@ -67,7 +71,7 @@
 * (done) looks like I will need an exec function in preload.js if I want to call commands when frames are done rendering
 * (done) v25: use this feature to trigger a script that will run ffmpeg when done
 * (done) README update
-* () REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
+* (done) REVISION in constants.js, and package.json set to 10 and commit with message '0.10.0'
 
 ## ( done 08/13/2023 ) - r9 - VIDEO.render, simple 2d rendering, update promise
 * (done) have a sm.canvas be a plain old 2d canvas that is created once in video-setup.js
