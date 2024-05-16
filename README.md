@@ -13,7 +13,7 @@ I wanted to a make tool for creating videos using electronjs, threejs, and a who
 
 ## What the goals where with this project
 
-When it comes to what the goals where with this project I have all ready achieved the core set of goals that I had in mind. However it is true that I first set the bar very low for myself on this one. I just simply wanted to make a tool that I can use to create a whole bunch of frame images with some javaScript code on top of threejs, and have a basic interface to work with some high level javaScript code that runs on top of everything that I am abstracting away. I can then take it from there by using ffmpeg, and other tools to create a final video product. Sense then I have starting to take note of new features and changes I would like to make from there on out, and thus far this has been the course on a revision by revision basis.
+I was able to get the core set of goals that I wanted with this project done right away, however it is true that I first set the bar very low for myself on this one. I just simply wanted to make a tool that I can use to create a whole bunch of frame images with some javaScript code on top of threejs, and have a basic interface to work with some high level javaScript code that runs on top of this. I can then take it from there by using ffmpeg, and other tools to create a final video product that can then be uploaded to YouTube. Sense then I have starting to take note of new features and changes I would like to make from there on out, and thus far this has been the case on a revision by revision basis.
 
 * R0 - Basic frame by frame export feature working
 * R1 - Built in feature for loading \*.dae files
@@ -26,9 +26,9 @@ When it comes to what the goals where with this project I have all ready achieve
 * R8 - Start and end frame render range feature
 * R9 - Simple 2D canvas rendering, VIDEO.update methods can now return a Promise
 
-## What the current goals with this project ( R10+ )
+## What the current goals with this project are ( R10+ )
 
-Although the simple core set of goals have been accomplished with this project there is still a lot of room for growth, and also a lot of features that are all ready in place should be refined. For now in R10 I am to add features that have to do with writing data in general along with the frames. The main interest with this is to create audio sample data to use with the aplay command, but this can of course have all kinds of applications beyond that.
+The main idea I have now in R10 has to do with writing data in general along with the frames. The main interest with this is to create audio sample data to use with the aplay command, or directly author a wav file, but this can of course have all kinds of applications beyond that. Other use cases would have to do with logging debug data out in plain text, or html format, or create any kind of data alone with the frames.
 
 ## Frame by Frame Exporting
 
@@ -54,7 +54,7 @@ The latest is not always the greatest when it comes to many things with software
 To install a specific revision number the process is more or less the same. I will just want to add the -b option when using the clone sub command of git. While doing so I might want to name a different name for the folder such as vgr8 or something to that effect if I am going to have more than one revision to work with on a system. 
 
 ```
-$ git clone -b "0.8.0" --depth 1 https://github.com/dustinpfister/videoground vgr6
+$ git clone -b "0.9.0" --depth 1 https://github.com/dustinpfister/videoground vgr6
 $ cd vgr6
 $ npm install
 $ npm start

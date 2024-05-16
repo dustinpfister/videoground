@@ -47,14 +47,11 @@
 * (done) I would like to be able to draw on top of the canvas for the thumnail
 * (done) have a sm.isExport boolean that is true when exporting
 * (done) see about having an sm.imageFolder value that is the export folder location when exporting
-
 <!-- On Export done event-->
 * () see about having an on export done event
 * () use this feature to trigger a script that will run ffmpeg when done
-
 <!-- write int16 typed arrays -->
 * () writer-append: update to allow for both le and be 16 bit ints
-
 <!-- range read needs more work -->
 * () range-read: the method going to less confusing options when it comes to the use of opt.buffer\_size\_alpha
 * () range-read: Maybe the way to do this is that of the buffer size option is used at all that will result in a whole other mode
