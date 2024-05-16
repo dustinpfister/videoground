@@ -42,9 +42,11 @@ I have been using this project to make videos for a long time all ready, so it d
 With R11 forward I would like to make a lot of code readability changes, and also allow for using JSM over old text/javaScript mime type javaScript files. I am sure that there are a whole lot of bugs that I would like to fix with the many feature that I have all ready added, and also some might need to be removed as I now prefer to use everything and anything I can in use space. I would also like to work out a system that allows for me to not use eval to run javaScript code, this is something that I should have done from the start, but better later than never.
 
 * Be able to use JSM or old text/javaScript mime type style files
-* Update threejs from r146 to r162
 * Use an iframe that contains an html file that is overwritten by videoground rather than using a canvas element and eval
 * code readability improvements, various improvements to features all ready in place
+* Update electronjs to at least 19.x for now
+* Update threejs from r146 to r162
+* Update vuejs to 2.7.16 for starters, but 3+ would be best as 2.x is no longer suported
 
 ### What has all ready been done
 

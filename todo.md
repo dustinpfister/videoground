@@ -18,6 +18,7 @@
 * (done) try updating to electronjs 30.0.6, use lower version if id does not work out
 * (done) using electron 19.1.9 for now.
 * () update the threejs revision number to r162
+* () update vuejs to 2.7.16
 <!-- JSM -->
 * () see about allowing for suport of loading JSM scripts in place of type text/javaScript deals
 <!-- write and read methods -->
