@@ -1,17 +1,18 @@
 # videoground todo list
 
 ## Known problems
-* () - #0 - I have to disable CSP to get vuejs to work in the html files that I use in the html folder
-* () - #1 - I am using eval to run javaScript code in the textarea element in html/js/client.js
-* () - #2 - WINDOWS: when I reload from dev tools some times the video loads other times it does not in windows
-* ( fixed in r1 ) - #3 - textures for dea files do not show up until frame+ or frame- is clicked
-* ( fixed in r3 ) - #4 - WINDOWS: texture files will not load correctly in windows
-* ( fixed in r2 ) - #5 - script tags keep being added each time a video is loaded
-* ( fixed in r5 ) - #6 - it looks like scripts are not run in order of the index value, this should be the case
-* ( fixed in r5 ) - #7 - syscall 0403 error running on rpi os bullseye see: https://github.com/electron/fiddle/issues/900
-* ( fixed in r6 ) - #8 - videoAPI.webGL2-test-pass set true
-* () - #9 - videoAPI.webGL2-test-pass still false when read client side look into another way to store state
-* () - #10 - error loading dae textures when loading from more than one folder
+* ()               - #0    - I have to disable CSP to get vuejs to work in the html files that I use in the html folder
+* ()               - #1    - I am using eval to run javaScript code in the textarea element in html/js/client.js
+* ()               - #2    - WINDOWS: when I reload from dev tools some times the video loads other times it does not in windows
+* ( fixed in R1  ) - #3    - textures for dea files do not show up until frame+ or frame- is clicked
+* ( fixed in R3  ) - #4    - WINDOWS: texture files will not load correctly in windows
+* ( fixed in R2  ) - #5    - script tags keep being added each time a video is loaded
+* ( fixed in R5  ) - #6    - it looks like scripts are not run in order of the index value, this should be the case
+* ( fixed in R5  ) - #7    - syscall 0403 error running on rpi os bullseye see: https://github.com/electron/fiddle/issues/900
+* ( fixed in R6  ) - #8    - videoAPI.webGL2-test-pass set true
+* ()               - #9    - videoAPI.webGL2-test-pass still false when read client side look into another way to store state
+* ()               - #10   - error loading dae textures when loading from more than one folder
+* ()               - #11   - when working on R11 I get a message when opening a file for the second time. see https://github.com/electron/electron/issues/32857
 
 ## () - r13 - vuejs3, ui improvements
 
@@ -28,16 +29,21 @@
 ## () - r11 - JSM, fixes for writing and read functions
 * (done) try updating to electronjs 30.0.6, use lower version if id does not work out
 * (done) using electron 19.1.9 for now.
+* (done) looks like there is a bug in electronjs where I get a message each time I open a file for the second time
+* (done) bug is in 18.3.15, 17.4.11
+* (done) looks like 15.5.7, and 16.2.8 does not have this bug
+* (done) looks like there is no fix for this bug : https://github.com/electron/electron/issues/32857
 * (done) add threejs revision number r162
 * (done) I can start with a window\_main\_r162.html file JSM scripts in place of type text/javaScript deals
 * (done) I will want to start a new client\_jsm folder in the html/js folder
+
 <!-- switch between JSM and JS modes -->
 * () I will need a way to switch between JSM and JS client systems
 
-<!-- File Open Bug -->
-* () looks like I have an electronjs is ready message each time I open a file for some reason
-* () looks like there is no fix for this: https://github.com/electron/electron/issues/32857
-* () I might need to see about using some other option for opening a file to fix this.
+
+
+
+
 
 <!-- final work -->
 * () README update
