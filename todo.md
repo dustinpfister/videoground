@@ -14,9 +14,7 @@
 * ()               - #10   - error loading dae textures when loading from more than one folder
 * ()               - #11   - when working on R11 I get a message when opening a file for the second time. see https://github.com/electron/electron/issues/32857
 
-## () - r13 - vuejs3, ui improvements
-
-## () - r12 - iframe mode
+## () - r12 - 
 <!-- vuejs -->
 * () see about updating vuejs to 2.7.16 for now
 <!-- write and read methods -->
@@ -26,7 +24,7 @@
 * () range-read: There is then having a default mode where I can give direct byte values if I just happen to know them
 * () range-read: speaking of knowing them, I might want another mode where I just get file stats, mainly the size of the file
 
-## () - r11 - JSM, fixes for writing and read functions
+## () - r11 - JSM client system, window\_main\_iframe.html 
 * (done) try updating to electronjs 30.0.6, use lower version if id does not work out
 * (done) using electron 19.1.9 for now.
 * (done) looks like there is a bug in electronjs where I get a message each time I open a file for the second time
@@ -36,6 +34,15 @@
 * (done) add threejs revision number r162
 * (done) I can start with a window\_main\_r162.html file JSM scripts in place of type text/javaScript deals
 * (done) I will want to start a new client\_jsm folder in the html/js folder
+
+<!-- window\_main_iframe.html -->
+<!-- 
+  it might be best to have some kind of main iframe client system, and then be able to select what kind of client system
+  is used in the iframe. This will likley not only allow for me to choose between JSM, and text/javaScript, but also
+  fix a whole lot of other problems in the process of doing so.
+-->
+* () start a window\_main\_iframe.html file and use that in main.js over the other options
+* () there is then having a way to choose what other window html file is used in the iframe 
 
 <!-- switch between JSM and JS modes -->
 * () I will need a way to switch between JSM and JS client systems
