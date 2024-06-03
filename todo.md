@@ -32,8 +32,19 @@
 * (done) looks like 15.5.7, and 16.2.8 does not have this bug
 * (done) looks like there is no fix for this bug : https://github.com/electron/electron/issues/32857
 * (done) add threejs revision number r162
+
+<!-- lib/writer-append -->
+* (done) If a folder does not exist create it when using writer-append
+* (done) have a test file for this mkdirp feature of writer-append
+
+<!-- JSM -->
 * (done) I can start with a window\_main\_r162.html file JSM scripts in place of type text/javaScript deals
 * (done) I will want to start a new client\_jsm folder in the html/js folder
+
+
+
+<!-- start video -->
+* () have a video26-r11-jsm start video that will demo new JSM support feature
 
 <!-- window\_main_iframe.html -->
 <!-- 
@@ -46,11 +57,6 @@
 
 <!-- switch between JSM and JS modes -->
 * () I will need a way to switch between JSM and JS client systems
-
-
-
-
-
 
 <!-- final work -->
 * () README update
