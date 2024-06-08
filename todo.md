@@ -33,6 +33,10 @@
 * (done) looks like there is no fix for this bug : https://github.com/electron/electron/issues/32857
 * (done) add threejs revision number r162
 
+<!-- ui changes -->
+* (done) default preview size set to 450 from 600
+* (done) js text area set to 320 from 540
+
 <!-- lib/writer-append -->
 * (done) If a folder does not exist create it when using writer-append
 * (done) have a test file for this mkdirp feature of writer-append
